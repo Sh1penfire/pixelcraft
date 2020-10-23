@@ -1,0 +1,89 @@
+type: ChargeTurret
+name: Point
+description: Locks on to a target and fires tracer shots which home into enemies and damage them. The bigger the target is, the easier it is for the tracers to stack.
+health: 220
+size: 2
+reloadTime: 50
+inaccuracy: 25
+range: 400
+shots: 2
+powerUse: 2
+rotatespeed: 6
+chargeBeginEffect: hitBulletBig
+chargeEffect: lancerLaserCharge
+chargeTime: 50
+chargeMaxDelay: 50
+shootYOffset: 10
+inaccuracy: 0
+spread: 2
+targetAir: true
+targetGround: true
+shootType: {
+	type: ArtilleryBulletType
+	damage: 50
+	speed: 10
+	width: 1
+	height: 1
+	shootEffect: lancerLaserShoot
+	smokeEffect: hitBulletBig
+	frontColor: 86baf9
+	backColor: 86baf9
+	trailColor: 86baf9
+	fragBullets: 2
+	fragMinVelocity: 2
+	fragMaxVelocity: 5
+	hitEffect: hitLancer
+	despawnEffect: hitBulletSmall
+	fragBullet:{
+	type: MissileBulletType
+	pierce: false
+	speed: 2
+	damage: 25
+	lifetime: 100
+	width: 4
+	height: 15
+	drag: 0.001
+	frontColor: 86baf9
+	backColor: 86baf9
+	trailColor: 86baf9
+	hitEffect: hitLancer
+	despawnEffect: hitBulletSmall
+	fragBullets: 3
+	fragMinVelocity: 1
+	fragMaxVelocity: 3
+	status: freezing
+	homing: true
+	homingRange: 100
+	homingPower: .04
+	bulletSprite: bullet
+	knockback: 0
+	fragBullet: {
+	knockback: 0
+	type: BasicBulletType
+	damage: .5
+	speed: .5
+	lifetime: 5
+	despawnEffect: none
+	hitEffect: none
+	fragBullets: 1
+	fragMinVelocity: 6
+	fragMaxVelocity: 9
+	fragBullet: {
+	type: BasicBulletType
+	damage: 0
+	splashDamage: .5
+	splashDamageRadius: 25
+	lifetime: 5
+	knockback: 3
+	
+}
+}
+}
+}
+requirements: [
+ pixelite/25
+ steel/60
+ iron/75
+]
+category: turret
+research: pace

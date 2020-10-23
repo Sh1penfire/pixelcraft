@@ -1,0 +1,16 @@
+type: Conveyor
+name: Steel conveyor
+health: 200
+solid: true
+floating: true
+insulated: true
+description: Old conveyer scimatic revitalised, it's solid to units and has a good sum of health.
+requirements: [
+  graphite/6
+  iron/5
+  steel/3
+]
+category: distribution
+speed: 0.15
+displayedSpeed: 15
+research: steel-forgery

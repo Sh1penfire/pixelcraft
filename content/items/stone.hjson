@@ -1,0 +1,6 @@
+type: material
+name: Stone
+description: It's stone. Nothing to see here
+hardness: 1
+cost: 4
+color: ffffff

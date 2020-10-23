@@ -1,0 +1,13 @@
+type: material
+name: Steel
+description: An aloy between iron and coal. Sturdy and reliable.
+hardness: 2
+cost: 4
+color: ffffff
+requirements: [
+  iron/3000
+  coal/2500
+  sand/8000
+  pyratite/4000
+]
+research: iron

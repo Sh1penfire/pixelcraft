@@ -1,0 +1,12 @@
+type: SolarGenerator
+name: Shinning beacon
+size: 2
+description: "A gateway into the world of pixelcraft. Lights up the walls of your ship and shows you locations for other routes through the campaign. Also works as a power generator. This is going to be the mod's logo eventualy..."
+outputsPower: true
+powerProduction: .5
+requirements: [
+  copper/100
+  lead/50
+]
+catagory: effect
+research: core-shard

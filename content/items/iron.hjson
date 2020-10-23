@@ -1,0 +1,10 @@
+type: material
+name: Iron
+description: A sturdy ore used in foundations. How did we get by without this? We couldn't have been using copper all this time...
+hardness: 0
+cost: .25
+color: e3b27d
+requirements: [
+  copper/3000
+]
+research: shiny-beacon

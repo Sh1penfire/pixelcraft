@@ -1,0 +1,35 @@
+name: Crossroads
+description: Our transport has taken a hit. We seem not to be the first ones here. Two paths to continue on.
+loadout: basicFoundation
+startingItems: [
+  copper/200
+  lead/300
+]
+conditionWave: 15
+launchPeriod: 15
+requirements: [
+  {
+    type: ZoneWave
+    zone: rusted-valley
+    wave: 25
+  }
+  {
+    type: ZoneWave
+    zone: stainedMountains
+    wave: 15
+  }
+  {
+    type: Unlock
+    block: pneumatic-drill
+  }
+]
+resources: [
+  scrap
+  rubble
+  copper
+  lead
+  coal
+  iron
+  sand
+  titanium
+]

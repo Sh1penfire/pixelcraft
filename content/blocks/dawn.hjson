@@ -1,0 +1,29 @@
+type: ItemTurret
+health: 300
+size: 1
+shootSound: respawning
+reloadTime: 35
+range: 100
+shots: 5
+ammoUseEffect: none
+rotateSpeed: 10
+spread: 72
+ammoTypes: {
+steel: {
+type: basicBulletType
+speed: 1.5
+damage: 25
+width: 10
+height: 20
+shootEffect: none
+smokeEffect: none
+lifetime: 70
+knockback: 3
+bulletsprite: pixelcraft-sawblade
+}
+}
+requirements: [
+  steel/50
+]
+category: turret
+research: steel-forgery

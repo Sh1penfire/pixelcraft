@@ -1,0 +1,33 @@
+name: Sand sifter
+description: Sifts through the guilded sand to search for metal. Looks golden...
+type: Separator
+itemCapacity: 10
+health: 130
+size: 2
+liquidCapacity: 120
+spinnerSpeed: 10
+hasPower: true
+updateEffect: hitLancer
+updateEffectChance: 0.125
+craftTime: 50
+result: guilded-sand
+itemUseTime: 40
+consumes: {
+  power: 1.5
+  liquid: {
+	liquid: guilded-sand
+	amount: .18
+}
+}
+results: [
+sand/4
+scrap/7
+iron/1
+]
+requirements: [
+  graphite/20
+  copper/25
+  lead/10
+]
+category: crafting
+research: sand-extractor

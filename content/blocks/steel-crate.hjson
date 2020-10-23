@@ -1,0 +1,13 @@
+name: Steel crate
+description: A storage for items. Not the best, but gets the job done. Place next to the core to expand it's storage, although not by much. Can also be used as a wall.
+type: Vault
+itemCapacity: 75
+hasItems: true
+health: 450
+size: 1
+requirements: [
+iron/100
+steel/50
+]
+category: effect
+research: steel-forgery

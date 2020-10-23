@@ -1,0 +1,6 @@
+name: iron
+type: OreBlock
+itemDrop: iron
+oreDefault: true
+oreThreshold: 0.75
+oreScale: 24.9683251
