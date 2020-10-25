@@ -1,1 +1,1 @@
-require(Status.js)
+require(Effects.js)
