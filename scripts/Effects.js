@@ -1,5 +1,8 @@
 
-const healedStatus = extendContent(StatusEffect, "healed", {});
+const healedStatus = extendContent(StatusEffect, "healed", {	
+	init(){
+	}
+});
 healedStatus.speedMultiplier = 2;
 healedStatus.armorMultiplier = .5;
 healedStatus.damage = -1;
