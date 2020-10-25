@@ -15,22 +15,22 @@ Made from scrap, it's a great power source. It's more flamible than pyratite and
 
 Turrets it adds:
 
-Strand
+Strand:
 A starting turret from iron. Needs a sprite. A bit stronger than duo but uses non traditional ammo types.
 
-Blaze
+Blaze:
 A flamethrower that can hit air. Just like scorch can pierce indefinantly. Uses a wide aray of combustibles for ammo.
 
-Dusk
+Dusk:
 A powerfull railgun that can use titanium and steel. Can't target air without help.
 
-Dawn
+Dawn:
 A turret that shoots 5 bullets outwards.
 
-Pace Point and Panic
+Pace Point and Panic:
 Electric anti air turrets. Point however can target ground. The trio fire forms of electric attacks using electric missiles.
 
-Pulse
+Pulse:
 A suport turret that shoots healing bullets that repear blocks. Also does decent damage.
 
 
