@@ -4,7 +4,7 @@ This mod adds new resources, new turrets and new zones as well as slight tweaks 
 
 Items it adds:
 
-# Iron
+# Iron(file:///C:/Program%20Files%20(x86)/Steam/steamapps/common/Mindustry/saves/mods/Pixelcraft-master/sprites/items/iron.png)
 A basic resource that can be smelted into steel or made into drills and conveyers. Can be mined from cratorsor iron ore in custom maps.
 
 # Steel
