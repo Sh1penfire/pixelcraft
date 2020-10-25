@@ -4,7 +4,7 @@ This mod adds new resources, new turrets and new zones as well as slight tweaks 
 
 Items it adds:
 
-# [Iron](sprites/items/iron.png)
+# [Iron](sprites/items/iron.png?raw=true)
 A basic resource that can be smelted into steel or made into drills and conveyers. Can be mined from cratorsor iron ore in custom maps.
 
 # Steel
