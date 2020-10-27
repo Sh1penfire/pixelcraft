@@ -2,5 +2,6 @@ type: material
 name: Stone
 description: It's stone. Nothing to see here
 hardness: 1
-cost: 4
+cost: 1
 color: ffffff
+alwaysUnlocked: true
