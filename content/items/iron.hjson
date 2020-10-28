@@ -5,7 +5,7 @@ hardness: 0
 cost: .25
 color: e3b27d
 research:{
-parent: shiny-beacon
+parent: taconite-crusher
 requirements: [
   stone/3000
 ]
