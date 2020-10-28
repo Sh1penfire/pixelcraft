@@ -4,7 +4,9 @@ description: A sturdy ore used in foundations. How did we get by without this? W
 hardness: 0
 cost: .25
 color: e3b27d
+research:{
+parent: shiny-beacon
 requirements: [
-  copper/3000
+  stone/3000
 ]
-research: shiny-beacon
+}
