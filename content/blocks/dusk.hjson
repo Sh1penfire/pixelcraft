@@ -129,9 +129,9 @@ ammoTypes: {
 	}
  }
 requirements: [
- titanium/210
+ titanium/70
  pixelite/300
- steel/400
+ steel/200
  copper/230
 ]
 category: turret
