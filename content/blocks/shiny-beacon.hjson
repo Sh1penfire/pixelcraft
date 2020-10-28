@@ -5,13 +5,12 @@ description: "A gateway into the world of pixelcraft. Lights up the walls of you
 consumes:{
 power: 0.1
 }
-
 requirements: [
   copper/100
   lead/50
   silicon/25
 ]
-brightness: 2.0
+brightness: 10.0
 radius: 300
-catagory: effect
+category: effect
 research: core-shard
