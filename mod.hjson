@@ -1,6 +1,6 @@
 name: "pixelcraft"
 displayName: "a [red]Pi[yellow]xel[orange]craft"
 description: "[orange]remisicent tech from the oldern days mixed with our current technology has allowed us to discover a new path.
-[yellow]A mod that adds a new technology path to travel down. It branches off the main tech tree in many ways. 1 map included, along with 3 items and 7 blocks. "
-version: "0.2"
+[yellow]A mod that adds a new technology path to travel down. It branches off the main tech tree in many ways. "
+version: "0.3"
 minGameVersion: "105"
