@@ -1,0 +1,11 @@
+name: Core beacon
+type: CoreBlock
+health: 300
+itemCapacity: 1000
+size: 2
+mech: alpha
+requirements: [
+  steel/1000
+  ] 
+category: effect
+buildVisibility: debugOnly
