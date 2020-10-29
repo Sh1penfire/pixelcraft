@@ -4,7 +4,6 @@ description: Smelts iron using coal to create steel.
 liquidCapacity: 50
 size: 2
 hasPower: true
-hasLiquids: true
 hasItems: true
 craftTime: 180
 updateEffect: fire
