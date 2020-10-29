@@ -11,6 +11,6 @@ requirements: [
   silicon/25
 ]
 brightness: 10.0
-radius: 300
+radius: 800
 category: effect
 research: core-shard
