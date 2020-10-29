@@ -9,7 +9,5 @@ parent: iron
 requirements: [
   iron/3000
   coal/2500
-  sand/8000
-  pyratite/4000
 ]
 }
