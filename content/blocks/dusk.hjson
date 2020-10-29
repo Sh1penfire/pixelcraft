@@ -4,9 +4,9 @@ description: Powerfull railgun that can't target air. It shoots powerfull bolts 
 shootSound: laser
 health: 600
 size: 2
-reloadTime: 250
+reloadTime: 50
 range: 400
-shots: 5
+shots: 1
 targetAir: false
 ammoUseEffect: shellEjectSmall
 rotatespeed: 6
