@@ -16,7 +16,7 @@ requirements: [
   stone/30
 ]
 category: crafting
-research: shiny-beacon
+research: iron
 idleSound: respawning
 idleSoundVolume: 0.5
 outputItem: iron/2
