@@ -4,7 +4,7 @@ description: Powerfull railgun that can't target air. It shoots powerfull bolts 
 shootSound: laser
 health: 600
 size: 2
-reloadTime: 50
+reloadTime: 150
 range: 400
 shots: 1
 targetAir: false
@@ -25,6 +25,15 @@ ammoTypes: {
 	smokeEffect: hitBulletBig
 	ammoMultiplier: 2
 	lifetime: 15
+	fragBullets:1
+	fragVelocityMin: 1
+	fragVelocityMax: 1.5
+	frontColor: 56d7ca
+	backColor: 77b6b0
+	fragBullet: {
+	damage: 75
+	speed: 0
+	lifetime: 5
 	fragBullets:10
 	fragVelocityMin: 1
 	fragVelocityMax: 1.5
