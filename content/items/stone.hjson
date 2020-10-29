@@ -3,5 +3,5 @@ name: Stone
 description: It's stone. Nothing to see here
 hardness: 1
 cost: 1
-color: ffffff
+color:  #43242D
 alwaysUnlocked: true
