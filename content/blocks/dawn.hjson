@@ -1,29 +1,42 @@
 type: ItemTurret
+discription: "Medium ranged turret that scatters bullets around itself."
 health: 300
 size: 1
 shootSound: respawning
 reloadTime: 35
 range: 100
-shots: 5
+shots: 10
 ammoUseEffect: none
 rotateSpeed: 10
-spread: 72
+spread: 36
 ammoTypes: {
+iron: {
+type: basicBulletType
+speed: 1.5
+damage: 10
+width: 5
+height: 10
+shootEffect: none
+smokeEffect: none
+lifetime: 70
+knockback: 1
+bulletsprite: pixelcraft-sawblade
+}
 steel: {
 type: basicBulletType
 speed: 1.5
 damage: 25
-width: 10
-height: 20
+width: 5
+height: 10
 shootEffect: none
 smokeEffect: none
 lifetime: 70
-knockback: 3
+knockback: 1
 bulletsprite: pixelcraft-sawblade
 }
 }
 requirements: [
-  steel/50
+  steel/25
 ]
 category: turret
 research: steel-forgery
