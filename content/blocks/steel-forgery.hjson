@@ -16,10 +16,6 @@ consumes: {
       iron/3
     ]
   }
-  liquid: {
-    liquid: water
-    amount: .05
-  }
 }
 requirements: [
   iron/105
