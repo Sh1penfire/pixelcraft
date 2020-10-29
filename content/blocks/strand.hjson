@@ -8,7 +8,7 @@ range: 100
 shots: 1
 ammoUseEffect: shellEjectSmall
 rotatespeed: 8
-ammo: {
+ammoTypes: {
   iron: {
     speed: 4
     damage: 5
