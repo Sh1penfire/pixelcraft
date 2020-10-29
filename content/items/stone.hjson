@@ -3,6 +3,6 @@ name: Stone
 description: It's stone. Nothing to see here
 hardness: 1
 cost: 1
-color:  #43242D
+color:  #000000
 alwaysUnlocked: true
 research: core-shard
