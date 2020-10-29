@@ -89,7 +89,7 @@ ammoTypes: {
 }
 }
 	}
-
+}
  steel: {
         type: ArtilleryBulletType
 	speed: 32
