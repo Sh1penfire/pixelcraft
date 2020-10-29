@@ -8,7 +8,7 @@ power: 0.1
 requirements: [
   copper/100
   lead/50
-  silicon/25
+  stone/25
 ]
 brightness: 10.0
 radius: 200
