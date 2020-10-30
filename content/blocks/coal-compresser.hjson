@@ -3,12 +3,12 @@ name: Coal Compresser
 description: Crushes stone and extracts the iron within.
 size: 2
 hasItems: true
-craftTime: 20
+craftTime: 80
 updateEffect: pulverizeRed
 consumes: {
   items: {
     items: [
-      coal/3
+      coal/2
     ]
   }
 }
@@ -20,4 +20,4 @@ category: crafting
 research: iron
 idleSound: respawning
 idleSoundVolume: 0.5
-outputItem: graphite/2
+outputItem: graphite/1
