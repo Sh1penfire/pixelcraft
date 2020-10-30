@@ -14,7 +14,7 @@ ammoPerShot: 2
 itemCapacity: 10
 ammoTypes: {
  titanium: {
-        type: ArtilleryBulletType
+        type: BasicBulletType
 	speed: 32
 	damage: 25
 	width: 4
@@ -89,7 +89,7 @@ ammoTypes: {
 	}
 }
  steel: {
-        type: ArtilleryBulletType
+        type: BasicBulletType
 	speed: 32
 	damage: 100
 	width: 4
