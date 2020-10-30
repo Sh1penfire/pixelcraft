@@ -157,8 +157,8 @@ pierce: true
     }
 }
 requirements: [    
-  pixelite/25
-  copper/70
+  iron/25
+  steel70
   titanium/25
 ]
 category: turret
