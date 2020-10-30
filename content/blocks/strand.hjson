@@ -8,6 +8,7 @@ range: 100
 shots: 1
 ammoUseEffect: shellEjectSmall
 rotatespeed: 8
+innacuracy: .02
 ammoTypes: {
   stone: {
     speed: 4
@@ -20,7 +21,7 @@ ammoTypes: {
     }
   iron: {
     speed: 4
-    damage: 7
+    damage: 6
     bulletWidth: 5
     bulletHeight: 10
     shootEffect: shootSmall
@@ -35,7 +36,7 @@ ammoTypes: {
         fragVelocityMax: 3
         fragBullet: {
         type: BasicBulletType
-        damage: 2 
+        damage: .5
             splashDamage: 1
             splashDamageRadius: 25
         drag: 0.01
@@ -65,7 +66,7 @@ rubble: {
   }
 pixelite: {
     speed: 6
-    damage: 7
+    damage: 8
     bulletWidth: 5
     bulletHeight: 10
     shootEffect: shootSmall
@@ -86,7 +87,7 @@ pixelite: {
 	frontColor: f38e30
 	backColor: f38e30
         type: BasicBulletType
-        damage: .5  
+        damage: 1  
             splashDamage: 1
             splashDamageRadius: 5
         drag: 0.01
@@ -98,7 +99,7 @@ pixelite: {
         }
 }
 requirements: [    
-  iron/25
+  iron/35
 ]
 category: turret
 research: shiny-beacon
