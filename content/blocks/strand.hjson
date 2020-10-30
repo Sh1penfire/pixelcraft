@@ -1,6 +1,7 @@
 type: ItemTurret
 name: Strand
-description: Fires a stream of bullets at the target.
+description: A cheap turret. Effective against ground units.
+coolantMultiplier: 6
 health: 200
 size: 1
 reloadTime: 35
