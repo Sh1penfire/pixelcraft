@@ -9,7 +9,7 @@ shots: 1
 ammoUseEffect: shellEjectSmall
 rotatespeed: 8
 ammoTypes: {
-  iron: {
+  stone: {
     speed: 4
     damage: 5
     bulletWidth: 5
@@ -18,7 +18,7 @@ ammoTypes: {
     smokeEffect: shootSmallSmoke
     lifetime: 40  
     }
-  stone:{
+  iron: {
     speed: 4
     damage: 7
     bulletWidth: 5
@@ -98,7 +98,7 @@ pixelite: {
         }
 }
 requirements: [    
-  iron/70
+  iron/25
 ]
 category: turret
 research: shiny-beacon
