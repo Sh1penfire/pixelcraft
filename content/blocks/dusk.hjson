@@ -6,14 +6,12 @@ health: 600
 size: 2
 reloadTime: 150
 range: 400
-shots: 1
+shots: 3
 targetAir: false
 ammoUseEffect: shellEjectSmall
 rotatespeed: 6
-ammoPerShot: 5
-shootYOffset: 10
-inaccuracy: 1
-itemCapacity: 20
+ammoPerShot: 2
+itemCapacity: 10
 ammoTypes: {
  titanium: {
         type: ArtilleryBulletType
@@ -100,7 +98,7 @@ ammoTypes: {
 	smokeEffect: shootBigSmoke
 	hitEffect: hitBulletBig
 	despawnEffect: none
-	ammoMultiplier: 5
+	ammoMultiplier: 6
 	reloadMultiplier: 1.5
 	lifetime: 15
 	fragBullets:100
