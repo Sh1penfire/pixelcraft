@@ -26,7 +26,7 @@ ammoTypes: {
     bulletHeight: 10
     shootEffect: shootSmall
     smokeEffect: shootSmallSmoke
-    ammoMultiplier: 4
+    ammoMultiplier: 2
     lifetime: 40
         hitEffect: shootBigSmoke
         Peirce: true
@@ -59,7 +59,7 @@ rubble: {
     smokeEffect: shootSmallSmoke
 	frontColor: 0a01b7
 	backColor: 30fdef
-    ammoMultiplier: 5
+    ammoMultiplier: 3
     lifetime: 60
     Knockback: 10
     inacurracy: 20
