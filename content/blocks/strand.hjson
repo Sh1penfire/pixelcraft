@@ -3,7 +3,7 @@ name: Strand
 description: Fires a stream of bullets at the target.
 health: 200
 size: 1
-reload: 50
+reload: 80
 range: 100
 shots: 1
 ammoUseEffect: shellEjectSmall
