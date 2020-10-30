@@ -136,9 +136,9 @@ ammoTypes: {
 	}
  }
 requirements: [
- titanium/70
  iron/300
  steel/200
+ titanium/70
 ]
 category: turret
 research: strand
