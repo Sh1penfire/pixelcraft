@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Strand
-description: Error/testing/nullSprite.Rip in peace
+description: Fires a stream of bullets at the target.
 health: 200
 size: 1
 reload: 25
