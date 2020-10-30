@@ -50,9 +50,8 @@ shootType: {
 }
 }
 requirements: [
- pixelite/5
- steel/10
- iron/25
+ iron/10
+ steel/25
 ]
 category: turret
 research: steel-forgery
