@@ -6,9 +6,9 @@ floating: true
 insulated: true
 description: Old conveyer scimatic revitalised, it's solid to units and has a good sum of health.
 requirements: [
-  graphite/6
-  iron/5
-  steel/3
+  graphite/1
+  iron/1
+  steel/1
 ]
 category: distribution
 speed: 0.15
