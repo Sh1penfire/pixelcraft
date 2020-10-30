@@ -13,7 +13,7 @@ ammoTypes: {
 iron: {
 type: basicBulletType
 speed: 1.5
-damage: 10
+damage: 15
 width: 5
 height: 10
 shootEffect: none
@@ -25,9 +25,9 @@ bulletsprite: pixelcraft-sawblade
 steel: {
 type: basicBulletType
 speed: 1.5
-damage: 25
-width: 5
-height: 10
+damage: 35
+width: 8
+height: 18
 shootEffect: none
 smokeEffect: none
 lifetime: 70
