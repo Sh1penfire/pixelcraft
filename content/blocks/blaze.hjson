@@ -158,7 +158,7 @@ pierce: true
 }
 requirements: [    
   iron/25
-  steel70
+  steel/70
   titanium/25
 ]
 category: turret
