@@ -90,7 +90,7 @@ pierce: true
     }
   pixelite: {
 pierce: true
-    type: MissileBulletType
+    type: BasicBulletType
     speed: 8
     damage: 13
     pierce: true
