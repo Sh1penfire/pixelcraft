@@ -1,4 +1,5 @@
 type: ItemTurret
+name: Dawn
 discription: "Medium ranged turret that scatters bullets around itself."
 health: 300
 size: 1
