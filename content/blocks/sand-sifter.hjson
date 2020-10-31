@@ -7,11 +7,8 @@ size: 2
 liquidCapacity: 120
 spinnerSpeed: 10
 hasPower: true
-updateEffect: hitLancer
-updateEffectChance: 0.125
 craftTime: 50
 result: guilded-sand
-itemUseTime: 40
 consumes: {
   power: 1.5
   liquid: {
@@ -25,9 +22,9 @@ scrap/7
 iron/1
 ]
 requirements: [
-  graphite/20
   copper/25
   lead/10
+  graphite/20
 ]
 category: crafting
 research: sand-extractor
