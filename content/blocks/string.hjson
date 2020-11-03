@@ -1,12 +1,11 @@
 type: ItemTurret
 name: String
 description: An upgraded strand. Double the fireate for less range. Effective against ground units.
-coolantMultiplier: 6
 health: 200
 size: 1
 reloadTime: 17.5
 range: 75
-shots: 2
+shots: 1
 ammoUseEffect: shellEjectSmall
 rotatespeed: 8
 inaccuracy: 1.337
@@ -37,8 +36,8 @@ ammoTypes: {
         fragVelocityMax: 3
         fragBullet: {
         type: BasicBulletType
-        damage: .5
-            splashDamage: 1
+        damage: .25
+            splashDamage: .25
             splashDamageRadius: 25
         drag: 0.01
         bulletSprite: bullet
