@@ -156,6 +156,12 @@ pierce: true
 }
     }
 }
+booster: {
+liquid: [
+liquid: oil
+]
+optional: false
+}
 requirements: [    
   iron/25
   steel/70
