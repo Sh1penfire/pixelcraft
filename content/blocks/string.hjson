@@ -4,7 +4,7 @@ description: An upgraded strand. Double the fireate for less range. Effective ag
 coolantMultiplier: 6
 health: 200
 size: 1
-reloadTime: 35
+reloadTime: 17.5
 range: 75
 shots: 2
 ammoUseEffect: shellEjectSmall
