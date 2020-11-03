@@ -9,7 +9,7 @@ range: 75
 shots: 2
 ammoUseEffect: shellEjectSmall
 rotatespeed: 8
-inaccuracy: 15
+inaccuracy: 1.337
 ammoTypes: {
   stone: {
     speed: 4
