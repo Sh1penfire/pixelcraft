@@ -1,0 +1,106 @@
+type: DoubleTurret
+name: String
+description: An upgraded strand. Double the fireate for less range. Effective against ground units.
+coolantMultiplier: 6
+health: 200
+size: 1
+reloadTime: 35
+range: 75
+shots: 2
+ammoUseEffect: shellEjectSmall
+rotatespeed: 8
+inaccuracy: 15
+ammoTypes: {
+  stone: {
+    speed: 4
+    damage: 5
+    bulletWidth: 5
+    bulletHeight: 8
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+    lifetime: 20 
+    }
+  iron: {
+    speed: 4
+    damage: 6
+    bulletWidth: 5
+    bulletHeight: 10
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+    ammoMultiplier: 2
+    lifetime: 20
+        hitEffect: shootBigSmoke
+        Peirce: true
+        inacurracy: 20
+        fragBullets: 4
+        fragVelocityMin: 1
+        fragVelocityMax: 3
+        fragBullet: {
+        type: BasicBulletType
+        damage: .5
+            splashDamage: 1
+            splashDamageRadius: 25
+        drag: 0.01
+        bulletSprite: bullet
+        bulletWidth: 3
+        bulletHeight: 5
+        lifetime: 5
+        }
+        }
+rubble: {
+    type: BasicBulletType
+    bulletSprite: bullet
+    speed: 2
+    damage: 5
+    bulletWidth: 5
+    bulletHeight: 15
+            splashDamage: 2
+            splashDamageRadius: 25
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+	frontColor: 0a01b7
+	backColor: 30fdef
+    ammoMultiplier: 3
+    lifetime: 30
+    Knockback: 10
+    inacurracy: 20
+  }
+pixelite: {
+    speed: 6
+    damage: 8
+    bulletWidth: 5
+    bulletHeight: 10
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+    ammoMultiplier: 4
+    lifetime: 12.5
+	frontColor: f38e30
+	backColor: f38e30
+        hitEffect: shootBigSmoke
+	status: melting
+        Peirce: true
+        inacurracy: 20
+        fragBullets: 4
+        fragVelocityMin: 1
+        fragVelocityMax: 3
+        fragBullet: {
+	status: melting
+	frontColor: f38e30
+	backColor: f38e30
+        type: BasicBulletType
+        damage: 1  
+            splashDamage: 1
+            splashDamageRadius: 5
+        drag: 0.01
+        bulletSprite: bullet
+        bulletWidth: 3
+        bulletHeight: 5
+        lifetime: 10
+        }
+        }
+}
+requirements: [    
+  iron/45
+]
+category: turret
+research: strand
