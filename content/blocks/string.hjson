@@ -1,4 +1,4 @@
-type: DoubleTurret
+type: ItemTurret
 name: String
 description: An upgraded strand. Double the fireate for less range. Effective against ground units.
 coolantMultiplier: 6
