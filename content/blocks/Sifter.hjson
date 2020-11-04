@@ -7,19 +7,20 @@ size: 2
 liquidCapacity: 120
 spinnerSpeed: 10
 hasPower: true
-craftTime: 50
+craftTime: 25
 result: guilded-sand
 consumes: {
   power: 1.5
   liquid: {
 	liquid: guilded-sand
-	amount: .18
+	amount: .30
 }
 }
 results: [
 sand/4
 scrap/7
-iron/1
+iron/2
+silicon/3
 ]
 requirements: [
   copper/25
