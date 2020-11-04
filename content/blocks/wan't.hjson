@@ -1,5 +1,5 @@
-name: "wan't'"
-description: "wan't wasn't wastn''s"
+name: "wan\'\t"
+description: "wan\'\t wasn\'\t wastn\'\s"
 type: itemTurret
 reloadTime: 10
 shots: 5
