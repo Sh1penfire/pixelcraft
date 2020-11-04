@@ -1,8 +1,8 @@
 name: "wan't'"
-description: "wan-t wasn-t wastn-s"
+description: "wan't wasn't wastn''s"
 type: itemTurret
 reloadTime: 10
-shots: 2
+shots: 5
 range: 100
 size: 4
 ammoUseEffect: casing2
