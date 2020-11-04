@@ -6,7 +6,7 @@ size: 1
 reloadTime: 17.5
 range: 75
 shots: 1
-ammoUseEffect: shellEjectSmall
+ammoUseEffect: casing2Double
 rotatespeed: 8
 inaccuracy: 1.337
 ammoTypes: {
