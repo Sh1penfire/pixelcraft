@@ -8,7 +8,7 @@ reloadTime: 150
 range: 400
 shots: 3
 targetAir: false
-ammoUseEffect: none
+ammoUseEffect: casing4Double
 rotatespeed: 6
 ammoPerShot: 2
 itemCapacity: 10
