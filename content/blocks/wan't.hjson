@@ -4,7 +4,8 @@ type: itemTurret
 reloadTime: 10
 shots: 2
 range: 100
-ammoUseEffect: casing1
+size: 4
+ammoUseEffect: casing2
 ammoTypes:{
 copper: {
 damage: 10000
