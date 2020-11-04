@@ -7,7 +7,7 @@ size: 2
 reloadTime: 2.5
 range: 75
 shots: 3
-ammoUseEffect: shellEjectSmall
+ammoUseEffect: fire
 rotatespeed: 8
 ammoTypes: {
   coal: {
