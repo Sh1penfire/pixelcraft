@@ -5,7 +5,7 @@ health: 200
 size: 1
 reloadTime: 17.5
 range: 75
-shots: 1
+shots: 2
 ammoUseEffect: casing2Double
 rotatespeed: 8
 inaccuracy: 1.337
