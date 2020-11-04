@@ -1,0 +1,19 @@
+name: wan't
+discription: 'wan't wasn't wastn's'
+type: itemTurret
+releadTime: 10
+shots: 2
+ammoUseEffect: casing1
+ammoTypes:{
+copper: {
+damage: 10000
+speed: 6
+lifetime: 100
+status: melting
+}
+}
+requirements: [    
+  iron/133769
+]
+category: turret
+research: uberite
