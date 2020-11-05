@@ -88,7 +88,7 @@ ammoTypes: {
 }
 	}
 }
- steel: {
+ magnitine: {
         type: BasicBulletType
 	speed: 32
 	damage: 100
@@ -137,7 +137,7 @@ ammoTypes: {
  }
 requirements: [
  iron/300
- steel/200
+ magnitine/200
  titanium/70
 ]
 category: turret
