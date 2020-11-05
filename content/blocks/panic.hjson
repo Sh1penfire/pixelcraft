@@ -16,7 +16,7 @@ spread: 5
 targetAir: true
 targetGround: false
 shootType: {
-	type: MissileBulletType
+	type: BasicBulletType
 	speed: 10
 	damage: 5
 	lifetime: 45
@@ -39,7 +39,7 @@ shootType: {
 	homingRange: 100
 	homingPower: 1
 	fragBullet: {
-	type: MissileBulletType
+	type: BasicBulletType
 	speed: 10
 	damage: 5
 	lifetime: 45
@@ -58,8 +58,8 @@ shootType: {
 }
 }
 requirements: [
- pixelite/300
- steel/800
+ iron/800
+ magnitine/300
 ]
 category: turret
 research: point
