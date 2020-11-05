@@ -11,6 +11,6 @@ requirements: [
   magnitine/1
 ]
 category: distribution
-speed: 0.12.5
-displayedSpeed: 12.5
+speed: 0.12
+displayedSpeed: 12
 research: magnitine-forgery
