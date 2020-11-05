@@ -1,13 +1,13 @@
 type: PowerTurret
 name: Pace
-description: Thunder is nothing compared to the storm it came from, but it keeps you running. Has powerfull missiles made of compacted electricity (somehow). (Needs a sprite)
+description: Thunder is nothing compared to the storm it came from, but it keeps you running. Has powerfull missiles made of compacted electricity (somehow). 
 health: 220
 size: 1
 reloadTime: 60
-range: 150
-shots: 5
+range: 100
+shots: 3
 powerUse: 2
-rotatespeed: 6
+rotateSpeed: 6
 ammoPerShot: 5
 shootYOffset: 10
 inaccuracy: 20
@@ -51,7 +51,7 @@ shootType: {
 }
 requirements: [
  iron/10
- steel/25
+ magnitine/25
 ]
 category: turret
 research: steel-forgery
