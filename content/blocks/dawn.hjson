@@ -23,7 +23,7 @@ lifetime: 70
 knockback: 1
 bulletsprite: pixelcraft-sawblade
 }
-steel: {
+magnitine: {
 type: basicBulletType
 speed: 1.5
 damage: 35
@@ -37,7 +37,7 @@ bulletsprite: pixelcraft-sawblade
 }
 }
 requirements: [
-  steel/25
+  magnitine/25
 ]
 category: turret
-research: steel-forgery
+research: magnitine-forgery
