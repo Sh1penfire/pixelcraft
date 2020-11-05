@@ -9,7 +9,7 @@ range: 400
 shots: 3
 targetAir: false
 ammoUseEffect: casing4
-rotatespeed: 6
+rotateSpeed: 6
 ammoPerShot: 2
 itemCapacity: 10
 ammoTypes: {
