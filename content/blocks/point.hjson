@@ -82,7 +82,7 @@ shootType: {
 }
 requirements: [
  pixelite/25
- steel/60
+ magnitine/60
  iron/75
 ]
 category: turret
