@@ -1,6 +1,6 @@
 type: GenericSmelter
-name: Steel forgery
-description: Smelts iron using coal to create steel.
+name: Magnitine forgery
+description: Smelts iron using coal to create magnitine. Don't think about it to hard.
 liquidCapacity: 50
 size: 2
 hasPower: true
@@ -23,4 +23,4 @@ category: crafting
 research: steel
 idleSound: respawning
 idleSoundVolume: 0.5
-outputItem: steel/3
+outputItem: magnitine/3
