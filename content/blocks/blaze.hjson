@@ -164,7 +164,7 @@ optional: false
 }
 requirements: [    
   iron/25
-  steel/70
+  magnitine/70
   titanium/25
 ]
 category: turret
