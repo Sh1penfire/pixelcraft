@@ -3,10 +3,10 @@ description: "A sturdy defensive block.
 Provides moderate protection from enemies.
 Spans multiple tiles."
 type: Wall
-health: 2400
+health: 2000
 size: 2
 requirements: [
-  steel/24
+  magnitine/24
 ]
 category: defense
 research: copper-wall
