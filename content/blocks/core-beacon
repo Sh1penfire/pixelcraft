@@ -7,4 +7,3 @@ requirements: [
   steel/1000
   ] 
 category: effect
-buildVisibility: debugOnly
