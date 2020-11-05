@@ -20,7 +20,7 @@ requirements: [
   iron/105
 ]
 category: crafting
-research: steel
+research: magnitine
 idleSound: respawning
 idleSoundVolume: 0.5
 outputItem: magnitine/3
