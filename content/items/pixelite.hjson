@@ -1,8 +1,8 @@
 type: material
 name: Pixelite
 description: A flamible resource made from old materiels.
-hardness: 2f
-cost: .5f
+hardness: 2
+cost: .5
 research: {
 parent: shiny-beacon
 requirements: [
@@ -13,6 +13,6 @@ requirements: [
 ]
 }
 color: #E44d11
-explosiveness: 0.6f
-flammability: 1.5f
+explosiveness: 0.6
+flammability: 1.5
 
