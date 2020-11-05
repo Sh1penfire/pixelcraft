@@ -1,6 +1,6 @@
 type: material
-name: Steel
-description: An aloy between iron and coal. Sturdy and reliable.
+name: Magnitine
+description: Refined iron with magnetic properties. Looks shiny.
 hardness: 2
 cost: 1
 color: ffffff
