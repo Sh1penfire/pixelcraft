@@ -8,7 +8,7 @@ reloadTime: 2.5
 range: 75
 shots: 3
 ammoUseEffect: fire
-rotatespeed: 8
+rotateSpeed: 8
 ammoTypes: {
   coal: {
     type: BasicBulletType
