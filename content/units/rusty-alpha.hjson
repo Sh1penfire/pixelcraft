@@ -5,7 +5,7 @@ speed: 2
 accel: .05
 drag: 0.01
 health: 65
-range: 140
+range: 200
 buildSpeed: 2
 clipSize: 1
 faceTarget: true
@@ -17,7 +17,7 @@ lowAltitude: true
 omniMovement: true
 weapons: [ {
 name: aged-blaster
-reload: 15
+reload: 10
 alternate: true
 ejectEffect: casing1
 top: false
@@ -27,9 +27,15 @@ y: -.5
 rotate: false
 occlusion: 8
 bullet: {
-type: MissileBulletType
+type: BasicBulletType
 damage: 5
-speed: 3
-lifetime: 25
+speed: 4
+lifetime: 50
+fragBullets: 3
+fragBullet:{
+type: BasicBulletType
+damage: 5
+speed: 2
+}
 }
 } ]
