@@ -16,7 +16,7 @@ rotateSpeed: 15
 lowAltitude: true
 omniMovement: true
 weapons: [ {
-name: aged-blaster-mount
+name: aged-blaster
 reload: 15
 alternate: true
 ejectEffect: casing1
