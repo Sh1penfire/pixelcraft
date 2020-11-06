@@ -30,7 +30,7 @@ y: -.5
 rotate: false
 occlusion: 0
 bullet: {
-type: BasicBulletType
+type: MissileBulletType
 damage: 1
 speed: 4
 lifetime: 50
@@ -46,7 +46,7 @@ speed: 2
 name: aged-blaster
 reload: 25
 alternate: false
-ejectEffect: spark
+ejectEffect: casing1
 top: false
 shootSound: shoot
 x: 7
