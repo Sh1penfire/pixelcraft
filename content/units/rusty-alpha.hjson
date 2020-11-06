@@ -1,7 +1,7 @@
 type: MechUnit
-name: "A grounded alpha that's learned how to run. Can't drown as it slighty hovers using it's somewhat functional engine. Can't build or mine and controls are slippery."
-speed: 2
-accel: .05
+name: "Defends the beacon core from enemies. \n Packs a powerfull weapon aray and can't build."
+speed: 1
+accel: 0.02
 drag: 0.03
 health: 500
 aimDst: 50
@@ -65,5 +65,26 @@ damage: 1
 speed: 4
 lifetime: 50
 fragBullets: 3
+}
+}
+{
+name: aged-blaster
+reload: 25
+alternate: true
+ejectEffect: wet
+top: false
+shootSound: shoot
+x: 7
+y: -1.2
+rotate: false
+occlusion: 0
+bullet: {
+type: LiquidBulletType
+lquid: water
+shotDelay: 0.1
+collidesTeam: true
+damage: .5
+speed: 4
+lifetime: 50
 }
 }]
