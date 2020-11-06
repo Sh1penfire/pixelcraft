@@ -5,7 +5,7 @@ health: 300
 itemCapacity: 1000
 size: 2
 unitCapModifier: 5
-unitType: rusty-alpha
+unitType: "rusty-alpha"
 research: coal
 requirements: [
   iron/1000
