@@ -1,4 +1,4 @@
-type: MechUnit
+type: BuilderMechMinerUnit
 name: "Rusty alpha"
 description: "Defends the beacon core from enemies. \n Packs a powerfull weapon aray and can't build."
 speed: 1
