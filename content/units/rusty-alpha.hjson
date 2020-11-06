@@ -1,0 +1,35 @@
+type: MechUnit
+name: "Test"
+flying: true
+speed: 2
+accel: .05
+drag: 0.01
+health: 65
+range: 140
+buildSpeed: 2
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 2
+range: 100
+rotateSpeed: 15
+lowAltitude: true
+omniMovement: true
+weapons: [ {
+name: aged-blaster-mount
+reload: 15
+alternate: true
+ejectEffect: casing1
+top: false
+shootSound: shoot
+x: 7
+y: -.5
+rotate: false
+occlusion: 8
+bullet: {
+type: MissileBulletType
+damage: 5
+speed: 3
+lifetime: 25
+}
+} ]

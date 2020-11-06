@@ -13,5 +13,6 @@ requirements: [
 ]
 }
 color: #E44d11
-explosiveness: .6
+explosiveness: 0.6
 flammability: 1.5
+

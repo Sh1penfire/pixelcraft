@@ -1,1 +1,1 @@
-require(Effects.js)
+require(scripts/Effects.js)

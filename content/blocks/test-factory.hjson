@@ -1,0 +1,18 @@
+type: UnitFactory
+unitType: rusty-alpha
+size: 2
+produceTime: 1500
+consumes: {
+  power: 1
+  items: {
+    items: [
+      silicon/12
+    ]
+  }
+}
+category: units
+research: air-factory
+requirements: [
+  silicon/35
+  lead/50
+]
