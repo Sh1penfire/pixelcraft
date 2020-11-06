@@ -13,6 +13,7 @@ clipSize: 1
 faceTarget: true
 rotateShooting : true
 mineTier: 2
+mineSpeed: 2.5
 range: 100
 rotateSpeed: 15
 lowAltitude: true
