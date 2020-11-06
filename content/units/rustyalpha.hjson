@@ -1,5 +1,5 @@
 name: "Test"
-type: UnitType
+UnitType: flying
 speed: 0.3
 maxVelocity: 2
 drag: 0.01
