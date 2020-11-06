@@ -4,7 +4,6 @@ UnitType: flying
 speed: 0.3
 maxVelocity: 2
 drag: 0.01
-flying: true
 health: 65
 range: 140
 weapon: {
