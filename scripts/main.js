@@ -1,2 +1,2 @@
-require(scripts/Effects.js)
-require(scripts/duoed.js)
+require(Effects.js)
+require(duoed.js)
