@@ -6,6 +6,9 @@ maxVelocity: 2
 drag: 0.01
 health: 65
 range: 140
+x: 10
+y: 5
+buildSpeed: 2
 weapons: [
 {
 name: rusty-alpha-equip
