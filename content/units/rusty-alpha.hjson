@@ -1,9 +1,9 @@
 type: BuilderMechMinerUnit
 name: "Rusty alpha"
 description: "Defends the beacon core from enemies. \n Builds structures."
-speed: 1
+speed: 2
 accel: 0.02
-drag: 0.03
+drag: 0.05
 health: 500
 aimDst: 50
 range: 150
@@ -21,6 +21,7 @@ omniMovement: true
 canDrown: false
 canBoost: true
 canBuild: true
+boostSpeed: 1.25
 weapons: [ 
 {
 name: aged-blaster
