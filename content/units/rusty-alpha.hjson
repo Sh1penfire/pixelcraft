@@ -1,7 +1,7 @@
 type: BuilderMechMinerUnit
 name: "Rusty alpha"
 description: "Defends the beacon core from enemies. \n Builds structures."
-speed: 2
+speed: 2.5
 accel: 0.02
 drag: 0.05
 health: 500
