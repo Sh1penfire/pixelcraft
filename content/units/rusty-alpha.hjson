@@ -1,12 +1,12 @@
 type: BuilderMechMinerUnit
 name: "Rusty alpha"
 description: "Defends the beacon core from enemies. \n Builds structures."
-speed: 2.5
+speed: 3
 accel: 0.02
 drag: 0.05
 health: 500
 aimDst: 50
-range: 150
+range: 100
 maxRange: 200
 buildSpeed: 2
 clipSize: 1
@@ -59,18 +59,19 @@ x: 4
 y: -1.2
 rotate: false
 occlusion: 0
+shots: 3
+spread: 10
 bullet: {
 shotDelay: .25
 type: LightningBulletType
 lightning: 2
-lightningLength: 10
+lightningLength: 15
 lightningLengthRand: 10
 healPercent: 2
 collidesTeam: true
 damage: 1
 speed: 4
 lifetime: 50
-fragBullets: 3
 }
 }
 {
@@ -103,7 +104,7 @@ speed: 2
 {
 name: aged-blaster-mount
 reload: 40
-alternate: true
+alternate: false
 ejectEffect: casing2
 top: false
 shootSound: bigshot
@@ -115,13 +116,15 @@ bullet: {
 type: ArtilleryBulletType
 damage: 4
 speed: 4
-lifetime: 50
+lifetime: 75
 fragBullets: 10
 hitSound: boom
+despawnEffect: pulverise
 fragBullet:{
 type: BasicBulletType
 damage: 2
 speed: 2
+effect: wet
 }
 }
 }]
