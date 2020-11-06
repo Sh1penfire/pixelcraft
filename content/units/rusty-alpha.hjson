@@ -1,13 +1,14 @@
 type: MechUnit
 name: "Test"
 flying: true
-speed: 0.3
+speed: 1.2
 maxVelocity: 2
 drag: 0.01
 health: 65
 range: 140
 weapons: [
 {
+name: rusty-alpha-equip
 length: 1.5
 reload: 15
 alternate: true
