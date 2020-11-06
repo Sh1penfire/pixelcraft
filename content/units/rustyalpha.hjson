@@ -11,7 +11,7 @@ weapons: [
 length: 1.5
 reload: 15
 alternate: true
-ejectEffect: shellEjectSmall
+ejectEffect: casing1
 bullet: standardCopper
 shootSound: shoot
 } ]
