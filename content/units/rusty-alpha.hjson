@@ -40,4 +40,5 @@ type: BasicBulletType
 damage: .5
 speed: 2
 }
+}
 } ]
