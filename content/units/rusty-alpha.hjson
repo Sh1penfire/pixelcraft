@@ -36,14 +36,14 @@ rotate: false
 occlusion: 0
 bullet: {
 type: MissileBulletType
-damage: 1
+damage: 4
 speed: 4
 lifetime: 50
 fragBullets: 3
 hitSound: pew
 fragBullet:{
 type: BasicBulletType
-damage: .5
+damage: 2
 speed: 2
 }
 }
@@ -98,5 +98,29 @@ liquid: cryofluid
 damage: .5
 speed: 2
 }
+}
+}
+{
+name: aged-blaster-mount
+reload: 40
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: bigshot
+x: 
+y: -3
+rotate: false
+occlusion: 0
+bullet: {
+type: ArtilleryBulletType
+damage: 4
+speed: 4
+lifetime: 50
+fragBullets: 10
+hitSound: boom
+fragBullet:{
+type: BasicBulletType
+damage: 2
+speed: 2
 }
 }]
