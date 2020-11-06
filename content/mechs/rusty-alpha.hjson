@@ -18,3 +18,7 @@ weapons:[
   bullet: standardCopper
 }
 ]
+alwaysUnlocked: true
+research: {
+parent: flare
+}
