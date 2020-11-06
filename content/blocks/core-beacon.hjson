@@ -11,7 +11,6 @@ requirements: [
   iron/1000
   copper/3000
 ] 
-
 category: effect
 hasItems: true
 buildVisibility: shown
