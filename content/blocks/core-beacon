@@ -2,11 +2,13 @@ type: CoreBlock
 health: 300
 itemCapacity: 1000
 size: 2
-unitType: rusty-alpha
+mech: rusty-alpha
 research: coal
 requirements: [
   iron/1000
   copper/3000
-  ] 
+] 
 
 category: effect
+hasItems: true
+buildVisibility: shown
