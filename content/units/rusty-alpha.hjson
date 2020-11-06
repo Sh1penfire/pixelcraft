@@ -6,16 +6,17 @@ maxVelocity: 2
 drag: 0.01
 health: 65
 range: 140
-x: 10
-y: 5
+
 buildSpeed: 2
 weapons: [
 {
-name: rusty-alpha-equip
+name: aged-blaster
 length: 1.5
 reload: 15
 alternate: true
 ejectEffect: casing1
 bullet: standardCopper
 shootSound: shoot
+x: 10
+y: 5
 } ]
