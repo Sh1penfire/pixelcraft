@@ -1,13 +1,13 @@
 type: MechUnit
 name: "Test"
 flying: true
-speed: 1.2
-maxVelocity: 2
+speed: 2
 drag: 0.01
 health: 65
 range: 140
-
 buildSpeed: 2
+clipSize: 1
+shots: 1
 weapons: [
 {
 name: aged-blaster
@@ -15,8 +15,13 @@ length: 1.5
 reload: 15
 alternate: true
 ejectEffect: casing1
-bullet: standardCopper
+bullet: {
+type: MissileBulletType
+damage: 5
+speed: 3
+lifetime: 25
+}
 shootSound: shoot
-x: 10
-y: 5
+x: 5
+y: 0.1
 } ]
