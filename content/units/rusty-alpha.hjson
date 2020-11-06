@@ -54,8 +54,13 @@ y: -1.2
 rotate: false
 occlusion: 0
 bullet: {
-type: BasicBulletType
+shotDelay: .5
+type: LightningBulletType
 lightning: 2
+lightningLength: 5
+lightningLengthRand: 6
+healPercent: 2
+collidesTeam: true
 damage: 1
 speed: 4
 lifetime: 50
