@@ -7,13 +7,14 @@ health: 65
 range: 140
 buildSpeed: 2
 clipSize: 1
-shots: 1
+mineTier: 2
+range: 100
 weapons: [ {
 name: aged-blaster
-length: 1.5
 reload: 15
 alternate: true
 ejectEffect: casing1
+top: false
 bullet: {
 type: MissileBulletType
 damage: 5
@@ -23,4 +24,6 @@ lifetime: 25
 shootSound: shoot
 x: 7
 y: 0.1
+rotate: true
+occlusion: 8
 } ]
