@@ -119,7 +119,7 @@ speed: 4
 lifetime: 75
 fragBullets: 10
 hitSound: boom
-despawnEffect: pulverise
+despawnEffect: explosion
 fragBullet:{
 type: BasicBulletType
 damage: 2
