@@ -1,5 +1,6 @@
 type: MechUnit
-name: "Defends the beacon core from enemies. \n Packs a powerfull weapon aray and can't build."
+name: "Rusty alpha"
+description: "Defends the beacon core from enemies. \n Packs a powerfull weapon aray and can't build."
 speed: 1
 accel: 0.02
 drag: 0.03
@@ -18,6 +19,7 @@ lowAltitude: true
 omniMovement: true
 canDrown: false
 canBoost: true
+conBuild: true
 weapons: [ 
 {
 name: aged-blaster
