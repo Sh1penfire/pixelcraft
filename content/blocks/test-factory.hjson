@@ -1,5 +1,5 @@
 type: UnitFactory
-unitType: rustyalpha
+unitType: rusty-alpha
 size: 2
 produceTime: 1500
 consumes: {
