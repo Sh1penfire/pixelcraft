@@ -24,6 +24,6 @@ lifetime: 25
 shootSound: shoot
 x: 7
 y: 0.1
-rotate: true
+rotate: false
 occlusion: 8
 } ]
