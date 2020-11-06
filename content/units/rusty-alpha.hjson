@@ -1,6 +1,5 @@
 type: MechUnit
 name: "Test"
-flying: true
 speed: 2
 accel: .05
 drag: 0.01
