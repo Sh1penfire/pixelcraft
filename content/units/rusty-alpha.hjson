@@ -6,7 +6,7 @@ drag: 0.01
 health: 65
 range: 140
 buildSpeed: 2
-clipSize: 1
+clipSize: 1https://github.com/Sh1penfire/pixelcraft
 mineTier: 2
 range: 100
 weapons: [ {
