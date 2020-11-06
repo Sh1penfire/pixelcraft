@@ -19,7 +19,7 @@ lowAltitude: true
 omniMovement: true
 canDrown: false
 canBoost: true
-conBuild: true
+canBuild: true
 weapons: [ 
 {
 name: aged-blaster
