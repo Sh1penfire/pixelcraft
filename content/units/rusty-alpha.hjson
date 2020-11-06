@@ -123,4 +123,5 @@ type: BasicBulletType
 damage: 2
 speed: 2
 }
+}
 }]
