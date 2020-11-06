@@ -8,7 +8,7 @@ range: 140
 buildSpeed: 2
 clipSize: 1
 shots: 1
-weapons: [
+weapon: 
 {
 name: aged-blaster
 length: 1.5
@@ -24,4 +24,4 @@ lifetime: 25
 shootSound: shoot
 x: 5
 y: 0.1
-} ]
+} 
