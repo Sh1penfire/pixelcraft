@@ -5,7 +5,9 @@ speed: 2
 accel: .05
 drag: 0.01
 health: 65
-range: 200
+aimDst: 50
+range: 150
+maxRange: 200
 buildSpeed: 2
 clipSize: 1
 faceTarget: true
