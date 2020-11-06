@@ -16,6 +16,7 @@ range: 100
 rotateSpeed: 15
 lowAltitude: true
 omniMovement: true
+canDrown: false
 weapons: [ 
 {
 name: aged-blaster
