@@ -12,6 +12,7 @@ mineTier: 2
 range: 100
 rotateSpeed: 15
 lowAltitude: true
+omniMovement: true
 weapons: [ {
 name: aged-blaster-mount
 reload: 15
