@@ -1,6 +1,6 @@
 type: BuilderMechMinerUnit
 name: "Rusty alpha"
-description: "Defends the beacon core from enemies. \n Packs a powerfull weapon aray and can't build."
+description: "Defends the beacon core from enemies. \n Builds structures."
 speed: 1
 accel: 0.02
 drag: 0.03
@@ -38,6 +38,7 @@ damage: 1
 speed: 4
 lifetime: 50
 fragBullets: 3
+hitSound: pew
 fragBullet:{
 type: BasicBulletType
 damage: .5
