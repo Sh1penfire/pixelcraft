@@ -82,7 +82,6 @@ bullet: {
 type: LiquidBulletType
 lquid: water
 shotDelay: 0.1
-collidesTeam: true
 damage: .5
 speed: 4
 lifetime: 50
