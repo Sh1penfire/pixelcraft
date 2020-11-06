@@ -1,3 +1,4 @@
+name: Rusty alpha
 type: MechUnit
 flying: true
 defaultController: BuilderAI
@@ -19,6 +20,3 @@ weapons:[
 }
 ]
 alwaysUnlocked: true
-research: {
-parent: flare
-}
