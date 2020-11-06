@@ -10,21 +10,23 @@ clipSize: 1
 rotateShooting : true
 mineTier: 2
 range: 100
+rotateSpeed: 15
+lowAltitude: true
 weapons: [ {
-name: aged-blaster
+name: aged-blaster-mount
 reload: 15
 alternate: true
 ejectEffect: casing1
 top: false
+shootSound: shoot
+x: 7
+y: -.5
+rotate: false
+occlusion: 8
 bullet: {
 type: MissileBulletType
 damage: 5
 speed: 3
 lifetime: 25
 }
-shootSound: shoot
-x: 7
-y: -.5
-rotate: false
-occlusion: 8
 } ]
