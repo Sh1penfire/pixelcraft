@@ -5,18 +5,24 @@ defaultController: BuilderAI
 isCounted: false
 health: 120
 speed: 0.6
+accel: 0.03
+drag: 0.02
 drag: 0.1
 buildSpeed: 0.7
 mineTier: 2
 mineSpeed: 3
 commandLimit: 2
 itemCapacity: 25
+range: 80
 weapons:[
 {
-  name: rusty-alpha
+  name: degraded-pew
+  shots: 2
   reload: 20
+  alternate: true
   alternate: true
   bullet: standardCopper
 }
 ]
 alwaysUnlocked: true
+
