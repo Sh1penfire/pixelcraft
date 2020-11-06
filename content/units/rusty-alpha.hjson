@@ -28,7 +28,7 @@ shootSound: shoot
 x: 7
 y: -.5
 rotate: false
-occlusion: 8
+occlusion: 0
 bullet: {
 type: BasicBulletType
 damage: 1
@@ -44,25 +44,22 @@ speed: 2
 }
 {
 name: aged-blaster
-reload: 5
+reload: 25
 alternate: true
-ejectEffect: casing2
+ejectEffect: casing3
 top: false
 shootSound: shoot
-x: 3
-y: -1
+x: 7
+y: -1.2
 rotate: false
-occlusion: 8
+occlusion: 0
 bullet: {
 type: BasicBulletType
+lightning: 2
 damage: 1
 speed: 4
 lifetime: 50
 fragBullets: 3
-fragBullet:{
-type: BasicBulletType
-damage: .5
-speed: 2
 }
 }
 }]
