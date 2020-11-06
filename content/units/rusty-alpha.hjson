@@ -45,8 +45,8 @@ speed: 2
 {
 name: aged-blaster
 reload: 25
-alternate: true
-ejectEffect: casing3
+alternate: false
+ejectEffect: spark
 top: false
 shootSound: shoot
 x: 7
@@ -54,11 +54,11 @@ y: -1.2
 rotate: false
 occlusion: 0
 bullet: {
-shotDelay: .5
+shotDelay: .25
 type: LightningBulletType
 lightning: 2
-lightningLength: 5
-lightningLengthRand: 6
+lightningLength: 10
+lightningLengthRand: 10
 healPercent: 2
 collidesTeam: true
 damage: 1
