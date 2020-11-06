@@ -80,7 +80,7 @@ rotate: false
 occlusion: 0
 bullet: {
 type: LiquidBulletType
-lquid: water
+liquid: water
 shotDelay: 0.1
 damage: .5
 speed: 4
