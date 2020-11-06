@@ -107,9 +107,9 @@ alternate: true
 ejectEffect: casing2
 top: false
 shootSound: bigshot
-x: 
-y: -3
-rotate: false
+x: 0
+y: -3.0
+rotate: true
 occlusion: 0
 bullet: {
 type: ArtilleryBulletType
