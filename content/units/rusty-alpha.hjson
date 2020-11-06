@@ -81,9 +81,16 @@ occlusion: 0
 bullet: {
 type: LiquidBulletType
 liquid: water
-shotDelay: 0.1
+shotDelay: 0.025
 damage: .5
 speed: 4
 lifetime: 50
+knockback: 1
+fragBullet:{
+type: LiquidBulletType
+liquid: cryofluid
+damage: .5
+speed: 2
+}
 }
 }]
