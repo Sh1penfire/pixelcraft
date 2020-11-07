@@ -1,2 +1,2 @@
 require("Effects");
-require("duoed");
+require("Duoed");
