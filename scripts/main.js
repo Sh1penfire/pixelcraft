@@ -1,2 +1,2 @@
-require("Effects.js")
-require("duoed.js")
+require("Effects")
+require("duoed")
