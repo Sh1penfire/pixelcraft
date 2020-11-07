@@ -11,18 +11,19 @@ Lines.stroke(e.fin() * 2);
 Lines.circle(e.x, e.y, e.fslope() * 2);
 });
 const duoed = extendContent(ItemTurret, "Duoed", {
-        generateIcons: function(){
+        	init(){
+        icons(){
             return [
                 core.atlas.find("block-3")
                 core.atlas.find("pixelcraft-strand")
             ]};
         Blocks.duoed.put(Vars.content.getByName(ContentType.item,"copper"),BasicShoot);
-
+stats(){
 this.stats.remove(BlockStat.size);
 this.stats.add(BlockStat.size, "3");
 doued.reloadTime = 15;
 doued.shootEffect = duost;
 doued.shootType = BasicShoot;
-
-});
+}
+}});
 
