@@ -27,7 +27,7 @@ reload: 10
 alternate: true
 ejectEffect: casing2
 top: false
-shootSound: zap
+shootSound: pew
 x: 3.5
 y: 0
 rotate: false
