@@ -11,7 +11,7 @@ Lines.stroke(e.fin() * 2);
 Lines.circle(e.x, e.y, e.fslope() * 2);
 });
 const duoed = extendContent(ItemTurret, "Duoed", {
-        this.super$init({;
+        this.super$init({
         generateIcons: function(){
             return [
                 core.atlas.find("block-3")
