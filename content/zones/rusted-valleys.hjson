@@ -1,6 +1,6 @@
 name: Rusted Valley
-captureWave = 20
-difficulty = 2
+captureWave: 20
+difficulty: 2
 requirements: [
   {
     type: capture
@@ -10,14 +10,6 @@ requirements: [
     type: Unlock
     block: shiny-beacon
   }
-]
-resources: [
-  scrap
-  copper
-  lead
-  coal
-  iron
-  sand
 ]
 research: groundZero
 planet: serpulo
