@@ -25,7 +25,7 @@ weapons: [
 name: aged-zapper
 reload: 10
 alternate: true
-ejectEffect: casing2
+ejectEffect: casing1
 top: false
 shootSound: pew
 x: 3.5
@@ -42,10 +42,31 @@ damage: 4
 }
 }
 {
+name: aged-blaster
+reload: 10
+alternate: true
+ejectEffect: casing1
+top: false
+shootSound: pew
+shots: 5
+spread: 7.5
+x: 3.5
+y: 0
+rotate: false
+occlusion: 0
+bullet: {
+type: BasicBulletType
+speed: 3
+damage: 5
+healPercent: 1
+collidesTeam: true
+}
+}
+{
 name: aged-blaster-mount
 reload: 25
 alternate: false
-ejectEffect: casing2
+ejectEffect: casing3
 top: false
 shootSound: pew
 rotate: true
@@ -54,10 +75,11 @@ y: -1.0
 bullet:{
 type: ArtilleryBulletType
 damage: 0
-speed: 2
+speed: 4
 width: 5
 height: 7
-splashDamage: 10
+splashDamage: 15
 splashDamageRadius: 16
+despawnEffect: explosion
 }
 }]
