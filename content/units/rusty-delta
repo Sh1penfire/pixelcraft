@@ -1,0 +1,51 @@
+type: BuilderMechMinerUnit
+name: "Rusty delta"
+description: "Defends the lighthouse core from enemies. \n Builds structures."
+speed: 6
+accel: 0.02
+drag: 0.05
+health: 300
+aimDst: 10
+range: 50
+maxRange: 200
+buildSpeed: 3
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 3
+mineSpeed: 8
+range: 100
+rotateSpeed: 7
+lowAltitude: true
+omniMovement: true
+canDrown: false
+canBoost: true
+weapons: [ 
+{
+name: aged-zapper
+reload: 25
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: shoot
+x: 4
+y: -.5
+rotate: false
+occlusion: 0
+bullet: {
+type: BasicBulletType
+damage: 2
+speed: 4
+lifetime: 10
+fragBullets: 3
+hitSound: pew
+fragBullet:{
+type: LightningBulletType
+lightningLength: 15
+lightningLengthRand: 10
+healPercent: 2
+collidesTeam: true
+damage: 4
+}
+}
+}]
