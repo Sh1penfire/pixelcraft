@@ -1,12 +1,12 @@
 type: BuilderMechMinerUnit
 name: "Rusty alpha"
 description: "Defends the beacon core from enemies. \n Builds structures."
-speed: 3
+speed: 3.5
 accel: 0.02
-drag: 0.05
-health: 500
-aimDst: 50
-range: 100
+drag: 0.5
+health: 250
+aimDst: 10
+range: 50
 maxRange: 200
 buildSpeed: 2
 clipSize: 1
@@ -20,8 +20,6 @@ lowAltitude: true
 omniMovement: true
 canDrown: false
 canBoost: true
-canBuild: true
-boostSpeed: 1.25
 weapons: [ 
 {
 name: aged-blaster
@@ -36,14 +34,14 @@ rotate: false
 occlusion: 0
 bullet: {
 type: MissileBulletType
-damage: 4
+damage: 2
 speed: 4
 lifetime: 50
 fragBullets: 3
 hitSound: pew
 fragBullet:{
 type: BasicBulletType
-damage: 2
+damage: 1
 speed: 2
 }
 }
@@ -59,7 +57,7 @@ x: 4
 y: -1.2
 rotate: false
 occlusion: 0
-shots: 3
+shots: 2
 spread: 10
 bullet: {
 shotDelay: .25
@@ -76,14 +74,14 @@ lifetime: 50
 }
 {
 name: aged-blaster
-reload: 25
+reload: 5
 alternate: true
 ejectEffect: wet
 top: false
-shootSound: shoot
-x: 4
-y: -1.2
-rotate: false
+shootSound: none
+x: 1
+y: -2.0
+rotate: true
 occlusion: 0
 bullet: {
 type: LiquidBulletType
@@ -93,6 +91,7 @@ damage: .5
 speed: 4
 lifetime: 50
 knockback: 1
+fragBullets: 3
 fragBullet:{
 type: LiquidBulletType
 liquid: cryofluid
@@ -124,7 +123,6 @@ fragBullet:{
 type: BasicBulletType
 damage: 2
 speed: 2
-effect: wet
 }
 }
 }]
