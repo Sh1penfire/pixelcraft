@@ -1,6 +1,8 @@
 type: ItemTurret
 size: 2
 name: "duoed"
+ammoTypes: [
+]
 description: "?"
 research: core-shard
-BuildVisibility: debugOnly
+
