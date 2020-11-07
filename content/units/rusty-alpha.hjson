@@ -1,9 +1,9 @@
 type: BuilderMechMinerUnit
 name: "Rusty alpha"
 description: "Defends the beacon core from enemies. \n Builds structures."
-speed: 10
-accel: 0.02
-drag: 0.5
+speed: 8
+accel: 0.13
+drag: 0.1
 health: 250
 aimDst: 10
 range: 50
@@ -97,6 +97,7 @@ type: LiquidBulletType
 liquid: cryofluid
 damage: .5
 speed: 2
+lifetime: 25
 }
 }
 }
