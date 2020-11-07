@@ -52,7 +52,7 @@ reload: 25
 alternate: false
 ejectEffect: casing1
 top: false
-shootSound: shoot
+shootSound: spark
 x: 4
 y: -1.2
 rotate: false
