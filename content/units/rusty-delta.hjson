@@ -33,19 +33,11 @@ y: -.5
 rotate: false
 occlusion: 0
 bullet: {
-type: BasicBulletType
-damage: 2
-speed: 4
-lifetime: 10
-fragBullets: 3
-hitSound: pew
-fragBullet:{
 type: LightningBulletType
 lightningLength: 15
 lightningLengthRand: 10
 healPercent: 2
 collidesTeam: true
 damage: 4
-}
 }
 }]
