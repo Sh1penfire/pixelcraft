@@ -1,7 +1,6 @@
 type: BuilderMinerUnit
 name: "Rusty delta"
 description: "Defends the lighthouse core from enemies. \n Builds structures."
-defaultController: BuilderAI
 flying: true
 speed: 6
 accel: 0.02
