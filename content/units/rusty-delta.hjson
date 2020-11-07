@@ -22,26 +22,6 @@ omniMovement: true
 canDrown: false
 weapons: [ 
 {
-name: aged-zapper
-reload: 10
-alternate: true
-ejectEffect: casing1
-top: false
-shootSound: pew
-x: 3.5
-y: 0
-rotate: false
-occlusion: 0
-bullet: {
-type: LightningBulletType
-lightningLength: 15
-lightningLengthRand: 10
-healPercent: 2
-collidesTeam: true
-damage: 4
-}
-}
-{
 name: aged-blaster
 reload: 10
 alternate: true
@@ -60,6 +40,26 @@ speed: 3
 damage: 5
 healPercent: 1
 collidesTeam: true
+}
+}
+{
+name: aged-zapper
+reload: 10
+alternate: true
+ejectEffect: casing1
+top: false
+shootSound: pew
+x: 3.5
+y: 0
+rotate: false
+occlusion: 0
+bullet: {
+type: LightningBulletType
+lightningLength: 15
+lightningLengthRand: 10
+healPercent: 2
+collidesTeam: true
+damage: 4
 }
 }
 {
