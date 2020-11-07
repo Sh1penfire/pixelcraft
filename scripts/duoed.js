@@ -10,6 +10,7 @@ const duoed = extendContent(ItemTurret, "Duoed", {
             return [
                 core.atlas.find("pixelcraft-duoed")
             ];
+        Blocks.duoed.put(Vars.content.getByName(ContentType.item,"copper"),BasicShoot);
         }
 });
 doued.reloadTime = 15;
@@ -22,3 +23,5 @@ const duost = newEffect(40, e => {
     Draw.color(Color.black, Color.orange, e.fin());
     Lines.circle(e.x, e.y, e.fslope() * 2 + 1);
 })
+
+
