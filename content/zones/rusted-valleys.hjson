@@ -1,11 +1,10 @@
 name: Rusted Valley
 captureWave: 20
 difficulty: 2
-research: ground-zero
 requirements: [
   {
     type: capture
-    zone: ground-zero
+    zone: groundZero
   }
   {
     type: Unlock
