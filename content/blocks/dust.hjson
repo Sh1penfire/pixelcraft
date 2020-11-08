@@ -1,0 +1,39 @@
+type: ItemTurret
+name: Dust
+discription: "Medium ranged turret that scatters bullets around itself."
+health: 300
+size: 2
+shootSound: respawning
+reloadTime: 35
+range: 100
+shots: 20
+ammoUseEffect: none
+rotateSpeed: 10
+spread: 36
+ammoTypes: {
+magnitine: {
+type: basicBulletType
+speed: 1.5
+damage: 50
+width: 4
+height: 9
+shootEffect: none
+smokeEffect: none
+lifetime: 70
+knockback: 1
+bulletsprite: pixelcraft-sawblade
+fragBullets: 3
+fragBullet:
+damage: 10
+lifetime: 60
+splashDamage: 1
+splashDamageRadius: 80
+hitEffect: none
+despawnEffect: none
+}
+}
+requirements: [
+  magnitine/125
+]
+category: turret
+research: dawn
