@@ -1,0 +1,30 @@
+type: GenericCrafter
+name: "Depixeliser"
+description: "Depixelises Pixelite and turns it into pyratite for usage outside the mod. Needs oil to desolve pixelite and dry it out. Producess in large batches."
+size: 2
+hasPower: true
+hasLiquids: true
+hasItems: true
+craftTime: 20
+updateEffect: explosion
+consumes: {
+  items: {
+    items: [
+      pixelite/10
+    ]
+  }
+  liquid: {
+    liquid: oil
+    amount: .1
+  }
+}
+requirements: [
+silicon/ 90
+
+
+]
+category: crafting
+research: pixelite-mixer
+idleSound: respawning
+idleSoundVolume: 0.5
+outputItem: pyratite/10
