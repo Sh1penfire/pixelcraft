@@ -13,7 +13,7 @@ Lines.stroke(e.fin() * 2);
 Lines.circle(e.x, e.y, e.fout() * 2);
 });
 
-const puver = extendContent(PowerTurret, "Duoed", {
+const puver = extendContent(PowerTurret, "Puver", {
   generateIcons(){
     return[
       Core.atlas.find("block-3"),
