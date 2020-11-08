@@ -1,0 +1,14 @@
+type: material
+name: Feromagnet
+description: Oh wow look at that, this description tells nothing
+hardness: 2
+cost: 1
+research: {
+parent: shiny-beacon
+requirements: [
+  iron/3000
+]
+}
+color: #E44d11
+explosiveness: 0.0
+flammability: 0.0
