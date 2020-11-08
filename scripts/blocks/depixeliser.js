@@ -17,3 +17,4 @@ extendContent(GenericCrafter, "depixeliser", {
         ];
     }
 });
+//I'm going to test this loading liquid, once it works I will move on to the top and spinner
