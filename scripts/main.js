@@ -1,2 +1,2 @@
 require("healed");
-require("Duoed");
+require("puver");
