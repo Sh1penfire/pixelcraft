@@ -23,13 +23,14 @@ lifetime: 70
 knockback: 1
 bulletsprite: pixelcraft-sawblade
 fragBullets: 3
-fragBullet:
+fragBullet:{
 damage: 10
 lifetime: 60
 splashDamage: 1
 splashDamageRadius: 80
 hitEffect: none
 despawnEffect: none
+}
 }
 }
 requirements: [
