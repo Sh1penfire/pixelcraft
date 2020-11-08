@@ -8,8 +8,8 @@ Lines.circle(e.x, e.y, e.fslope() * 1);
 const healedStatus = extendContent(StatusEffect, "healed", {});
 
 healedStatus.speedMultiplier = 2;
-healedStatus.armorMultiplier = .5;
-healedStatus.damage = -1;
+healedStatus.armorMultiplier = 0.5;
+healedStatus.damage = -1.0;
 healedStatus.effect = healedStatusFX;
-healedStatus.colour  = Color.green;
+healedStatus.color  = Color.green;
       
