@@ -1,0 +1,17 @@
+localizedName: "Puver"
+description: "Shoots blasts of charged energy that launch enemies away."
+size: 3
+range: 128
+health: 800
+reload: 125
+shootEffect: none
+smokeEffect: none
+shootSound: release
+outlineIcon: true
+requirements: [
+  iron/ 250
+  magnitine/100
+  feromagnet/75
+]
+category: turret
+research: point
