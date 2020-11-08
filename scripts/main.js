@@ -1,2 +1,2 @@
-require("Effects");
+require("healed");
 require("Duoed");
