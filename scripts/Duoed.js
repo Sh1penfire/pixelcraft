@@ -11,19 +11,15 @@ Lines.stroke(e.fin() * 2);
 Lines.circle(e.x, e.y, e.fslope() * 2);
 });
 const duoed = extendContent(ItemTurret, "Duoed", {
-        	init(){
-        icons(){
-            return [
-                core.atlas.find("block-3")
-                core.atlas.find("pixelcraft-strand")
-            ]};
-        Blocks.duoed.put(Vars.content.getByName(ContentType.item,"copper"),BasicShoot);
-stats(){
-this.stats.remove(BlockStat.size);
-this.stats.add(BlockStat.size, "3");
-doued.reloadTime = 15;
-doued.shootEffect = duost;
-doued.shootType = BasicShoot;
+  icons(){
+    return[
+      Core.atlas.find("block-3"),
+      Core.atlas.find("pixelcraft-strand")
+    ]
+  }
 }
-}});
 
+duoed.size = 2;
+duoed.reloadTime = 15;
+duoed.shootEffect = duost;
+doued.ammo.add(Items.copper, BasicShoot);
