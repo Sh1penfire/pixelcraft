@@ -1,1 +1,17 @@
-
+name: "Resupply Field"
+description: "Creates a field that "
+type: resupplyPoint
+size: 2
+range: 160
+ammoAmount: 15
+itemCapacity: 50
+hasItems: true
+hasPower: true
+consumes: {
+  power: 2
+  items: {
+    items: [
+      copper/2
+    ]
+  }
+}
