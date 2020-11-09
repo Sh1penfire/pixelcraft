@@ -1,0 +1,25 @@
+type: MinerUnit
+name: "Capsule"
+description: "Contains an ai that can transport itself into other mechinisms that allow it to."
+flying: true
+speed: 6
+accel: 0.02
+drag: 0.05
+health: 300
+aimDst: 10
+range: 50
+maxRange: 200
+buildSpeed: 3
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 3
+mineSpeed: 8
+range: 100
+rotateSpeed: 7
+lowAltitude: false
+omniMovement: true
+canDrown: false
+weapons: [ 
+{
+}]
