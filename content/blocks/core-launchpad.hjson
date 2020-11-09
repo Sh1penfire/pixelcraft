@@ -1,0 +1,16 @@
+type: CoreBlock
+name: "Core launchpad"
+description: "Custom core for custom gamemode (No build, no units)"
+health: 10000
+itemCapacity: 7000
+size: 2
+unitCapModifier: 0
+unitType: capsule
+requirements: [
+  iron/3000
+  magnitine/1000
+] 
+category: effect
+hasItems: true
+buildVisibility: editorOnly
+solid: true
