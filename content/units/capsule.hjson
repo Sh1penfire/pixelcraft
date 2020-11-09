@@ -41,7 +41,8 @@ speed: 4
 width: 5
 height: 8
 lifetime: 30
-knockback: 1
+pierce: true
+knockback: 2
 hitSound: none
 healPercent: 2
 collidesTeam: true
