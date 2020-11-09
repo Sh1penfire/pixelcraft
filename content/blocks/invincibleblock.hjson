@@ -2,6 +2,8 @@ name: "Barrier"
 description: "Map making tool used in special levels. Has got a billion hp and can block lightning shots. For extra safty, has a shield up."
 type: forceProjector
 size: 1
+phaseUseTime: 5
+phaseRadiusBoost: 5
 radius: 5
 shieldHealth: 1000000000
 health: 1000000000
