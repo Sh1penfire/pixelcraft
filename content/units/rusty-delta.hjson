@@ -11,7 +11,7 @@ range: 50
 maxRange: 200
 buildSpeed: 3
 clipSize: 1
-faceTarget: true
+faceTarget: false
 rotateShooting : false
 mineTier: 3
 mineSpeed: 8
