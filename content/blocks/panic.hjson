@@ -4,12 +4,11 @@ description: The storm is here. An electric turret comparable to a minigunner, u
 health: 220
 rotationSpeed: 100
 size: 3
-reloadTime: 5
+reloadTime: 1
 range: 200
-shots: 10
+shots: 2
 powerUse: 20
-rotatespeed: 6
-ammoPerShot: 5
+rotateSpeed: 6
 shootYOffset: 10
 inaccuracy: 20
 spread: 5
@@ -26,6 +25,7 @@ shootType: {
 	frontColor: 86baf9
 	backColor: 86baf9
 	trailColor: 86baf9
+	shootSound: beam
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
