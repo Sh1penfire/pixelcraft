@@ -11,8 +11,8 @@ range: 50
 maxRange: 200
 buildSpeed: 3
 clipSize: 1
-faceTarget: false
-rotateShooting : false
+faceTarget: true
+rotateShooting : true
 mineTier: 3
 mineSpeed: 8
 range: 100
@@ -81,5 +81,14 @@ height: 7
 splashDamage: 15
 splashDamageRadius: 16
 despawnEffect: explosion
+fragBullets: 5
+fragBullet: {
+type: LightningBulletType
+lightningLength: 7
+lightningLengthRand: 10
+healPercent: 2
+collidesTeam: true
+damage: 5
+}
 }
 }]
