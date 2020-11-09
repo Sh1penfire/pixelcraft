@@ -24,7 +24,7 @@ consumes: {
 }
 requirements: [
   iron/70
-  magnetite/45
+  magnitine/45
   graphite/65
 ]
 category: crafting
