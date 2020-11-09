@@ -1,0 +1,39 @@
+//I gave mono a weapon because I fealt sorry for it being defenseless
+weapons: [ 
+{
+name: heal-weapon
+reload: 30
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: shoot
+x: 1
+y: -.5
+rotate: false
+occlusion: 0
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+type: MissileBulletType
+damage: 2
+speed: 4
+width: 5
+height: 8
+lifetime: 50
+fragBullets: 3
+hitSound: pew
+healPercent: 2
+collidesTeam: true
+fragBullet:{
+type: BasicBulletType
+damage: 1
+speed: 2
+healPercent: 1
+collidesTeam: true
+width: 1
+height: 2
+frontColor: b7f35e
+backColor: b7f35e
+}
+}
+}
