@@ -24,7 +24,8 @@ consumes: {
 }
 requirements: [
   iron/70
-  magnetine/45
+  magnetite/45
+  graphite/65
 ]
 category: crafting
 research: feromagnet
