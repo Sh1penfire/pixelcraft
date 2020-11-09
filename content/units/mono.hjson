@@ -14,19 +14,20 @@ occlusion: 0
 bullet: {
 frontColor: b7f35e
 backColor: b7f35e
+trailColor: b7f35e
 type: MissileBulletType
-damage: 2
+damage: 1
 speed: 4
 width: 5
 height: 8
-lifetime: 50
+lifetime: 10
 fragBullets: 3
-hitSound: pew
+hitSound: none
 healPercent: 2
 collidesTeam: true
 fragBullet:{
 type: BasicBulletType
-damage: 1
+damage: .3
 speed: 2
 healPercent: 1
 collidesTeam: true
