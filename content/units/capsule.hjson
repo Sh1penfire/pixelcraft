@@ -23,8 +23,8 @@ canDrown: false
 weapons: [ 
 {
 name: heal-weapon
-reload: 5
-alternate: true
+reload: 10
+alternate: false
 ejectEffect: casing2
 top: false
 shootSound: pew
@@ -37,12 +37,12 @@ frontColor: b7f35e
 backColor: b7f35e
 type: BasicBulletType
 damage: 0
-speed: 4
+speed: 2
 width: 5
 height: 8
-lifetime: 30
+lifetime: 15
 pierce: true
-knockback: 2
+knockback: 4
 hitSound: none
 healPercent: 2
 collidesTeam: true
