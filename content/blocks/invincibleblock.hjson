@@ -6,3 +6,9 @@ radius: 5
 shieldHealth: 1000000000
 health: 1000000000
 buildVisibility: editorOnly
+consumes: {
+  power: 1
+  items: {
+    items: [
+    ]
+  }
