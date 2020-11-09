@@ -22,4 +22,28 @@ omniMovement: true
 canDrown: false
 weapons: [ 
 {
+name: heal-weapon
+reload: 5
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1
+y: -.5
+rotate: false
+occlusion: 0
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+type: BasicBulletType
+damage: 0
+speed: 4
+width: 5
+height: 8
+lifetime: 30
+knockback: 1
+hitSound: none
+healPercent: 2
+collidesTeam: true
+}
 }]
