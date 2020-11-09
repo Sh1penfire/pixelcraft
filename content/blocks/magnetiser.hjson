@@ -2,7 +2,7 @@ name: "magnetiser"
 description: "Enhances magnetic properties of iron while mixing in titanium to strengthen the structure. Red paint not included.(water needed to make red paint)"
 type: GenericSmelter
 type: GenericSmelter
-liquidCapacity: water
+liquidCapacity: 1
 size: 2
 hasPower: true
 hasLiquids: true
@@ -30,4 +30,4 @@ category: crafting
 research: feromagnet
 idleSound: respawning
 idleSoundVolume: 0.25
-outputItem: feromagnet/12
+outputItem: feromagnet/3
