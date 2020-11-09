@@ -1,5 +1,5 @@
 name: "Resupply Field"
-description: "Creates a field that "
+description: "Creates a field that refills unit ammo."
 type: resupplyPoint
 size: 2
 range: 160
@@ -15,3 +15,11 @@ consumes: {
     ]
   }
 }
+requirements: [
+  copper/70
+  lead/150
+  silicon/43
+  titanium/155
+]
+research: resupply-point
+catagory: units
