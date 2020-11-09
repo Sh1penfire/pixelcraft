@@ -6,16 +6,16 @@ size: 1
 reloadTime: 20
 inaccuracy: 7.5
 range: 200
-shots: 1
-powerUse: 1
-rotatespeed: 6
+shots: 2
+powerUse: .5
+rotateSpeed: 10
 targetAir: true
 targetGround: true
 shootType: healBulletBig
 requirements: [
- lead/25
  copper/60
- silicon/75
+ lead/25
+ silicon/25
 ]
 category: turret
 research: mender
