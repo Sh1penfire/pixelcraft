@@ -2,6 +2,7 @@ type: PowerTurret
 name: Panic
 description: The storm is here. An electric turret comparable to a minigunner, uses immense amounts of power to rain down many bullets at it's target. The bullets slightly home in and can knockback.
 health: 220
+shootSound: beam
 rotationSpeed: 100
 size: 3
 reloadTime: 1
@@ -25,7 +26,7 @@ shootType: {
 	frontColor: 86baf9
 	backColor: 86baf9
 	trailColor: 86baf9
-	shootSound: beam
+
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
