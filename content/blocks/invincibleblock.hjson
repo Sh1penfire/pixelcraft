@@ -13,3 +13,5 @@ consumes: {
     ]
    }
   }
+floating: true
+insulated: true
