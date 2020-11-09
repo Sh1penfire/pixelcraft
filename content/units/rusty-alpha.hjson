@@ -3,7 +3,7 @@ name: "Rusty alpha"
 description: "Defends the beacon core from enemies. \n Builds structures."
 speed: 5
 accel: 0.02
-drag: 0.05
+drag: 0.03
 health: 250
 aimDst: 10
 range: 50
