@@ -8,6 +8,7 @@ shots: 3
 shootEffect: none
 smokeEffect: none
 shootSound: release
+outlineIcon: false
 requirements: [
   iron/ 250
   magnitine/100
