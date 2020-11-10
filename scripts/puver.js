@@ -1,17 +1,17 @@
 // Obligatory comment line for no reason at all
 
 //shoot effect for puver
-const puverShoot = new Effect(15, e => {
+const puverShoot = new Effect(30, e => {
   Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fin());
   Draw.alpha(e.fin());
   Fill.circle(e.x, e.y, e.fin() * 5);
 });
 
-//smoke effect for puver
-const puverSmoke = new Effect(40, e => {
+//Charge effect for puver
+const puverCharge = new Effect(30, e => {
   Draw.color(Color.black, Color.white, e.fin());
-  Lines.stroke(e.fout() * 2);
-  Lines.circle(e.x, e.y, e.fin() * 10);
+  Lines.stroke(e.fin() * 2);
+  Lines.circle(e.x, e.y, e.fout() * 10);
 });
 
 //trail effect for the shot
@@ -23,14 +23,14 @@ const shotTrail = new Effect(10, e => {
 
 //effect when bullet breaks
 const shotHit = new Effect(40, e => {
-  Draw.color(Color.black, Color.orange, e.fin());
+  Draw.color(Color.white, Color.orange, e.fin());
   Lines.stroke(e.fout() * 2);
   Fill.circle(e.x, e.y, e.fin() * 7);
 });
 
 //frag effect
 const blast = new Effect(40, e => {
-  Draw.color(Color.black, Color.orange, e.fin());
+  Draw.color(Color.white, Color.orange, e.fin());
   Lines.stroke(e.fin() * 2);
   Lines.circle(e.x, e.y, e.fout() * 7);
 });
@@ -57,6 +57,11 @@ const puver = extendContent(PowerTurret, "puver", {
 puver.recoil = 1;
 puver.restitution = 0.015;
 puver.shootType = shot;
+chargeTime = 30;
+chargeEffects = 5;
+chargeMaxDelay = 10;
+chargeEffect = puverCharge;
+chargeBeginEffect = Fx.none;
 
 //stats of bullet shot by puver
 shot.damage = 15;
