@@ -8,11 +8,13 @@ const puverShoot = new Effect(30, e => {
 });
 
 //Charge effect for puver
+/*
 const puverCharge = new Effect(30, e => {
   Draw.color(Color.black, Color.white, e.fin());
   Lines.stroke(e.fin() * 2);
   Lines.circle(e.x, e.y, e.fout() * 10);
 });
+*/
 
 //trail effect for the shot
 const shotTrail = new Effect(10, e => {
@@ -42,7 +44,7 @@ const shot = extend(ArtilleryBulletType, {});
 const blastShot = extend(BasicBulletType, {});
 
 //extends off the puver hjson file
-const puver = extendContent(ChargeTurret, "puver", {
+const puver = extendContent(PowerTurret, "puver", {
   icons(){
     return [
       Core.atlas.find("block-2"),
@@ -57,11 +59,11 @@ const puver = extendContent(ChargeTurret, "puver", {
 puver.recoil = 1;
 puver.restitution = 0.015;
 puver.shootType = shot;
-chargeTime = 30;
-chargeEffects = 5;
-chargeMaxDelay = 10;
-chargeEffect = puverCharge;
-chargeBeginEffect = Fx.none;
+//chargeTime = 30;
+//chargeEffects = 5;
+//chargeMaxDelay = 10;
+//chargeEffect = puverCharge;
+//chargeBeginEffect = Fx.none;
 
 //stats of bullet shot by puver
 shot.damage = 15;
