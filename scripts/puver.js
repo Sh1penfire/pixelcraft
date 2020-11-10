@@ -1,42 +1,32 @@
 // Obligatory comment line for no reason at all
-/*
-const blastShot = extend(BasicBulletType, {
+
+const blastShot = extend(BasicBulletType, {});
 blastShot.damage = 3;
 blastShot.speed = 3;
 blastShot.lifetime = 35;
- });
-*/
+blastShot.knockback = 1;
+blastShot.collides = true;
+blastShot.collidesTiles = false;
+blastShot.hitEffect = Fx.none;
+blastShot.despawnEffect = Fx.none;
+blastShot.shootEffect = Fx.none;
+blastShot.smokeEffect = Fx.none;
 
-const puverShoot = newEffect(40, e => {
-Draw.color(Color.black, Color.orange, e.fin());
-Lines.stroke(e.fin() * 2);
-Lines.circle(e.x, e.y, e.fout() * 2);
+const puverShoot = new Effect(40, e => {
+  Draw.color(Color.black, Color.orange, e.fin());
+  Lines.stroke(e.fin() * 2);
+  Lines.circle(e.x, e.y, e.fout() * 2);
 });
 
-const puver = extendContent(PowerTurret, "Puver", {
-  generateIcons(){
-    return[
+const puver = extendContent(PowerTurret, "puver", {
+  icons(){
+    return [
       Core.atlas.find("block-3"),
       Core.atlas.find("pixelcraft-strand")
-    ]
+    ];
   }
-}
-puver.shootEffect = charge;
+});
+puver.shootEffect = puverShoot;
 puver.recoil = 1;
 puver.restitution = 0.015;
-puver.shootType = extend(BasicBulletType, {
-blastShot.damage = 3;
-blastShot.speed = 3;
-blastShot.lifetime = 35;
- });
-
-puver.shootType.damage = 15;
-puver.shootType.speed = 2;
-puver.shootType.lifetime = 50;
-puver.shootType.knockback = 1;
-puver.shootType.collides = true;
-puver.shootType.collidesTiles = false;
-puver.shootType.hitEffect = Fx.none;
-puver.shootType.despawnEffect = Fx.none;
-puver.shootType.shootEffect = Fx.none;
-puver.shootType.smokeEffect = Fx.none;
+puver.shootType = blastShot;
