@@ -1,11 +1,20 @@
 // Obligatory comment line for no reason at all
 
-//shoot effect of puver
+//shoot effect for puver
 const puverShoot = new Effect(40, e => {
   Draw.color(Color.black, Color.white, e.fin());
   Lines.stroke(e.fout() * 2);
   Lines.circle(e.x, e.y, e.fin() * 10);
 });
+
+//smoke effect for puver
+const puverShoot = new Effect(40, e => {
+  Draw.color(Color.black, Color.white, e.fin());
+  Lines.stroke(e.fout() * 2);
+  Draw.alpha(e.fout)
+  Fill.circle(e.x, e.y, e.fin() * 10);
+});
+
 
 //trail effect for the shot
 const shotTrail = new Effect(10, e => {
