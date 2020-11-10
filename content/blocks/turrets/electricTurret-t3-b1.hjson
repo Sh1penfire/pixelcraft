@@ -1,5 +1,5 @@
 localizedName: "Puver"
-description: "Puffs blasts of charged energy that frag off and launch enemies away."
+description: "Puffs blasts of charged energy that frag off and launch enemies away. \n I wonder how much sound this would make."
 size: 3
 range: 128
 health: 800
@@ -8,11 +8,10 @@ shots: 3
 shootEffect: none
 smokeEffect: none
 shootSound: release
-outlineIcon: true
 requirements: [
   iron/ 250
   magnitine/100
   feromagnet/75
 ]
 category: turret
-research: point
+research: electircTurret-t2

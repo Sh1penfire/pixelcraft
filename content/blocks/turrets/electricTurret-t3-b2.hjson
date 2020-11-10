@@ -1,15 +1,14 @@
 type: PowerTurret
 name: Panic
-description: The storm is here. An electric turret comparable to a minigunner, uses immense amounts of power to rain down many bullets at it's target. The bullets slightly home in and can knockback. (Must be controlled by a player or a processor)
+description: "The storm is here. An electric turret comparable to a minigunner, uses immense amounts of power to rain down many bullets at it's target. The bullets slightly home in and can knockback. Has insanely fast rotation speed."
 health: 220
 shootSound: spark
-rotationSpeed: 100
 size: 3
 reloadTime: 1
 range: 200
 shots: 2
 powerUse: 20
-rotateSpeed: 6
+rotateSpeed: 50
 shootYOffset: 10
 inaccuracy: 20
 spread: 5
@@ -30,11 +29,7 @@ shootType: {
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
 	despawnEffect: hitLancer
-	weaveScale: 1
-	weaveMag: 1
 	fragBullets: 3
-	fragMinVelocity: 3
-	fragMaxVelocity: 5
 	homing: true
 	homingRange: 100
 	homingPower: 1
@@ -49,17 +44,18 @@ shootType: {
 	frontColor: 86baf9
 	backColor: 86baf9
 	trailColor: 86baf9
-	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
 	despawnEffect: hitLancer
-	weaveScale: 1
-	weaveMag: 1
+	homing: true
+	homingRange: 100
+	homingPower: 1
 }
 }
 requirements: [
  iron/800
  magnitine/300
+ feromagnet/150
 ]
 category: turret
-research: point
+research: electircTurret-t2

@@ -9,7 +9,6 @@ shots: 3
 powerUse: 2
 rotateSpeed: 6
 ammoPerShot: 5
-shootYOffset: 10
 inaccuracy: 20
 spread: 5
 targetAir: true
@@ -32,8 +31,6 @@ shootType: {
 	weaveScale: 1
 	weaveMag: 1
 	fragBullets: 3
-	fragMinVelocity: 1
-	fragMaxVelocity: 3
 	status: melting
 	homing: true
 	homingRange: 8
@@ -50,8 +47,8 @@ shootType: {
 }
 }
 requirements: [
- iron/10
- magnitine/25
+ iron/35
+ magnitine/15
 ]
 category: turret
-research: magnitine-forgery
+research: basicTurret-t2

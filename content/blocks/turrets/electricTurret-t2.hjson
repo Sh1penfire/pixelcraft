@@ -8,12 +8,11 @@ inaccuracy: 25
 range: 400
 shots: 2
 powerUse: 2
-rotatespeed: 6
+rotateSpeed: 5
 chargeBeginEffect: hitBulletBig
 chargeEffect: lancerLaserCharge
 chargeTime: 50
 chargeMaxDelay: 50
-shootYOffset: 10
 inaccuracy: 0
 spread: 2
 targetAir: true
@@ -30,8 +29,6 @@ shootType: {
 	backColor: 86baf9
 	trailColor: 86baf9
 	fragBullets: 2
-	fragMinVelocity: 2
-	fragMaxVelocity: 5
 	hitEffect: hitLancer
 	despawnEffect: hitBulletSmall
 	fragBullet:{
@@ -66,8 +63,6 @@ shootType: {
 	despawnEffect: none
 	hitEffect: none
 	fragBullets: 1
-	fragMinVelocity: 6
-	fragMaxVelocity: 9
 	fragBullet: {
 	type: BasicBulletType
 	damage: 0
@@ -86,4 +81,4 @@ requirements: [
  graphite/75
 ]
 category: turret
-research: pace
+research: electricTurret-t1

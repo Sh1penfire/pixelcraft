@@ -9,12 +9,12 @@ range: 400
 shots: 3
 targetAir: false
 ammoUseEffect: casing4
-rotateSpeed: 6
+rotateSpeed: 4
 ammoPerShot: 2
 itemCapacity: 10
 ammoTypes: {
  titanium: {
-        type: BasicBulletType
+    type: BasicBulletType
 	speed: 32
 	damage: 25
 	width: 4
@@ -38,7 +38,7 @@ ammoTypes: {
 	frontColor: 56d7ca
 	backColor: 77b6b0
 	fragBullet: {
-        type: ArtilleryBulletType
+    type: ArtilleryBulletType
 	frontColor: 56d7ca
 	backColor: 77b6b0
 	damage: .25
@@ -54,7 +54,7 @@ ammoTypes: {
 	fragVelocityMin: .2
 	fragVelocityMax: .3
 	fragBullet: {
-        type: BasicBulletType
+    type: BasicBulletType
 	frontColor: 56d7ca
 	backColor: 77b6b0
 	damage: 5
@@ -66,11 +66,11 @@ ammoTypes: {
 	homingRange: 100
 	hitEffect: none
 	despawnEffect: none
-	fragBullets:1
+	fragBullets: 1
 	fragVelocityMin: .1
 	fragVelocityMax: .2
 	fragBullet: {
-        type: LiquidBulletType
+    type: LiquidBulletType
 	frontColor: 56d7ca
 	backColor: 77b6b0
 	damage: .25
@@ -89,7 +89,7 @@ ammoTypes: {
 	}
 }
  magnitine: {
-        type: BasicBulletType
+    type: BasicBulletType
 	speed: 32
 	damage: 100
 	width: 4
@@ -102,10 +102,8 @@ ammoTypes: {
 	reloadMultiplier: 1.5
 	lifetime: 15
 	fragBullets:100
-	fragVelocityMin: 1
-	fragVelocityMax: 4
 	fragBullet: {
-        type: BasicBulletType
+    type: BasicBulletType
 	frontColor: ffffff
 	backColor: ffffff
 	damage: .5
@@ -115,13 +113,11 @@ ammoTypes: {
 	hitEffect: hitBulletSmall
 	despawnEffect: none
 	lifetime: 10
-	fragBullets:2
-	fragVelocityMin: 1
-	fragVelocityMax: 2
+	fragBullets: 2
 	hitEffect: none
 	despawnEffect: none
 	fragBullet: {
-        type: BasicBulletType
+    type: BasicBulletType
 	frontColor: ffffff
 	backColor: ffffff
 	damage: 2.5
@@ -141,4 +137,4 @@ requirements: [
  titanium/70
 ]
 category: turret
-research: strand
+research: basicTurret-t1

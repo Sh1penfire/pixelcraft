@@ -163,9 +163,9 @@ liquid: oil
 optional: false
 }
 requirements: [    
-  iron/25
+  iron/15
   magnitine/70
   titanium/25
 ]
 category: turret
-research: strand
+research: basicTurret-t1
