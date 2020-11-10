@@ -1,19 +1,18 @@
 // Obligatory comment line for no reason at all
 
 //shoot effect for puver
-const puverShoot = new Effect(40, e => {
-  Draw.color(Color.black, Color.white, e.fin());
-  Lines.stroke(e.fout() * 2);
-  Lines.circle(e.x, e.y, e.fin() * 10);
-});
-
-//smoke effect for puver
-const puverSmoke = new Effect(30, e => {
+const puverShoot = new Effect(15, e => {
   Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fin());
   Draw.alpha(e.fin());
   Fill.circle(e.x, e.y, e.fin() * 5);
 });
 
+//smoke effect for puver
+const puverSmoke = new Effect(40, e => {
+  Draw.color(Color.black, Color.white, e.fin());
+  Lines.stroke(e.fout() * 2);
+  Lines.circle(e.x, e.y, e.fin() * 10);
+});
 
 //trail effect for the shot
 const shotTrail = new Effect(10, e => {
@@ -74,8 +73,8 @@ shot.collides = true;
 shot.collidesTiles = true;
 shot.hitEffect = shotHit;
 shot.despawnEffect = Fx.none;
-shot.shootEffect = puverSmoke;
-shot.smokeEffect = puverShoot;
+shot.shootEffect = puverShoot;
+//shot.smokeEffect = puverSmoke;
 shot.trailEffect = shotTrail; 
 
 //now stats of frag bullet
