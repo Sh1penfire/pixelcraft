@@ -81,9 +81,9 @@ shootType: {
 }
 }
 requirements: [
- pixelite/25
- magnitine/60
  iron/75
+ magnitine/60
+ graphite/75
 ]
 category: turret
 research: pace
