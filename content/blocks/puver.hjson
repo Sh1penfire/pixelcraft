@@ -1,3 +1,4 @@
+type: powerTurret
 localizedName: "Puver"
 description: "Shoots blasts of charged energy that launch enemies away."
 size: 3
