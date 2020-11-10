@@ -1,4 +1,11 @@
 // Obligatory comment line for no reason at all
+
+const puverShoot = new Effect(40, e => {
+  Draw.color(Color.black, Color.orange, e.fin());
+  Lines.stroke(e.fin() * 2);
+  Lines.circle(e.x, e.y, e.fout() * 2);
+});
+
 const blastShot = extend(BasicBulletType, {});
 blastShot.damage = 3;
 blastShot.speed = 3;
@@ -11,11 +18,6 @@ blastShot.despawnEffect = Fx.none;
 blastShot.shootEffect = Fx.puverShoot;
 blastShot.smokeEffect = Fx.none;
 
-const puverShoot = new Effect(40, e => {
-  Draw.color(Color.black, Color.orange, e.fin());
-  Lines.stroke(e.fin() * 2);
-  Lines.circle(e.x, e.y, e.fout() * 2);
-});
 
 const puver = extendContent(PowerTurret, "puver", {
   icons(){
