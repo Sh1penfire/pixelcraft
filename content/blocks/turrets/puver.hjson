@@ -1,6 +1,6 @@
 localizedName: "Puver"
 description: "Puffs blasts of charged energy that frag off and launch enemies away. \n I wonder how much sound this would make."
-size: 3
+size: 2
 range: 128
 health: 800
 reloadTime: 50
