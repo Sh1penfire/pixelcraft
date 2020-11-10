@@ -35,7 +35,7 @@ const shot = extend(ArtilleryBulletType, {});
 const blastShot = extend(BasicBulletType, {});
 
 //extends off the puver hjson file
-const electricTurret-t3-b2 = extendContent(PowerTurret, "electricTurret-t3-b2", {
+const electricTurret-t3-b2 = extendContent(PowerTurret, "puver {
   icons(){
     return [
       Core.atlas.find("block-3"),
@@ -47,9 +47,9 @@ const electricTurret-t3-b2 = extendContent(PowerTurret, "electricTurret-t3-b2", 
 //givving things stats
 
 //givving puver it's stats (Some are predefined in the puver.hjson file
-electricTurret-t3-b2.recoil = 1;
-electricTurret-t3-b2.restitution = 0.015;
-electricTurret-t3-b2.shootType = shot;
+puver.recoil = 1;
+puver.restitution = 0.015;
+puver.shootType = shot;
 
 //stats of bullet shot by puver
 shot.damage = 15;
