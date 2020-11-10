@@ -9,9 +9,9 @@ const puverShoot = new Effect(40, e => {
 
 //smoke effect for puver
 const puverSmoke = new Effect(30, e => {
-  Draw.color(Color.blue, Color.cyan, e.fin());
+  Draw.color(Color.blue, Color.white, e.fin());
   Lines.stroke(e.fout() * 2);
-  Draw.alpha(e.fout)
+  Draw.alpha(e.fin)
   Fill.circle(e.x, e.y, e.fin() * 10);
 });
 
