@@ -8,8 +8,8 @@ const puverShoot = new Effect(40, e => {
 });
 
 //smoke effect for puver
-const puverShoot = new Effect(40, e => {
-  Draw.color(Color.black, Color.white, e.fin());
+const puverSmoke = new Effect(30, e => {
+  Draw.color(Color.blue, Color.cyan, e.fin());
   Lines.stroke(e.fout() * 2);
   Draw.alpha(e.fout)
   Fill.circle(e.x, e.y, e.fin() * 10);
@@ -76,7 +76,7 @@ shot.collidesTiles = true;
 shot.hitEffect = shotHit;
 shot.despawnEffect = Fx.none;
 shot.shootEffect = puverShoot;
-shot.smokeEffect = Fx.none;
+shot.smokeEffect = puverSmoke;
 shot.trailEffect = shotTrail; 
 
 //now stats of frag bullet
