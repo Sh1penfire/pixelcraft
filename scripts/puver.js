@@ -46,7 +46,7 @@ const blastShot = extend(BasicBulletType, {});
 const puver = extendContent(PowerTurret, "puver", {
   icons(){
     return [
-      Core.atlas.find("block-3"),
+      Core.atlas.find("block-2"),
       Core.atlas.find("pixelcraft-puver")
     ];
   }
