@@ -1,0 +1,50 @@
+type: MinerUnit
+name: "Capsule"
+description: "Contains an ai that can transport itself into other mechinisms that allow it to."
+flying: true
+speed: 6
+accel: 0.02
+drag: 0.05
+health: 300
+aimDst: 10
+range: 50
+maxRange: 200
+buildSpeed: 3
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 3
+mineSpeed: 8
+range: 100
+rotateSpeed: 7
+lowAltitude: false
+omniMovement: true
+canDrown: false
+weapons: [ 
+{
+name: heal-weapon
+reload: 5
+alternate: false
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1
+y: -.5
+rotate: false
+occlusion: 0
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+type: BasicBulletType
+damage: 0
+speed: 2
+width: 5
+height: 8
+lifetime: 60
+pierce: true
+knockback: 4
+hitSound: none
+healPercent: 2
+collidesTeam: true
+}
+}]

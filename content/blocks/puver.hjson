@@ -1,9 +1,10 @@
 localizedName: "Puver"
-description: "Shoots blasts of charged energy that launch enemies away."
+description: "Puffs blasts of charged energy that frag off and launch enemies away."
 size: 3
 range: 128
 health: 800
-reload: 125
+reloadTime: 50
+shots: 3
 shootEffect: none
 smokeEffect: none
 shootSound: release

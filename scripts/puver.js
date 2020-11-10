@@ -1,42 +1,85 @@
 // Obligatory comment line for no reason at all
-/*
-const blastShot = extend(BasicBulletType, {
-blastShot.damage = 3;
-blastShot.speed = 3;
-blastShot.lifetime = 35;
- });
-*/
 
-const puverShoot = newEffect(40, e => {
-Draw.color(Color.black, Color.orange, e.fin());
-Lines.stroke(e.fin() * 2);
-Lines.circle(e.x, e.y, e.fout() * 2);
+//shoot effect of puver
+const puverShoot = new Effect(40, e => {
+  Draw.color(Color.black, Color.white, e.fin());
+  Lines.stroke(e.fout() * 2);
+  Lines.circle(e.x, e.y, e.fin() * 10);
 });
 
-const puver = extendContent(PowerTurret, "Puver", {
-  generateIcons(){
-    return[
+//trail effect for the shot
+const shotTrail = new Effect(10, e => {
+  Draw.color(Color.black, Color.white, e.fin());
+  Lines.stroke(e.fout() * 2);
+  Lines.circle(e.x, e.y, e.fin() * 4);
+});
+
+//effect when bullet breaks
+const shotHit = new Effect(40, e => {
+  Draw.color(Color.black, Color.orange, e.fin());
+  Lines.stroke(e.fout() * 2);
+  Fill.circle(e.x, e.y, e.fin() * 7);
+});
+
+//frag effect
+const blast = new Effect(40, e => {
+  Draw.color(Color.black, Color.orange, e.fin());
+  Lines.stroke(e.fin() * 2);
+  Lines.circle(e.x, e.y, e.fout() * 7);
+});
+
+//makes the shot of puver
+const shot = extend(ArtilleryBulletType, {});
+
+//makes frag bullets
+const blastShot = extend(BasicBulletType, {});
+
+//extends off the puver hjson file
+const puver = extendContent(PowerTurret, "puver", {
+  icons(){
+    return [
       Core.atlas.find("block-3"),
       Core.atlas.find("pixelcraft-strand")
-    ]
+    ];
   }
-}
-puver.shootEffect = charge;
+});
+
+//givving things stats
+
+//givving puver it's stats (Some are predefined in the puver.hjson file
 puver.recoil = 1;
 puver.restitution = 0.015;
-puver.shootType = extend(BasicBulletType, {
-blastShot.damage = 3;
+puver.shootType = shot;
+
+//stats of bullet shot by puver
+shot.damage = 15;
+shot.splashDamage = 15;
+shot.splashDamageRadius = 24;
+shot.speed = 3;
+shot.lifetime = 35;
+shot.knockback = 5;
+shot.width = 3;
+shot.height = 5;
+shot.fragBullets = 5;
+shot.fragBullet = blastShot;
+shot.collides = true;
+shot.collidesTiles = true;
+shot.hitEffect = shotHit;
+shot.despawnEffect = Fx.none;
+shot.shootEffect = puverShoot;
+shot.smokeEffect = Fx.none;
+shot.trailEffect = shotTrail; 
+
+//now stats of frag bullet
+blastShot.damage = 5;
 blastShot.speed = 3;
 blastShot.lifetime = 35;
- });
-
-puver.shootType.damage = 15;
-puver.shootType.speed = 2;
-puver.shootType.lifetime = 50;
-puver.shootType.knockback = 1;
-puver.shootType.collides = true;
-puver.shootType.collidesTiles = false;
-puver.shootType.hitEffect = Fx.none;
-puver.shootType.despawnEffect = Fx.none;
-puver.shootType.shootEffect = Fx.none;
-puver.shootType.smokeEffect = Fx.none;
+blastShot.knockback = 5;
+blastShot.width = 3;
+blastShot.height = 5;
+blastShot.collides = true;
+blastShot.collidesTiles = true;
+blastShot.hitEffect = blast;
+blastShot.despawnEffect = blast;
+blastShot.shootEffect = puverShoot;
+blastShot.smokeEffect = Fx.none;
