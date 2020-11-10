@@ -56,7 +56,7 @@ shot.fragBullet = blastShot;
 shot.collides = true;
 shot.collidesTiles = true;
 shot.hitEffect = shotHit;
-shot.despawnEffect = FX.none;
+shot.despawnEffect = Fx.none;
 shot.shootEffect = puverShoot;
 shot.smokeEffect = Fx.none;
 
