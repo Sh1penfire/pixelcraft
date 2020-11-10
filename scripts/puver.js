@@ -6,19 +6,6 @@ const puverShoot = new Effect(40, e => {
   Lines.circle(e.x, e.y, e.fout() * 2);
 });
 
-const blastShot = extend(BasicBulletType, {});
-blastShot.damage = 3;
-blastShot.speed = 3;
-blastShot.lifetime = 35;
-blastShot.knockback = 1;
-blastShot.collides = true;
-blastShot.collidesTiles = false;
-blastShot.hitEffect = Fx.none;
-blastShot.despawnEffect = Fx.none;
-blastShot.shootEffect = Fx.puverShoot;
-blastShot.smokeEffect = Fx.none;
-
-
 const puver = extendContent(PowerTurret, "puver", {
   icons(){
     return [
@@ -30,3 +17,15 @@ const puver = extendContent(PowerTurret, "puver", {
 puver.recoil = 1;
 puver.restitution = 0.015;
 puver.shootType = blastShot;
+
+const blastShot = extend(BasicBulletType, {});
+blastShot.damage = 3;
+blastShot.speed = 3;
+blastShot.lifetime = 35;
+blastShot.knockback = 1;
+blastShot.collides = true;
+blastShot.collidesTiles = false;
+blastShot.hitEffect = Fx.none;
+blastShot.despawnEffect = Fx.none;
+blastShot.shootEffect = Fx.puverShoot;
+blastShot.smokeEffect = Fx.none;
