@@ -1,12 +1,9 @@
 // Obligatory comment line for no reason at all
-
-});
-//then put the bullets after the effects so they load before the turret
 const blastShot = extend(BasicBulletType, {});
 blastShot.damage = 3;
 blastShot.speed = 3;
 blastShot.lifetime = 35;
-blastShot.knockback = 99999999999999999999999999999999999999999999999999999;
+blastShot.knockback = 1;
 blastShot.collides = true;
 blastShot.collidesTiles = false;
 blastShot.hitEffect = Fx.none;
@@ -14,13 +11,12 @@ blastShot.despawnEffect = Fx.none;
 blastShot.shootEffect = Fx.puverShoot;
 blastShot.smokeEffect = Fx.none;
 
-//Put effects at the top of the script so they load in first.
 const puverShoot = new Effect(40, e => {
-    Draw.color( Color.white, Color.black, e.fout());
-    Lines.stroke(e.fin() *2); 
-    Lines.circle(e.x, e.y, e.fout() * 25 * Mathf.random()); 
+  Draw.color(Color.black, Color.orange, e.fin());
+  Lines.stroke(e.fin() * 2);
+  Lines.circle(e.x, e.y, e.fout() * 2);
+});
 
-//then laod the turret
 const puver = extendContent(PowerTurret, "puver", {
   icons(){
     return [
