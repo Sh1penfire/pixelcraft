@@ -35,7 +35,7 @@ const shot = extend(ArtilleryBulletType, {});
 const blastShot = extend(BasicBulletType, {});
 
 //extends off the puver hjson file
-const puver = extendContent(PowerTurret, "puver" {
+const puver = extendContent(PowerTurret, "puver", {
   icons(){
     return [
       Core.atlas.find("block-3"),
