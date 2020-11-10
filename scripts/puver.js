@@ -6,6 +6,9 @@ const puverShoot = new Effect(40, e => {
   Lines.circle(e.x, e.y, e.fout() * 2);
 });
 
+
+const blastShot = extend(BasicBulletType, {});
+
 const puver = extendContent(PowerTurret, "puver", {
   icons(){
     return [
@@ -18,7 +21,6 @@ puver.recoil = 1;
 puver.restitution = 0.015;
 puver.shootType = blastShot;
 
-const blastShot = extend(BasicBulletType, {});
 blastShot.damage = 3;
 blastShot.speed = 3;
 blastShot.lifetime = 35;
