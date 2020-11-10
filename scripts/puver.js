@@ -27,5 +27,5 @@ blastShot.collides = true;
 blastShot.collidesTiles = false;
 blastShot.hitEffect = Fx.none;
 blastShot.despawnEffect = Fx.none;
-blastShot.shootEffect = Fx.puverShoot;
+blastShot.shootEffect = puverShoot;
 blastShot.smokeEffect = Fx.none;
