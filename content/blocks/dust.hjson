@@ -29,8 +29,8 @@ splashDamageRadius: 100
 fragBullet:{
 damage: 5
 knockback: 4
-lifetime: 150
-splashDamage: 5
+lifetime: 125
+splashDamage: 2
 splashDamageRadius: 8
 hitEffect: none
 despawnEffect: none
