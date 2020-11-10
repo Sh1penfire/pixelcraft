@@ -13,9 +13,9 @@ blastShot.shootEffect = Fx.none;
 blastShot.smokeEffect = Fx.none;
 
 const puverShoot = new Effect(40, e => {
-  Draw.color(Color.black, Color.orange, e.fin());
-  Lines.stroke(e.fin() * 2);
-  Lines.circle(e.x, e.y, e.fout() * 2);
+    Draw.color( Color.white, Color.black, e.fout());
+    Lines.stroke(e.fin() *2); 
+    Lines.circle(e.x, e.y, e.fout() * 25 * Mathf.random()); 
 });
 
 const puver = extendContent(PowerTurret, "puver", {
