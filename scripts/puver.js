@@ -9,7 +9,7 @@ blastShot.collides = true;
 blastShot.collidesTiles = false;
 blastShot.hitEffect = Fx.none;
 blastShot.despawnEffect = Fx.none;
-blastShot.shootEffect = Fx.none;
+blastShot.shootEffect = Fx.puverShoot;
 blastShot.smokeEffect = Fx.none;
 
 const puverShoot = new Effect(40, e => {
@@ -26,7 +26,6 @@ const puver = extendContent(PowerTurret, "puver", {
     ];
   }
 });
-puver.shootEffect = puverShoot;
 puver.recoil = 1;
 puver.restitution = 0.015;
 puver.shootType = blastShot;
