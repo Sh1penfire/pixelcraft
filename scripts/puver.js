@@ -2,9 +2,9 @@
 
 //shoot effect for puver
 const puverShoot = new Effect(30, e => {
-  Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fin());
+  Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
   Draw.alpha(e.fin());
-  Fill.circle(e.x, e.y, e.fin() * 5);
+  Fill.circle(e.x, e.y, e.fslope() * 5);
 });
 
 //Charge effect for puver
@@ -42,6 +42,20 @@ const shot = extend(ArtilleryBulletType, {});
 
 //makes frag bullets
 const blastShot = extend(BasicBulletType, {});
+
+const ionisedStatusFX = new Effect(24, e => {
+Draw.color(Color.white, Color.black, e.fin());
+Lines.stroke(e.fin() * 1);
+Lines.circle(e.x, e.y, e.fslope() * 5);
+});
+
+const ionisedStatus = extendContent(StatusEffect, "ionisedStatus", {});
+
+ionisedStatus.speedMultiplier = 0.5;
+ionisedStatus.armorMultiplier = 0.5;
+ionisedStatus.damage = .2;
+ionisedStatus.effect = ionisedStatusFX;
+ionisedStatus.color  = Color.white;
 
 //extends off the puver hjson file
 const puver = extendContent(PowerTurret, "puver", {
@@ -88,7 +102,7 @@ shot.trailEffect = shotTrail;
 blastShot.damage = 5;
 blastShot.speed = 3;
 blastShot.lifetime = 35;
-blastShot.knockback = 5;
+blastShot.knockback = 2;
 blastShot.width = 3;
 blastShot.height = 5;
 blastShot.collides = true;
@@ -97,3 +111,4 @@ blastShot.hitEffect = blast;
 blastShot.despawnEffect = blast;
 blastShot.shootEffect = puverShoot;
 blastShot.smokeEffect = Fx.smokeCloud;
+blastShot.status = ionisedStatus;
