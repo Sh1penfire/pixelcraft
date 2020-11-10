@@ -7,6 +7,13 @@ const puverShoot = new Effect(40, e => {
   Lines.circle(e.x, e.y, e.fin() * 10);
 });
 
+//trail effect for the shot
+const shotTrail = new Effect(10, e => {
+  Draw.color(Color.black, Color.white, e.fin());
+  Lines.stroke(e.fout() * 2);
+  Lines.circle(e.x, e.y, e.fin() * 4);
+});
+
 //effect when bullet breaks
 const shotHit = new Effect(40, e => {
   Draw.color(Color.black, Color.orange, e.fin());
@@ -22,7 +29,7 @@ const blast = new Effect(40, e => {
 });
 
 //makes the shot of puver
-const shot = extend(BasicBulletType, {});
+const shot = extend(ArtilleryBulletType, {});
 
 //makes frag bullets
 const blastShot = extend(BasicBulletType, {});
@@ -46,6 +53,8 @@ puver.shootType = shot;
 
 //stats of bullet shot by puver
 shot.damage = 15;
+shot.splashDamage = 15;
+shot.splashDamageRadius = 24;
 shot.speed = 3;
 shot.lifetime = 35;
 shot.knockback = 5;
@@ -59,6 +68,7 @@ shot.hitEffect = shotHit;
 shot.despawnEffect = Fx.none;
 shot.shootEffect = puverShoot;
 shot.smokeEffect = Fx.none;
+shot.trailEffect = shotTrail; 
 
 //now stats of frag bullet
 blastShot.damage = 5;
