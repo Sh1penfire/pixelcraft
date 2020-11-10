@@ -25,17 +25,18 @@ colides: false
 fragBullets: 25
 hitEffect: none
 despawnEffect: none
-splashDamage: 25
+splashDamage: 10
 splashDamageRadius: 100
 fragBullet:{
 damage: 5
-lifetime: 75
+lifetime: 150
 splashDamage: 5
 splashDamageRadius: 8
 hitEffect: none
 despawnEffect: none
 status: unmoving
 statusDuration: 20
+shrinkY: 1
 }
 }
 }
