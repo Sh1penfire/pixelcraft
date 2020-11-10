@@ -20,7 +20,6 @@ height: 9
 shootEffect: none
 smokeEffect: none
 lifetime: 1
-knockback: 4
 colides: false
 fragBullets: 25
 hitEffect: none
@@ -29,12 +28,13 @@ splashDamage: 10
 splashDamageRadius: 100
 fragBullet:{
 damage: 5
+knockback: 4
 lifetime: 150
 splashDamage: 5
 splashDamageRadius: 8
 hitEffect: none
 despawnEffect: none
-status: unmoving
+status: slow
 statusDuration: 20
 shrinkY: 1
 }
