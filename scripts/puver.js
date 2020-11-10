@@ -39,7 +39,7 @@ const puver = extendContent(PowerTurret, "puver" {
   icons(){
     return [
       Core.atlas.find("block-3"),
-      Core.atlas.find("pixelcraft-strand")
+      Core.atlas.find("pixelcraft-basicTurret-t1")
     ];
   }
 });
