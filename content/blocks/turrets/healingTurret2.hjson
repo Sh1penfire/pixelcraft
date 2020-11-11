@@ -7,7 +7,7 @@ reloadTime: 5
 shots: 1
 shootEffect: none
 smokeEffect: none
-shootSound: release
+shootSound: pew
 outlineIcon: true
 requirements: [
   iron/ 250
