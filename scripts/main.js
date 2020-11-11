@@ -1,2 +1,2 @@
 require("puver");
-require("healed");
+require("beat");
