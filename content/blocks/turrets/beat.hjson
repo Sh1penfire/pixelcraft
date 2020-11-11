@@ -1,5 +1,5 @@
 localizedName: "Beat"
-description: "Propells beems of energy that repear blocks. Does this at a long range but is a bit innacurate. Has a huge chunk of health."
+description: "Propells beems of energy that do heavy damage and overload target curcietery."
 size: 2
 range: 220
 health: 1000
@@ -13,6 +13,8 @@ outlineIcon: true
 requirements: [
   iron/ 250
   magnitine/150
+  titanium/75
+  feromagnet/50
 ]
 category: turret
-research: healingTurret-t1
+research: puver
