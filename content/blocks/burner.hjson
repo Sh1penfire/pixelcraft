@@ -1,0 +1,17 @@
+type: PowerGenerator
+name: Ancient Decay Generator
+description: "Burns items for fuel"
+health: 125
+size: 1
+powerProduction: 2
+hasItems: true
+itemCapacity: 10
+itemDuration: 60
+generateEffect: smelt
+heatColor: 66a8ff
+minItemEfficiency: 0.1
+requirements: [
+  iron/25
+]
+category: power
+research: shiny-beacon
