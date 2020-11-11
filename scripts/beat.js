@@ -4,14 +4,14 @@
 const beatShoot = new Effect(30, e => {
   Draw.color(Color.valueOf("05700b"), Color.valueOf("acfbb0"), e.fin());
   Lines.stroke(e.fout()*2);
-  Lines.circle(e.x, e.y, e.fin() * 4);
+  Lines.circle(e.x, e.y, e.fin() * 10);
 });
 
 //effect when bullet hits a target
 const shotHit = new Effect(20, e => {
   Draw.color(Color.valueOf("05700b"), Color.valueOf("acfbb0"), e.fin());
   Lines.stroke(e.fout()*1);
-  Lines.circle(e.x, e.y, e.fin() * 3);
+  Lines.circle(e.x, e.y, e.fin() * 12.5);
 });
 
 
@@ -19,10 +19,9 @@ const shotHit = new Effect(20, e => {
 const shot = extend(LaserBoltBulletType, {});
         
 //make effects of overload
-const overloadFX = new Effect(10, e => {
+const overloadFX = new Effect(40, e => {
 Draw.color(Color.yellow, Color.white, e.fin());
-Draw.alpha(e.fout());
-Fill.circle(e.x, e.y, e.fslope() * 2);
+Fill.circle(e.x, e.y, e.fslope() * 6);
 });
 
 const overload = extendContent(StatusEffect, "overload", {});
@@ -64,3 +63,5 @@ shot.despawnEffect = Fx.none;
 shot.shootEffect = beatShoot;
 shot.status = overload;
 shot.healPercent = 2;
+shot.frontColor = 05700b;
+shot.backColor = 05700b;
