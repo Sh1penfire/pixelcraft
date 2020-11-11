@@ -63,5 +63,7 @@ shot.despawnEffect = Fx.none;
 shot.shootEffect = beatShoot;
 shot.status = overload;
 shot.healPercent = 2;
+/*
 shot.frontColor = 05700b;
 shot.backColor = 05700b;
+*/
