@@ -58,6 +58,7 @@ shot.lifetime = 50;
 shot.knockback = 0;
 shot.width = 2;
 shot.height = 4;
+shot.shootSound = pew;
 shot.collides = true;
 shot.collidesTiles = true;
 shot.hitEffect = shotHit;
@@ -65,6 +66,7 @@ shot.despawnEffect = beatShoot
 shot.shootEffect = beatShoot;
 shot.status = overload;
 shot.statusDuration = 300;
+shot.pierce = true;
 shot.healPercent = 2;
 
 /*
