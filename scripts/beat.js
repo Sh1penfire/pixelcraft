@@ -61,3 +61,4 @@ shot.collidesTiles = true;
 shot.hitEffect = shotHit;
 shot.despawnEffect = Fx.none;
 shot.shootEffect = beatShoot;
+shot.status = healed;
