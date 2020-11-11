@@ -21,7 +21,7 @@ const shot = extend(LaserBoltBulletType, {});
 //make effects of overload
 const overloadFX = new Effect(10, e => {
 Draw.color(Color.yellow, Color.white, e.fin());
-Fil.alpha(e.fout());
+Fill.alpha(e.fout());
 Fill.circle(e.x, e.y, e.fslope() * 2);
 });
 
