@@ -17,20 +17,21 @@ const shotHit = new Effect(20, e => {
 
 //makes the shot of beat
 const shot = extend(LaserBoltBulletType, {});
-                                               
-const healedStatusFX = new Effect(10, e => {
-Draw.color(Color.yellow, Color.green, e.fin());
-Lines.stroke(e.fin() * 1);
-Lines.circle(e.x, e.y, e.fslope() * 5);
+        
+//make effects of overload
+const overloadFX = new Effect(10, e => {
+Draw.color(Color.yellow, Color.white, e.fin());
+Fil.alpha(e.fout());
+Fill.circle(e.x, e.y, e.fslope() * 2);
 });
 
-const healed = extendContent(StatusEffect, "healed", {});
+const overload = extendContent(StatusEffect, "overload", {});
 
-healed.speedMultiplier = 1.2;
-healed.armorMultiplier = 0.75;
-healed.damage = -1.0;
-healed.effect = healedStatusFX;
-healed.color  = Color.green;
+overload.speedMultiplier = .8;
+overload.armorMultiplier = 0.9;
+overload.damage = 0.2;
+overload.effect = overloadFX;
+overload.color  = Color.green;
 
 //extends off the beat hjson file
 const beat = extendContent(PowerTurret, "beat", {
@@ -49,16 +50,17 @@ beat.recoil = 1;
 beat.restitution = 0.015;
 beat.shootType = shot;
 
-//stats of bullet shot by puver
-shot.damage = 25;
+//stats of bullet shot by beat
+shot.damage = 5;
 shot.speed = 5;
 shot.lifetime = 50;
 shot.knockback = 2;
-shot.width = 5;
-shot.height = 6;
+shot.width = 2;
+shot.height = 4;
 shot.collides = true;
 shot.collidesTiles = true;
 shot.hitEffect = shotHit;
 shot.despawnEffect = Fx.none;
 shot.shootEffect = beatShoot;
-shot.status = healed;
+shot.status = overload;
+shot.healPercent = 2;
