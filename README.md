@@ -1,7 +1,9 @@
 # Pixelcraft
 A v6 mod for mindustry
 This mod aims to expand mindustry's content by adding a new tech tree, adding upgraded versions of existinc blocks and more.
-This mod adds new resources, new turrets and new zones as well as slight tweaks to vanilla. 17 new building blocks to play with, one environmental block, two ores and 4 items with moree to come.
+This mod adds new resources, new turrets and new zones as well as slight tweaks to vanilla. 20 new building blocks to play with, one environmental block, two ores and 5 items with moree to come.
+
+note: only for 12.1 untill further notice as porting units over to 13.2 requres a bit of time.
 
 Guide to turrets:
 
