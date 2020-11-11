@@ -1,10 +1,11 @@
 localizedName: "Beat"
 description: "Propells beems of energy that repear blocks. Does this at a long range but is a bit innacurate. Has a huge chunk of health."
 size: 2
-range: 150
+range: 220
 health: 1000
-reloadTime: 75
-shots: 4
+inaccuracy: 7.5
+reloadTime: 5
+shots: 1
 shootEffect: none
 smokeEffect: none
 shootSound: release
