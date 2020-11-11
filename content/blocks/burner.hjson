@@ -1,9 +1,9 @@
-type: PowerGenerator
-name: Ancient Decay Generator
+type: ItemLiquidGenerator 
+name: burner
 description: "Burns items for fuel"
 health: 125
 size: 1
-powerProduction: 2
+powerProduction: .75
 hasItems: true
 itemCapacity: 10
 itemDuration: 60
