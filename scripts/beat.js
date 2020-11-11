@@ -16,7 +16,7 @@ const shotHit = new Effect(20, e => {
 
 
 //makes the shot of beat
-const beatShot = extend(LaserBoltBulletType, {});
+const shot = extend(LaserBoltBulletType, {});
                                                
 const healedStatusFX = new Effect(10, e => {
 Draw.color(Color.yellow, Color.green, e.fin());
