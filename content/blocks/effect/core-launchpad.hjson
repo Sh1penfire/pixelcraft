@@ -1,10 +1,10 @@
 type: CoreBlock
 name: "Core launchpad"
-description: "Custom core for custom gamemode (No build, no units)"
+description: "Custom core for custom gamemode (No build, unit attack"
 health: 10000
-itemCapacity: 7000
+itemCapacity: 1000000
 size: 2
-unitCapModifier: 0
+unitCapModifier: 20
 unitType: capsule
 requirements: [
   iron/3000
