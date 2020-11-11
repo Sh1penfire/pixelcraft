@@ -1,15 +1,15 @@
                                                       
-const healedStatusFX = newEffect(24, e => {
+const healedStatusFX = new Effect(10, e => {
 Draw.color(Color.yellow, Color.green, e.fin());
 Lines.stroke(e.fin() * 1);
-Lines.circle(e.x, e.y, e.fslope() * 1);
+Lines.circle(e.x, e.y, e.fslope() * 5);
 });
 
-const healedStatus = extendContent(StatusEffect, "healed", {});
+const healed = extendContent(StatusEffect, "healed", {});
 
-healedStatus.speedMultiplier = 2;
-healedStatus.armorMultiplier = 0.5;
-healedStatus.damage = -1.0;
-healedStatus.effect = healedStatusFX;
-healedStatus.color  = Color.green;
+healed.speedMultiplier = 2;
+healed.armorMultiplier = 0.5;
+healed.damage = -1.0;
+healed.effect = healedStatusFX;
+healed.color  = Color.green;
       
