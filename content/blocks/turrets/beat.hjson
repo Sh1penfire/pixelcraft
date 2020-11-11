@@ -1,0 +1,17 @@
+localizedName: "Beat"
+description: "Propells beems of energy that repear blocks. Does this at a long range but is a bit innacurate. Has a huge chunk of health."
+size: 2
+range: 150
+health: 1000
+reloadTime: 75
+shots: 4
+shootEffect: none
+smokeEffect: none
+shootSound: release
+outlineIcon: true
+requirements: [
+  iron/ 250
+  magnitine/150
+]
+category: turret
+research: healingTurret-t1
