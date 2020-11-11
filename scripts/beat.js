@@ -33,11 +33,11 @@ overload.effect = overloadFX;
 overload.color  = Color.green;
 
 //extends off the beat hjson file
-const healingTurret2 = extendContent(PowerTurret, "beat", {
+const beat = extendContent(PowerTurret, "healingTurret2", {
   icons(){
     return [
       Core.atlas.find("block-2"),
-      Core.atlas.find("pixelcraft-beat")
+      Core.atlas.find("pixelcraft-healingTurret2")
     ];
   }
 });

@@ -62,7 +62,7 @@ const puver = extendContent(PowerTurret, "electricTurret3b1", {
   icons(){
     return [
       Core.atlas.find("block-2"),
-      Core.atlas.find("pixelcraft-puver")
+      Core.atlas.find("pixelcraft-electricTurret3b1")
     ];
   }
 });
