@@ -26,9 +26,9 @@ Fill.circle(e.x, e.y, e.fslope() * 6);
 
 const overload = extendContent(StatusEffect, "overload", {});
 
-overload.speedMultiplier = 2;
-overload.armorMultiplier = 0.6;
-overload.damage = 0.9;
+overload.speedMultiplier = 1.5;
+overload.armorMultiplier = 1.1;
+overload.damage = 0.0;
 overload.effect = overloadFX;
 overload.color  = Color.green;
 
@@ -44,16 +44,18 @@ const beat = extendContent(PowerTurret, "healingTurret2", {
 
 //givving things stats
 
-//givving beat it's stats (Some are predefined in the puver.hjson file
+//givving beat it's stats (Some are predefined in the beat.hjson file
 beat.recoil = 1;
 beat.restitution = 0.015;
 beat.shootType = shot;
+beat.targetAir = false;
+beat.targetGround = false;
 
 //stats of bullet shot by beat
-shot.damage = 5;
+shot.damage = 0;
 shot.speed = 5;
 shot.lifetime = 50;
-shot.knockback = 2;
+shot.knockback = 0;
 shot.width = 2;
 shot.height = 4;
 shot.collides = true;
@@ -62,7 +64,9 @@ shot.hitEffect = shotHit;
 shot.despawnEffect = beatShoot
 shot.shootEffect = beatShoot;
 shot.status = overload;
+shot.statusDuration = 300;
 shot.healPercent = 2;
+
 /*
 shot.frontColor = 05700b;
 shot.backColor = 05700b;
