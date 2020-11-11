@@ -26,7 +26,7 @@ Fill.circle(e.x, e.y, e.fslope() * 6);
 
 const overload = extendContent(StatusEffect, "overload", {});
 
-overload.speedMultiplier = 1.5;
+overload.speedMultiplier = 1.3;
 overload.armorMultiplier = 1.1;
 overload.damage = 0.0;
 overload.effect = overloadFX;
@@ -64,7 +64,7 @@ shot.hitEffect = shotHit;
 shot.despawnEffect = beatShoot
 shot.shootEffect = beatShoot;
 shot.status = overload;
-shot.statusDuration = 300;
+shot.statusDuration = 900;
 shot.pierce = true;
 shot.healPercent = 2;
 
