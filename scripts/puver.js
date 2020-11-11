@@ -58,7 +58,7 @@ ionisedStatus.effect = ionisedStatusFX;
 ionisedStatus.color  = Color.white;
 
 //extends off the puver hjson file
-const puver = extendContent(PowerTurret, "puver", {
+const electricTurret3b1 = extendContent(PowerTurret, "puver", {
   icons(){
     return [
       Core.atlas.find("block-2"),

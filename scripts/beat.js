@@ -33,7 +33,7 @@ overload.effect = overloadFX;
 overload.color  = Color.green;
 
 //extends off the beat hjson file
-const beat = extendContent(PowerTurret, "beat", {
+const healingTurret2 = extendContent(PowerTurret, "beat", {
   icons(){
     return [
       Core.atlas.find("block-2"),
