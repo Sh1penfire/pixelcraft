@@ -38,7 +38,7 @@ const beat = extendContent(PowerTurret, "beat", {
   icons(){
     return [
       Core.atlas.find("block-2"),
-      Core.atlas.find("pixelcraft-puver")
+      Core.atlas.find("pixelcraft-beat")
     ];
   }
 });
