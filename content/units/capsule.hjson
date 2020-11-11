@@ -2,7 +2,7 @@ type: MinerUnit
 name: "Capsule"
 description: "Contains an ai that can transport itself into other mechinisms that allow it to."
 flying: true
-speed: 6
+speed: 0
 accel: 0.02
 drag: 0.05
 health: 300
