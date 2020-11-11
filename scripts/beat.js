@@ -15,7 +15,7 @@ const shotHit = new Effect(20, e => {
 });
 
 
-//makes the shot of beat
+//makes the shoot effect of beat
 const shot = extend(LaserBoltBulletType, {});
         
 //make effects of overload
@@ -26,9 +26,9 @@ Fill.circle(e.x, e.y, e.fslope() * 6);
 
 const overload = extendContent(StatusEffect, "overload", {});
 
-overload.speedMultiplier = .8;
-overload.armorMultiplier = 0.9;
-overload.damage = 0.2;
+overload.speedMultiplier = 2;
+overload.armorMultiplier = 0.6;
+overload.damage = 0.9;
 overload.effect = overloadFX;
 overload.color  = Color.green;
 
@@ -59,7 +59,7 @@ shot.height = 4;
 shot.collides = true;
 shot.collidesTiles = true;
 shot.hitEffect = shotHit;
-shot.despawnEffect = Fx.none;
+shot.despawnEffect = beatShoot
 shot.shootEffect = beatShoot;
 shot.status = overload;
 shot.healPercent = 2;
