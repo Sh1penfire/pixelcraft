@@ -1,4 +1,4 @@
-type: ItemLiquidGenerator 
+type: BurnerGenerator
 name: burner
 description: "Burns items for fuel"
 health: 125
