@@ -1,6 +1,5 @@
 localizedName: "Beat"
-description: "Propells beems of energy that do heavy damage and overload target curcietery."
-size: 2
+description: "Propells beems of energy that power up nearby allies. (Used on difrent teamed units)"
 range: 220
 health: 1000
 inaccuracy: 7.5
