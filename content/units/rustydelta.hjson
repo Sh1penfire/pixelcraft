@@ -3,7 +3,7 @@ name: "Rusty delta"
 description: "Special combat model reworked by engeneres. Theres a note in magnitine in the blueprint. It says this: Some bots went rogue. Others helped their relatives for they knew if their type had vanished, all the hope left for their kind would be restoration."
 speed: 1
 accel: 0.03
-drag: 0.1
+drag: 0.05
 health: 140
 aimDst: 10
 range: 50
@@ -55,8 +55,8 @@ rotate: false
 occlusion: 0
 bullet: {
 type: LightningBulletType
-lightningLength: 15
-lightningLengthRand: 10
+lightningLength: 7
+lightningLengthRand: 8
 healPercent: 2
 collidesTeam: true
 damage: 3
@@ -78,15 +78,15 @@ damage: 0
 speed: 4
 width: 5
 height: 7
-splashDamage: 15
+splashDamage: 5
 splashDamageRadius: 16
 despawnEffect: explosion
-fragBullets: 5
+fragBullets: 2
 hitSound: boom
 fragBullet: {
 type: LightningBulletType
-lightningLength: 7
-lightningLengthRand: 10
+lightningLength: 3
+lightningLengthRand: 5
 healPercent: 2
 collidesTeam: true
 damage: 2.5

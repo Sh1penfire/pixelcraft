@@ -3,7 +3,7 @@ name: "Rusty alpha"
 description: "Standard core unit in the days of old. Theres a note: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
 speed: .75
 accel: 0.02
-drag: 0.1
+drag: 0.05
 health: 175
 aimDst: 10
 range: 50
@@ -63,8 +63,8 @@ bullet: {
 shotDelay: .25
 type: LightningBulletType
 lightning: 2
-lightningLength: 15
-lightningLengthRand: 10
+lightningLength: 5
+lightningLengthRand: 7
 healPercent: 2
 collidesTeam: true
 damage: 1
