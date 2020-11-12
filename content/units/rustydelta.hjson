@@ -93,8 +93,10 @@ damage: 2.5
 }
 }
 }]
+research: {
 parent: rustyalpha
 requirements: [
     iron/2000
     magnitine/500
 ]
+}
