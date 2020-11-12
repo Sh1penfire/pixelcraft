@@ -2,7 +2,7 @@ name: "Rusted core"
 description: "The prediscessor of this core was found and quickely scaned for it's structural integrety. It was found to be broken but blueprints were recovered."
 type: UnitFactory
 health: 300
-size: 2
+size: 3
 plans: [
   {
     unit: rustyalpha
