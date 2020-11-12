@@ -11,6 +11,14 @@ plans: [
     ]
     time: 800
   }
+    {
+    unit: rustydelta
+    requirements: [
+      iron/35
+      magnitine/15
+    ]
+    time: 800
+  }
 ]
 consumes: {
   power: 1
@@ -18,8 +26,8 @@ consumes: {
 category: units
 research: ground-factory
 requirements: [
-  silicon/35
-  lead/50
+  stone/15
+  iron/75  
 ]
 
 //Years ago, a great flood overwhelmed Sperpulu and rusted the grounds. 1000 years later when ai regained footing. The prediscessor of this core was found and quickely scaned for it's structural integrety. It was found to be broken but blueprints were recovered. After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help. Some bots went rogue. Others helped their relatives for they knew if their type had vanished, all the hope left for their kind would be restoration.

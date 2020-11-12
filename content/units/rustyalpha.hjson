@@ -2,8 +2,8 @@ type: BuilderMechUnit
 name: "Rusty alpha"
 description: "Standard core unit in the days of old. Theres a note: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
 speed: 3
-accel: 0.01
-drag: 0.02
+accel: 0.09
+drag: 0.1
 health: 250
 aimDst: 10
 range: 50
@@ -23,7 +23,7 @@ canBoost: true
 weapons: [ 
 {
 name: aged-blaster
-reload: 5
+reload: 10
 alternate: true
 ejectEffect: casing2
 top: false
@@ -36,7 +36,7 @@ bullet: {
 type: MissileBulletType
 damage: 2
 speed: 4
-lifetime: 50
+lifetime: 25
 fragBullets: 3
 hitSound: pew
 fragBullet:{
@@ -89,7 +89,7 @@ liquid: water
 shotDelay: 0.025
 damage: .5
 speed: 4
-lifetime: 50
+lifetime: 35
 knockback: 1
 fragBullets: 3
 fragBullet:{
@@ -116,7 +116,7 @@ bullet: {
 type: ArtilleryBulletType
 damage: 4
 speed: 4
-lifetime: 75
+lifetime: 45
 fragBullets: 10
 hitSound: boom
 despawnEffect: explosion
@@ -128,7 +128,7 @@ speed: 2
 }
 }]
 research: {
-parent: test-factory
+parent: rusted-core
 requirements: [
     iron/2500
 ]

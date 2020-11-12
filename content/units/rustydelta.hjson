@@ -2,8 +2,8 @@ type: BuilderMechUnit
 name: "Rusty delta"
 description: "Special combat model reworked by engeneres. Theres a note in magnitine in the blueprint. It says this: Some bots went rogue. Others helped their relatives for they knew if their type had vanished, all the hope left for their kind would be restoration."
 speed: 4
-accel: 0.02
-drag: 0.02
+accel: 0.09
+drag: 0.1
 health: 300
 aimDst: 10
 range: 50
@@ -19,10 +19,11 @@ rotateSpeed: 7
 lowAltitude: false
 omniMovement: true
 canDrown: false
+canBoost: true
 weapons: [ 
 {
 name: aged-blaster
-reload: 10
+reload: 15
 alternate: true
 ejectEffect: casing1
 top: false
@@ -43,11 +44,11 @@ collidesTeam: true
 }
 {
 name: aged-zapper
-reload: 10
+reload: 35
 alternate: true
 ejectEffect: casing1
 top: false
-shootSound: pew
+shootSound: spark
 x: 3.5
 y: 0
 rotate: false
@@ -58,12 +59,12 @@ lightningLength: 15
 lightningLengthRand: 10
 healPercent: 2
 collidesTeam: true
-damage: 4
+damage: 3
 }
 }
 {
 name: aged-blaster-mount
-reload: 25
+reload: 50
 alternate: false
 ejectEffect: casing3
 top: false
@@ -81,13 +82,19 @@ splashDamage: 15
 splashDamageRadius: 16
 despawnEffect: explosion
 fragBullets: 5
+hitSound: boom
 fragBullet: {
 type: LightningBulletType
 lightningLength: 7
 lightningLengthRand: 10
 healPercent: 2
 collidesTeam: true
-damage: 5
+damage: 2.5
 }
 }
 }]
+parent: rustyalpha
+requirements: [
+    iron/2000
+    magnitine/500
+]
