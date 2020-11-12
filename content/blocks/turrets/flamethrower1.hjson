@@ -19,7 +19,6 @@ ammoTypes: {
     shootEffect: shootPyraFlame
     smokeEffect: shootPyraFlame
     lifetime: 40  
-    bulletSprite: ExampleMod-particle
 	frontColor: f38e30
 	backColor: f38e30
 	despawnEffect: none
@@ -36,7 +35,6 @@ pierce: true
     shootEffect: shootPyraFlame
     smokeEffect: fire
     lifetime: 40  
-    bulletSprite: ExampleMod-particle
 	frontColor: f38e30
 	backColor: f38e30
 	despawnEffect: fire
@@ -65,8 +63,6 @@ pierce: true
 	liquid: oil
 	damage: 0
 	speed: 1
-	width: 1
-	height: 1
 	lifetime: 10
 }
     }
@@ -79,7 +75,6 @@ pierce: true
     shootEffect: shootSmall
     smokeEffect: shootSmallSmoke
     lifetime: 40  
-    bulletSprite: ExampleMod-particle
 	splashDamage: 3
 	splashDamageRadius: 20
 	frontColor: f38e30
@@ -99,10 +94,8 @@ pierce: true
     shootEffect: shootPyraFlame
     smokeEffect: fire
     lifetime: 20
-    bulletSprite: ExampleMod-particle
     splashDamage: 2
     splashDamageRadius: 25
-	homing: false
 	frontColor: f38e30
 	backColor: f38e30
 	trailColor: f38e30
@@ -111,8 +104,6 @@ pierce: true
 	status: melting
         inacurracy: 20
         fragBullets: 5
-        fragVelocityMin: 1
-        fragVelocityMax: 2
         fragBullet: {
 	status: melting
 	frontColor: f38e30

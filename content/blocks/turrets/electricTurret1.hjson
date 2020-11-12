@@ -32,7 +32,6 @@ shootType: {
 	weaveMag: 1
 	fragBullets: 3
 	status: melting
-	homing: true
 	homingRange: 8
 	homingPower: .01
 	fragBullet: {
