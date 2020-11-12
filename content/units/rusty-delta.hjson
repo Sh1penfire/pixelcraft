@@ -1,4 +1,4 @@
-type: BuilderMinerUnit
+type: BuilderUnit
 name: "Rusty delta"
 description: "Defends the lighthouse core from enemies. \n Builds structures."
 flying: true
