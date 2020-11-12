@@ -1,8 +1,8 @@
 type: BuilderMechUnit
 name: "Rusty delta"
 description: "Special combat model reworked by engeneres. Theres a note in magnitine in the blueprint. It says this: Some bots went rogue. Others helped their relatives for they knew if their type had vanished, all the hope left for their kind would be restoration."
-speed: 4
-accel: 0.09
+speed: 5
+accel: 0.03
 drag: 0.1
 health: 300
 aimDst: 10
