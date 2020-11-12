@@ -29,7 +29,6 @@ ammoTypes: {
     ammoMultiplier: 2
     lifetime: 20
     hitEffect: shootBigSmoke
-    Peirce: true
     inacurracy: 20
     fragBullets: 4
     fragBullet: {
@@ -45,7 +44,6 @@ ammoTypes: {
         }
 rubble: {
     type: BasicBulletType
-    bulletSprite: bullet
     speed: 2
     damage: 5
     width: 5
@@ -85,7 +83,6 @@ pixelite: {
        splashDamage: 1
        splashDamageRadius: 5
         drag: 0.01
-        bulletSprite: bullet
         width: 3
         height: 5
         lifetime: 10
