@@ -1,6 +1,6 @@
 type: CoreBlock
 name: "Core beacon"
-description: "Small core"
+description: "A note written in plastic has been left on the blueprint. It says :Years ago, a great flood overwhelmed Sperpulu and rusted the grounds. 1000 years later when ai regained footing. It's half torn."
 health: 300
 itemCapacity: 7000
 size: 4

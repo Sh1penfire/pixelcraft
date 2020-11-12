@@ -1,18 +1,27 @@
+name: "Rusted core"
+description: "The prediscessor of this core was found and quickely scaned for it's structural integrety. It was found to be broken but blueprints were recovered."
 type: UnitFactory
-unitType: rusty-alpha
+health: 300
 size: 2
-produceTime: 1500
+plans: [
+  {
+    unit: rustyalpha
+    requirements: [
+      iron/50
+    ]
+    time: 800
+  }
+]
 consumes: {
   power: 1
-  items: {
-    items: [
-      silicon/12
-    ]
-  }
 }
 category: units
-research: air-factory
+research: ground-factory
 requirements: [
   silicon/35
   lead/50
 ]
+
+//Years ago, a great flood overwhelmed Sperpulu and rusted the grounds. 1000 years later when ai regained footing. The prediscessor of this core was found and quiquely scaned for it's structural integrety. It was found to be broken but blueprints were recovered.
+
+//Blocks.groundFactory.plans.add(new UnitFactory.UnitPlan("pixelcraft-rustyalpha", 60 * 25, ItemStack.with(Items.iron, 35, Items.magnitine, 15, Items.titanium, 5)));
