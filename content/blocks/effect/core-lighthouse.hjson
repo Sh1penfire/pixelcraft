@@ -5,7 +5,7 @@ health: 3000
 itemCapacity: 7000
 size: 5
 unitCapModifier: 15
-unitType: rusty-delta
+unitType: rustydelta
 research: core-beacon
 requirements: [
   iron/3000
