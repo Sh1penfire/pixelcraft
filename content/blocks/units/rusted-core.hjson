@@ -19,6 +19,14 @@ plans: [
     ]
     time: 800
   }
+    {
+    unit: rustyomega
+    requirements: [
+      iron/50
+      titanium/25
+    ]
+    time: 1200
+  }
 ]
 consumes: {
   power: 1
