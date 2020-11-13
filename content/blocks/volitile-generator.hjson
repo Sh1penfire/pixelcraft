@@ -12,7 +12,7 @@ minItemEfficiency: 0.3
 consumes: {
 liquid: {
   liquid: oil
-  amount: 0.05
+  amount: 0.01
 }
 }
 requirements: [
