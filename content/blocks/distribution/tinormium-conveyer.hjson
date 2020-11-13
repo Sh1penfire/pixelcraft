@@ -1,5 +1,6 @@
 type: StackConveyor
-name: "Tinormium Conveyer"
+name: "Tinormium rails"
+description: "Packs items into a comforta ble ride on a bullet train."
 speed: 20
 itemCapacity: 1
 category: distribution
