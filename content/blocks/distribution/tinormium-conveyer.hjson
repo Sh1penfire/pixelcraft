@@ -1,7 +1,7 @@
 type: StackConveyor
 name: "Tinormium Conveyer"
-speed: 5
-itemCapacity: 10
+speed: 20
+itemCapacity: 1
 category: distribution
 speed: 0.12
 displayedSpeed: 12
