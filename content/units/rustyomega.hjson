@@ -1,24 +1,51 @@
 type: BuilderMechUnit
-name: "Rusty alpha"
-description: "Standard core unit in the days of old. Theres a note: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
-speed: .75
-health: 175
+name: "Rusty omega"
+description: "pew pew"
+speed: .65
+health: 375
 aimDst: 10
 range: 50
-maxRange: 200
+maxRange: 100
 buildSpeed: 2
 clipSize: 1
 faceTarget: true
 rotateShooting : true
-mineTier: 2
-mineSpeed: 7.5
+mineTier: 3
+mineSpeed: 10
 range: 100
-rotateSpeed: 15
+rotateSpeed: 8
 lowAltitude: true
 omniMovement: true
 canDrown: false
 canBoost: true
 weapons: [ 
+{
+name: aged-blaster
+reload: 20
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: shoot
+x: 4
+y: -.5
+rotate: false
+occlusion: 0
+shots: 3
+bullet: {
+type: MissileBulletType
+damage: 15
+speed: 4
+lifetime: 25
+fragBullets: 3
+hitSound: pew
+fragBullet:{
+type: BasicBulletType
+damage: 1
+speed: 2
+}
+}
+}
+
 {
 name: missile-shotgun
 reload: 10
@@ -27,7 +54,7 @@ ejectEffect: casing2
 top: false
 shootSound: shoot
 x: 4
-y: -.5
+y: 2
 rotate: false
 occlusion: 0
 bullet: {
