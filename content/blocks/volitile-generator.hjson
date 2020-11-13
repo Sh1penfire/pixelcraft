@@ -1,9 +1,9 @@
 type: BurnerGenerator
 name: "Volitile Generator"
-description: "Uses oil or flamibles to produce power. A note in plastic was found here. It says: When the bots first discovered scrap, they were scared for as there was scrap, something had happened."
+description: "Uses oil to produce power. A note in plastic was found here. It says: When the bots first discovered scrap, they were scared for as there was scrap, something had happened."
 health: 150
 size: 2
-powerProduction: 2
+powerProduction: 5
 hasItems: true
 itemCapacity: 15
 itemDuration: 75
