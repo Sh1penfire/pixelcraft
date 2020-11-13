@@ -30,7 +30,7 @@ x: 4
 y: -.5
 rotate: false
 occlusion: 0
-shots: 2
+shots: 4
 spread: 15
 bullet: {
 type: MissileBulletType
@@ -62,9 +62,11 @@ rotate: false
 occlusion: 0
 bullet: {
 type: BasicBulletType
-damage: 2
-speed: 3
-lifetime: 25
+width: 6
+height: 7
+damage: 4
+speed: 6
+lifetime: 12
 }
 }]
 research: {
