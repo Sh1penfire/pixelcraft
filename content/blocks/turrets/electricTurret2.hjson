@@ -1,6 +1,6 @@
 type: ChargeTurret
 name: Point
-description: Locks on to a target and fires tracer shots which home into enemies and damage them. The bigger the target is, the easier it is for the tracers to stack.
+description: Locks on to a target and fires tracer shots which home into enemies and damage them.
 health: 220
 size: 2
 reloadTime: 50
@@ -46,8 +46,6 @@ shootType: {
 	hitEffect: hitLancer
 	despawnEffect: hitBulletSmall
 	fragBullets: 3
-	fragMinVelocity: 1
-	fragMaxVelocity: 3
 	status: freezing
 	homing: true
 	homingRange: 100
