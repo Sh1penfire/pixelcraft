@@ -52,7 +52,7 @@ lifetime: 10
 
 {
 name: missile-shotgun
-reload: 10
+reload: 5
 alternate: true
 ejectEffect: casing2
 top: false
@@ -74,8 +74,8 @@ lifetime: 25
 {
 name: aged-blaster-mount
 reload: 50
-alternate: true
-ejectEffect: casing2
+alternate: false
+ejectEffect: casing3
 top: false
 shootSound: shoot
 x: 0
@@ -86,10 +86,10 @@ bullet: {
 type: ArtilleryBulletType
 width: 6
 height: 7
-splashDamage: 25
+splashDamage: 12.5
 splashDamageRadius: 32
-speed: 1
-lifetime: 30
+speed: 3
+lifetime: 33
 }
 }]
 research: {
