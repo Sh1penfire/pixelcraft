@@ -21,7 +21,7 @@ canBoost: true
 weapons: [ 
 {
 name: aged-blaster
-reload: 20
+reload: 35
 alternate: true
 ejectEffect: casing2
 top: false
@@ -44,7 +44,8 @@ hitSound: pew
 fragBullet:{
 type: BasicBulletType
 damage: 1
-speed: 2
+speed: 1
+lifetime: 10
 }
 }
 }
@@ -62,11 +63,33 @@ rotate: false
 occlusion: 0
 bullet: {
 type: BasicBulletType
-width: 6
-height: 7
+width: 7
+height: 10
 damage: 4
 speed: 6
-lifetime: 12
+lifetime: 25
+}
+}
+
+{
+name: aged-blaster-mount
+reload: 50
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: shoot
+x: 0
+y: -2.0
+rotate: true
+occlusion: 0
+bullet: {
+type: ArtilleryBulletType
+width: 6
+height: 7
+splashDamage: 25
+splashDamageRadius: 32
+speed: 1
+lifetime: 30
 }
 }]
 research: {
