@@ -1,0 +1,53 @@
+type: BuilderMechUnit
+name: "Rusty alpha"
+description: "Standard core unit in the days of old. Theres a note: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
+speed: .75
+health: 175
+aimDst: 10
+range: 50
+maxRange: 200
+buildSpeed: 2
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 2
+mineSpeed: 7.5
+range: 100
+rotateSpeed: 15
+lowAltitude: true
+omniMovement: true
+canDrown: false
+canBoost: true
+weapons: [ 
+{
+name: missile-shotgun
+reload: 10
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: shoot
+x: 4
+y: -.5
+rotate: false
+occlusion: 0
+bullet: {
+type: MissileBulletType
+damage: 2
+speed: 4
+lifetime: 25
+fragBullets: 3
+hitSound: pew
+fragBullet:{
+type: BasicBulletType
+damage: 1
+speed: 2
+}
+}
+}]
+research: {
+parent: rustydelta
+requirements: [
+    iron/2500
+    titanium/550
+]
+}
