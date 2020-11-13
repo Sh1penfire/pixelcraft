@@ -89,7 +89,7 @@ height: 7
 splashDamage: 12.5
 splashDamageRadius: 32
 speed: 3
-lifetime: 33
+lifetime: 66
 }
 }]
 research: {
