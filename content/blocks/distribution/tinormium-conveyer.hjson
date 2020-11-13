@@ -1,0 +1,4 @@
+type: StackConveyor
+name: "Tinormium Conveyer"
+speed: 5
+itemCapacity: 10
