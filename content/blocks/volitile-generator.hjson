@@ -1,0 +1,27 @@
+type: BurnerGenerator
+name: burner
+description: "Burns items for fuel. Uses slag and oil to produce extra power."
+health: 150
+size: 2
+powerProduction: 2
+hasItems: true
+itemCapacity: 15
+itemDuration: 75
+generateEffect: smelt
+minItemEfficiency: 0.3
+consumes: [
+liquid: {
+  liquid: slag
+  amount: 0.25
+}
+liquid: {
+  liquid: oil
+  amount: 0.25
+}
+]
+requirements: [
+  iron/50
+  titanium/25
+]
+category: power
+research: burner
