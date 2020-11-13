@@ -41,7 +41,6 @@ fragBullet:{
 type: BasicBulletType
 damage: 1
 speed: 1
-public float inaccuracy = 0f;
 }
 }
 }
@@ -90,6 +89,7 @@ damage: .5
 speed: 4
 lifetime: 35
 knockback: 1
+inaccuracy: 15
 fragBullets: 3
 fragBullet:{
 type: LiquidBulletType
