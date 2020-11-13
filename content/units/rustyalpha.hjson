@@ -114,7 +114,7 @@ occlusion: 0
 bullet: {
 type: ArtilleryBulletType
 damage: 4
-speed: 1
+speed: 2
 lifetime: 100
 fragBullets: 10
 hitSound: boom
