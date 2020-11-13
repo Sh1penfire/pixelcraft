@@ -23,6 +23,6 @@ items:{
 category: units
 research: rusted-core
 requirements: [
-  stone/55
+  graphite/55
   magnitine/75  
 ]
