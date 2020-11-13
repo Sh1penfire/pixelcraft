@@ -1,6 +1,6 @@
 type: BurnerGenerator
 name: "Volitile Generator"
-description: "Burns items for fuel. Uses slag and oil to produce extra power. A note in plastic was found here. It says: When the bots first discovered scrap, they were scared for as there was scrap, something had happened."
+description: "Uses oil or flamibles to produce power. A note in plastic was found here. It says: When the bots first discovered scrap, they were scared for as there was scrap, something had happened."
 health: 150
 size: 2
 powerProduction: 2
@@ -11,12 +11,8 @@ generateEffect: smelt
 minItemEfficiency: 0.3
 consumes: {
 liquid: {
-  liquid: slag
-  amount: 0.25
-}
-liquid: {
   liquid: oil
-  amount: 0.25
+  amount: 0.05
 }
 }
 requirements: [
