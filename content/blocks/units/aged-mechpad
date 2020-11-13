@@ -1,0 +1,18 @@
+type: Reconstructor
+name: "Aged mechpad"
+size: 3
+health: 200
+description: "Long ago, capsules of ai were able to use these mech pads and transform into powerfull combat mechs. Now it's broken. Try using it with our units."
+constructTime: 100
+upgrades: [
+  [
+    rustyalpha, rustydelta
+  ]
+  [
+    dagger, mace
+  ]
+]
+consumes: {
+  magnitine/15
+  coal/25
+}
