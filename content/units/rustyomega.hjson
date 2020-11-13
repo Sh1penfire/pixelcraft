@@ -30,11 +30,14 @@ x: 4
 y: -.5
 rotate: false
 occlusion: 0
-shots: 3
+shots: 2
+spread: 15
 bullet: {
 type: MissileBulletType
 damage: 15
-speed: 4
+weaveMag: 4
+weaveScale: 4
+speed: 2
 lifetime: 25
 fragBullets: 3
 hitSound: pew
@@ -58,17 +61,10 @@ y: 2
 rotate: false
 occlusion: 0
 bullet: {
-type: MissileBulletType
-damage: 2
-speed: 4
-lifetime: 25
-fragBullets: 3
-hitSound: pew
-fragBullet:{
 type: BasicBulletType
-damage: 1
-speed: 2
-}
+damage: 2
+speed: 3
+lifetime: 25
 }
 }]
 research: {
