@@ -67,6 +67,7 @@ shot.status = overload;
 shot.statusDuration = 900;
 shot.pierce = true;
 shot.healPercent = 2;
+shot.collidesTeam = true;
 
 /*
 shot.frontColor = 05700b;
