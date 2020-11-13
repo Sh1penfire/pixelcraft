@@ -37,7 +37,9 @@ requirements: [
   stone/15
   iron/75  
 ]
-
-//Years ago, a great flood overwhelmed Sperpulu and rusted the grounds. 1000 years later when ai regained footing. The prediscessor of this core was found and quickely scaned for it's structural integrety. It was found to be broken but blueprints were recovered. After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help. Some bots went rogue. Others helped their relatives for they knew if their type had vanished, all the hope left for their kind would be restoration.
+//slag
+//When the bots first discovered scrap, they were scared for as there was scrap, something had happened.
+//
+//Years ago, a great flood overwhelmed Serpulo and rusted the grounds. 1000 years later when ai regained footing. The prediscessor of this core was found and quickely scaned for it's structural integrety. It was found to be broken but blueprints were recovered. After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help. Some bots went rogue. Others helped their relatives for they knew if their type had vanished, all the hope left for their kind would be restoration.
 
 //Blocks.groundFactory.plans.add(new UnitFactory.UnitPlan("pixelcraft-rustyalpha", 60 * 25, ItemStack.with(Items.iron, 35, Items.magnitine, 15, Items.titanium, 5)));
