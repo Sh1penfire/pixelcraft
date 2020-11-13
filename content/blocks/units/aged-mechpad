@@ -18,3 +18,9 @@ items:{
   coal/25
 }
 }
+category: units
+research: rusted-core
+requirements: [
+  stone/55
+  magnitine/75  
+]
