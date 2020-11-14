@@ -1,0 +1,5 @@
+name: "Helgravator"
+type: ItemTurret
+description: "T3 scorch. Wonderfull thing. This is scorch's true potentual. (Was named plasma in mindustry clasic)"
+health: 600
+insulated: true
