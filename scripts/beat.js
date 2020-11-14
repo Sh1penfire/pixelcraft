@@ -36,7 +36,7 @@ overload.color  = Color.green;
 const beat = extendContent(PowerTurret, "healingTurret2", {
   icons(){
     return [
-      Core.atlas.find("block-2"),
+      Core.atlas.find("block-1"),
       Core.atlas.find("pixelcraft-healingTurret2")
     ];
   }
@@ -48,8 +48,8 @@ const beat = extendContent(PowerTurret, "healingTurret2", {
 beat.recoil = 1;
 beat.restitution = 0.015;
 beat.shootType = shot;
-beat.targetAir = false;
-beat.targetGround = false;
+beat.targetAir = true;
+beat.targetGround = true;
 
 //stats of bullet shot by beat
 shot.damage = 0;
