@@ -12,7 +12,7 @@ faceTarget: true
 rotateShooting : true
 mineTier: 3
 mineSpeed: 10
-range: 100
+range: 160
 rotateSpeed: 8
 lowAltitude: true
 omniMovement: true
