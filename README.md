@@ -1,9 +1,9 @@
 # Pixelcraft
 A v6 mod for mindustry
 This mod aims to expand mindustry's content by adding a new tech tree, adding upgraded versions of existinc blocks and more.
-This mod adds new resources, new turrets and new zones as well as slight tweaks to vanilla. 20 new building blocks to play with, one environmental block, two ores and 5 items with moree to come.
-
-note: only for 12.1 untill further notice as porting units over to 13.2 requres a bit of time.
+This mod adds new resources, new turrets and new zones as well as slight tweaks to vanilla. 41 new building blocks to play with, one environmental block, two ores and 5 items with moree to come.
+(Lore included, find the lore of the mod in building and unit descriptions/reading the source code)
+note: Has been ported over to 113, enjoy the mod!
 
 Guide to turrets:
 
@@ -25,7 +25,11 @@ A turret that shoots 10 bullets outwards.
 Pace Point and Panic:
 Electric anti air turrets. Point however can target ground. The trio fire forms of electric attacks using electric missiles.
 
-Pulse:
-A suport turret that shoots healing bullets that repear blocks. Also does decent damage.
+Pulse and Beat:
+Suport turrets that shoots healing bullets that repear blocks. They don't auto aim yet.
+
+Puver:
+A suport electric turret that slows down hit targets. Frag bullets ignore tiles can also inflict the debuff.
+
 
 
