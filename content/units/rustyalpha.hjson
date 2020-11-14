@@ -1,6 +1,6 @@
 type: BuilderMechUnit
 name: "Rusty alpha"
-description: "Standard core unit in the days of old. Theres a note: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
+description: "Standard core unit in the days of old. Theres a note in magnitine. It says: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
 speed: .75
 health: 175
 aimDst: 10
