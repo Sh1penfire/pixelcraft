@@ -2,7 +2,7 @@ type: BuilderMechUnit
 name: "Rusty omega"
 description: "pew pew"
 speed: .65
-health: 375
+health: 800
 aimDst: 10
 range: 50
 maxRange: 100
@@ -38,7 +38,7 @@ damage: 15
 weaveMag: 4
 weaveScale: 4
 speed: 2
-lifetime: 25
+lifetime: 40
 fragBullets: 3
 hitSound: pew
 fragBullet:{
@@ -65,7 +65,7 @@ bullet: {
 type: BasicBulletType
 width: 7
 height: 10
-damage: 4
+damage: 10
 speed: 6
 lifetime: 25
 }
