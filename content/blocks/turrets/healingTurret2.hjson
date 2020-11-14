@@ -1,7 +1,7 @@
 localizedName: "Beat"
 description: "Propells beems of energy that power up nearby allies. (Used on difrent teamed units, needs logic to be aimed)"
 range: 220
-health: 1000
+health: 150
 inaccuracy: 7.5
 reloadTime: 5
 shots: 1
@@ -10,10 +10,10 @@ smokeEffect: none
 shootSound: pew
 outlineIcon: true
 requirements: [
-  iron/ 250
-  magnitine/150
-  titanium/75
-  feromagnet/50
+  iron/ 80
+  magnitine/40
+  titanium/55
+  feromagnet/24
 ]
 category: turret
-research: electricTurret3b1
+research: healingTurret1
