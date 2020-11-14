@@ -68,8 +68,5 @@ shot.statusDuration = 900;
 shot.pierce = true;
 shot.healPercent = 2;
 shot.collidesTeam = true;
-
-/*
-shot.frontColor = 05700b;
-shot.backColor = 05700b;
-*/
+shot.frontColor = Color.valueOf(05700b);
+shot.backColor = Color.valueOf(05700b);
