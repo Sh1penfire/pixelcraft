@@ -65,7 +65,7 @@ bullet: {
 type: BasicBulletType
 width: 7
 height: 10
-damage: 10
+damage: 15
 speed: 6
 lifetime: 25
 }
@@ -86,7 +86,7 @@ bullet: {
 type: ArtilleryBulletType
 width: 6
 height: 7
-splashDamage: 12.5
+splashDamage: 25
 splashDamageRadius: 32
 speed: 3
 lifetime: 66
