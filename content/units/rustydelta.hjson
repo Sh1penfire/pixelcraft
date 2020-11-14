@@ -2,7 +2,7 @@ type: BuilderMechUnit
 name: "Rusty delta"
 description: "Special combat model reworked by engeneres. Theres a note in magnitine in the blueprint. It says this: Some bots went rogue. Others helped their relatives for they knew if their type had vanished, all the hope left for their kind would be restoration."
 speed: 1
-health: 140
+health: 500
 aimDst: 10
 range: 50
 maxRange: 200
@@ -35,7 +35,7 @@ occlusion: 0
 bullet: {
 type: BasicBulletType
 speed: 3
-damage: 5
+damage: 10
 healPercent: 1
 collidesTeam: true
 }
@@ -51,13 +51,14 @@ x: 3.5
 y: 0
 rotate: false
 occlusion: 0
+shots: 3
 bullet: {
 type: LightningBulletType
 lightningLength: 7
 lightningLengthRand: 8
 healPercent: 2
 collidesTeam: true
-damage: 3
+damage: 5
 }
 }
 {
@@ -87,7 +88,7 @@ lightningLength: 3
 lightningLengthRand: 5
 healPercent: 2
 collidesTeam: true
-damage: 2.5
+damage: 7
 }
 }
 }]
