@@ -5,7 +5,7 @@ flPixelite.damage = 30;
 flPixelite.splashDamageRadius = 16;
 flPixelite.width = 12;
 flPixelite.height = 24;
-Blocks.flamethrower3.put(Vars.content.getByName(ContentType.item,"pixelcraft-pixelite"),flPixelite);
+Vars.content.getByName(pixelcraft-flamethrower3).put(Vars.content.getByName(ContentType.item,"pixelcraft-pixelite"),flPixelite);
 
 
 	//Blocks.flamethrower3.put(Items.pyratite, flPyratite)
