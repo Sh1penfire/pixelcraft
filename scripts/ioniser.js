@@ -6,4 +6,4 @@ const ioniser = extendContent(PowerTurret, "electricTurret4b1", {
     ];
   }
 });
-
+ioniser.size = 4;
