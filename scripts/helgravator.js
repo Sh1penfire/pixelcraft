@@ -12,8 +12,9 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
       Core.atlas.find("pixelcraft-flamethrower1")
     ];
   }
+helgravator.ammo(Vars.content.getByName(ContentType.item, "pixelcraft-pixelite"), flPixelite);
 });
-helgravator.ammo(Vars.content.getByName(ContentType.item, "pixelite"), flPixelite);
+
 
 
 	//Blocks.flamethrower3.put(Items.pyratite, flPyratite)
