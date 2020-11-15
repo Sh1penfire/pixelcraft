@@ -7,7 +7,7 @@ reloadTime: 200
 shots: 3
 shootEffect: none
 smokeEffect: none
-shootSound: bigshot
+shootSound: none
 outlineIcon: true
 requirements: [
   iron/ 250
