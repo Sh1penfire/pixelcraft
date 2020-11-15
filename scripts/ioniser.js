@@ -1,9 +1,8 @@
-
-const electricTurret4b1 = extendContent(PowerTurret, "electricTurret4b1", {
+const ioniser = extendContent(PowerTurret, "electricTurret4b1", {
   icons(){
     return [
-      Core.atlas.find("block-4"),
-      Core.atlas.find("pixelcraft-healingTurret2")
+      Core.atlas.find("block-2"),
+      Core.atlas.find("pixelcraft-electricTurret3b1")
     ];
   }
 });
