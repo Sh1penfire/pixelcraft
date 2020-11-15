@@ -13,7 +13,7 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
     ];
   }
 });
-this.ammo(Vars.content.getByName(ContentType, "pixelcraft-pixelite"), flPixelite);
+helgravator.ammo(Vars.content.getByName(ContentType, "pixelcraft-pixelite"), flPixelite);
 
 
 	//Blocks.flamethrower3.put(Items.pyratite, flPyratite)
