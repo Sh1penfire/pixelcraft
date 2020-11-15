@@ -5,7 +5,7 @@ flPixelite.damage = 30;
 flPixelite.splashDamageRadius = 16;
 flPixelite.width = 12;
 flPixelite.height = 24;
-const helgravator = extendContent(ItemTurret, "flamethrower3"){
+const helgravator = extendContent(ItemTurret, "flamethrower3",{
 	  icons(){
     return [
       Core.atlas.find("block-2"),
