@@ -6,13 +6,19 @@ flPixelite.splashDamageRadius = 16;
 flPixelite.width = 12;
 flPixelite.height = 24;
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
+  init(){
+    this.super$init();
+	this.ammo(Vars.content.getByName(ContentType.item, "pixelcraft-pixelite"), flPixelite) 
+	}
+};
 	  icons(){
     return [
       Core.atlas.find("block-2"),
       Core.atlas.find("pixelcraft-flamethrower1")
-    ]
-  };
-helgravator.ammo(Vars.content.getByName(ContentType.item, "pixelcraft-pixelite"), flPixelite) });
+    ];
+  }
+});
 
 
 	//Blocks.flamethrower3.put(Items.pyratite, flPyratite)
+//    this.ammo(<item>, <bullet>);
