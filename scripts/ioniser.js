@@ -1,3 +1,4 @@
+/*
 const ioniser = extendContent(ChargeTurret, "electricTurret4b1", {
   icons(){
     return [
@@ -6,3 +7,4 @@ const ioniser = extendContent(ChargeTurret, "electricTurret4b1", {
     ];
   }
 });
+*/
