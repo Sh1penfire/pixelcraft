@@ -8,7 +8,7 @@ flPixelite.height = 24;
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
     this.super$init();
-	this.ammo(Vars.content.getByName(ContentType.item, "pixelcraft-pixelite"), flPixelite) 
+	this.ammo(Vars.content.getByName(ContentType.item, "pixelcraft-pixelite"), flPixelite);
 	}
 	  icons(){
     return [
