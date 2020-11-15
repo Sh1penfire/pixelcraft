@@ -10,12 +10,11 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
     this.super$init();
 	this.ammo(Vars.content.getByName(ContentType.item, "pixelcraft-pixelite"), flPixelite) 
 	}
-};
 	  icons(){
     return [
       Core.atlas.find("block-2"),
       Core.atlas.find("pixelcraft-flamethrower1")
-    ];
+    ]
   }
 });
 
