@@ -3,6 +3,8 @@ description: "T3 scorch. Wonderfull thing. This is scorch's true potentual. (Was
 health: 600
 range: 100
 size: 3
-reloadTime: 5
+reloadTime: 2
+shots: 5
 insulated: true
 buildVisibility: shown
+catagory: turrets
