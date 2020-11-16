@@ -1,5 +1,5 @@
 name: "Helgravator"
-description: "T3 scorch. Wonderfull thing. This is scorch's true potentual. (Was named plasma in mindustry clasic)"
+description: "T3 scorch. Wonderfull thing. This is scorch's true potentual. (Was named plasma in mindustry clasic) Terraria sprite heresy"
 health: 600
 range: 100
 size: 3
@@ -7,4 +7,9 @@ reloadTime: 2
 shots: 5
 insulated: true
 buildVisibility: shown
-catagory: turrets
+requirements: [    
+  magnitine/250
+  titanium/150
+]
+category: turret
+research: flamethrower1
