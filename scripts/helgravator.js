@@ -13,13 +13,13 @@ Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 1);
 Angles.randLenVectors(e.id, 10, 1 * e.fin(), e.rotation, 360,d);
 });
 
-const firehitFx = new Effect(40, e => {
+const firehitFx = new Effect(15, e => {
     Draw.color(Color.orange, Color.red, e.fin());
     Lines.stroke(e.fin() * 2);
     const d = new Floatc2({get(x, y){
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 2 + 0);
     }}) 
-    Angles.randLenVectors(e.id, 25, 1 + 60 * e.fin(), e.rotation, 45,d);
+    Angles.randLenVectors(e.id, 25, 1 + 60 * e.fin(), e.rotation, 25,d);
 });
 
 const hellfire = extendContent(StatusEffect, "hellfire", {});
