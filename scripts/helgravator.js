@@ -12,7 +12,7 @@ hellfire.speedMultiplier = 0.8;
 hellfire.armorMultiplier = 0.75;
 hellfire.damage = .5;
 hellfire.effect = hellfireFX;
-color = Color.lightFlame;
+color = Color.white;
 
 
 const flPixelite = extend(BasicBulletType, {});
