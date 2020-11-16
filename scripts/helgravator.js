@@ -1,6 +1,7 @@
 const hellfireFX = new Effect(20, e => {
 Draw.color(Color.orange, Color.red, e.fin());
-Fill.circle(e.x, e.y, e.fslope() * 2);
+Fill.circle(e.x, e.y, e.fout() * 2);
+Fill.circle(e.x, e.y, e.fslope() * 4);
 });
 
 const hellfire = extendContent(StatusEffect, "hellfire", {});
