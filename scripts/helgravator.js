@@ -5,6 +5,12 @@ Fill.circle(e.x, e.y, e.fout() * 2);
 Draw.color(Color.orange, Color.red, e.fin());
 Lines.stroke(e.fslope() * 2);
 Lines.circle(e.x, e.y, e.fin() * 6);
+Draw.color(Color.white, Color.orange, e.fin());
+Lines.stroke(e.fin() * 2);
+const d = new Floatc2({get(x, y){
+Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 1 + 0);
+}}) 
+Angles.randLenVectors(e.id, 25, 1 + 10 * e.fin(), e.rotation, 360,d);
 });
 
 const firehitFx = new Effect(40, e => {
