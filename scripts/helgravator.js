@@ -8,9 +8,9 @@ Lines.circle(e.x, e.y, e.fin() * 6);
 Draw.color(Color.white, Color.orange, e.fin());
 Lines.stroke(e.fin() * 2);
 const d = new Floatc2({get(x, y){
-Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 1 + 0);
+Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 1);
 }}) 
-Angles.randLenVectors(e.id, 25, 1 + 10 * e.fin(), e.rotation, 360,d);
+Angles.randLenVectors(e.id, 25, 6 * e.fin(), e.rotation, 360,d);
 });
 
 const firehitFx = new Effect(40, e => {
