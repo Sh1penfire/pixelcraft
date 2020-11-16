@@ -26,7 +26,7 @@ Draw.color(Color.orange, Color.red, e.fin());
 Fill.circle(e.x, e.y, e.fout() * 2);
 });
 
-const flPixelite = extend(ArtilleryBulletType, {});
+const flPixelite = extend(BasicBulletType, {});
 flPixelite.speed = 20;
 flPixelite.damage = 5;
 flPixelite.width = 1;
@@ -38,10 +38,11 @@ flPixelite.shootEffect = Fx.fire;
 flPixelite.despawnEffect = Fx.none;
 flPixelite.hitEffect = firehitFx;
 flPixelite.status = hellfire;
+/*
 flPixelite.trailEffect = pxtrailFX; 
 flPixelite.collides = true;
 flPixelite.collidesTiles = true;
-
+*/
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
     this.ammo(Vars.content.getByName(ContentType.item,"pixelcraft-pixelite"), flPixelite);
