@@ -22,21 +22,22 @@ hellfire.effect = hellfireFX;
 hellfire.color = Color.white;
 
 
-const flPixelite = extend(BasicBulletType, {});
-flPixelite.speed = 20;
-flPixelite.damage = 1;
-flPixelite.width = 1;
-flPixelite.height = 1;
-flPixelite.innacuracy = 15;
-flPixelite.lifetime = 5;
-flPixelite.shootSound = Sounds.flame2;
-flPixelite.shootEffect = Fx.fire;
-flPixelite.despawnEffect = Fx.none;
-flPixelite.hitEffect = firehitFx;
-flPixelite.status = hellfire;
+const flCoal = extend(BasicBulletType, {});
+flCoal.speed = 20;
+flCoal.damage = 25;
+flCoal.width = 1;
+flCoal.height = 1;
+flCoal.innacuracy = 15;
+flCoal.lifetime = 5;
+flCoal.shootSound = Sounds.flame2;
+flCoal.shootEffect = Fx.fire;
+flCoal.despawnEffect = Fx.none;
+flCoal.hitEffect = firehitFx;
+flCoal.status = hellfire;
+flCoal.ammoMultiplier = 10;
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
-    this.ammo(Vars.content.getByName(ContentType.item,"pixelcraft-pixelite"), flPixelite);
+    this.ammo(Vars.content.getByName(ContentType.item,"coal"), flCoal);
     this.super$init();
   },
 
