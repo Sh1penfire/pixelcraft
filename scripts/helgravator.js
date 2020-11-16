@@ -26,13 +26,13 @@ const hellfire = extendContent(StatusEffect, "hellfire", {});
 
 hellfire.speedMultiplier = 0.8;
 hellfire.armorMultiplier = 0.75;
-hellfire.damage = .5;
+hellfire.damage = 1;
 hellfire.effect = hellfireFX;
 hellfire.color = Color.white;
 
 
 const flCoal = extend(LiquidBulletType, {});
-flCoal.liquid = Liquids.slag;
+flCoal.liquid = Liquids.oil;
 flCoal.speed = 4;
 flCoal.damage = 10;
 flCoal.width = 5;
