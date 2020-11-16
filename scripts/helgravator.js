@@ -32,7 +32,7 @@ hellfire.color = Color.white;
 
 
 const flCoal = extend(LiquidBulletType, {});
-flCoal.liquid = slag;
+flCoal.liquid = Liquids.slag;
 flCoal.speed = 4;
 flCoal.damage = 10;
 flCoal.width = 5;
