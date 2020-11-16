@@ -6,6 +6,15 @@ Fill.circle(e.x, e.y, e.fslope() * 4);
 Fill.circle(e.x, e.y, e.fout() * 2);
 });
 
+const firehitFx = new Effect(40, e => {
+    Draw.color(Color.orange, Color.red, e.fin());
+    Lines.stroke(e.fin() * 2);
+    const d = new Floatc2({get(x, y){
+    Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 2 + 0);
+    }}) 
+    Angles.randLenVectors(e.id, 25, 1 + 60 * e.fin(), e.rotation, 360,d);
+});
+
 const hellfire = extendContent(StatusEffect, "hellfire", {});
 
 hellfire.speedMultiplier = 0.8;
@@ -27,7 +36,7 @@ flPixelite.lifetime = 5;
 flPixelite.shootSound = Sounds.flame2;
 flPixelite.shootEffect = Fx.shootPyraFlame;
 flPixelite.despawnEffect = Fx.none;
-flPixelite.hitEffect = Fx.fire;
+flPixelite.hitEffect = firehitFx;
 flPixelite.status = hellfire;
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
