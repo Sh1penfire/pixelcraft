@@ -10,7 +10,7 @@ Lines.stroke(e.fin() * 2);
 const d = new Floatc2({get(x, y){
 Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 1);
 }}) 
-Angles.randLenVectors(e.id, 1, 6 * e.fin(), e.rotation, 360,d);
+Angles.randLenVectors(e.id, 10, 1 * e.fin(), e.rotation, 360,d);
 });
 
 const firehitFx = new Effect(40, e => {
