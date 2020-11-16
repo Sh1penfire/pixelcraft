@@ -8,9 +8,9 @@ Lines.circle(e.x, e.y, e.fin() * 6);
 Draw.color(Color.white, Color.orange, e.fin());
 Lines.stroke(e.fin() * 2);
 const d = new Floatc2({get(x, y){
-Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 1);
+Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 3);
 }}) 
-Angles.randLenVectors(e.id, 10, 1 * e.fin(), e.rotation, 360,d);
+Angles.randLenVectors(e.id, 20, 3 * e.fin(), e.rotation, 360,d);
 });
 
 const firehitFx = new Effect(15, e => {
@@ -36,8 +36,8 @@ flCoal.speed = 5;
 flCoal.damage = 10;
 flCoal.width = 5;
 flCoal.height = 8;
-flCoal.innacuracy = 15;
-flCoal.lifetime = 50;
+flCoal.innacuracy = 6;
+flCoal.lifetime = 75;
 flCoal.shootSound = Sounds.flame2;
 flCoal.shootEffect = firehitFx;
 flCoal.despawnEffect = Fx.none;
