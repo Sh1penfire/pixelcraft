@@ -7,6 +7,10 @@ flPixelite.width = 1;
 flPixelite.height = 1;
 flPixelite.innacuracy = 15;
 flPixelite.lifetime = 5;
+flPixelite.shootSound = Sx.flame;
+flPixelite.shootEffect = Fx.fire1;
+flPixelite.despawnEffect = Fx.none;
+flPixelite.hitEffect = Fx.fire1;
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
     this.ammo(Vars.content.getByName(ContentType.item,"pixelcraft-pixelite"), flPixelite);
