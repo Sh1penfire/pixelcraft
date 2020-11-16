@@ -19,7 +19,7 @@ const firehitFx = new Effect(40, e => {
     const d = new Floatc2({get(x, y){
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 2 + 0);
     }}) 
-    Angles.randLenVectors(e.id, 35, 1 + 20 * e.fin(), e.rotation, 45,d);
+    Angles.randLenVectors(e.id, 25, 1 + 60 * e.fin(), e.rotation, 45,d);
 });
 
 const hellfire = extendContent(StatusEffect, "hellfire", {});
@@ -32,14 +32,14 @@ hellfire.color = Color.white;
 
 const flCoalfrag = extend(LiquidBulletType, {});
 const flCoal = extend(BasicBulletType, {});
-flCoal.speed = 4;
+flCoal.speed = 10;
 flCoal.damage = 10;
 flCoal.width = 5;
 flCoal.height = 8;
 flCoal.innacuracy = 15;
-flCoal.lifetime = 100;
+flCoal.lifetime = 15;
 flCoal.shootSound = Sounds.flame2;
-flCoal.shootEffect = Fx.firehitFx;
+flCoal.shootEffect = firehitFx;
 flCoal.despawnEffect = Fx.none;
 flCoal.hitEffect = Fx.none;
 flCoal.ammoMultiplier = 10;
@@ -55,7 +55,7 @@ flCoalfrag.width = 5;
 flCoalfrag.height = 5;
 flCoalfrag.lifetime = 7;
 flCoalfrag.despawnEffect = Fx.none;
-flCoalfrag.hitEffect = Fx.none;
+flCoalfrag.hitEffect = firehitFx;
 flCoalfrag.status = hellfire;
 
 
