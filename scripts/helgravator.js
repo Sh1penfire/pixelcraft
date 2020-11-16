@@ -26,7 +26,7 @@ Draw.color(Color.orange, Color.red, e.fin());
 Fill.circle(e.x, e.y, e.fout() * 2);
 });
 
-const flPixelite = extend(BasicBulletType, {});
+const flPixelite = extend(ArtilleryBulletType, {});
 flPixelite.speed = 20;
 flPixelite.damage = 5;
 flPixelite.width = 1;
