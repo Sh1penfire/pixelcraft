@@ -31,13 +31,14 @@ hellfire.effect = hellfireFX;
 hellfire.color = Color.white;
 
 
-const flCoal = extend(BasicBulletType, {});
-flCoal.speed = 20;
+const flCoal = extend(LiquidBulletType, {});
+flCoal.liquid = slag;
+flCoal.speed = 4;
 flCoal.damage = 10;
-flCoal.width = 1;
-flCoal.height = 1;
+flCoal.width = 5;
+flCoal.height = 5;
 flCoal.innacuracy = 15;
-flCoal.lifetime = 5;
+flCoal.lifetime = 25;
 flCoal.shootSound = Sounds.flame2;
 flCoal.shootEffect = Fx.fire;
 flCoal.despawnEffect = Fx.none;
