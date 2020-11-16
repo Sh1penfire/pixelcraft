@@ -3,13 +3,14 @@ description: "T3 scorch. Wonderfull thing. This is scorch's true potentual. Spra
 health: 600
 range: 100
 size: 3
-reloadTime: 0.5
+reloadTime: 0.1
 shots: 5
 insulated: true
 buildVisibility: shown
 requirements: [    
   magnitine/250
   titanium/150
+  feromagnet/50
 ]
 category: turret
 research: flamethrower1
