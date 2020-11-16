@@ -65,8 +65,7 @@ flPixelite.pierce = true;
 
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
-        this.ammo( Vars.content.getByName(ContentType.item,"coal"), flCoal,
-        Vars.content.getByName(ContentType.item."pixelcraft-pixelite"), flPixelite );
+        this.ammo( Vars.content.getByName(ContentType.item,"coal"), flCoal, Vars.content.getByName(ContentType.item."pixelcraft-pixelite"), flPixelite );
     this.super$init();
   },
 
