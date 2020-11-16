@@ -30,7 +30,7 @@ hellfire.damage = 1;
 hellfire.effect = hellfireFX;
 hellfire.color = Color.white;
 
-
+const flCoalfrag = extend(LiquidBulletType, {});
 const flCoal = extend(LiquidBulletType, {});
 flCoal.liquid = Liquids.oil;
 flCoal.speed = 4;
@@ -47,6 +47,21 @@ flCoal.status = hellfire;
 flCoal.ammoMultiplier = 10;
 flCoal.pierce = true;
 flCoal.homing = true;
+flCoal.fragBullets = 3;
+flCoal.fragBullet = flCoalfrag;
+
+const flCoalfrag = extend(LiquidBulletType, {});
+const flCoal = extend(LiquidBulletType, {});
+flCoal.liquid = Liquids.oil;
+flCoal.speed = 4;
+flCoal.damage = 5;
+flCoal.width = 5;
+flCoal.height = 5;
+flCoal.lifetime = 7;
+flCoal.despawnEffect = Fx.none;
+flCoal.hitEffect = firehitFx;
+flCoal.status = hellfire;
+
 
 const flPixelite = extend(BasicBulletType, {});
 flPixelite.speed = 20;
