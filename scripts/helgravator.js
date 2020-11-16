@@ -1,6 +1,4 @@
 const hellfireFX = new Effect(20, e => {
-Draw.color(Color.white, Color.white, e.fin());
-Fill.circle(e.x, e.y, e.fslope() * 5);
 Draw.color(Color.orange, Color.red, e.fin());
 Fill.circle(e.x, e.y, e.fslope() * 4);
 Fill.circle(e.x, e.y, e.fout() * 2);
@@ -26,17 +24,15 @@ hellfire.color = Color.white;
 
 const flPixelite = extend(BasicBulletType, {});
 flPixelite.speed = 20;
-flPixelite.splashDamage = 5;
 flPixelite.damage = 1;
-flPixelite.splashDamageRadius = 16;
 flPixelite.width = 1;
 flPixelite.height = 1;
 flPixelite.innacuracy = 15;
 flPixelite.lifetime = 5;
 flPixelite.shootSound = Sounds.flame2;
-flPixelite.shootEffect = firehitFx;
+flPixelite.shootEffect = Fx.fire;
 flPixelite.despawnEffect = Fx.none;
-flPixelite.hitEffect = Fx.none;
+flPixelite.hitEffect = firehitFx;
 flPixelite.status = hellfire;
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
