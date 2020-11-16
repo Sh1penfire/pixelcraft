@@ -32,12 +32,12 @@ hellfire.color = Color.white;
 
 const flCoalfrag = extend(LiquidBulletType, {});
 const flCoal = extend(ArtilleryBulletType, {});
-flCoal.speed = 10;
+flCoal.speed = 5;
 flCoal.damage = 10;
 flCoal.width = 5;
 flCoal.height = 8;
 flCoal.innacuracy = 15;
-flCoal.lifetime = 15;
+flCoal.lifetime = 50;
 flCoal.shootSound = Sounds.flame2;
 flCoal.shootEffect = firehitFx;
 flCoal.despawnEffect = Fx.none;
@@ -57,7 +57,7 @@ flCoalfrag.width = 5;
 flCoalfrag.height = 5;
 flCoalfrag.lifetime = 7;
 flCoalfrag.despawnEffect = Fx.none;
-flCoalfrag.hitEffect = Fx.none;
+flCoalfrag.hitEffect = Fx.fire;
 flCoalfrag.status = hellfire;
 
 
