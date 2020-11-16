@@ -50,8 +50,6 @@ flCoal.homing = true;
 flCoal.fragBullets = 3;
 flCoal.fragBullet = flCoalfrag;
 
-const flCoalfrag = extend(LiquidBulletType, {});
-const flCoal = extend(LiquidBulletType, {});
 flCoal.liquid = Liquids.oil;
 flCoal.speed = 4;
 flCoal.damage = 5;
