@@ -90,3 +90,4 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
     ];
   }
 });
+helgravator.innacuracy = 24;
