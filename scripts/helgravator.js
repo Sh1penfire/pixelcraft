@@ -10,7 +10,7 @@ const firehitFx = new Effect(40, e => {
     const d = new Floatc2({get(x, y){
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 2 + 0);
     }}) 
-    Angles.randLenVectors(e.id, 25, 1 + 60 * e.fin(), e.rotation, 360,d);
+    Angles.randLenVectors(e.id, 25, 1 + 60 * e.fin(), e.rotation, 45,d);
 });
 
 const hellfire = extendContent(StatusEffect, "hellfire", {});
@@ -21,10 +21,14 @@ hellfire.damage = .5;
 hellfire.effect = hellfireFX;
 hellfire.color = Color.white;
 
+const pxtrailFX = new Effect(5=10, e => {
+Draw.color(Color.orange, Color.red, e.fin());
+Fill.circle(e.x, e.y, e.fout() * 2);
+});
 
-const flPixelite = extend(BasicBulletType, {});
+const flPixelite = extend(ArtilleryBulletType, {});
 flPixelite.speed = 20;
-flPixelite.damage = 1;
+flPixelite.damage = 5;
 flPixelite.width = 1;
 flPixelite.height = 1;
 flPixelite.innacuracy = 15;
@@ -34,6 +38,9 @@ flPixelite.shootEffect = Fx.fire;
 flPixelite.despawnEffect = Fx.none;
 flPixelite.hitEffect = firehitFx;
 flPixelite.status = hellfire;
+flPixelite.trailEffect = pxtrailFX; 
+flPixelite.colides = true;
+flPixelite.colidesTiles = true;
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
     this.ammo(Vars.content.getByName(ContentType.item,"pixelcraft-pixelite"), flPixelite);
@@ -42,7 +49,7 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
 
   icons(){
     return [
-      Core.atlas.find("block-2"),
+      Core.atlas.find("block-3"),
       Core.atlas.find("pixelcraft-flamethrower1")
     ];
   }
