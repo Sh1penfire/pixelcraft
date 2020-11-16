@@ -46,6 +46,7 @@ flCoal.hitEffect = firehitFx;
 flCoal.status = hellfire;
 flCoal.ammoMultiplier = 10;
 flCoal.pierce = true;
+flCoal.homing = true;
 
 const flPixelite = extend(BasicBulletType, {});
 flPixelite.speed = 20;
@@ -64,8 +65,8 @@ flPixelite.pierce = true;
 
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
-    this.ammo(Vars.content.getByName(ContentType.item,"coal"), flCoal);
-    //this.ammo(Vars.content.getByName(ContentType.item,"coal"), flPixelite);
+        this.ammo( Vars.content.getByName(ContentType.item,"coal"), flCoal,
+        Vars.content.getByName(ContentType.item."pixelcraft-pixelite"), flPixelite );
     this.super$init();
   },
 
