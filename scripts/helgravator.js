@@ -34,9 +34,9 @@ flPixelite.height = 1;
 flPixelite.innacuracy = 15;
 flPixelite.lifetime = 5;
 flPixelite.shootSound = Sounds.flame2;
-flPixelite.shootEffect = Fx.shootPyraFlame;
+flPixelite.shootEffect = firehitFx;
 flPixelite.despawnEffect = Fx.none;
-flPixelite.hitEffect = firehitFx;
+flPixelite.hitEffect = Fx.none;
 flPixelite.status = hellfire;
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
