@@ -1,6 +1,6 @@
 const hellfireFX = new Effect(5, e => {
 Draw.color(Color.orange, Color.red, e.fin());
- Draw.alpha(e.fslope + 0.5());
+ Draw.alpha(e.fout());
 Fill.circle(e.x, e.y, e.fslope() * 5);
 });
 
