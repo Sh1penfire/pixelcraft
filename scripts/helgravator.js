@@ -42,8 +42,8 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
 
   icons(){
     return [
-      Core.atlas.find("block-2"),
-      Core.atlas.find("pixelcraft-flamethrower1")
+      Core.atlas.find("block-3"),
+      Core.atlas.find("pixelcraft-flamethrower3")
     ];
   }
 });
