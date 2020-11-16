@@ -55,7 +55,7 @@ flCoalfrag.width = 5;
 flCoalfrag.height = 5;
 flCoalfrag.lifetime = 7;
 flCoalfrag.despawnEffect = Fx.none;
-flCoalfrag.hitEffect = firehitFx;
+flCoalfrag.hitEffect = Fx.none;
 flCoalfrag.status = hellfire;
 
 
@@ -69,7 +69,7 @@ flPixelite.lifetime = 5;
 flPixelite.shootSound = Sounds.flame2;
 flPixelite.shootEffect = Fx.fire;
 flPixelite.despawnEffect = Fx.none;
-flPixelite.hitEffect = firehitFx;
+flPixelite.hitEffect = Fx.fire;
 flPixelite.status = hellfire;
 flPixelite.ammoMultiplier = 10;
 flPixelite.pierce = true;
