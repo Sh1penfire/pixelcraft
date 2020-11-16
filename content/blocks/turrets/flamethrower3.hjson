@@ -1,7 +1,8 @@
 name: "Helgravator"
 description: "T3 scorch. Wonderfull thing. This is scorch's true potentual. (Was named plasma in mindustry clasic)"
 health: 600
-range: 80
+range: 100
 size: 3
+reloadTime: 5
 insulated: true
 buildVisibility: shown
