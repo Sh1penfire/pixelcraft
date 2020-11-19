@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Strand
-description: A standerd turret. Effective against ground units.
+description: A standard turret. Effective against ground units.
 health: 200
 size: 1
 reloadTime: 17.5
