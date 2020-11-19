@@ -59,7 +59,7 @@ flCoalfrag.lifetime = 7;
 flCoalfrag.despawnEffect = Fx.none;
 flCoalfrag.hitEffect = Fx.fire;
 flCoalfrag.status = hellfire;
-flCoal.fragBullet = Bullets.standardCopper;
+flCoalfrag.fragBullet = Bullets.standardCopper;
 //this will make the bullet always spawn a puddle even if it ddosn't hit it's target.
 
 const flPixelite = extend(BasicBulletType, {});
