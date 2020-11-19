@@ -59,7 +59,8 @@ flCoalfrag.lifetime = 7;
 flCoalfrag.despawnEffect = Fx.none;
 flCoalfrag.hitEffect = Fx.fire;
 flCoalfrag.status = hellfire;
-
+flCoal.fragBullet = Bullets.standardCopper;
+//this will make the bullet always spawn a puddle even if it ddosn't hit it's target.
 
 const flPixelite = extend(BasicBulletType, {});
 flPixelite.speed = 20;
@@ -78,8 +79,10 @@ flPixelite.pierce = true;
 
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
-        this.ammo( Vars.content.getByName(ContentType.item,"coal"), flCoal)
-      //Vars.content.getByName(ContentType.item."pixelcraft-pixelite"), flPixelite );
+        this.ammo( 
+            Vars.content.getByName(ContentType.item,"coal"), flCoal,
+            Vars.content.getByName(ContentType.item."pixelcraft-pixelite"), flPixelite 
+        );
     this.super$init();
   },
 
