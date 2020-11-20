@@ -47,6 +47,7 @@ flCoal.collidesTiles = true;
 flCoal.ammoMultiplier = 10;
 flCoal.pierce = true;
 flCoal.homing = true;
+flCoal.incendAmount = 5;
 flCoal.fragBullets = 3;
 flCoal.fragBullet = flCoalfrag;
 
