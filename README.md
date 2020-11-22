@@ -8,13 +8,16 @@ note: Has been ported over to 115, enjoy the mod!
 Guide to turrets:
 
 Strand:
-A starting turret from iron. Needs a sprite. A bit stronger than duo but uses non traditional ammo types.
+A starting turret from iron. A bit weaker than duo and uses non traditional ammo types.
 
 String:
 Upgraded strand. double the firepower with less range.
 
 Blaze:
 A flamethrower that can hit air. Just like scorch can pierce indefinantly. Uses a wide aray of combustibles for ammo.
+
+Helgravator:
+A coal only flamethrower which has the ability to spawn flamming oil puddles wherever the shots land.
 
 Dusk:
 A powerfull railgun that can use titanium and steel. Can't target air without help.
