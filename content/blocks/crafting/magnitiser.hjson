@@ -1,5 +1,5 @@
 name: "Magnitiser"
-description: "Enhances magnetic properties of iron while mixing in titanium to strengthen the structure. Red paint not included.(water needed to make red paint) Theres a note in plastic. It says: One of the bots decided to melt the scrap. They said that the idea was pointless, as these were ancient fossils which they were studying."
+description: "Enhances magnetic properties of magnitine while mixing in titanium to strengthen the structure. Red paint not included.(water needed to make red paint) Theres a note in plastic. It says: One of the bots decided to melt the scrap. They said that the idea was pointless, as these were ancient fossils which they were studying."
 type: GenericSmelter
 type: GenericSmelter
 liquidCapacity: 1
@@ -13,7 +13,7 @@ consumes: {
   power: 2
   items: {
     items: [
-      iron/2
+      magnitine/2
       titanium/2
     ]
   }
@@ -29,6 +29,5 @@ requirements: [
 ]
 category: crafting
 research: feromagnet
-idleSound: respawning
 idleSoundVolume: 0.25
 outputItem: feromagnet/3
