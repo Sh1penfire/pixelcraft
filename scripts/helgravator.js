@@ -33,22 +33,22 @@ hellfire.color = Color.white;
 const flCoalfrag = extend(LiquidBulletType, {});
 const flCoal = extend(ArtilleryBulletType, {});
 flCoal.speed = 5;
-flCoal.damage = 10;
+flCoal.damage = 30;
 flCoal.width = 5;
 flCoal.height = 8;
 flCoal.innacuracy = 6;
-flCoal.lifetime = 75;
+flCoal.lifetime = 100;
 flCoal.shootSound = Sounds.flame2;
 flCoal.shootEffect = firehitFx;
 flCoal.despawnEffect = Fx.none;
 flCoal.hitEffect = Fx.none;
 flCoal.collides = true;
 flCoal.collidesTiles = true;
+flCoal.colidesAir = true;
 flCoal.ammoMultiplier = 10;
 flCoal.pierce = true;
-flCoal.homing = true;
 flCoal.incendAmount = 5;
-flCoal.fragBullets = 3;
+flCoal.fragBullets = 5;
 flCoal.fragBullet = flCoalfrag;
 
 flCoalfrag.liquid = Liquids.oil;
@@ -61,7 +61,7 @@ flCoalfrag.despawnEffect = Fx.none;
 flCoalfrag.hitEffect = Fx.fire;
 flCoalfrag.status = hellfire;
 flCoalfrag.fragBullet = Bullets.standardCopper;
-//this will make the bullet always spawn a puddle even if it ddosn't hit it's target.
+//this will make the bullet always spawn a puddle even if it dosn't hit it's target.
 
 const flPixelite = extend(BasicBulletType, {});
 flPixelite.speed = 20;
