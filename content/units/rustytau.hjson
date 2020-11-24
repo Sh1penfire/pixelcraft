@@ -1,11 +1,13 @@
 type: mech
+name: "Rusty tau"
+description: "A suport unit from the old days. Has Extremely powerfull minning lasers, although degraded over centuries. Comes with a build in suport gun for use in attacking and repear."
 health: 750
-speed: 1.75
+speed: 0.8
 canDrown: false
 canBoost: true
 buildSpeed: 10
 mineSpeed: 10
-mineTier: 3
+mineTier: 4
 itemCapacity: 70
 faceTarget: true
 rage: 100
@@ -15,17 +17,20 @@ omniMovement: true
 weapons: [
 {
 name: aged-repeargun
-reload: 10
-alternate: true
+reload: 20
+alternate: false
 ejectEffect: casing1
 top: false
 shootSound: pew
-shots: 5
+shots: 1
 spread: 7.5
-x: 3.5
+x: 5
 y: 0
 rotate: false
 occlusion: 0
 bullet: healBulletBig
+}
+{
+
 }
 ]
