@@ -35,7 +35,7 @@ shootType: {
 	status: melting
 	homingRange: 8
 	homingPower: .01
-	collides: false
+	collides: true
 	collidesTiles: false
 	collidesAir: true
 	fragBullet: {
