@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Strand
-description: A standerd turret. Effective against ground units.
+description: A standard turret. Effective against ground units.
 health: 200
 size: 1
 reloadTime: 17.5
@@ -21,7 +21,7 @@ ammoTypes: {
     }
   iron: {
     speed: 4
-    damage: 6
+    damage: 7
     width: 5
     height: 10
     shootEffect: shootSmall
@@ -35,7 +35,7 @@ ammoTypes: {
     fragBullet: {
         type: BasicBulletType
         damage: .25
-        splashDamage: .25
+        splashDamage: 1
         splashDamageRadius: 25
         drag: 0.01
         width: 3
@@ -49,7 +49,7 @@ rubble: {
     damage: 5
     width: 5
     height: 15
-    splashDamage: 2
+    splashDamage: 4
     splashDamageRadius: 25
     shootEffect: shootSmall
     smokeEffect: shootSmallSmoke
@@ -61,7 +61,7 @@ rubble: {
   }
 pixelite: {
     speed: 6
-    damage: 8
+    damage: 9
     width: 5
     height: 10
     shootEffect: shootSmall

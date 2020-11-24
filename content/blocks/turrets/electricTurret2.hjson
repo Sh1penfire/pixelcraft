@@ -74,9 +74,9 @@ shootType: {
 }
 }
 requirements: [
- iron/75
+ iron/65
  magnitine/60
- graphite/75
+ graphite/50
 ]
 category: turret
 research: electricTurret1

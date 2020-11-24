@@ -14,7 +14,7 @@ ammoPerShot: 2
 itemCapacity: 10
 ammoTypes: {
  titanium: {
-    type: BasicBulletType
+    type: ArtilleryBulletType
 	speed: 32
 	damage: 25
 	width: 4
@@ -28,6 +28,9 @@ ammoTypes: {
 	fragVelocityMax: 1.5
 	frontColor: 56d7ca
 	backColor: 77b6b0
+	collides: true
+	collidesAir: true
+	collidesTiles: true
 	fragBullet: {
 	damage: 75
 	speed: 0
@@ -89,7 +92,7 @@ ammoTypes: {
 	}
 }
  magnitine: {
-    type: BasicBulletType
+    type: ArtilleryBulletType
 	speed: 32
 	damage: 100
 	width: 4
@@ -102,6 +105,9 @@ ammoTypes: {
 	reloadMultiplier: 1.5
 	lifetime: 15
 	fragBullets:100
+	collides: true
+	collidesAir: true
+	collidesTiles: true
 	fragBullet: {
     type: BasicBulletType
 	frontColor: ffffff

@@ -3,18 +3,21 @@ A v6 mod for mindustry
 This mod aims to expand mindustry's content by adding a new tech tree, adding upgraded versions of existinc blocks and more.
 This mod adds new resources, new turrets and new zones as well as slight tweaks to vanilla. 41 new building blocks to play with, one environmental block, two ores and 5 items with moree to come.
 (Lore included, find the lore of the mod in building and unit descriptions/reading the source code)
-note: Has been ported over to 113, enjoy the mod!
+note: Has been ported over to 115, enjoy the mod!
 
 Guide to turrets:
 
 Strand:
-A starting turret from iron. Needs a sprite. A bit stronger than duo but uses non traditional ammo types.
+A starting turret from iron. A bit weaker than duo and uses non traditional ammo types.
 
 String:
 Upgraded strand. double the firepower with less range.
 
 Blaze:
 A flamethrower that can hit air. Just like scorch can pierce indefinantly. Uses a wide aray of combustibles for ammo.
+
+Helgravator:
+A coal only flamethrower which has the ability to spawn flamming oil puddles wherever the shots land.
 
 Dusk:
 A powerfull railgun that can use titanium and steel. Can't target air without help.

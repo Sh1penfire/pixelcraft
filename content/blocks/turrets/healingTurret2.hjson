@@ -1,5 +1,5 @@
 localizedName: "Beat"
-description: "Propells beems of energy that power up nearby allies. (Used on difrent teamed units, needs logic to be aimed)"
+description: "Propells beams of energy that power up nearby allies. (Used on difrent teamed units, needs logic to be aimed)"
 range: 220
 health: 150
 inaccuracy: 7.5
