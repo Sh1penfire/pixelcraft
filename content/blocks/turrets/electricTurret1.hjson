@@ -31,9 +31,13 @@ shootType: {
 	weaveScale: 1
 	weaveMag: 1
 	fragBullets: 3
+	pierce: true
 	status: melting
 	homingRange: 8
 	homingPower: .01
+	collides: false
+	collidesTiles: false
+	collidesAir: true
 	fragBullet: {
 	type: basicBulletType
 	damage: 5
@@ -43,6 +47,9 @@ shootType: {
 	lifetime: 20
 	hitEffect: hitLancer
 	despawnEffect: hitBulletSmall
+	collides: false
+	collidesTiles: false
+	collidesAir: true
 }
 }
 requirements: [
