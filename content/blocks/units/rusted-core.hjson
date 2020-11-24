@@ -22,17 +22,18 @@ plans: [
     {
     unit: rustytau
     requirements: [
-      iron/85
-      coal/50
+      iron/35
+      magnitine/25
+      titanium/15
     ]
     time: 1000
   }
     {
     unit: rustyomega
     requirements: [
-      iron/140
-      coal/50
-      titanium/20
+      iron/70
+      magnitine/45
+      feromagnet/10
     ]
     time: 1500
   }
