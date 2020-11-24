@@ -30,7 +30,4 @@ rotate: false
 occlusion: 0
 bullet: healBulletBig
 }
-{
-
-}
 ]
