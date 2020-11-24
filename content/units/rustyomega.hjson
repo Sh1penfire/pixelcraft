@@ -1,4 +1,4 @@
-type: MechUnit
+type: mech
 name: "Rusty omega"
 description: "pew pew"
 speed: .65
