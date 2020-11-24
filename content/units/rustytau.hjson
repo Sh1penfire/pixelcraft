@@ -43,6 +43,6 @@ x: 6
 y: 1
 rotate: false
 occlusion: 0
-bullet: healBulletSmall
+bullet: healBulletBig
 }
 ]
