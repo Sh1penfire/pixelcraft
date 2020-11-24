@@ -1,0 +1,31 @@
+type: MechUnit
+health: 750
+speed: 1.75
+canDrown: false
+canBoost: true
+buildSpeed: 10
+mineSpeed: 10
+mineTier: 3
+itemCapacity: 70
+faceTarget: true
+rage: 100
+rotateSpeed: 6
+lowAltitude: true
+omniMovement: true
+weapons: [
+{
+name: aged-repeargun
+reload: 10
+alternate: true
+ejectEffect: casing1
+top: false
+shootSound: pew
+shots: 5
+spread: 7.5
+x: 3.5
+y: 0
+rotate: false
+occlusion: 0
+bullet: healBulletBig
+}
+]
