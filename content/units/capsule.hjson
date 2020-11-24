@@ -1,4 +1,4 @@
-type: UnitEntityLegacyMono
+type: flying
 name: "Capsule"
 description: "Contains an ai that can transport itself into other mechinisms that allow it to."
 flying: true
