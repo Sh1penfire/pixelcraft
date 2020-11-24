@@ -24,6 +24,7 @@ ammoTypes: {
 	despawnEffect: none
 	hitEffect: shootBigSmoke
 	status: melting
+	pierce: true
     }
   pyratite: {
 pierce: true
@@ -75,7 +76,7 @@ pierce: true
     shootEffect: shootSmall
     smokeEffect: shootSmallSmoke
     lifetime: 40  
-	splashDamage: 10
+	splashDamage: 15
 	splashDamageRadius: 20
 	frontColor: f38e30
 	backColor: f38e30
