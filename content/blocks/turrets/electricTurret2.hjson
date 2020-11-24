@@ -67,7 +67,7 @@ shootType: {
 	splashDamage: .5
 	splashDamageRadius: 25
 	lifetime: 5
-	knockback: 3
+	knockback: 0.5
 	
 }
 }
