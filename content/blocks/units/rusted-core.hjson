@@ -3,6 +3,7 @@ description: "The prediscessor of this core was found and quickely scaned for it
 type: UnitFactory
 health: 300
 size: 3
+unitCapModifier: 1
 plans: [
   {
     unit: rustyalpha
@@ -36,6 +37,13 @@ plans: [
       feromagnet/10
     ]
     time: 1500
+  }
+    {
+    unit: rustydart
+    requirements: [
+      iron/125
+    ]
+    time: 150
   }
 ]
 //consumes: {

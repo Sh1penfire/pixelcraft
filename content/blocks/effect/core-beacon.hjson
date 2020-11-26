@@ -5,7 +5,7 @@ health: 300
 itemCapacity: 7000
 size: 4
 unitCapModifier: 5
-unitType: rustyalpha
+unitType: rustydart
 research: coal
 requirements: [
   iron/3000

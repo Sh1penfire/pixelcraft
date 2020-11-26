@@ -1,0 +1,145 @@
+type: flying
+name: "Rusty dart"
+description: "Contains an ai that can transport itself into other mechinisms that allow it to."
+flying: true
+speed: 3.3
+health: 150
+aimDst: 10
+range: 50
+drag: 0.05
+accel: 0.075
+maxRange: 200
+buildSpeed: 3
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 2
+mineSpeed: 8
+range: 100
+rotateSpeed: 7
+lowAltitude: false
+omniMovement: true
+canDrown: false
+weapons: [ 
+{
+name: aged-repeargun
+reload: 5
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1.5
+y: 3
+rotate: false
+occlusion: 0
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+type: BasicBulletType
+damage: 3
+speed: 2
+width: 5
+height: 8
+lifetime: 60
+knockback: 0
+hitSound: none
+healPercent: 1
+collidesTeam: true
+homing: true
+}
+}
+{
+name: aged-repeargun
+reload: 7
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 2
+y: 1
+rotate: false
+occlusion: 0
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+type: BasicBulletType
+damage: 5
+speed: 2
+width: 6
+height: 9
+lifetime: 60
+knockback: 0
+hitSound: none
+healPercent: 1
+collidesTeam: true
+homing: true
+}
+}
+{
+name: aged-blaster-mount
+reload: 25
+alternate: false
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 0.25
+y: 0
+rotate: true
+occlusion: 0
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+trailColor: b7f35e
+type: MissileBulletType
+speed: 2
+lifetime: 75
+fragBullets: 3
+fragBullet:{
+frontColor: b7f35e
+backColor: b7f35e
+damage: 1
+speed: 2
+width: 5
+height: 8
+lifetime: 60
+knockback: 0
+hitSound: none
+healPercent: 1.5
+collidesTeam: true
+}
+}
+}
+{
+name: aged-blaster-mount
+reload: 25
+alternate: false
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 0.75
+y: 0.2
+rotate: true
+occlusion: 0
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+trailColor: b7f35e
+type: MissileBulletType
+speed: 1
+lifetime: 150
+fragBullets: 3
+fragBullet:{
+frontColor: b7f35e
+backColor: b7f35e
+damage: 1
+speed: 2
+width: 5
+height: 8
+lifetime: 60
+knockback: 0
+hitSound: none
+healPercent: 1.5
+collidesTeam: true
+}
+}
+}]
