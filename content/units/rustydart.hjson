@@ -143,3 +143,6 @@ collidesTeam: true
 }
 }
 }]
+research: {
+parent: core-refraction
+}

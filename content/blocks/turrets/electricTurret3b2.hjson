@@ -6,18 +6,18 @@ shootSound: spark
 size: 3
 reloadTime: 1
 range: 200
-shots: 2
-powerUse: 20
+shots: 5
+powerUse: 10
 rotateSpeed: 50
 shootYOffset: 10
-inaccuracy: 20
+inaccuracy: 15
 spread: 5
 targetAir: true
 targetGround: false
 shootType: {
 	type: BasicBulletType
 	speed: 10
-	damage: 5
+	damage: 15
 	lifetime: 45
 	width: 2
 	height: 5
@@ -29,7 +29,7 @@ shootType: {
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
 	despawnEffect: hitLancer
-	fragBullets: 3
+	fragBullets: 4
 	homing: true
 	homingRange: 100
 	homingPower: 1

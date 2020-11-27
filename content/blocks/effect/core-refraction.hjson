@@ -15,6 +15,6 @@ requirements: [
 ] 
 category: effect
 hasItems: true
-buildVisibility: editorOnly
 solid: false
 alwaysUnlocked: true
+research: core-shard
