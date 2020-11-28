@@ -1,4 +1,4 @@
-type: ChargeTurret
+type: PowerTurret
 name: Point
 description: Locks on to a target and fires tracer shots which home into enemies and damage them.
 health: 220
@@ -20,7 +20,14 @@ targetGround: true
 shootType: {
 	type: ArtilleryBulletType
 	damage: 50
-	speed: 10
+	speed: 4
+	lifetime: 100
+	homing: true
+	homingPower: 0.05
+	homingRange: 50
+	collides: true
+	collidesAir: true
+	pierce: true
 	width: 1
 	height: 1
 	shootEffect: lancerLaserShoot
@@ -35,7 +42,7 @@ shootType: {
 	type: MissileBulletType
 	pierce: false
 	speed: 2
-	damage: 25
+	damage: 10
 	lifetime: 100
 	width: 4
 	height: 15

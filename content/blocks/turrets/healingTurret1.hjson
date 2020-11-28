@@ -11,7 +11,16 @@ powerUse: .5
 rotateSpeed: 10
 targetAir: true
 targetGround: true
-shootType: healBulletBig
+shootType: {
+type: LaserBoltBulletType
+damage: 5
+speed: 5
+lifetime: 40
+healPercent: 1.3
+collidesTeam: true
+frontColor: 01b73e
+backColor: b7f35e
+}
 requirements: [
  copper/60
  lead/25

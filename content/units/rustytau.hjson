@@ -28,7 +28,16 @@ x: 5
 y: 0
 rotate: false
 occlusion: 0
-bullet: healBulletBig
+bullet: {
+type: LaserBoltBulletType
+damage: 5
+speed: 5
+lifetime: 40
+healPercent: 1.3
+collidesTeam: true
+frontColor: 01b73e
+backColor: b7f35e
+}
 }
 {
 name: aged-blaster
@@ -43,6 +52,15 @@ x: 6
 y: 1
 rotate: false
 occlusion: 0
-bullet: healBulletBig
+bullet: {
+type: LaserBoltBulletType
+damage: 5
+speed: 5
+lifetime: 40
+healPercent: 1.3
+collidesTeam: true
+frontColor: 01b73e
+backColor: b7f35e
+}
 }
 ]

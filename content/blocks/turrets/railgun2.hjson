@@ -4,7 +4,7 @@ description: A railgun so powerful that the bolts desintagrate into fine dust ap
 shootSound: laser
 health: 600
 size: 3
-reloadTime: 25
+reloadTime: 50
 range: 450
 shots: 1
 spread: 0
@@ -52,11 +52,14 @@ ammoTypes: {
 	width: 2
 	height: 3
 	lifetime: 100
+	knockback: 0
 	frontColor: 56d7ca
 	backColor: 77b6b0
 	status: freezing
 	shrinkY: 1
 	fragBullets: 1
+	homing: true
+	homingRange: 100
 	fragBullet:{}
 }
 }
@@ -104,10 +107,59 @@ ammoTypes: {
 	homing: false
 	despawnEffect: none
 	hitEffect: none
-	lifetime: 50
-	drag: 0.05
+	lifetime: 100
+	drag: 0.025
 	shrinkY: 1
+	homing: true
+	homingRange: 100
+	homingPower: 10
 }
+}
+}
+ feromagnet: {
+    type: ArtilleryBulletType
+	speed: 32
+	damage: 450
+	width: 4
+	height: 32
+	shootEffect: shootSmall
+	smokeEffect: shootBigSmoke
+	hitEffect: blastExplosion
+	despawnEffect: blastExplosion
+	ammoMultiplier: 6
+	reloadMultiplier: 1.5
+	lifetime: 15
+	fragBullets:100
+	collides: true
+	collidesAir: true
+	collidesTiles: true
+	frontColor: e44d11
+	backColor: 56d7ca
+	trailColor: 4d107e
+	homing: true
+	homingRange: 100
+	homingPower: 0.02
+	fragBullets: 6
+	fragBullet: {
+    type: ArtilleryBulletType
+	speed: 2
+	damage: 25
+	width: 4
+	height: 16
+	hitEffect: hitBulletBig
+	lifetime: 60
+	fragBullets:100
+	collides: true
+	collidesAir: true
+	collidesTiles: true
+	frontColor: e44d11
+	backColor: 56d7ca
+	trailColor: 4d107e
+	homing: true
+	homingRange: 100
+	homingPower: 0.02
+	shrinkY: 0.01
+	pierce: false
 }
 }
 }
