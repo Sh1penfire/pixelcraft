@@ -30,7 +30,7 @@ bullet: {
 type: BasicBulletType
 sprite: shell
 frontColor: a447eb
-backColor: 4d107e
+backColor: bf92f9
 damage: 9
 speed: 3
 lifetime: 65
@@ -64,8 +64,8 @@ bullet: {
 type: ArtilleryBulletType
 sprite: shell
 frontColor: a447eb
-backColor: 4d107e
-trailColor: 7715c1
+backColor: bf92f9
+trailColor: 665c9f
 damage: 28
 splashDamage: 5
 splashDamageRadius: 25
@@ -84,7 +84,7 @@ fragBullet:{
 type: BasicBulletType
 sprite: shell
 frontColor: a447eb
-backColor: 4d107e
+backColor: bf92f9
 damage: 2
 speed: 2
 status: sapped

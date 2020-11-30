@@ -4,7 +4,7 @@ description: "An assult ship with piercing cannonballs."
 speed: 1.8
 drag: 0.13
 hitSize: 8
-health: 650
+health: 750
 accel: 0.5
 rotateSpeed: 4.4
 trailLength: 45
@@ -30,8 +30,8 @@ occlusion: 0
 bullet: {
 type: SapBulletType
 sapStrength: 5
-hitColor: a447eb
-color: a447ebs
+hitColor: 6d56bf
+color: bf92f9
 damage: 5
 length: 50
 knockback: -0.5
@@ -63,7 +63,7 @@ bullet: {
 type: BasicBulletType
 sprite: shell
 frontColor: a447eb
-backColor: 4d107e
+backColor: 6d56bf
 damage: 10
 speed: 4
 lifetime: 32.5
@@ -96,7 +96,7 @@ bullet: {
 type: BasicBulletType
 sprite: shell
 frontColor: a447eb
-backColor: 4d107e
+backColor: 6d56bf
 damage: 15
 speed: 4
 lifetime: 50
@@ -130,7 +130,7 @@ bullet: {
 type: BasicBulletType
 sprite: shell
 frontColor: a447eb
-backColor: 4d107e
+backColor: 6d56bf
 homing: false
 damage: 30
 speed: 4
@@ -164,7 +164,7 @@ bullet: {
 type: BasicBulletType
 sprite: shell
 frontColor: a447eb
-backColor: 4d107e
+backColor: 6d56bf
 homing: false
 damage: 45
 speed: 2
