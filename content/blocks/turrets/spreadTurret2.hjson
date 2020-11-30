@@ -19,7 +19,7 @@ width: 4
 height: 9
 shootEffect: none
 smokeEffect: none
-lifetime: 1
+lifetime: 0
 colides: false
 fragBullets: 25
 hitEffect: none

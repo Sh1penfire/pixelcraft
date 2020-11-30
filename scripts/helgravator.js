@@ -13,13 +13,18 @@ Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 3);
 Angles.randLenVectors(e.id, 20, 3 * e.fin(), e.rotation, 360,d);
 });
 
-const firehitFx = new Effect(15, e => {
-    Draw.color(Color.orange, Color.red, e.fin());
-    Lines.stroke(e.fin() * 2);
-    const d = new Floatc2({get(x, y){
-    Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 2 + 0);
-    }}) 
-    Angles.randLenVectors(e.id, 25, 1 + 60 * e.fin(), e.rotation, 25,d);
+const firehitFx = new Effect(20, e => {
+  Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, e.fin());
+  Angles.randLenVectors(e.id, 10, e.finpow() * 60, e.rotation, 10, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 2);
+  })
+});
+
+const firelandFx = new Effect(20, e => {
+  Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, e.fin());
+  Angles.randLenVectors(e.id, 3, e.finpow() * 5, e.rotation, 3, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 0.4);
+  })
 });
 
 const hellfire = extendContent(StatusEffect, "hellfire", {});
@@ -31,25 +36,27 @@ hellfire.effect = hellfireFX;
 hellfire.color = Color.white;
 
 const flCoalfrag = extend(LiquidBulletType, {});
-const flCoal = extend(ArtilleryBulletType, {});
-flCoal.speed = 5;
+const flCoal = extend(BasicBulletType, {});
+flCoal.speed = 20;
 flCoal.damage = 30;
-flCoal.width = 5;
-flCoal.height = 8;
+flCoal.hitSize = 6;
+flCoal.width = 1;
+flCoal.height = 1;
 flCoal.innacuracy = 6;
-flCoal.lifetime = 100;
+flCoal.lifetime = 5;
 flCoal.knockback = 0;
 flCoal.shootSound = Sounds.flame2;
 flCoal.shootEffect = firehitFx;
 flCoal.despawnEffect = Fx.none;
 flCoal.hitEffect = Fx.none;
+flCoal.trailEffect = Fx.none;
 flCoal.collides = true;
 flCoal.collidesTiles = true;
 flCoal.colidesAir = true;
 flCoal.ammoMultiplier = 10;
 flCoal.pierce = true;
-flCoal.incendAmount = 5;
-flCoal.fragBullets = 5;
+flCoal.incendAmount = 1;
+flCoal.fragBullets = 2;
 flCoal.fragBullet = flCoalfrag;
 
 flCoalfrag.liquid = Liquids.oil;
@@ -57,10 +64,10 @@ flCoalfrag.speed = 4;
 flCoalfrag.damage = 5;
 flCoalfrag.width = 5;
 flCoalfrag.height = 5;
-flCoalfrag.lifetime = 7;
+flCoalfrag.lifetime = 1;
 flCoalfrag.knockback = 0;
 flCoalfrag.despawnEffect = Fx.none;
-flCoalfrag.hitEffect = Fx.fire;
+flCoalfrag.hitEffect = firelandFx;
 flCoalfrag.status = hellfire;
 flCoalfrag.fragBullet = Bullets.standardCopper;
 //this will make the bullet always spawn a puddle even if it dosn't hit it's target.
@@ -97,3 +104,6 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
   }
 });
 helgravator.innacuracy = 24;
+helgravator.shots = 5;
+helgravator.shootSound = Sounds.flame2;
+//Thanks for the help with effects Puppycat :)

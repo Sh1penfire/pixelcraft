@@ -12,6 +12,9 @@ damage: 10000
 speed: 6
 lifetime: 100
 status: melting
+pierce: true
+knockback: 10
+shrinkY: 1
 }
 }
 requirements: [    

@@ -1,0 +1,20 @@
+plans: [
+  {
+    unit: risso
+    requirements: [
+      silicon/20
+      metaglass/35
+    ]
+    time: 270
+  }
+  {
+    unit: purpleN1
+    requirements: [
+      coal/15
+      silicon/20
+      metaglass/15
+    ]
+    time: 285
+  }
+
+]

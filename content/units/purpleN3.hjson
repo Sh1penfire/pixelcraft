@@ -1,0 +1,191 @@
+type: naval
+name: "Cannon"
+description: "An assult ship with piercing cannonballs."
+speed: 1.8
+drag: 0.13
+hitSize: 8
+health: 650
+accel: 0.5
+rotateSpeed: 4.4
+trailLength: 45
+buildSpeed: 1
+mineTier: 1
+mineSpeed: 0.85
+rotateShooting: false
+weapons: [
+
+{
+name: purple-weapon-mount-double
+reload: 10
+ejectEffect: none
+top: false
+shootSound: sap
+recoil: 1
+x: 0
+shootY: 2
+y: 6
+rotate: true
+mirror: false
+occlusion: 0
+bullet: {
+type: SapBulletType
+sapStrength: 5
+hitColor: a447eb
+color: a447ebs
+damage: 5
+length: 50
+knockback: -0.5
+lifetime: 15
+hitSound: none
+width: 0.75
+collides: true
+collidesAir: true
+collidesTiles: true
+despawnEffect: none
+hitEffect: none
+keepVelocity: false
+}
+}
+{
+name: purple-weapon-mount
+reload: 10
+alternate: true
+ejectEffect: none
+top: false
+shootSound: pew
+recoil: 1
+x: 3.5
+shootY: 4
+y: 1
+rotate: true
+occlusion: 0
+bullet: {
+type: BasicBulletType
+sprite: shell
+frontColor: a447eb
+backColor: 4d107e
+damage: 10
+speed: 4
+lifetime: 32.5
+hitSound: none
+width: 6
+height: 8
+collides: true
+collidesAir: true
+collidesTiles: true
+despawnEffect: hitBulletSmall
+hitEffect: hitBulletSmall
+trailEffect: none
+keepVelocity: false
+}
+}
+{
+name: purple-weapon-mount
+reload: 25
+alternate: true
+ejectEffect: none
+top: false
+shootSound: pew
+recoil: 1
+x: 4.5
+shootY: 4
+y: -1.5
+rotate: true
+occlusion: 0
+bullet: {
+type: BasicBulletType
+sprite: shell
+frontColor: a447eb
+backColor: 4d107e
+damage: 15
+speed: 4
+lifetime: 50
+hitSound: none
+width: 8
+height: 12
+collides: true
+collidesAir: true
+collidesTiles: true
+despawnEffect: hitBulletSmall
+hitEffect: hitBulletSmall
+trailEffect: none
+keepVelocity: false
+}
+}
+{
+name: purple-missiles-mount
+reload: 60
+alternate: false
+ejectEffect: none
+top: false
+mirror: false
+shootSound: bigshot
+recoil: 2
+x: 0
+shootY: 4
+y: -2.25
+rotate: true
+occlusion: 0
+bullet: {
+type: BasicBulletType
+sprite: shell
+frontColor: a447eb
+backColor: 4d107e
+homing: false
+damage: 30
+speed: 4
+lifetime: 80
+hitSound: boom
+width: 10
+height: 10
+collides: true
+collidesAir: true
+collidesTiles: true
+despawnEffect: explosion
+keepVelocity: false
+pierce: true
+}
+}
+{
+name: purple-missiles-mount
+reload: 90
+alternate: false
+ejectEffect: none
+top: false
+mirror: false
+shootSound: bigshot
+recoil: 2
+x: 0
+shootY: 4
+y: -6.0
+rotate: true
+occlusion: 0
+bullet: {
+type: BasicBulletType
+sprite: shell
+frontColor: a447eb
+backColor: 4d107e
+homing: false
+damage: 45
+speed: 2
+lifetime: 160
+hitSound: boom
+width: 15
+height: 15
+collides: true
+collidesAir: true
+collidesTiles: true
+despawnEffect: explosion
+keepVelocity: false
+pierce: true
+}
+}
+]
+research:{
+parent: purpleN1
+requirements: [
+coal/1500
+silicon/2000
+metaglass/2700
+]
+}
