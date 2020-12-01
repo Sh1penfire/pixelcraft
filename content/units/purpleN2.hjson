@@ -1,21 +1,55 @@
 type: naval
-name: "Catapult"
-description: "A fast assult ship. Fires cannonballs and specialised bullets."
-speed: 1.5
+name: "Trebuche"
+description: "A fast assult ship."
+speed: 1.7
 drag: 0.13
-hitSize: 7
-health: 235
+hitSize: 8
+health: 450
 accel: 0.5
-rotateSpeed: 3.3
+rotateSpeed: 4
 trailLength: 45
-buildSpeed: 0.5
+buildSpeed: 0.6
 mineTier: 1
-mineSpeed: 0.5
+mineSpeed: 0.6
 rotateShooting: false
 weapons: [
+
+{
+name: purple-weapon-mount-double
+reload: 10
+ejectEffect: none
+top: false
+shootSound: sap
+alternate: false
+recoil: 1
+x: 4
+shootY: 2
+y: -7
+rotate: true
+mirror: true
+occlusion: 0
+bullet: {
+type: SapBulletType
+sapStrength: 1
+hitColor: 6d56bf
+color: bf92f9
+damage: 5
+length: 125
+knockback: -0.5
+lifetime: 15
+hitSound: none
+width: 0.75
+collides: true
+collidesAir: true
+collidesTiles: true
+despawnEffect: none
+hitEffect: none
+keepVelocity: false
+}
+}
 {
 name: purple-weapon-mount
-reload: 7.8
+reload: 5
 alternate: true
 ejectEffect: none
 top: false
@@ -31,12 +65,12 @@ type: BasicBulletType
 sprite: shell
 frontColor: a447eb
 backColor: bf92f9
-damage: 9
+damage: 3
 speed: 3
 lifetime: 65
 hitSound: none
-width: 5
-height: 5
+width: 6
+height: 8
 collides: true
 collidesAir: true
 collidesTiles: true
@@ -44,59 +78,54 @@ despawnEffect: hitBulletSmall
 hitEffect: hitBulletSmall
 trailEffect: none
 keepVelocity: false
+status: sapped
+pierce: true
 }
 }
 
 {
 name: purple-missiles-mount
-reload: 15
+reload: 45
 alternate: false
 ejectEffect: none
 top: false
 shootSound: bigshot
 recoil: 2
-x: 0
+x: 5
 shootY: 4
-y: -3.0
+y: -3.2
 rotate: true
 occlusion: 0
 bullet: {
-type: ArtilleryBulletType
+type: MissileBulletType
+homing: false
+homingPower: 0.00
 sprite: shell
 frontColor: a447eb
 backColor: bf92f9
 trailColor: 665c9f
-damage: 28
-splashDamage: 5
-splashDamageRadius: 25
-speed: 4
-lifetime: 40
-fragBullets: 3
+trailEffect: sapped
+damage: 22.5
+speed: 5
+lifetime: 50
 hitSound: boom
 width: 10
 height: 10
 collides: true
 collidesAir: true
 collidesTiles: true
+hitEffect: explosion
 despawnEffect: explosion
 keepVelocity: false
-fragBullet:{
-type: BasicBulletType
-sprite: shell
-frontColor: a447eb
-backColor: bf92f9
-damage: 2
-speed: 2
+pierce: true
 status: sapped
-}
 }
 }
 ]
 research:{
-parent: risso
+parent: purpleN1
 requirements: [
-coal/1500
-silicon/2000
-metaglass/2700
+graphite/4000
+silicon/4000
 ]
 }
