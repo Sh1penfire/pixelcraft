@@ -20,7 +20,7 @@ consumes: {
 }
 requirements: [
 silicon/ 90
-
+stone/250
 
 ]
 category: crafting

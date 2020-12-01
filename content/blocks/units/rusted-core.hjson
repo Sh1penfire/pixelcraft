@@ -62,7 +62,7 @@ plans: [
 //  power: 1
 //}
 category: units
-research: shiny-beacon
+research: naval-factory
 requirements: [
   stone/15
   iron/75  

@@ -12,7 +12,7 @@ consumes: {
   power: 0.7
   items: {
     items: [
-      pyratite/3
+      sand/3
       coal/10
       scrap/5
     ]
@@ -23,13 +23,13 @@ consumes: {
   }
 }
 requirements: [
-  copper/50
-  lead/80
+  copper/100
+  lead/150
   silicon/60
-  graphite/20
+  graphite/40
 ]
 category: crafting
-research: pixelite
+research: pyratite-mixer
 idleSound: respawning
 idleSoundVolume: 0.5
-outputItem: pixelite/20
+outputItem: pixelite/10

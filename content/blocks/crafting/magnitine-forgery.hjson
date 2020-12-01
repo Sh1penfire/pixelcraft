@@ -11,16 +11,18 @@ consumes: {
   power: 1
   items: {
     items: [
-      coal/5
+      lead/5
       iron/3
     ]
   }
 }
 requirements: [
-  iron/105
+  iron/250
+  stone/300
+  lead/100
 ]
 category: crafting
-research: magnitine
+research: silicon-smelter
 idleSound: respawning
 idleSoundVolume: 0.5
 outputItem: magnitine/3

@@ -7,8 +7,9 @@ insulated: true
 description: A starter conveyer. Replacement for copper conveyers.
 requirements: [
   iron/1
+  stone/2
 ]
 category: distribution
 speed: 0.07
 displayedSpeed: 7
-research: iron
+research: titanium-conveyor

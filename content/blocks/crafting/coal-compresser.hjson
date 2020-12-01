@@ -13,11 +13,12 @@ consumes: {
   }
 }
 requirements: [
-  stone/30
+  stone/50
   iron/70
+  graphite/20
 ]
 category: crafting
-research: iron
+research: multi-press
 idleSound: respawning
 idleSoundVolume: 0.5
-outputItem: graphite/1
+outputItem: graphite/3

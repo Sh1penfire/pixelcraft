@@ -4,10 +4,11 @@ description: Refined iron with magnetic properties. Looks shiny.
 hardness: 2
 cost: 1
 color: ffffff
-research:{
-parent: iron
-requirements: [
-  iron/3000
-  coal/2500
-]
+alwaysUnlocked: false
+research: {
+  parent: iron
+  requiremenst:[
+  stone/500
+  iron/800
+  ]
 }

@@ -4,12 +4,10 @@ type: material
 hardness: 2
 cost: .5
 research: {
-parent: pyratite-mixer
-requirements: [
-  blast-compound/3000
-  coal/2500
-  pyratite/4000
-]
+  parent: pixelite
+  requiremenst:[
+  pixelite/1000
+  ]
 }
 color: #4a171e
 explosiveness: 7

@@ -25,6 +25,7 @@ requirements: [
   lead/150
   titanium/75
   graphite/180
+  magnitine/100
 ]
 category: crafting
 research: pixelite-mixer

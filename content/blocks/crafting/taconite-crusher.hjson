@@ -8,7 +8,7 @@ updateEffect: pulverizeRed
 consumes: {
   items: {
     items: [
-      stone/3
+      stone/5
     ]
   }
 }
@@ -16,7 +16,7 @@ requirements: [
   stone/30
 ]
 category: crafting
-research: iron
+research: graphite-press
 idleSound: respawning
 idleSoundVolume: 0.5
-outputItem: iron/2
+outputItem: iron/3

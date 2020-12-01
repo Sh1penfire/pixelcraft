@@ -34,5 +34,14 @@ Suport turrets that shoots healing bullets that repear blocks. They don't auto a
 Puver:
 A suport electric turret that slows down hit targets. Frag bullets ignore tiles can also inflict the debuff.
 
+`onwer Sh1penfire`
 
+`cop onwer pankiwi`
 
+`report bug an suggest`
+
+`discord `
+
+`pankiwi discord - @pankiwi#5831`
+
+`Sh1penfire discord - @Sh1penfire#0868`

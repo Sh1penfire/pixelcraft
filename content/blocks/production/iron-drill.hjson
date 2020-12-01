@@ -3,7 +3,7 @@ description: A starting drill. (I thought this was stone)
 type: Drill
 size: 1
 tier: 2
-drillTime: 350
+drillTime: 300
 consumes: {
   liquid: {
     liquid: water
@@ -16,4 +16,4 @@ requirements: [
   iron/5
 ]
 category: production
-research: shiny-beacon
+research: pneumatic-drill

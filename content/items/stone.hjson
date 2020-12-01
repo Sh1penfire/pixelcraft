@@ -4,5 +4,5 @@ description: It's stone. Nothing to see here
 hardness: 0.1
 cost: .5
 color:  #000000
-alwaysUnlocked: true
-research: core-shard
+alwaysUnlocked: false
+research: copper
