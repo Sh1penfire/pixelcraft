@@ -1,10 +1,10 @@
-type: naval
 name: "Cannon"
+type: naval
 description: "An assult ship with piercing cannonballs."
 speed: 1.8
 drag: 0.13
 hitSize: 8
-health: 750
+health: 700
 accel: 0.5
 rotateSpeed: 4.4
 trailLength: 45
@@ -12,15 +12,16 @@ buildSpeed: 1
 mineTier: 1
 mineSpeed: 0.85
 rotateShooting: false
+canDrown: false
 weapons: [
 
 {
 name: purple-weapon-mount-double
-reload: 10
+reload: 25
 ejectEffect: none
 top: false
 shootSound: sap
-recoil: 1
+recoil: 3
 x: 0
 shootY: 2
 y: 6
@@ -29,12 +30,12 @@ mirror: false
 occlusion: 0
 bullet: {
 type: SapBulletType
-sapStrength: 5
+sapStrength: 10
 hitColor: 6d56bf
 color: bf92f9
 damage: 5
 length: 50
-knockback: -0.5
+knockback: -10
 lifetime: 15
 hitSound: none
 width: 0.75
@@ -67,6 +68,7 @@ backColor: 6d56bf
 damage: 10
 speed: 4
 lifetime: 32.5
+knockback: -2.0
 hitSound: none
 width: 6
 height: 8
@@ -100,6 +102,7 @@ backColor: 6d56bf
 damage: 15
 speed: 4
 lifetime: 50
+knockback: -2.0
 hitSound: none
 width: 8
 height: 12
@@ -135,6 +138,7 @@ homing: false
 damage: 30
 speed: 4
 lifetime: 80
+knockback: -3.0
 hitSound: boom
 width: 10
 height: 10
@@ -169,6 +173,7 @@ homing: false
 damage: 45
 speed: 2
 lifetime: 160
+knockback: -5.0
 hitSound: boom
 width: 15
 height: 15
@@ -182,10 +187,10 @@ pierce: true
 }
 ]
 research:{
-parent: purpleN1
+parent: purpleN2
 requirements: [
-coal/1500
-silicon/2000
+silicon/3400
+titanium/5600
 metaglass/2700
 ]
 }
