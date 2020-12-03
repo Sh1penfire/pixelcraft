@@ -1,6 +1,6 @@
 type: naval
 name: "Trebuche"
-description: "A fast assult ship."
+description: "A fast assult ship. Theres a note in titanium. It reads: There was ife flourishing under the sea around geothermal vents. They were not of normal lifeforms, being fish who's scales were as dense as metal."
 speed: 1.7
 drag: 0.13
 hitSize: 8

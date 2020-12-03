@@ -22,12 +22,11 @@ consumes: {
   }
 }
 requirements: [
-  copper/250
+  stone/120
   iron/70
   magnitine/45
   graphite/65
 ]
 category: crafting
-research: feromagnet
-idleSoundVolume: 0.25
+research: magnitine-forgery
 outputItem: feromagnet/3

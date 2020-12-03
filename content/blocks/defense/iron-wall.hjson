@@ -1,13 +1,13 @@
-name: "Magnitine wall"
-description: "A sturdy defensive block.
+name: "Iron wall"
+description: "A cheap defensive block.
 Provides moderate protection from enemies Blocks electric arcs.
-Spans multiple tiles."
+Decaying from the rust"
 type: Wall
-health: 500
+health: 290
 size: 1
 insulated: true
 requirements: [
-  magnitine/6
+  iron/6
 ]
 category: defense
-research: iron-wall
+research: copper-wall
