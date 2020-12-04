@@ -6,11 +6,12 @@ size: 1
 powerProduction: 0.15
 hasItems: true
 itemCapacity: 10
-itemDuration: 120
+itemDuration: 70
 generateEffect: smelt
-heatColor: 66a8ff
-minItemEfficiency: 0.1
+minItemEfficiency: 0.3
 requirements: [
+  copper/100
+  lead/250
   iron/25
 ]
 category: power
