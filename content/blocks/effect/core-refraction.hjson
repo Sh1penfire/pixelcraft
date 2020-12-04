@@ -7,8 +7,8 @@ size: 3
 unitCapModifier: 8
 unitType: rustydart
 research: core-shard
-chanceDeflect: 10
-flashHit: true
+//chanceDeflect: 10
+//flashHit: true
 requirements: [
   stone/3000
   iron/3000

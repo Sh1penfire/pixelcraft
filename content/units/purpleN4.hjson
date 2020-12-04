@@ -55,8 +55,8 @@ occlusion: 0
 bullet: {
 type: BasicBulletType
 sprite: shell
-frontColor: a447eb
-backColor: bf92f9
+//frontColor: a447eb
+//backColor: bf92f9
 damage: 5
 speed: 4
 lifetime: 60
@@ -88,8 +88,8 @@ occlusion: 0
 bullet: {
 type: MissileBulletType
 sprite: shell
-frontColor: a447eb
-backColor: bf92f9
+//frontColor: a447eb
+//backColor: bf92f9
 trailColor: 665c9f
 damage: 50
 speed: 4
@@ -107,8 +107,8 @@ pierce: true
 fragBullet:{
 type: BasicBulletType
 sprite: shell
-frontColor: a447eb
-backColor: bf92f9
+//frontColor: a447eb
+//backColor: bf92f9
 damage: 1
 speed: 2
 status: sapped
@@ -132,12 +132,12 @@ occlusion: 0
 bullet: {
 type: MissileBulletType
 sprite: shell
-frontColor: a447eb
-backColor: bf92f9
+//frontColor: a447eb
+//backColor: bf92f9
 trailColor: 665c9f
 damage: 250
 speed: 2
-homingPower: 0.00
+//homingPower: 0.00
 lifetime: 80
 fragBullets: 25
 hitSound: boom
@@ -152,16 +152,16 @@ pierce: false
 fragBullet:{
 type: MissileBulletType
 sprite: shell
-frontColor: a447eb
-backColor: bf92f9
+//frontColor: a447eb
+//backColor: bf92f9
 hitEffect: none
 despawnEffect: none
 trailEffect: sapped
 shrinkY: 1
 damage: 1
 speed: 3
-hitsound: none
-homingPower: 0.00
+hitSound: none
+//homingPower: 0.00
 knockback: 0
 lifetime: 50
 status: sapped
@@ -169,16 +169,16 @@ pierce: true
 fragBullet:{
 type: MissileBulletType
 sprite: shell
-frontColor: a447eb
-backColor: bf92f9
+//frontColor: a447eb
+//backColor: bf92f9
 hitEffect: none
 despawnEffect: none
 trailEffect: none
 shrinkY: 1
 damage: 1
 speed: 1
-hitsound: none
-homingPower: 0.00
+hitSound: none
+//homingPower: 0.00
 knockback: 0
 lifetime: 10
 status: sapped

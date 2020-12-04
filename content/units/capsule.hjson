@@ -33,8 +33,8 @@ y: -.5
 rotate: false
 occlusion: 0
 bullet: {
-frontColor: b7f35e
-backColor: b7f35e
+//frontColor: b7f35e
+//backColor: b7f35e
 type: BasicBulletType
 damage: 0
 speed: 2

@@ -17,7 +17,7 @@ consumes: {
   }
   liquid: {
     liquid: water
-    amount: .5
+    amount: 0.5
   }
 }
 requirements: [
@@ -29,6 +29,6 @@ requirements: [
 ]
 category: crafting
 research: pixelite-mixer
-idleSound: respawning
-idleSoundVolume: 0.5
+//idleSound: respawning
+//idleSoundVolume: 0.5
 outputItem: pixelite/12

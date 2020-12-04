@@ -8,12 +8,12 @@ liquidCapacity: 120
 spinnerSpeed: 10
 hasPower: true
 craftTime: 40
-result: guilded-sand
+//result: guilded-sand
 consumes: {
   power: 1.5
   liquid: {
 	liquid: guilded-sand
-	amount: .15
+	amount: 0.15
 }
 }
 results: [
