@@ -1,7 +1,6 @@
-type: material
 name: Rubble
 description: Scrap from the stone age... Literaly they used stone.
 hardness: 2
 cost: 1
 color: 0a01b7
-flammability: .1
+flammability: 0.1

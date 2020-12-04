@@ -15,7 +15,7 @@ consumes: {
   }
   liquid: {
     liquid: oil
-    amount: .1
+    amount :0.1
   }
 }
 requirements: [
@@ -25,6 +25,6 @@ stone/250
 ]
 category: crafting
 research: pixelite-mixer
-idleSound: respawning
-idleSoundVolume: 0.5
+//idleSound: respawning
+//idleSoundVolume: 0.5
 outputItem: pyratite/10

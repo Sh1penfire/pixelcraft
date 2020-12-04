@@ -27,8 +27,8 @@ ammoTypes: {
 	fragBullets: 7
 	fragVelocityMin: 1
 	fragVelocityMax: 1.5
-	frontColor: 56d7ca
-	backColor: 77b6b0
+	//frontColor: 56d7ca
+	//backColor: 77b6b0
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -39,8 +39,8 @@ ammoTypes: {
 	width: 2
 	height: 3
 	lifetime: 15
-	frontColor: 56d7ca
-	backColor: 77b6b0
+	//frontColor: 56d7ca
+	//backColor: 77b6b0
 	status: freezing
 	hitEffect: none
 	despawnEffect: none
@@ -49,17 +49,17 @@ ammoTypes: {
 	liquid: cryofluid
 	speed: 1
 	damage: 1
-	width: 2
-	height: 3
+//	width: 2
+//	height: 3
 	lifetime: 100
 	knockback: 0
-	frontColor: 56d7ca
-	backColor: 77b6b0
+	//frontColor: 56d7ca
+	//backColor: 77b6b0
 	status: freezing
-	shrinkY: 1
+//	shrinkY: 1
 	fragBullets: 1
-	homing: true
-	homingRange: 100
+//	homing: true
+//	homingRange: 100
 	fragBullet:{}
 }
 }
@@ -84,12 +84,12 @@ ammoTypes: {
 	collidesTiles: true
 	fragBullet: {
     type: BasicBulletType
-	frontColor: ffffff
-	backColor: ffffff
+	//frontColor: ffffff
+	//backColor: ffffff
 	damage: 3
-	splashDamage: .5
+	splashDamage :0.5
 	splashDamageRadius: 20
-	homing: false
+//	homing: false
 	hitEffect: none
 	despawnEffect: none
 	lifetime: 10
@@ -99,20 +99,20 @@ ammoTypes: {
 	shrinkY: 1
 	fragBullet: {
     type: BasicBulletType
-	frontColor: ffffff
-	backColor: ffffff
+	//frontColor: ffffff
+	//backColor: ffffff
 	damage: 2.5
-	splashDamage: .2
+	splashDamage :0.2
 	splashDamageRadius: 20
-	homing: false
+//	homing: false
 	despawnEffect: none
 	hitEffect: none
 	lifetime: 100
 	drag: 0.025
 	shrinkY: 1
-	homing: true
-	homingRange: 100
-	homingPower: 10
+//	homing: true
+//	homingRange: 100
+//	homingPower: 10
 }
 }
 }
@@ -133,12 +133,12 @@ ammoTypes: {
 	collides: true
 	collidesAir: true
 	collidesTiles: true
-	frontColor: e44d11
-	backColor: 56d7ca
+	//frontColor: e44d11
+	//backColor: 56d7ca
 	trailColor: 4d107e
-	homing: true
-	homingRange: 100
-	homingPower: 0.02
+//	homing: true
+//	homingRange: 100
+//	homingPower: 0.02
 	fragBullets: 6
 	fragBullet: {
     type: ArtilleryBulletType
@@ -152,12 +152,12 @@ ammoTypes: {
 	collides: true
 	collidesAir: true
 	collidesTiles: true
-	frontColor: e44d11
-	backColor: 56d7ca
+	//frontColor: e44d11
+	//backColor: 56d7ca
 	trailColor: 4d107e
-	homing: true
-	homingRange: 100
-	homingPower: 0.02
+//	homing: true
+//	homingRange: 100
+//	homingPower: 0.02
 	shrinkY: 0.01
 	pierce: false
 }

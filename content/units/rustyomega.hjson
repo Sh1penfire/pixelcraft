@@ -1,7 +1,7 @@
 type: mech
 name: "Rusty omega"
 description: "pew pew"
-speed: .65
+speed :0.65
 health: 800
 aimDst: 10
 range: 50
@@ -31,7 +31,7 @@ y: -.5
 rotate: false
 occlusion: 0
 shots: 4
-spread: 15
+//spread: 15
 bullet: {
 type: MissileBulletType
 damage: 15

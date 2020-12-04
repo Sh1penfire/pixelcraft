@@ -1,8 +1,7 @@
-type: material
 name: Stone
 description: It's stone. Nothing to see here
 hardness: 0.1
-cost: .5
+cost: 0.5
 color:  #000000
 alwaysUnlocked: false
 research: copper

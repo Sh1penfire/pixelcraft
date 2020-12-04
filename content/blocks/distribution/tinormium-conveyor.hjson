@@ -4,5 +4,5 @@ description: "Packs items into a comforta ble ride on a bullet train."
 speed: 0.12
 itemCapacity: 50
 category: distribution
-displayedSpeed: 12
+//displayedSpeed: 12
 buildVisibility: shown

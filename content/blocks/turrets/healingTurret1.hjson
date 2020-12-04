@@ -7,7 +7,7 @@ reloadTime: 20
 inaccuracy: 7.5
 range: 200
 shots: 2
-powerUse: .5
+powerUse :0.5
 rotateSpeed: 10
 targetAir: true
 targetGround: true
@@ -18,8 +18,8 @@ speed: 5
 lifetime: 40
 healPercent: 1.3
 collidesTeam: true
-frontColor: 01b73e
-backColor: b7f35e
+//frontColor: 01b73e
+//backColor: b7f35e
 }
 requirements: [
  copper/60

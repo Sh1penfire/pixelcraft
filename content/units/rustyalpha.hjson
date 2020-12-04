@@ -1,7 +1,7 @@
 type: mech
 name: "Rusty alpha"
 description: "Standard core unit in the days of old. Theres a note in magnitine. It says: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
-speed: .75
+speed :0.75
 health: 275
 aimDst: 10
 range: 50
@@ -56,9 +56,9 @@ y: -1.2
 rotate: false
 occlusion: 0
 shots: 2
-spread: 10
+//spread: 10
 bullet: {
-shotDelay: .25
+//shotDelay :0.25
 type: LightningBulletType
 lightning: 2
 lightningLength: 5
@@ -84,7 +84,7 @@ occlusion: 0
 bullet: {
 type: LiquidBulletType
 liquid: water
-shotDelay: 0.025
+//shotDelay: 0.025
 damage: 9
 speed: 4
 lifetime: 35
@@ -94,7 +94,7 @@ fragBullets: 3
 fragBullet:{
 type: LiquidBulletType
 liquid: cryofluid
-damage: .5
+damage :0.5
 speed: 2
 lifetime: 25
 }

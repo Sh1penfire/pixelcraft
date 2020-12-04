@@ -9,7 +9,7 @@ range: 200
 shots: 5
 powerUse: 10
 rotateSpeed: 50
-shootYOffset: 10
+//shootYOffset: 10
 inaccuracy: 15
 spread: 5
 targetAir: true
@@ -22,17 +22,17 @@ shootType: {
 	width: 2
 	height: 5
 	drag: 0.04
-	frontColor: 86baf9
-	backColor: 86baf9
+	//frontColor: 86baf9
+	//backColor: 86baf9
 	trailColor: 86baf9
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
 	despawnEffect: hitLancer
 	fragBullets: 4
-	homing: true
-	homingRange: 100
-	homingPower: 1
+//	homing: true
+//	homingRange: 100
+//	homingPower: 1
 	fragBullet: {
 	type: BasicBulletType
 	speed: 10
@@ -41,15 +41,15 @@ shootType: {
 	width: 2
 	height: 5
 	drag: 0.04
-	frontColor: 86baf9
-	backColor: 86baf9
+	//frontColor: 86baf9
+	//backColor: 86baf9
 	trailColor: 86baf9
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
 	despawnEffect: hitLancer
-	homing: true
-	homingRange: 100
-	homingPower: 1
+//	homing: true
+//	homingRange: 100
+//	homingPower: 1
 }
 }
 requirements: [
