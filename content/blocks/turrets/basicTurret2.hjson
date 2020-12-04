@@ -43,7 +43,7 @@ ammoTypes: {
         lifetime: 5
         }
         }
-rubble: {
+sand: {
     type: BasicBulletType
     speed: 2
     damage: 5
