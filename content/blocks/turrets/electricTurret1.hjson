@@ -34,7 +34,7 @@ shootType: {
 	pierce: true
 	status: melting
 //	homingRange: 8
-//	homingPower :0.01
+//	homingPower: 0.01
 	collides: true
 	collidesTiles: false
 	collidesAir: true

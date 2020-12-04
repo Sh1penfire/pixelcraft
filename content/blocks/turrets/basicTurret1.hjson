@@ -34,7 +34,7 @@ ammoTypes: {
     fragBullets: 4
     fragBullet: {
         type: BasicBulletType
-        damage :0.25
+        damage: 0.25
         splashDamage: 1
         splashDamageRadius: 25
         drag: 0.01

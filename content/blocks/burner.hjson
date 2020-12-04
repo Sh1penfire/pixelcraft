@@ -3,7 +3,7 @@ name: burner
 description: "Burns items for fuel"
 health: 125
 size: 1
-powerProduction :0.5
+powerProduction: 0.15
 hasItems: true
 itemCapacity: 10
 itemDuration: 120
