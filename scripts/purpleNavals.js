@@ -8,6 +8,13 @@ const MoralBoostFX = new Effect(27, (e) => {
     Fill.circle(e.x + x, e.y + y, e.fout() * 3 + 0.3)
   });
 });
+
+const strongHealFX = new Effect(15, (e) => {
+  Draw.color(Color.lime, Color.green, e.fout());
+  Angles.randLenVectors(e.id, 2, 1 + e.fin() * 10, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1 + 0.3)
+  });
+});
 //the status effect for the boost field for Cannon
 const MoralBoost = new StatusEffect("MoralBoost");
 MoralBoost.speedMultiplier = 1.4;
@@ -42,25 +49,44 @@ const heal = extend(StatusEffect, "heal", {
   }
 });
 
+const strongHeal = extend(StatusEffect, "strongHeal", {
+  update(unit, time){
+    this.super$update(unit, time);
+//heals the unit for 30 hp every second
+    unit.heal(0.5);
+  }
+});
+strongHeal.speedMultiplier = 1.1;
+strongHeal.healthMultiplier = 1.1;
+strongHeal.effect = strongHealFX;
+strongHeal.color = Color.white;
+
 const purpleN1 = extendContent(UnitType, "purpleN1", {});
 purpleN1.constructor = () => extend(UnitWaterMove, {});
 //Adding the healing field abilities
-purpleN1.abilities.add(new StatusFieldAbility(weakHeal, 360, 360, 60));
-purpleN1.abilities.add(new RepairFieldAbility(25, 60, 75));
+purpleN1.abilities.add(new StatusFieldAbility(weakHeal, 3600, 360, 60));
+purpleN1.abilities.add(new RepairFieldAbility(25, 100, 35));
 
 const purpleN2 = extendContent(UnitType, "purpleN2", {});
 purpleN2.constructor = () => extend(UnitWaterMove, {});
 //Adding the shield field
-purpleN2.abilities.add(new StatusFieldAbility(diminishedHeal, 360, 360, 60));
+purpleN2.abilities.add(new StatusFieldAbility(diminishedHeal, 3600, 360, 60));
 purpleN2.abilities.add(new ShieldRegenFieldAbility(20, 40, 300, 60));
 
-//extends off the cannon hjson file
 const purpleN3 = extendContent(UnitType, "purpleN3", {});
 purpleN3.constructor = () => extend(UnitWaterMove, {});
 //Adding the boost fields
-purpleN3.abilities.add(new StatusFieldAbility(heal, 360, 360, 75));
+purpleN3.abilities.add(new StatusFieldAbility(heal, 3600, 360, 75));
 purpleN3.abilities.add(new StatusFieldAbility(MoralBoost, 3600, 360, 75));
 
+
+const purpleN4 = extendContent(UnitType, "purpleN4", {});
+purpleN4.constructor = () => extend(UnitWaterMove, {});
+//Adding the boost fields
+purpleN4.abilities.add(new StatusFieldAbility(strongHeal, 3600, 360, 75));
+purpleN4.abilities.add(new StatusFieldAbility(MoralBoost, 3600, 360, 75));
+purpleN4.abilities.add(new ShieldRegenFieldAbility(20, 40, 300, 60));
+purpleN4.abilities.add(new RepairFieldAbility(100, 1000, 100));
 
 
 

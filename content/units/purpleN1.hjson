@@ -1,6 +1,6 @@
 type: naval
 name: "Catapult"
-description: "A fast assult ship. Fires cannonballs and specialised bullets."
+description: "A fast assult ship. Fires cannonballs and specialised bullets. Theres a note in titanium. It reads: Life on Serpulo was harsh after the inccident of the first mass extinction. Nothing could survive. Or so we thought."
 speed: 1.5
 drag: 0.13
 hitSize: 7

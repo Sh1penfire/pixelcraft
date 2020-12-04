@@ -11,15 +11,15 @@ consumes: {
   power: 1
   items: {
     items: [
-      lead/5
+      coal/4
       iron/3
     ]
   }
 }
 requirements: [
-  iron/250
-  stone/300
-  lead/100
+  stone/35
+  iron/75
+  graphite/50
 ]
 category: crafting
 research: silicon-smelter
