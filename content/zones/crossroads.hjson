@@ -25,7 +25,7 @@ requirements: [
 ]
 resources: [
   scrap
-  rubble
+  stone
   copper
   lead
   coal
