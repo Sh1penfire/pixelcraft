@@ -22,7 +22,18 @@ explosion3.incendAmount = 0;
 explosion3.despawnEffect = Fx.blastExplosion ;
 
 
-const bombT1m1 = extendContent(ShockMine, "bombT1m1", {});
+const bombT1m1 = extendContent(ShockMine, "bombT1m1", {
+      icons(){
+    return [
+      Core.atlas.find("pixelcraft-mineT1m1")
+    ];
+  },
+  setStats(){
+    this.super$setStats();
+    this.stats.add(Stat.range, "25");
+    this.stats.add(Stat.damage, "25");
+    }
+});
 
 bombT1m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m1, {
 	unitOn(b){
@@ -34,7 +45,18 @@ bombT1m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m1, {
     }
 });
 
-const bombT1m2 = extendContent(ShockMine, "bombT1m2", {});
+const bombT1m2 = extendContent(ShockMine, "bombT1m2", {
+  icons(){
+    return [
+      Core.atlas.find("pixelcraft-mineT1m2")
+    ];
+  },
+  setStats(){
+    this.super$setStats();
+    this.stats.add(Stat.range, "45");
+    this.stats.add(Stat.damage, "10");
+    }
+});
 
 bombT1m2.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m2, {
 	unitOn(b){
@@ -48,7 +70,18 @@ bombT1m2.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m2, {
     }
 });
 
-const bombT1m3 = extendContent(ShockMine, "bombT1m3", {});
+const bombT1m3 = extendContent(ShockMine, "bombT1m3", {
+  icons(){
+    return [
+      Core.atlas.find("pixelcraft-mineT1m3")
+    ];
+  },
+  setStats(){
+    this.super$setStats();
+    this.stats.add(Stat.range, "35");
+    this.stats.add(Stat.damage, "85");
+    }
+});
 
 bombT1m3.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m3, {
 	unitOn(b){
@@ -61,4 +94,3 @@ bombT1m3.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m3, {
         }
     }
 });
-
