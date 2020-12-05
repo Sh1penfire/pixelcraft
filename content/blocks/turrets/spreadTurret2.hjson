@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Dust
-discription: "Medium ranged turret that scatters bullets around itself. Initial shot causes a shockwave"
+description: "Medium ranged turret that scatters bullets around itself. Initial shot causes a shockwave"
 health: 300
 size: 2
 shootSound: respawning
@@ -20,7 +20,7 @@ height: 9
 shootEffect: none
 smokeEffect: none
 lifetime: 0
-colides: false
+collides: false
 fragBullets: 25
 hitEffect: none
 despawnEffect: none

@@ -26,8 +26,8 @@ ammoTypes: {
 	fragBullets:1
 	fragVelocityMin: 1
 	fragVelocityMax: 1.5
-	frontColor: 56d7ca
-	backColor: 77b6b0
+	//frontColor: 56d7ca
+	//backColor: 77b6b0
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -38,52 +38,52 @@ ammoTypes: {
 	fragBullets:10
 	fragVelocityMin: 1
 	fragVelocityMax: 1.5
-	frontColor: 56d7ca
-	backColor: 77b6b0
+	//frontColor: 56d7ca
+	//backColor: 77b6b0
 	fragBullet: {
     type: ArtilleryBulletType
-	frontColor: 56d7ca
-	backColor: 77b6b0
-	damage: .25
+	//frontColor: 56d7ca
+	//backColor: 77b6b0
+	damage: 0.25
 	splashDamage: 1
 	splashDamageRadius: 20
 	status: freezing
-	homing: true
-	homingPower: 0.002
-	homingRange: 100
+//	homing: true
+//	homingPower: 0.002
+//	homingRange: 100
 	hitEffect: none
 	despawnEffect: none
 	fragBullets:2
-	fragVelocityMin: .2
-	fragVelocityMax: .3
+	fragVelocityMin: 0.2
+	fragVelocityMax: 0.3
 	fragBullet: {
     type: BasicBulletType
-	frontColor: 56d7ca
-	backColor: 77b6b0
+	//frontColor: 56d7ca
+	//backColor: 77b6b0
 	damage: 5
 	splashDamage: 2
 	splashDamageRadius: 20
 	status: freezing
-	homing: true
-	homingPower: 0.002
-	homingRange: 100
+//	homing: true
+//	homingPower: 0.002
+//	homingRange: 100
 	hitEffect: none
 	despawnEffect: none
 	fragBullets: 1
-	fragVelocityMin: .1
-	fragVelocityMax: .2
+	fragVelocityMin: 0.1
+	fragVelocityMax: 0.2
 	fragBullet: {
     type: LiquidBulletType
-	frontColor: 56d7ca
-	backColor: 77b6b0
-	damage: .25
-	splashDamage: .2
+	//frontColor: 56d7ca
+	//backColor: 77b6b0
+	damage: 0.25
+	splashDamage: 0.2
 	splashDamageRadius: 20
 	status: freezing
 	liquid: cryofluid
-	homing: true
-	homingPower: 0.002
-	homingRange: 100
+//	homing: true
+//	homingPower: 0.002
+//	homingRange: 100
 	hitEffect: freezing
 	despawnEffect: freezing
 }
@@ -110,12 +110,12 @@ ammoTypes: {
 	collidesTiles: true
 	fragBullet: {
     type: BasicBulletType
-	frontColor: ffffff
-	backColor: ffffff
-	damage: .5
-	splashDamage: .5
+	//frontColor: ffffff
+	//backColor: ffffff
+	damage: 0.5
+	splashDamage: 0.5
 	splashDamageRadius: 20
-	homing: false
+//	homing: false
 	hitEffect: none
 	despawnEffect: none
 	lifetime: 10
@@ -125,12 +125,12 @@ ammoTypes: {
 	shrinkY: 1
 	fragBullet: {
     type: BasicBulletType
-	frontColor: ffffff
-	backColor: ffffff
+	//frontColor: ffffff
+	//backColor: ffffff
 	damage: 2.5
-	splashDamage: .2
+	splashDamage: 0.2
 	splashDamageRadius: 20
-	homing: false
+//	homing: false
 	despawnEffect: none
 	hitEffect: none
 	lifetime: 50

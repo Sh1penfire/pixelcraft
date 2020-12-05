@@ -12,4 +12,4 @@ brightness: 10.0
 radius: 200
 category: effect
 research: core-shard
-allwaysUnlocked: true
+alwaysUnlocked: true

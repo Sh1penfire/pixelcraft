@@ -10,7 +10,7 @@ mineSpeed: 10
 mineTier: 4
 itemCapacity: 70
 faceTarget: true
-rage: 100
+//rage: 100
 rotateSpeed: 6
 lowAltitude: true
 omniMovement: true
@@ -23,7 +23,7 @@ ejectEffect: casing1
 top: false
 shootSound: pew
 shots: 1
-spread: 7.5
+//spread: 7.5
 x: 5
 y: 0
 rotate: false
@@ -35,8 +35,8 @@ speed: 5
 lifetime: 40
 healPercent: 1.3
 collidesTeam: true
-frontColor: 01b73e
-backColor: b7f35e
+//frontColor: 01b73e
+//backColor: b7f35e
 }
 }
 {
@@ -47,7 +47,7 @@ ejectEffect: casing1
 top: false
 shootSound: pew
 shots: 5
-spread: 15
+//spread: 15
 x: 6
 y: 1
 rotate: false
@@ -59,8 +59,8 @@ speed: 5
 lifetime: 40
 healPercent: 1.3
 collidesTeam: true
-frontColor: 01b73e
-backColor: b7f35e
+//frontColor: 01b73e
+//backColor: b7f35e
 }
 }
 ]

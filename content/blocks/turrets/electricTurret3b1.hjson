@@ -1,10 +1,11 @@
 localizedName: "Puver"
-description: "Puffs blasts of charged energy that frag off and launch enemies away. \n I wonder how much sound this would make."
+description: "Puffs blasts of charged energy that leave a cloud of ions and launch enemies away. \n I wonder how much sound this would make."
 size: 2
 range: 128
 health: 800
-reloadTime: 50
-shots: 3
+reloadTime: 85
+shots: 5
+inaccuracy: 15
 shootEffect: none
 smokeEffect: none
 shootSound: release

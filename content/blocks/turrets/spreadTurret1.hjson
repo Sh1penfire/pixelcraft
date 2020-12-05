@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Dawn
-discription: "Medium ranged turret that scatters bullets around itself."
+description: "Medium ranged turret that scatters bullets around itself."
 health: 300
 size: 1
 shootSound: respawning
@@ -21,7 +21,7 @@ shootEffect: none
 smokeEffect: none
 lifetime: 70
 knockback: 1
-bulletsprite: pixelcraft-sawblade
+//bulletSprite: pixelcraft-sawblade
 }
 magnitine: {
 type: basicBulletType
@@ -33,7 +33,7 @@ shootEffect: none
 smokeEffect: none
 lifetime: 140
 knockback: 1
-bulletsprite: pixelcraft-sawblade
+//bulletSprite: pixelcraft-sawblade
 }
 }
 requirements: [

@@ -23,6 +23,6 @@ requirements: [
 ]
 category: crafting
 research: silicon-smelter
-idleSound: respawning
-idleSoundVolume: 0.5
+//idleSound: respawning
+//idleSoundVolume: 0.5
 outputItem: magnitine/3

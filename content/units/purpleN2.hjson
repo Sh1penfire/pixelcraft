@@ -63,8 +63,8 @@ occlusion: 0
 bullet: {
 type: BasicBulletType
 sprite: shell
-frontColor: a447eb
-backColor: bf92f9
+//frontColor: a447eb
+//backColor: bf92f9
 damage: 3
 speed: 3
 lifetime: 65
@@ -98,11 +98,11 @@ rotate: true
 occlusion: 0
 bullet: {
 type: MissileBulletType
-homing: false
-homingPower: 0.00
+//homing: false
+//homingPower: 0.00
 sprite: shell
-frontColor: a447eb
-backColor: bf92f9
+//frontColor: a447eb
+//backColor: bf92f9
 trailColor: 665c9f
 trailEffect: sapped
 damage: 22.5

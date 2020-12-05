@@ -1,0 +1,15 @@
+name: "Blast Mine"
+description: "Explodes upon enemy contact. The explosion damages the mine."
+hasShadow: false
+health: 120
+update: false
+solid: false
+targetable: false
+requirements: [
+	coal/5
+	blast-compound/25
+	graphite/10
+]
+
+category: effect
+research: bombT1m2
