@@ -1,4 +1,5 @@
 // Just a little note to not forget Pixellandia :D
+//XD
 Events.on(ClientLoadEvent, () => {
     const templura = new Planet("templura", Planets.sun, 1, 0.5);
     templura.generator = new SerpuloPlanetGenerator();
