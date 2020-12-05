@@ -74,7 +74,21 @@ purpleN2.abilities.add(new StatusFieldAbility(diminishedHeal, 3600, 360, 60));
 purpleN2.abilities.add(new ShieldRegenFieldAbility(20, 40, 300, 60));
 
 const purpleN3 = extendContent(UnitType, "purpleN3", {});
-purpleN3.constructor = () => extend(UnitWaterMove, {});
+purpleN3.constructor = () => extend(UnitWaterMove, {
+    killed(){     
+        let timer = 0;
+        while (timer < 3){
+            ionhitFx.at(this.x, this.y);
+            let ax = Math.random(60);
+            let ay = Math.random(60);
+            Vars.content.getByName(ContentType.unit, "pixelcraft-purpleN1").spawn(this.team,   this.x + ax, this.y + ay);
+            timer++;
+        }
+        if (timer = 3){
+           this.dead = true;
+           }
+    }
+});
 //Adding the boost fields
 purpleN3.abilities.add(new StatusFieldAbility(heal, 3600, 360, 75));
 purpleN3.abilities.add(new StatusFieldAbility(MoralBoost, 3600, 360, 75));
