@@ -78,7 +78,6 @@ purpleN3.constructor = () => extend(UnitWaterMove, {
     killed(){     
         let timer = 0;
         while (timer < 3){
-            ionhitFx.at(this.x, this.y);
             let ax = Math.random(60);
             let ay = Math.random(60);
             Vars.content.getByName(ContentType.unit, "pixelcraft-purpleN1").spawn(this.team,   this.x + ax, this.y + ay);
