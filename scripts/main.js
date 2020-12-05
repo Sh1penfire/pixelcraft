@@ -2,6 +2,7 @@
 require("puver");
 require("beat");
 require("helgravator");
+require("bombs");
 require("purpleNavals");
 require("templura");
 

@@ -1,0 +1,15 @@
+name: "Flame Mine"
+description: "Releases fire upon enemy contact. The explosion damages the mine."
+hasShadow: false
+health: 150
+update: false
+solid: false
+targetable: false
+requirements: [
+	coal/15
+	pyratite/25
+	graphite/5
+]
+
+category: effect
+research: bombT1m1
