@@ -2,8 +2,8 @@ name: Iron Drill
 description: A starting drill. (I thought this was stone)
 type: Drill
 size: 1
-tier: 2
-drillTime: 300
+tier: 1
+drillTime: 800
 consumes: {
   liquid: {
     liquid: water
@@ -13,7 +13,7 @@ consumes: {
   }
 }
 requirements: [
-  iron/5
+  iron/40
 ]
 category: production
 research: mechanical-drill

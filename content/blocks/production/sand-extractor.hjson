@@ -6,11 +6,11 @@ health: 130
 size: 2
 liquidCapacity: 120
 baseExplosiveness: 3
-rotateSpeed: -4.5
+rotateSpeed: -2
 hasPower: true
 updateEffect: hitLancer
 updateEffectChance: 0.125
-pumpAmount: 0.45
+pumpAmount: 2.6
 result: guilded-sand
 itemUseTime: 20
 consumes: {
