@@ -17,6 +17,6 @@ requirements: [
 ]
 category: crafting
 research: graphite-press
-//idleSound: respawning
-//idleSoundVolume: 0.5
+ambientSound: respawning
+ambientSoundVolume: 0.5
 outputItem: iron/3
