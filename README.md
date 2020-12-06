@@ -33,6 +33,9 @@ report via [Discord](https://discord.gg/xwq8hU5Ww8) or GitHub issues
 ## Contributors
 - [Aweguy](https://github.com/Aweguy)
 - [Robert](https://github.com/rmperkow)
+- [QmelZ](https://github.com/QmelZ)
+- [Charlotte Lily-Llaitchee Vixen / LottieVixen](https://github.com/LottieVixen)
+- [sample-text-here](https://github.com/sample-text-here)
 - `ceesar zeppel`
 - *null*
 - a
