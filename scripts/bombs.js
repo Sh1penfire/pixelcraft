@@ -4,17 +4,17 @@ const mediumCooldown = 60;
 const longCooldown = 120;
 const extrememlyLongCooldown = 240;
 
-const plastDespawn = new Effect(55, e => {
+const plastDust = new Effect(55, e => {
     Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
     const d = new Floatc2({get(x, y){
     Lines.stroke(e.fout());
-        Lines.lineAngle(e.x + x, e.y + y, 360, e.fout() * 2 + 1);
+        Lines.lineAngle(e.x + x, e.y + y, 360, e.fout() * 4);
      }})
-    Angles.randLenVectors(e.id, 7, e.fin() * 7, e.rotation, 40,d)
+    Angles.randLenVectors(e.id, 35, e.fin() * 25, e.rotation, 360,d)
 });
 
 const blastShockwave = new Effect(45, e => {
-    Draw.color(Color.red, Color.orange, e.fslope());
+    Draw.color(Color.red, Color.yellow, e.fslope());
     Lines.stroke(e.fout() * 4); 
     Lines.circle(e.x, e.y, e.fin() * 35); 
     Lines.stroke(e.fout() * 8); 
@@ -24,16 +24,78 @@ const blastShockwave = new Effect(45, e => {
     Lines.circle(e.x, e.y, e.fin() * 45); 
 });
 
-const surgeShockwave = new Effect(30, e => {
+const fireBlast = new Effect(25, e => {
+    Draw.color(Color.orange, Color.yellow, e.fslope());
+    Lines.stroke(e.fout() * 3); 
+    Lines.circle(e.x, e.y, e.fin() * 45); 
+    Lines.stroke(e.fout() * 6); 
+    Lines.circle(e.x, e.y, e.fin() * 55); 
+    Draw.color(Color.red, Color.orange, e.fslope());
+    Lines.stroke(e.fout() * 3); 
+    Lines.circle(e.x, e.y, e.fin() * 45); 
+    Angles.randLenVectors(e.id, 35, e.finpow() * 30, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
+  })
+});
+
+const sporeCooldown = new Effect(90, e => {
+    Draw.color(Color.purple, Pal.spore, e.fslope());
+    Lines.stroke(e.fout() * 6); 
+    Lines.circle(e.x, e.y, e.fin() * 15); 
+    Lines.stroke(e.fout() * 3); 
+    Lines.circle(e.x, e.y, e.fin() * 25); 
+    Angles.randLenVectors(e.id, 25, e.finpow() * 30, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);  
+  })
+});
+
+
+const surgeShockwave = new Effect(50, e => {
     Draw.color(Color.white, Pal.surge, e.fin());
-    Lines.stroke(e.fout() * 5); 
+    Lines.stroke(e.fout() * 6); 
     Lines.circle(e.x, e.y, e.fin() * 25); 
     Lines.stroke(e.fout() * 10); 
     Lines.circle(e.x, e.y, e.fin() * 15); 
     Angles.randLenVectors(e.id, 10, e.finpow() * 30, e.rotation, 360, (x, y) => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
+        
   })
 });
+
+const prismiumFX = new Effect(50, e => {
+    Draw.color(Color.red, Pal.health, e.fin());
+    Angles.randLenVectors(e.id, 1, 0, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
+  })
+    Draw.color(Color.orange, Pal.lightOrange, e.fin());
+    Angles.randLenVectors(e.id, 1, e.finpow() * 2, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
+  })
+    Draw.color(Color.yellow, Pal.missileYellow , e.fin());
+    Angles.randLenVectors(e.id, 1, e.finpow() * 4, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
+  })
+    Draw.color(Color.green, Pal.plastaniumBack , e.fin());
+    Angles.randLenVectors(e.id, 1, e.finpow() * 6, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
+  })
+    Draw.color(Color.blue, Pal.lancerLaser , e.fin());
+    Angles.randLenVectors(e.id, 1, e.finpow() * 8, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
+  })
+    Draw.color(Color.purple, Pal.spore , e.fin());
+    Angles.randLenVectors(e.id, 1, e.finpow() * 10, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
+  })
+});
+
+const prismium = new StatusEffect("prismium");
+prismium.speedMultiplier = 0.9;
+prismium.healthMultiplier = 1;
+prismium.damageMultiplier = 0.75;
+prismium.damage = 0.5;
+prismium.effect = prismiumFX;
+prismium.color = Color.white;
 
 const cryoSpray = new Effect(35, e => {
     Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
@@ -49,7 +111,7 @@ plastExplFrag.height = 8;
 plastExplFrag.pierce = true;
 plastExplFrag.lifetime = 25;
 plastExplFrag.incendAmount = 0;
-plastExplFrag.despawnEffect = plastDespawn;
+plastExplFrag.despawnEffect = Fx.none;
 plastExplFrag.hitEffect = Fx.none;
 plastExplFrag.shrinkY = 1;
 plastExplFrag.backColor = Pal.plastaniumBack;
@@ -74,8 +136,8 @@ sporeFrag.damage = 1;
 sporeFrag.width = 6;
 sporeFrag.height = 8;
 sporeFrag.pierce = true;
-sporeFrag.knockback = -0.25;
-sporeFrag.status = StatusEffects.sapped;
+sporeFrag.knockback = -1;
+sporeFrag.status = StatusEffects.sporeSlowed;
 sporeFrag.lifetime = 25;
 sporeFrag.incendAmount = 0;
 sporeFrag.despawnEffect = Fx.none;
@@ -91,17 +153,19 @@ const sporeCluster = extend(BombBulletType, {
         }
     }
 });
-sporeCluster.splashDamageRadius = 35;
-sporeCluster.splashDamage = 1;
+sporeCluster.splashDamageRadius = 15;
+sporeCluster.splashDamage = 10;
 sporeCluster.width = 0;
 sporeCluster.height = 0;
 sporeCluster.lifetime = 60;
 sporeCluster.status = StatusEffects.sapped;
-sporeCluster.despawnEffect = Fx.explosion;
-sporeCluster.hitEffect = Fx.explosion;
+sporeCluster.despawnEffect = Fx.none;
+sporeCluster.hitEffect = Fx.none;
 sporeCluster.hommingPower = 1;
 sporeCluster.fragBullets = 15;
 sporeCluster.fragBullet = sporeFrag;
+sporeCluster.hitSound = Sounds.none;
+
 
 const cryoLiquid = extend(LiquidBulletType, {});
 cryoLiquid.liquid = Liquids.cryofluid;
@@ -152,9 +216,9 @@ plastExplosion.splashDamageRadius = 25;
 plastExplosion.splashDamage = 55;
 plastExplosion.lifetime = 0;
 plastExplosion.incendAmount = 0;
-plastExplosion.despawnEffect = Fx.plasticExplosion;
-plastExplosion.hitEffect = Fx.plasticExplosion;
-plastExplosion.fragBullets = 15;
+plastExplosion.despawnEffect = plastDust;
+plastExplosion.hitEffect = plastDust;
+plastExplosion.fragBullets = 25;
 plastExplosion.fragBullet = plastExplFrag;
 
 const cryoExplosion = extend(BombBulletType, {
@@ -182,6 +246,8 @@ sporeExplosion.despawnEffect = Fx.none;
 sporeExplosion.hitEffect = Fx.none;
 sporeExplosion.fragBullets = 4;
 sporeExplosion.fragBullet = sporeCluster;
+sporeExplosion.hitSound = Sounds.none;
+
 
 const explosion7p1 = extend(BombBulletType, {});
 explosion7p1.splashDamageRadius = 25;
@@ -212,6 +278,15 @@ explosion7p3.hitEffect = Fx.none;
 explosion7p3.fragBullets = 25;
 explosion7p3.fragBullet = explosionFrag2;
 explosion7p3.hitSound = Sounds.none;
+
+const explosion8 = extend(BombBulletType, {});
+explosion8.splashDamageRadius = 25;
+explosion8.splashDamage = 100;
+explosion8.lifetime = 0;
+explosion8.status = prismium;
+explosion8.despawnEffect = Fx.none;
+explosion8.hitEffect = Fx.none;
+explosion8.hitSound = Sounds.none;
 
 const bombT1m1 = extendContent(ShockMine, "bombT1m1", {
       icons(){
@@ -258,7 +333,7 @@ bombT1m2.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m2, {
         if(b.team != this.team){
             if (this.timer.get(0, shortCooldown)) {
                 pyraExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
-                Fx.fire.at(this.x, this.y);
+                fireBlast.at(this.x, this.y);
                 this.damage(this.maxHealth / 25);
             }
         }
@@ -312,7 +387,7 @@ bombT1m4.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m4, {
                 this.damage(this.maxHealth / 30);
             }
             plastExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
-            Fx.plasticExplosion.at(this.x, this.y);
+            plastDust.at(this.x, this.y);
         }
     }
 });
@@ -340,7 +415,7 @@ bombT1m5.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m5, {
                 this.damage(this.maxHealth / 10);
             }
             sporeExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(5));
-            Fx.explosion.at(this.x, this.y);
+            sporeCooldown.at(this.x, this.y);
         }
     }
 });
@@ -430,9 +505,12 @@ bombT1m8.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m8, {
             explosion7p1.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
             explosion7p2.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
             explosion7p3.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
+            explosion8.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
             surgeShockwave.at(this.x, this.y);
             cryoSpray.at(this.x, this.y);
+            fireBlast.at(this.x, this.y)
             blastShockwave.at(this.x, this.y)
+            sporeCooldown.at(this.x, this.y)
             Sounds.sap.at(this.x, this.y);
             Sounds.spark.at(this.x, this.y);
             Sounds.explosion.at(this.x, this.y);
