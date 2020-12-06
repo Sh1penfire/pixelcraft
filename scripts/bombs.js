@@ -29,6 +29,20 @@ const prismiumShockwave = new Effect(480, e => {
   };
 });
 
+const prismiumExplosion = new Effect(25, e => {
+  for(let h in fromColor){
+    Draw.color(fromColor[h], toColor[h], e.fin());
+        Angles.randLenVectors(e.id, 1, e.finpow() * h * 4, e.rotation, 360, (x, y) => {
+      Fill.circle(e.x + x, e.y + y, e.fout() * 2.5);
+      Fill.circle(e.x + x, e.y + y * -1, e.fout() * 2.5);
+      Fill.circle(e.x + x * -1, e.y + y * -1, e.fout() * 2.5);
+      Fill.circle(e.x + x * -1, e.y + y, e.fout() * 2.5);
+        });
+      Draw.alpha(0.5 * e.fout())
+      Fill.circle(e.x, e.y, e.fin() * 3 * h); 
+  };
+});
+
 const plastDust = new Effect(55, e => {
     Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
     const d = new Floatc2({get(x, y){
@@ -285,8 +299,8 @@ prismaticBlast.splashDamageRadius = 60;
 prismaticBlast.splashDamage = 50;
 prismaticBlast.lifetime = 0;
 prismaticBlast.status = prismium;
-prismaticBlast.despawnEffect = prismiumFX;
-prismaticBlast.hitEffect = prismiumFX;
+prismaticBlast.despawnEffect = prismiumExplosion;
+prismaticBlast.hitEffect = prismiumExplosion;
 prismaticBlast.hitSound = Sounds.none;
 prismaticBlast.statusDuration = 24000;
 
@@ -506,7 +520,7 @@ const bombT1m8 = extendContent(ShockMine, "bombT1m8", {
     this.super$setStats();
     this.stats.add(Stat.range, "55");
     this.stats.add(Stat.reload, "0.125")
-    this.stats.add(Stat.damage, "100");
+    this.stats.add(Stat.damage, "100/12000");
     }
 });
 
