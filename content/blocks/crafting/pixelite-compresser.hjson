@@ -1,4 +1,4 @@
-type: GenericSmelter
+
 name: Pixelite compresser
 description: Compresses scrap under high heat and shapes it into pixelite. Much faster and takes scrap in smaller chunks, but coolent is needed. "Now with extra fire"
 liquidCapacity: 50
