@@ -12,13 +12,13 @@ Events.on(ClientLoadEvent, () => {
     templura.atmosphereRadOut = 0.3;
     templura.localizedName = "Templura";
     
-    const rustedValley = new SectorPreset("rustedValley", templura, 1);
+    const rustedValley = new SectorPreset("rusted-valley", templura, 1);
     rustedValley.captureWave = 35;
     rustedValley.localizedName = "Rusted Valley";
     rustedValley.difficulty = 3;
     rustedValley.alwaysUnlocked = true;
 
-    const shatteredGlacier = new SectorPreset("shatteredGlacier", templura, 2);
+    const shatteredGlacier = new SectorPreset("shattered-glacier", templura, 2);
     shatteredGlacier.captureWave = 35;
     shatteredGlacier.localizedName = "Shattered Glacier";
     shatteredGlacier.difficulty = 5;
