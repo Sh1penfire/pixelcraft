@@ -30,6 +30,6 @@ requirements: [
 ]
 category: crafting
 research: pyratite-mixer
-//idleSound: respawning
-//idleSoundVolume: 0.5
+ambientSound: respawning
+ambientSoundVolume: 0.5
 outputItem: pixelite/10
