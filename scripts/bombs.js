@@ -2,7 +2,32 @@ const shortCooldown = 20;
 const smallCooldown = 30;
 const mediumCooldown = 60;
 const longCooldown = 120;
-const extrememlyLongCooldown = 240;
+const extrememlyLongCooldown = 480;
+
+const fromColor = [Color.red, Color.orange, Color.yellow, Color.green, Color.blue, Color.purple];
+const toColor = [Pal.health, Pal.lightOrange, Pal.missileYellow, Pal.plastaniumBack, Pal.lancerLaser, Pal.spore];
+
+const prismiumFX = new Effect(50, e => {
+  for(let h in fromColor){
+    Draw.color(fromColor[h], toColor[h], e.fin());
+    Angles.randLenVectors(e.id, 1, e.finpow() * h * 2, e.rotation, 360, (x, y) => {
+      Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
+      Fill.circle(e.x + x, e.y + y * -1, e.fout() * 1.5);
+      Fill.circle(e.x + x * -1, e.y + y * -1, e.fout() * 1.5);
+      Fill.circle(e.x + x * -1, e.y + y, e.fout() * 1.5);
+      Draw.alpha(1 * e.fout())
+      Fill.circle(e.x, e.y, e.fin() * 2 * h); 
+    });
+  };
+});
+
+const prismiumShockwave = new Effect(480, e => {
+  for(let h in fromColor){
+    Draw.color(fromColor[h], toColor[h], e.fin());
+    Lines.stroke(e.fout() * 5); 
+    Lines.circle(e.x, e.y, e.fin() * 5 * h + 24 * e.fin()); 
+  };
+});
 
 const plastDust = new Effect(55, e => {
     Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
@@ -62,35 +87,10 @@ const surgeShockwave = new Effect(50, e => {
   })
 });
 
-const prismiumFX = new Effect(50, e => {
-    Draw.color(Color.red, Pal.health, e.fin());
-    Angles.randLenVectors(e.id, 1, 0, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
-  })
-    Draw.color(Color.orange, Pal.lightOrange, e.fin());
-    Angles.randLenVectors(e.id, 1, e.finpow() * 2, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
-  })
-    Draw.color(Color.yellow, Pal.missileYellow , e.fin());
-    Angles.randLenVectors(e.id, 1, e.finpow() * 4, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
-  })
-    Draw.color(Color.green, Pal.plastaniumBack , e.fin());
-    Angles.randLenVectors(e.id, 1, e.finpow() * 6, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
-  })
-    Draw.color(Color.blue, Pal.lancerLaser , e.fin());
-    Angles.randLenVectors(e.id, 1, e.finpow() * 8, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
-  })
-    Draw.color(Color.purple, Pal.spore , e.fin());
-    Angles.randLenVectors(e.id, 1, e.finpow() * 10, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5);
-  })
-});
 
+      
 const prismium = new StatusEffect("prismium");
-prismium.speedMultiplier = 0.9;
+prismium.speedMultiplier = 1;
 prismium.healthMultiplier = 1;
 prismium.damageMultiplier = 0.75;
 prismium.damage = 0.5;
@@ -232,10 +232,11 @@ cryoExplosion.splashDamageRadius = 35;
 cryoExplosion.splashDamage = 15;
 cryoExplosion.width = 0;
 cryoExplosion.height = 0;
-cryoExplosion.lifetime = 240;
+cryoExplosion.lifetime = 60;
 cryoExplosion.status = StatusEffects.freezing
 cryoExplosion.despawnEffect = cryoSpray;
 cryoExplosion.hitEffect = cryoSpray;
+cryoExplosion.hitSound = Sounds.none;
 
 const sporeExplosion = extend(BombBulletType, {});
 sporeExplosion.splashDamageRadius = 35;
@@ -279,14 +280,33 @@ explosion7p3.fragBullets = 25;
 explosion7p3.fragBullet = explosionFrag2;
 explosion7p3.hitSound = Sounds.none;
 
-const explosion8 = extend(BombBulletType, {});
-explosion8.splashDamageRadius = 25;
-explosion8.splashDamage = 100;
-explosion8.lifetime = 0;
-explosion8.status = prismium;
-explosion8.despawnEffect = Fx.none;
-explosion8.hitEffect = Fx.none;
-explosion8.hitSound = Sounds.none;
+const prismaticBlast = extend(BombBulletType, {});
+prismaticBlast.splashDamageRadius = 60;
+prismaticBlast.splashDamage = 50;
+prismaticBlast.lifetime = 0;
+prismaticBlast.status = prismium;
+prismaticBlast.despawnEffect = prismiumFX;
+prismaticBlast.hitEffect = prismiumFX;
+prismaticBlast.hitSound = Sounds.none;
+prismaticBlast.statusDuration = 24000;
+
+const prisBullets = [coalExplosion,pyraExplosion,blastExplosion,plastExplosion,sporeExplosion,cryoExplosion,explosion7p1,explosion7p2,explosion7p3,prismaticBlast];
+
+const prismaticCrystal = extend(BombBulletType, {
+    update(b){
+        if(Mathf.random() < 0.1){
+                prisBullets[ Mathf.round(Mathf.random(9)) ].create(b.owner, b.team, b.x + Mathf.random(80) - 40, b.y + Mathf.random(80) - 40, Mathf.random(360), Mathf.random(0.5));
+                prismiumFX.at(b.x, b.y);
+        }
+    }
+});
+prismaticCrystal.splashDamageRadius = 25;
+prismaticCrystal.splashDamage = 55;
+prismaticCrystal.lifetime = 480;
+prismaticCrystal.incendAmount = 0;
+prismaticCrystal.despawnEffect = prismiumFX;
+prismaticCrystal.hitEffect = prismiumFX;
+prismaticCrystal.hitSound = Sounds.click;
 
 const bombT1m1 = extendContent(ShockMine, "bombT1m1", {
       icons(){
@@ -357,7 +377,7 @@ const bombT1m3 = extendContent(ShockMine, "bombT1m3", {
 bombT1m3.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m3, {
 	unitOn(b){
         if(b.team != this.team){
-            if (this.timer.get(0, shortCooldown)) {
+            if (this.timer.get(0, shortCooldown)){
                 blastExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
                 blastShockwave.at(this.x, this.y);
                 this.damage(this.maxHealth / 15);
@@ -484,8 +504,8 @@ const bombT1m8 = extendContent(ShockMine, "bombT1m8", {
   },
   setStats(){
     this.super$setStats();
-    this.stats.add(Stat.range, "30");
-    this.stats.add(Stat.reload, "0.25")
+    this.stats.add(Stat.range, "55");
+    this.stats.add(Stat.reload, "0.125")
     this.stats.add(Stat.damage, "100");
     }
 });
@@ -494,7 +514,7 @@ bombT1m8.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m8, {
 	unitOn(b){
         if (this.timer.get(0, extrememlyLongCooldown)) {
         if(b.team != this.team){
-                this.damage(this.maxHealth / 50);
+                this.damage(this.maxHealth / 5);
             }
             coalExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
             pyraExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
@@ -505,12 +525,13 @@ bombT1m8.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m8, {
             explosion7p1.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
             explosion7p2.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
             explosion7p3.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
-            explosion8.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
+            prismaticCrystal.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
             surgeShockwave.at(this.x, this.y);
             cryoSpray.at(this.x, this.y);
             fireBlast.at(this.x, this.y)
             blastShockwave.at(this.x, this.y)
             sporeCooldown.at(this.x, this.y)
+            prismiumShockwave.at(this.x, this.y)
             Sounds.sap.at(this.x, this.y);
             Sounds.spark.at(this.x, this.y);
             Sounds.explosion.at(this.x, this.y);
