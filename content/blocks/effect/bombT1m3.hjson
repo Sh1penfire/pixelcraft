@@ -1,10 +1,11 @@
 name: "Blast Mine"
-description: "Explodes upon enemy contact. The explosion damages the mine."
+description: "Releases a big explosion upon enemy contact. The explosion damages the mine."
 hasShadow: false
 health: 120
 update: false
 solid: false
 targetable: false
+rebuildable: true
 requirements: [
 	coal/5
 	blast-compound/25

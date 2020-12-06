@@ -5,6 +5,7 @@ health: 150
 update: false
 solid: false
 targetable: false
+rebuildable: true
 requirements: [
 	coal/15
 	pyratite/25
