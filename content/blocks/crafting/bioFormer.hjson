@@ -1,23 +1,19 @@
-name: Bio Former
-description: Grows plants using water. Then compacts them into small orbs.
-liquidCapacity: 50
+name: Bioformer
+description: "Grows plants and compresses them down into orbs. Needs water to grow plants"
 size: 2
-hasPower: true
 hasLiquids: true
 hasItems: true
-craftTime: 100
-updateEffect: none
+craftTime: 240
 consumes: {
-  liquid: {
-    liquid: water
-    amount: 0.05
-  }
-}
+liquid:{
+liquid: water
+amount: 0.1
+}}
 requirements: [
-stone/75
-iron/35
+  stone/30
+  iron/25
+  bionorb/1
 ]
-category: crafting
-ambientSound: respawning
-ambientSoundVolume: 0.5
-outputItem: bionorb/1
+category: production
+research: seed-extractor
+outputItem: bionorb/2
