@@ -1,5 +1,6 @@
 //require("abilities")
 require("puver");
+require("psion");
 require("beat");
 require("helgravator");
 require("bombs");
