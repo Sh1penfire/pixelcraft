@@ -1,17 +1,17 @@
 type: BurnerGenerator
-name: burner
-description: "Burns items for fuel"
+name: Burner
+description: "Burns items for fuel. Able to intake lower flabibility items, and uses items for longer."
 health: 125
 size: 1
-powerProduction: 0.15
+powerProduction: 1
 hasItems: true
 itemCapacity: 10
-itemDuration: 70
+itemDuration: 180
 generateEffect: smelt
-minItemEfficiency: 0.3
+minItemEfficiency: 0.01
 requirements: [
-  copper/100
-  lead/250
+  copper/10
+  lead/25
   iron/25
 ]
 category: power
