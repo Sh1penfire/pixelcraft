@@ -8,7 +8,7 @@ range: 75
 shots: 2
 ammoUseEffect: casing2Double
 rotateSpeed: 8
-inaccuracy: 1.337
+inaccuracy: 1
 ammoTypes: {
   stone: {
     speed: 4
@@ -29,7 +29,6 @@ ammoTypes: {
     ammoMultiplier: 2
     lifetime: 55
     hitEffect: shootBigSmoke
-    pierce: true
     inaccuracy: 20
     fragBullets: 4
     fragBullet: {
