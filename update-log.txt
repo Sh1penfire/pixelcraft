@@ -1,9 +1,0 @@
-pixelcraft 
-update 0.9
-change ubication blocks in tree tech
-change sprites item's
-change requirements in blocks and items
-
-update 0.9 miniupdate
-
-change sprite ore iron and iron drill and magnitine drill

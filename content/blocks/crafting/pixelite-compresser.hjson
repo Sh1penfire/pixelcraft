@@ -2,10 +2,13 @@
 name: Pixelite compresser
 description: Compresses scrap under high heat and shapes it into pixelite. Much faster and takes scrap in smaller chunks, but coolent is needed. "Now with extra fire"
 liquidCapacity: 50
-size: 3
-hasPower: true
+ItemCapacity: 50
+size: 2
+drawLiquidLight: false
 hasLiquids: true
+emitLight: false
 hasItems: true
+lightColor: B0BAC000
 craftTime: 90
 updateEffect: ballfire
 consumes: {
@@ -29,6 +32,4 @@ requirements: [
 ]
 category: crafting
 research: pixelite-mixer
-ambientSound: respawning
-ambientSoundVolume: 0.5
-outputItem: pixelite/12
+outputItem: pixelite/5
