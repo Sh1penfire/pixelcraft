@@ -1,12 +1,12 @@
 type: ItemTurret
-name: Strand
-description: A standard turret. Effective against ground units.
+name: String
+description: An upgraded strand. Double the fireate for less range. Effective against ground units.
 health: 200
 size: 1
 reloadTime: 17.5
-range: 100
-shots: 1
-ammoUseEffect: casing2
+range: 75
+shots: 2
+ammoUseEffect: casing2Double
 rotateSpeed: 8
 ammoTypes: {
   stone: {
@@ -92,7 +92,8 @@ pixelite: {
         }
 }
 requirements: [    
-  iron/35
+  iron/55
+  graphite/15
 ]
 category: turret
-research: duo
+research: basicTurret1

@@ -3,12 +3,12 @@ name: Coal Compresser
 description: "Compresses coal into pure sheets of graphite. Theres a note in plastic. It says: Eventualy the bots had found out that it had many metals in it, even the valued thorium that kept their reactors fueled."
 size: 2
 hasItems: true
-craftTime: 80
+craftTime: 120
 updateEffect: pulverizeRed
 consumes: {
   items: {
     items: [
-      coal/2
+      coal/4
     ]
   }
 }
@@ -18,7 +18,7 @@ requirements: [
   graphite/20
 ]
 category: crafting
-research: multi-press
+research: graphite-press
 ambientSound: respawning
 ambientSoundVolume: 0.5
-outputItem: graphite/3
+outputItem: graphite/2

@@ -12,9 +12,11 @@ const psionShoot = new Effect(30, e => {
 });
 
 const chargedEffectFX = new Effect(27, (e) => {
-  Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
   Angles.randLenVectors(e.id, 2, 1 + e.fin() * 10, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 3 + 0.3)
+    Draw.color(Color.white, Color.valueOf("0A01b7"), e.fslope());
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.8)
+    Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5)
   });
 });
 

@@ -2,6 +2,6 @@ name: Stone
 description: It's stone. Nothing to see here
 hardness: 0.1
 cost: 0.5
-color:  #000000
+color:  000000
 alwaysUnlocked: false
 research: copper

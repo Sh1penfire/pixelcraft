@@ -2,7 +2,7 @@
 A v6 mod for mindustry
 This mod aims to expand mindustry's content by adding a new tech tree, adding upgraded versions of existing blocks and more!
 - adds new resources, new turrets and new zones as well as slight tweaks to vanilla.
-- 41 new building blocks to play with, 1 environmental block, 2 ores and 5 items with more to come.
+- 56 new building blocks to play with, 1 environmental block, 2 ores and 6 items with more to come.
 - (Lore included, find the lore of the mod in building and unit descriptions/reading the source code)
 
 note: Has been ported over to 115, enjoy the mod!
@@ -33,6 +33,9 @@ report via [Discord](https://discord.gg/xwq8hU5Ww8) or GitHub issues
 ## Contributors
 - [Aweguy](https://github.com/Aweguy)
 - [Robert](https://github.com/rmperkow)
+- [QmelZ](https://github.com/QmelZ)
+- [Charlotte Lily-Llaitchee Vixen / LottieVixen](https://github.com/LottieVixen)
+- [sample-text-here](https://github.com/sample-text-here)
 - `ceesar zeppel`
 - *null*
 - a

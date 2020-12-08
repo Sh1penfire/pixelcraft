@@ -1,0 +1,13 @@
+name: Seed Extractor
+description: "Extracts small packets of untouched plant life and allows time for them to regrow."
+size: 1
+hasItems: true
+craftTime: 3600
+requirements: [
+  stone/30
+  iron/25
+  graphite/50
+]
+category: production
+research: iron-drill
+outputItem: bionorb/1
