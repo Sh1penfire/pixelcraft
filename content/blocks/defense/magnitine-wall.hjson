@@ -3,11 +3,11 @@ description: "A sturdy defensive block.
 Provides moderate protection from enemies Blocks electric arcs.
 Spans multiple tiles."
 type: Wall
-health: 500
+health: 800
 size: 1
 insulated: true
 requirements: [
-  magnitine/6
+  magnitine/10
 ]
 category: defense
 research: iron-wall

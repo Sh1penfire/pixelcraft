@@ -1,31 +1,32 @@
 type: MendProjector
-name: "Bio Mender"
+name: "Bio Mender largest"
 description: "A stone block covered with plantlife. Repears blocks using nature to repear gaps in blocks. Has a lot of range."
-reload: 100
-range: 150
+reload: 50
+range: 250
 baseColor: ccd28d
 phaseColor: ced671
 healPercent: 5
 phaseBoost: 5
 phaseRangeBoost: 30
 useTime: 1000
-itemCapacity: 75
+itemCapacity: 100
 hasItems: true
-health: 450
-size: 1
+health: 800
+size: 2
 consumes: {
- power: 1.8
+ power: 2.6
  items:{
   items: [
-   bionorb/1
+   bionorb/2
   ]
  booster: true
  optional: true
  }
 }
 requirements: [
-bionorb/10
-iron/45
+bionorb/50
+iron/150
+silicon/50
 ]
 category: effect
-research: mender
+research: bioMender
