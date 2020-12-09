@@ -186,6 +186,11 @@ cryoLiquid.liquid = Liquids.cryofluid;
 cryoLiquid.lifetime = 10;
 cryoLiquid.fragBullet = Bullets.standardCopper;
 
+const cryoGush = extend(LiquidBulletType, {});
+cryoGush.liquid = Liquids.cryofluid;
+cryoGush.lifetime = 35;
+cryoGush.fragBullet = Bullets.standardCopper;
+
 const lightning1 = extend(LightningBulletType, {});
 lightning1.damage = 25;
 lightning1.lightningLength = 8;
@@ -251,6 +256,23 @@ cryoExplosion.status = StatusEffects.freezing
 cryoExplosion.despawnEffect = cryoSpray;
 cryoExplosion.hitEffect = cryoSpray;
 cryoExplosion.hitSound = Sounds.none;
+
+const cryoLeak = extend(BombBulletType, {
+    update(b){
+        if(Mathf.random(1) < 0.8){
+            cryoGush.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(1));
+        }
+    }
+});
+cryoLeak.splashDamageRadius = 35;
+cryoLeak.splashDamage = 35;
+cryoLeak.width = 0;
+cryoLeak.height = 0;
+cryoLeak.lifetime = 100;
+cryoLeak.status = StatusEffects.freezing
+cryoLeak.despawnEffect = cryoSpray;
+cryoLeak.hitEffect = cryoSpray;
+cryoLeak.hitSound = Sounds.none;
 
 const sporeExplosion = extend(BombBulletType, {});
 sporeExplosion.splashDamageRadius = 35;
@@ -345,6 +367,12 @@ bombT1m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m1, {
                 this.damage(this.maxHealth / 1.1);
             }
         }
+    },
+    onDestroyed(){
+    this.super$onDestroyed();
+    pyraExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
+    //this.kill()
+    this.remove()
     }
 });
 
@@ -468,7 +496,7 @@ const bombT1m6 = extendContent(ShockMine, "bombT1m6", {
     this.stats.add(Stat.damage, "15");
     }
 });
-
+cryoGush
 bombT1m6.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m6, {
 	unitOn(b){
         if (this.timer.get(0, extrememlyLongCooldown)) {
@@ -478,6 +506,12 @@ bombT1m6.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m6, {
             cryoExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
             cryoSpray.at(this.x, this.y);
         }
+    },
+    onDestroyed(){
+    this.super$onDestroyed();
+    cryoLeak.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
+    //this.kill()
+    this.remove()
     }
 });
 

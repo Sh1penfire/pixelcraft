@@ -1,0 +1,38 @@
+name: "Crystal"
+description: "A frozen dagger, left out on the ice. Fires frozen projectiles that slow targets. Has a slight layer or armor."
+speed : 0.7
+health: 150
+armor: 5
+aimDst: 10
+faceTarget: true
+rotateShooting : true
+range: 150
+rotateSpeed: 7
+lowAltitude: true
+omniMovement: true
+weapons: [ 
+{
+name: shard-mount
+reload: 10
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: shoot
+x: 3.5
+y: 3
+rotate: false
+occlusion: 0
+bullet: {
+type: BasicBulletType
+damage: 10
+speed: 3
+lifetime: 50
+hitSound: pew
+status: freezing
+statusDuration: 35
+frontColor: b6cad6
+backColor: d7e0e5
+despawnEffect: freezing
+hitEffect: hitLancer
+}
+}]
