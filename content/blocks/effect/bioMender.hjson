@@ -14,7 +14,6 @@ hasItems: true
 health: 450
 size: 1
 consumes: {
- power: 1.8
  items:{
   items: [
    bionorb/1
@@ -25,7 +24,7 @@ consumes: {
 }
 requirements: [
 bionorb/10
-iron/45
+stone/45
 ]
 category: effect
 research: mender

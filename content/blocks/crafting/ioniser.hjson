@@ -1,0 +1,31 @@
+type: GenericSmelter
+name: Ioniser
+description: "Uses magnets to magnitise pieces of iron and mixes the magnitised iron with magnitine to further increase the magnitsm."
+size: 3
+hasItems: true
+craftTime: 100
+updateEffect: pulverizeRed
+consumes: {
+  items: {
+    items: [
+      iron/3
+      magnitine/6
+      titanium/3
+    ]
+  }
+  liquid: {
+    liquid: water
+    amount: 0.1
+  }
+}
+requirements: [
+iron/125
+magnitine/85
+titanium/65
+feromagnet/50 
+]
+category: crafting
+research: magnitiser
+ambientSound: respawning
+ambientSoundVolume: 0.5
+outputItem: feromagnet/10

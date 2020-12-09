@@ -1,0 +1,26 @@
+name: "Crystaline Factory"
+description: "A frozen factory"
+health: 300
+size: 3
+plans:[
+ {
+ unit: crystal
+ requirements:[]
+ }
+
+]
+consumes: {
+power: 0.3
+}
+category: units
+research: ground-factory
+requirements: [
+  copper/80
+  lead/75
+  silicon/75
+  metaglass/55  
+]
+
+
+
+//Blocks.groundFactory.plans.add(new UnitFactory.UnitPlan("pixelcraft-rustyalpha", 60 * 25, 
