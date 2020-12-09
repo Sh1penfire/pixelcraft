@@ -1,0 +1,16 @@
+type: PowerNode
+name: Magnitine Node large
+description: "it is a superior energy node because it is made of magnitine"
+size: 2
+laserRange: 30
+maxNodes: 20
+laserColor1: E9E9E9FF
+laserColor2: CFCFCFFF
+requirements: [
+  magnitine/40
+  lead/100
+  iron/30
+  
+]
+category: power
+research: magnitine-power-node

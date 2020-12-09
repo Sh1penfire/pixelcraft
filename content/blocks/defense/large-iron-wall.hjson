@@ -3,7 +3,7 @@ description: "A cheap defensive block.
 Provides moderate protection from enemies Blocks electric arcs.
 Spans multiple tiles. Decaying from the rust"
 type: Wall
-health: 1260
+health: 1400
 size: 2
 insulated: true
 requirements: [
