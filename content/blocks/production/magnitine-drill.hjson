@@ -3,7 +3,7 @@ description: Sturdy dril that uses magnitism to move it's parts.
 type: Drill
 size: 1
 tier: 3
-drillTime: 400
+drillTime: 600
 consumes: {
   liquid: {
     liquid: water
@@ -13,7 +13,7 @@ consumes: {
   }
 }
 requirements: [
-  magnitine/20
+  magnitine/10
 ]
 category: production
-research: laser-drill
+research: iron-drill
