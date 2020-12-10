@@ -5,8 +5,8 @@ reload: 100
 range: 150
 baseColor: ccd28d
 phaseColor: ced671
-healPercent: 5
-phaseBoost: 5
+healPercent: 1
+phaseBoost: 2
 phaseRangeBoost: 30
 useTime: 1000
 itemCapacity: 75
