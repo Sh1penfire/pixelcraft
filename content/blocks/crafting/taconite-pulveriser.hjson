@@ -1,0 +1,25 @@
+type: GenericCrafter
+name: Taconite Pulveriser
+description: "Pulverises stone and extracts the iron within. Theres a note in plastic. It says: The bot's name was dart. They were banished to the farlands and told never to come back again, with threats to be shot on sight."
+size: 3
+hasItems: true
+craftTime: 60
+updateEffect: pulverizeRed
+consumes: {
+  items: {
+    items: [
+      stone/10
+    ]
+  }
+}
+requirements: [
+  stone/100
+  iron/45
+  magnitine/35
+  bionorb/35
+]
+category: crafting
+research: taconite-crusher
+ambientSound: respawning
+ambientSoundVolume: 0.5
+outputItem: iron/5
