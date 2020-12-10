@@ -22,3 +22,5 @@ const bioFormer = extendContent(GenericCrafter,"bioFormer",{});
 bioFormer.craftEffect = seeds;
 bioFormer.drawer = bioFormerAni;
 
+const bioDrill = extendContent(GenericCrafter, "bioDrill", {});
+bioDrill.craftEffect = seeds;
