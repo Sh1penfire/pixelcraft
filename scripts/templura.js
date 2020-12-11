@@ -24,4 +24,11 @@ Events.on(ClientLoadEvent, () => {
     shatteredGlacier.localizedName = "Shattered Glacier";
     shatteredGlacier.difficulty = 5;
     shatteredGlacier.alwaysUnlocked = true;
+    
+        const crossroads = new SectorPreset("crossroads", templura, 26);
+    crossroads.captureWave = 45;
+    crossroads.localizedName = "Shattered Glacier";
+    crossroads.difficulty = 7;
+    crossroads.alwaysUnlocked = true;
+    
 });
