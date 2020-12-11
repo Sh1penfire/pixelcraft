@@ -14,13 +14,18 @@ const seeds = new Effect(60, e => {
 
 const seedExtractor = extendContent(GenericCrafter,"seed-extractor",{});
 seedExtractor.craftEffect = seeds;
-const bioFormerAni = new DrawAnimation();
 
+const bioDrill = extendContent(GenericCrafter, "bioDrill", {});
+bioDrill.craftEffect = seeds;
+
+const bioFormerAni = new DrawAnimation();
 bioFormerAni.frameCount = 9;
 bioFormerAni.frameSpeed = 30;
 const bioFormer = extendContent(GenericCrafter,"bioFormer",{});
 bioFormer.craftEffect = seeds;
 bioFormer.drawer = bioFormerAni;
 
-const bioDrill = extendContent(GenericCrafter, "bioDrill", {});
-bioDrill.craftEffect = seeds;
+const bioPressAni = new DrawAnimation();
+const bioPress = extendContent(GenericCrafter,"bioPress",{});
+bioPress.craftEffect = seeds;
+bioPress.drawer = bioPressAni;

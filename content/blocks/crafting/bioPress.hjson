@@ -1,0 +1,24 @@
+name: Biopress
+description: "Presses down bionorbs for water"
+size: 1
+hasLiquids: true
+hasItems: true
+craftTime: 120
+consumes: {
+items:{
+items:[
+bionorb/1
+]
+}
+}
+requirements: [
+  stone/60
+  iron/10
+  bionorb/10
+]
+category: crafting
+research: seed-extractor
+outputLiquid: {
+  liquid: water
+  amount: 12
+}
