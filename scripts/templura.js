@@ -27,7 +27,7 @@ Events.on(ClientLoadEvent, () => {
     
         const crossroads = new SectorPreset("crossroads", templura, 26);
     crossroads.captureWave = 45;
-    crossroads.localizedName = "Shattered Glacier";
+    crossroads.localizedName = "Crossroads";
     crossroads.difficulty = 7;
     crossroads.alwaysUnlocked = true;
     
