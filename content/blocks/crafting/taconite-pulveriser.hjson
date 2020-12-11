@@ -8,7 +8,7 @@ updateEffect: pulverizeRed
 consumes: {
   items: {
     items: [
-      stone/10
+      stone/8
     ]
   }
 }
