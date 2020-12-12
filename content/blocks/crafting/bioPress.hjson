@@ -16,7 +16,7 @@ requirements: [
   iron/10
   bionorb/10
 ]
-category: crafting
+category: production
 research: seed-extractor
 outputLiquid: {
   liquid: water

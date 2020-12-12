@@ -36,3 +36,10 @@ despawnEffect: freezing
 hitEffect: hitLancer
 }
 }]
+research:{
+parent: cryFac
+requirements: [
+silicon/1500
+metaglass/2500
+lead/2500
+]}

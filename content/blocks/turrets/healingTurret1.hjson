@@ -18,8 +18,8 @@ speed: 5
 lifetime: 40
 healPercent: 1.3
 collidesTeam: true
-//frontColor: 01b73e
-//backColor: b7f35e
+frontColor: ffffff
+backColor: 98ffa9
 }
 requirements: [
  copper/60

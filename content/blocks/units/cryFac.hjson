@@ -5,7 +5,11 @@ size: 3
 plans:[
  {
  unit: crystal
- requirements:[]
+ requirements:[
+ silicon/15
+ metaglass/5
+ lead/25
+]
  }
 
 ]

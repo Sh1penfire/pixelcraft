@@ -1,21 +1,6 @@
-const hellfireFX = new Effect(20, e => {
-Draw.color(Color.orange, Color.red, e.fin());
-Fill.circle(e.x, e.y, e.fslope() * 4);
-Fill.circle(e.x, e.y, e.fout() * 2);
-Draw.color(Color.orange, Color.red, e.fin());
-Lines.stroke(e.fslope() * 2);
-Lines.circle(e.x, e.y, e.fin() * 6);
-Draw.color(Color.white, Color.orange, e.fin());
-Lines.stroke(e.fin() * 2);
-const d = new Floatc2({get(x, y){
-Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 3);
-}}) 
-Angles.randLenVectors(e.id, 20, 3 * e.fin(), e.rotation, 360,d);
-});
-
-const firehitFx = new Effect(20, e => {
+const firehitFx = new Effect(10, e => {
   Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, e.fin());
-  Angles.randLenVectors(e.id, 10, e.finpow() * 60, e.rotation, 10, (x, y) => {
+  Angles.randLenVectors(e.id, 10, e.finpow() * 100, e.rotation, 24, (x, y) => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 2);
   })
 });
@@ -32,17 +17,16 @@ const hellfire = extendContent(StatusEffect, "hellfire", {});
 hellfire.speedMultiplier = 0.8;
 hellfire.armorMultiplier = 0.75;
 hellfire.damage = 1;
-hellfire.effect = hellfireFX;
+hellfire.effect = Fx.none;
 hellfire.color = Color.white;
 
 const flCoalfrag = extend(LiquidBulletType, {});
 const flCoal = extend(BasicBulletType, {});
 flCoal.speed = 20;
 flCoal.damage = 60;
-flCoal.hitSize = 6;
+flCoal.hitSize = 10;
 flCoal.width = 1;
 flCoal.height = 1;
-flCoal.inaccuracy = 15;
 flCoal.lifetime = 5;
 flCoal.knockback = 0;
 flCoal.shootSound = Sounds.flame2;
@@ -56,7 +40,7 @@ flCoal.colidesAir = true;
 flCoal.ammoMultiplier = 10;
 flCoal.pierce = true;
 flCoal.incendAmount = 1;
-flCoal.fragBullets = 2;
+flCoal.fragBullets = 3;
 flCoal.fragBullet = flCoalfrag;
 
 flCoalfrag.liquid = Liquids.oil;
@@ -66,6 +50,7 @@ flCoalfrag.width = 5;
 flCoalfrag.height = 5;
 flCoalfrag.lifetime = 1;
 flCoalfrag.knockback = 0;
+flCoalfrag.puddleSize = 100;
 flCoalfrag.despawnEffect = Fx.none;
 flCoalfrag.hitEffect = firelandFx;
 flCoalfrag.status = hellfire;
@@ -103,7 +88,7 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
     ];
   }
 });
-helgravator.innacuracy = 24;
-helgravator.shots = 5;
+helgravator.innacuracy = 16;
+helgravator.shots = 10;
 helgravator.shootSound = Sounds.flame2;
 //Thanks for the help with effects Puppycat :)

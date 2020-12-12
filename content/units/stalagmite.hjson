@@ -1,61 +1,66 @@
 type: mech
-name: "Stalactite"
-description: "A frozen mace that sprays shards which frag. Perfect for countering swarms."
-speed : 0.5
-health: 570
-armor: 8
+name: "Stalagmite"
+description: "A fortress that's been left out for to long, shoots icy balls of frost that freeze units."
+speed : 0.4
+health: 890
+armor: 12
 faceTarget: true
 rotateShooting : true
 aimDst: 10
-range: 50
-rotateSpeed: 7
+range: 300
+rotateSpeed: 5
 lowAltitude: true
 omniMovement: true
 weapons: [ 
 {
-name: spray-mount
-reload: 5
+name: blaster-mount
+reload: 25
 alternate: true
 ejectEffect: none
 top: false
 shootSound: flame
 rotate: false
 occlusion: 0
-recoil: 1
-x: 4.8
-y: 4
+recoil: 3
+shake: 2
+x: 9
+y: 1.2
 shots: 1
-inaccuracy: 15
+inaccuracy: 0
 bullet: {
 type: ArtilleryBulletType
 collides: true
 collidesAir: true
 collidesTiles: true
-damage: 10
+damage: 25
+splashDamage: 15
+splashDamageRadius: 25
+width: 14
+height: 14
 pierce: true
 pierceCap: 3
-speed: 5
-lifetime: 10
-inaccuracy: 15
+speed: 3
+lifetime: 100
 hitSound: none
 status: freezing
 statusDuration: 35
-fragBullets: 5
+fragBullets: 25
+keepVelocity: false
 frontColor: b6cad6
 backColor: d7e0e5
-despawnEffect: none
-hitEffect: none
+despawnEffect: explosion
+hitEffect: explosion
 shootEffect: none
 fragBullet:{
 type: LiquidBulletType
 liquid: cryofluid
 puddleSize: 3
-damage: 1
+damage: 3
 speed: 1
 drag: 0.02
 width: 1
 height: 2
-knockback: -0.1
+knockback: -0.3
 lifetime: 15
 inaccuracy: 15
 hitSound: none
@@ -71,8 +76,9 @@ type: BasicBulletType
 }
 }]
 research:{
-parent: crystal
+parent: stalactite
 requirements: [
-silicon/2700
-graphite/2700
+silicon/3400
+titanium/5600
+metaglass/2700
 ]}
