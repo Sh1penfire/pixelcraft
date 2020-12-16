@@ -510,7 +510,6 @@ bombT1m6.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m6, {
     onDestroyed(){
     this.super$onDestroyed();
     cryoLeak.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
-    //this.kill()
     this.remove()
     }
 });

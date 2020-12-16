@@ -23,7 +23,7 @@ hellfire.color = Color.white;
 const flCoalfrag = extend(LiquidBulletType, {});
 const flCoal = extend(BasicBulletType, {});
 flCoal.speed = 20;
-flCoal.damage = 60;
+flCoal.damage = 45;
 flCoal.hitSize = 10;
 flCoal.width = 1;
 flCoal.height = 1;
@@ -91,4 +91,5 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
 helgravator.innacuracy = 16;
 helgravator.shots = 10;
 helgravator.shootSound = Sounds.flame2;
+
 //Thanks for the help with effects Puppycat :)
