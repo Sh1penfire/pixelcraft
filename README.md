@@ -18,7 +18,7 @@ Dawn|A turret that shoots 10 bullets outwards.
 Pace Point and Panic|Electric anti air turrets. Point however can target ground. The trio fire forms of electric attacks using electric missiles.
 Pulse and Beat|Suport turrets that shoots healing bullets that repair blocks. They don't auto aim yet.
 Puver|A support turret that is electric, slows down hit targets. Frag bullets ignore tiles can also inflict the debuff.
-
+![whevo it's a bionorb](https://raw.githubusercontent.com/Sh1penfire/pixelcraft/main/sprites/items/bionorb.png)
 # Maintainers 
 
 owner 
