@@ -42,7 +42,7 @@ ammoTypes: {
         }
         }
 sand: {
-    type: BasicBulletType
+    type: MissileBulletType
     speed: 2
     damage: 0
     width: 5
@@ -51,8 +51,10 @@ sand: {
     splashDamageRadius: 25
     shootEffect: shootSmall
     smokeEffect: shootSmallSmoke
+    hitShake: 0
     frontColor: ffd37f
     backColor: 6e7080
+    trailColor: 6e7080
     ammoMultiplier: 5
     reloadMultiplier: 5
     inaccuracy: 15

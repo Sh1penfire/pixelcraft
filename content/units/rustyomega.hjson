@@ -29,9 +29,7 @@ shootSound: shoot
 x: 4
 y: -.5
 rotate: false
-occlusion: 0
 shots: 4
-//spread: 15
 bullet: {
 type: MissileBulletType
 damage: 15
@@ -60,7 +58,6 @@ shootSound: shoot
 x: 4
 y: 2
 rotate: false
-occlusion: 0
 bullet: {
 type: BasicBulletType
 width: 7
@@ -80,7 +77,6 @@ shootSound: shoot
 x: 0.25
 y: -2.0
 rotate: true
-occlusion: 0
 bullet: {
 type: ArtilleryBulletType
 damage: 4

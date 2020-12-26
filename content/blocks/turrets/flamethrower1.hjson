@@ -6,8 +6,8 @@ health: 300
 size: 2
 reloadTime: 2.5
 range: 75
-shots: 3
-ammoUseEffect: fire
+shots: 1
+ammoUseEffect: none
 rotateSpeed: 8
 ammoTypes: {
   coal: {
@@ -17,7 +17,7 @@ ammoTypes: {
     width: 0.1
     height: 0.1
     shootEffect: shootPyraFlame
-    smokeEffect: shootPyraFlame
+    smokeEffect: none
     lifetime: 15
 	despawnEffect: none
 	hitEffect: shootBigSmoke
@@ -33,7 +33,7 @@ pierce: true
     width: 0.1
     height: 0.1
     shootEffect: shootPyraFlame
-    smokeEffect: fire
+    smokeEffect: none
     lifetime: 15
 	despawnEffect: fire
 	hitEffect: shootPyraFlame
@@ -48,7 +48,7 @@ pierce: true
     width: 0.5
     height: 2
     shootEffect: shootSmall
-    smokeEffect: fire
+    smokeEffect: none
     lifetime: 15
 	hitEffect: shootBigSmoke
 	status: melting
@@ -94,7 +94,7 @@ pierce: true
     width: 0.1
     height: 0.1
     shootEffect: shootPyraFlame
-    smokeEffect: fire
+    smokeEffect: shootSmallSmoke
     lifetime: 7.5
     splashDamage: 2
     splashDamageRadius: 25
@@ -125,7 +125,7 @@ pierce: true
     width: 0.5
     height: 2
     shootEffect: shootSmall
-    smokeEffect: fire
+    smokeEffect: shootSmallSmoke
     lifetime: 15
 	hitEffect: shootBigSmoke
 	status: melting

@@ -27,11 +27,9 @@ ejectEffect: casing1
 top: false
 shootSound: pew
 shots: 5
-//spread: 7.5
 x: 3.5
 y: 0
 rotate: false
-occlusion: 0
 bullet: {
 type: BasicBulletType
 speed: 3
@@ -50,7 +48,6 @@ shootSound: spark
 x: 3.5
 y: 0
 rotate: false
-occlusion: 0
 shots: 3
 bullet: {
 type: LightningBulletType

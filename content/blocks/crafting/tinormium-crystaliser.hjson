@@ -1,0 +1,36 @@
+type: GenericSmelter
+name: Tinorium Crystaliser
+description: Crystalises rare Earth metals
+liquidCapacity: 50
+itemCapacity: 12
+size: 3
+drawLiquidLight: false
+hasLiquids: true
+emitLight: false
+hasItems: true
+lightColor: B0BAC000
+craftTime: 90
+consumes: {
+  power: 2
+  items: {
+    items: [
+      titanium/2
+      thorium/2
+      metaglass/3
+    ]
+  }
+  liquid: {
+    liquid: cryofluid
+    amount: 0.2
+  }
+}
+requirements: [
+  copper/120
+  lead/150
+  titanium/75
+  thorium/180
+  silicon/100
+]
+category: crafting
+research: cryofluid-mixer
+outputItem: tinormium/2

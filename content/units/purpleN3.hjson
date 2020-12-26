@@ -14,7 +14,6 @@ mineSpeed: 0.85
 rotateShooting: false
 canDrown: false
 weapons: [
-
 {
 name: purple-weapon-mount-double
 reload: 25
@@ -27,7 +26,6 @@ shootY: 2
 y: 6
 rotate: true
 mirror: false
-occlusion: 0
 bullet: {
 type: SapBulletType
 sapStrength: 10
@@ -59,12 +57,11 @@ x: 3.5
 shootY: 4
 y: 1
 rotate: true
-occlusion: 0
 bullet: {
 type: BasicBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: 6d56bf
+frontColor: a447eb
+backColor: 6d56bf
 damage: 10
 speed: 4
 lifetime: 32.5
@@ -72,40 +69,6 @@ knockback: -2.0
 hitSound: none
 width: 6
 height: 8
-collides: true
-collidesAir: true
-collidesTiles: true
-despawnEffect: hitBulletSmall
-hitEffect: hitBulletSmall
-trailEffect: none
-keepVelocity: false
-}
-}
-{
-name: purple-weapon-mount
-reload: 25
-alternate: true
-ejectEffect: none
-top: false
-shootSound: pew
-recoil: 1
-x: 4.5
-shootY: 4
-y: -1.5
-rotate: true
-occlusion: 0
-bullet: {
-type: BasicBulletType
-sprite: shell
-//frontColor: a447eb
-//backColor: 6d56bf
-damage: 15
-speed: 4
-lifetime: 50
-knockback: -2.0
-hitSound: none
-width: 8
-height: 12
 collides: true
 collidesAir: true
 collidesTiles: true
@@ -128,13 +91,11 @@ x: 0
 shootY: 4
 y: -2.25
 rotate: true
-occlusion: 0
 bullet: {
 type: BasicBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: 6d56bf
-//homing: false
+frontColor: a447eb
+backColor: 6d56bf
 damage: 30
 speed: 4
 lifetime: 80
@@ -163,13 +124,11 @@ x: 0
 shootY: 4
 y: -6.0
 rotate: true
-occlusion: 0
 bullet: {
 type: BasicBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: 6d56bf
-//homing: false
+frontColor: a447eb
+backColor: 6d56bf
 damage: 45
 speed: 2
 lifetime: 160

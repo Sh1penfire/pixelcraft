@@ -6,16 +6,31 @@ Draw.color(Color.orange, Color.red, e.fin());
 Lines.stroke(e.fslope() * 2);
 Lines.circle(e.x, e.y, e.fin() * 6);
 Draw.color(Color.white, Color.orange, e.fin());
-Lines.stroke(e.fin() * 2);
-const d = new Floatc2({get(x, y){
-Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 3);
-}}) 
-Angles.randLenVectors(e.id, 20, 3 * e.fin(), e.rotation, 360,d);
+Lines.stroke(e.fin() * 2); 
 });
+
+const sporefireFx = new Effect(20, e => {
+Draw.color(Color.blue, Color.purple, e.fin());
+Fill.circle(e.x, e.y, e.fslope() * 4);
+Fill.circle(e.x, e.y, e.fout() * 2);
+Draw.color(Color.purple, Color.white, e.fin());
+Lines.stroke(e.fslope() * 2);
+Lines.circle(e.x, e.y, e.fin() * 6);
+Draw.color(Color.white, Color.purple, e.fin());
+Lines.stroke(e.fin() * 2); 
+});
+
 
 const firehitFx = new Effect(20, e => {
   Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, e.fin());
   Angles.randLenVectors(e.id, 10, e.finpow() * 60, e.rotation, 10, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 2);
+  })
+});
+
+const sporeShoot = new Effect(20, e => {
+  Draw.color(Pal.spore, Color.purple, Color.white , e.fin());
+  Angles.randLenVectors(e.id, 10, e.finpow() * 100, e.rotation, 24, (x, y) => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 2);
   })
 });
@@ -34,6 +49,14 @@ hellfire.armorMultiplier = 0.75;
 hellfire.damage = 1;
 hellfire.effect = hellfireFX;
 hellfire.color = Color.white;
+
+const sporefire = extendContent(StatusEffect, "sporefire", {});
+
+sporefire.speedMultiplier = 0.6;
+sporefire.armorMultiplier = 0.75;
+sporefire.damage = 0.1;
+sporefire.effect = sporefireFx;
+sporefire.color = Color.white;
 
 const flCoalfrag = extend(LiquidBulletType, {});
 const flCoal = extend(BasicBulletType, {});
@@ -59,6 +82,28 @@ flCoal.incendAmount = 1;
 flCoal.fragBullets = 2;
 flCoal.fragBullet = flCoalfrag;
 
+const flSpore = extend(BasicBulletType, {});
+flSpore.speed = 5;
+flSpore.damage = 4;
+flSpore.hitSize = 6;
+flSpore.width = 0;
+flSpore.height = 0;
+flSpore.inaccuracy = 15;
+flSpore.lifetime = 20;
+flSpore.knockback = 0;
+flSpore.shootSound = Sounds.flame2;
+flSpore.shootEffect = sporeShoot;
+flSpore.despawnEffect = Fx.none;
+flSpore.hitEffect = Fx.none;
+flSpore.status = sporefire;
+flSpore.trailEffect = Fx.none;
+flSpore.collides = true;
+flSpore.collidesTiles = true;
+flSpore.colidesAir = true;
+flSpore.ammoMultiplier = 10;
+flSpore.pierce = true;
+flSpore.pierceBuilding = true;
+
 flCoalfrag.liquid = Liquids.oil;
 flCoalfrag.speed = 4;
 flCoalfrag.damage = 5;
@@ -71,31 +116,10 @@ flCoalfrag.hitEffect = firelandFx;
 flCoalfrag.status = hellfire;
 flCoalfrag.fragBullet = Bullets.standardCopper;
 //this will make the bullet always spawn a puddle even if it dosn't hit it's target.
-
-const flPixelite = extend(BasicBulletType, {});
-flPixelite.speed = 20;
-flPixelite.damage = 15;
-flPixelite.width = 1;
-flPixelite.height = 1;
-flPixelite.innacuracy = 15;
-flPixelite.lifetime = 5;
-flPixelite.shootSound = Sounds.flame2;
-flPixelite.shootEffect = Fx.fire;
-flPixelite.despawnEffect = Fx.none;
-flPixelite.hitEffect = Fx.fire;
-flPixelite.status = hellfire;
-flPixelite.ammoMultiplier = 10;
-flPixelite.pierce = true;
-
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
-        this.ammo( 
-            Vars.content.getByName(ContentType.item,"coal"), flCoal
-            //Vars.content.getByName(ContentType.item."pixelcraft-pixelite"), flPixelite 
-        );
     this.super$init();
   },
-
   icons(){
     return [
       Core.atlas.find("block-3"),
@@ -106,4 +130,5 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
 helgravator.innacuracy = 24;
 helgravator.shots = 5;
 helgravator.shootSound = Sounds.flame2;
+helgravator.ammo(Vars.content.getByName(ContentType.item,"coal"), flCoal,Vars.content.getByName(ContentType.item,"spore-pod"), flSpore)
 //Thanks for the help with effects Puppycat :)

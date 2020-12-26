@@ -25,7 +25,6 @@ x: 3
 shootY: 4
 y: 6
 rotate: true
-occlusion: 0
 bullet: {
 type: SapBulletType
 sapStrength: 0.1
@@ -51,12 +50,11 @@ x: 2.5
 shootY: 4
 y: 3.5
 rotate: true
-occlusion: 0
 bullet: {
 type: BasicBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 damage: 5
 speed: 4
 lifetime: 60
@@ -84,12 +82,11 @@ x: 5.6
 shootY: 4
 y: -18
 rotate: true
-occlusion: 0
 bullet: {
 type: MissileBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 trailColor: 665c9f
 damage: 50
 speed: 4
@@ -107,8 +104,8 @@ pierce: true
 fragBullet:{
 type: BasicBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 damage: 1
 speed: 2
 status: sapped
@@ -128,16 +125,14 @@ x: 10
 shootY: 4
 y: 5
 rotate: true
-occlusion: 0
 bullet: {
 type: MissileBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 trailColor: 665c9f
 damage: 250
 speed: 2
-//homingPower: 0.00
 lifetime: 80
 fragBullets: 25
 hitSound: boom
@@ -152,8 +147,8 @@ pierce: false
 fragBullet:{
 type: MissileBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 hitEffect: none
 despawnEffect: none
 trailEffect: sapped
@@ -161,7 +156,6 @@ shrinkY: 1
 damage: 1
 speed: 3
 hitSound: none
-//homingPower: 0.00
 knockback: 0
 lifetime: 50
 status: sapped
@@ -169,8 +163,8 @@ pierce: true
 fragBullet:{
 type: MissileBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 hitEffect: none
 despawnEffect: none
 trailEffect: none
@@ -178,7 +172,6 @@ shrinkY: 1
 damage: 1
 speed: 1
 hitSound: none
-//homingPower: 0.00
 knockback: 0
 lifetime: 10
 status: sapped
@@ -196,39 +189,10 @@ ejectEffect: none
 top: false
 shootSound: none
 recoil: 1
-x: 3
-shootY: 4
-y: -6
-rotate: true
-occlusion: 0
-bullet: {
-type: SapBulletType
-sapStrength: 0.1
-hitColor: bf92f9
-color: bf92f9
-damage: 0.5
-lifetime: 35
-length: 25
-hitSound: none
-width: 0.5
-knockback: -15.0
-keepVelocity: false
-}
-}
-
-{
-name: purple-weapon-mount-double
-reload: 3
-alternate: false
-ejectEffect: none
-top: false
-shootSound: none
-recoil: 1
 x: 4
 shootY: 4
 y: -7
 rotate: true
-occlusion: 0
 bullet: {
 type: SapBulletType
 sapStrength: 0.1

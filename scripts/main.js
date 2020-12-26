@@ -1,8 +1,10 @@
 //require("abilities")
 require("turrets/puver");
 require("turrets/psion");
+require("turrets/pafer")
 require("turrets/beat");
 require("turrets/helgravator");
+require("turrets/fever");
 require("bombs");
 require("whiteGround");
 require("purpleNavals");

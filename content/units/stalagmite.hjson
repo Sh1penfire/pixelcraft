@@ -20,7 +20,6 @@ ejectEffect: none
 top: false
 shootSound: flame
 rotate: false
-occlusion: 0
 recoil: 3
 shake: 2
 x: 9

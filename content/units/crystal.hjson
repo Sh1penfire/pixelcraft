@@ -21,7 +21,6 @@ shootSound: shoot
 x: 3.5
 y: 3
 rotate: false
-occlusion: 0
 bullet: {
 type: BasicBulletType
 damage: 10

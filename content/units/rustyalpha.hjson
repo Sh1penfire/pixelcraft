@@ -29,7 +29,6 @@ shootSound: shoot
 x: 4
 y: -.5
 rotate: false
-occlusion: 0
 bullet: {
 type: MissileBulletType
 damage: 2
@@ -54,11 +53,9 @@ shootSound: spark
 x: 4
 y: -1.2
 rotate: false
-occlusion: 0
 shots: 2
 //spread: 10
 bullet: {
-//shotDelay :0.25
 type: LightningBulletType
 lightning: 2
 lightningLength: 5
@@ -80,11 +77,9 @@ shootSound: none
 x: 1
 y: -2.0
 rotate: true
-occlusion: 0
 bullet: {
 type: LiquidBulletType
 liquid: water
-//shotDelay: 0.025
 damage: 9
 speed: 4
 lifetime: 35
@@ -110,7 +105,6 @@ shootSound: bigshot
 x: 0
 y: -3.0
 rotate: true
-occlusion: 0
 bullet: {
 type: ArtilleryBulletType
 damage: 4

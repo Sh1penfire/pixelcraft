@@ -1,0 +1,17 @@
+name: "Fever"
+description: "A powerfull sniper that plants landmines wherever it hits. 'And the world went up in fire'"
+health: 4500
+range: 250
+size: 4
+reloadTime: 6
+recoil: 0
+shots: 1
+insulated: true
+buildVisibility: shown
+requirements: [    
+  magnitine/250
+  titanium/150
+  feromagnet/50
+]
+category: turret
+research: flamethrower3

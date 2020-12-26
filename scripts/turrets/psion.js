@@ -49,14 +49,19 @@ chargedEffect.color  = Color.white;
 
 
 const ion = extend(BasicBulletType, {});
+const ionBomb = extend(BasicBulletType, {});
 //reusing the puver code
 const shot = extend(MissileBulletType, {
     update(b){
+        shotTrail.at(b.x, b.y);
         if(Mathf.random(1) < 0.85){
             shotTrail.at(b.x, b.y);
             ion.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(2));
         }
-    }
+        else{
+        ionBomb.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
+        }
+}
 });
 
 const electricTurret4b1 = extendContent(PowerTurret, "electricTurret4b1", {
@@ -80,7 +85,7 @@ shot.lifetime = 45;
 shot.knockback = 1;
 shot.pierce = true;
 shot.homingPower = 1.0;
-shot.homingRange = 10.0;
+shot.homingRange = 100.0;
 shot.width = 0;
 shot.height = 0;
 shot.hitSize = 4
@@ -89,6 +94,8 @@ shot.collidesTiles = true;
 shot.hitEffect = shotHit;
 shot.despawnEffect = shotHit;
 shot.shootEffect = psionShoot;
+shot.fragBullets = 10;
+shot.fragBullet = ion;
 
 ion.damage = 4;
 ion.speed = 3;
@@ -104,3 +111,16 @@ ion.hitEffect = blast;
 ion.despawnEffect = blast;
 ion.smokeEffect = Fx.smokeCloud;
 ion.status = chargedEffect;
+
+ionBomb.damage = 0;
+ionBomb.lifetime = 0;
+ionBomb.knockback = 1;
+ionBomb.width = 0;
+ionBomb.height = 0;
+ionBomb.hitSize = 0;
+ionBomb.collidesTiles = false;
+ionBomb.hitEffect = blast;
+ionBomb.despawnEffect = blast;
+ionBomb.status = chargedEffect;
+ionBomb.fragBullets = 10;
+ionBomb.fragBullet = ion;

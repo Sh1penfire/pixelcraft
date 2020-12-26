@@ -1,0 +1,20 @@
+type: GenericCrafter
+name: Uberite Mixer
+description: makes uberite
+size: 2
+craftTime: 100
+consumes:{
+items:{
+items:[
+pyratite/2
+pixelite/3
+coal/5
+]
+}
+}
+requirements:[
+
+]
+category: crafting
+research: pixelite-mixer
+outputItem: uberite/1

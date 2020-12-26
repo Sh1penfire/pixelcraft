@@ -25,12 +25,11 @@ x: 2.5
 shootY: 4
 y: 3.5
 rotate: true
-occlusion: 0
 bullet: {
 type: BasicBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 damage: 9
 speed: 3
 lifetime: 65
@@ -46,7 +45,6 @@ trailEffect: none
 keepVelocity: false
 }
 }
-
 {
 name: purple-missiles-mount
 reload: 15
@@ -59,12 +57,11 @@ x: 0
 shootY: 4
 y: -3.0
 rotate: true
-occlusion: 0
 bullet: {
 type: ArtilleryBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 trailColor: 665c9f
 damage: 28
 splashDamage: 5
@@ -83,8 +80,8 @@ keepVelocity: false
 fragBullet:{
 type: BasicBulletType
 sprite: shell
-//frontColor: a447eb
-//backColor: bf92f9
+frontColor: a447eb
+backColor: bf92f9
 damage: 2
 speed: 2
 status: sapped

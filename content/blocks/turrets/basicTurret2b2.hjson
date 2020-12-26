@@ -14,13 +14,13 @@ maxAmmo: 61
 ammoTypes: {
 bionorb:{
 type: ArtilleryBulletType
-speed: 5
-lifetime: 25
+speed: 2.5
+lifetime: 50
 width: 8
 height: 8
-splashDamage: 34
+splashDamage: 15
 splashDamageRadius: 24
-ammoMultiplier: 60
+ammoMultiplier: 5
 despawnEffect: explosion
 hitSound: explosion
 frontColor: ced671
@@ -29,7 +29,8 @@ trailColor: ced671
 }
 }
 requirements: [  
-  stone/55  
+  stone/55 
+  graphite/25 
   bionorb/5
 ]
 category: turret

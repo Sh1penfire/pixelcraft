@@ -31,10 +31,9 @@ shootSound: pew
 x: 1.5
 y: 3
 rotate: false
-occlusion: 0
 bullet: {
-//frontColor: b7f35e
-//backColor: b7f35e
+frontColor: b7f35e
+backColor: b7f35e
 type: BasicBulletType
 damage: 3
 speed: 2
@@ -45,7 +44,6 @@ knockback: 0
 hitSound: none
 healPercent: 1
 collidesTeam: true
-//homing: true
 }
 }
 {
@@ -58,10 +56,9 @@ shootSound: pew
 x: 2
 y: 1
 rotate: false
-occlusion: 0
 bullet: {
-//frontColor: b7f35e
-//backColor: b7f35e
+frontColor: b7f35e
+backColor: b7f35e
 type: BasicBulletType
 damage: 5
 speed: 2
@@ -72,7 +69,6 @@ knockback: 0
 hitSound: none
 healPercent: 1
 collidesTeam: true
-//homing: true
 }
 }
 {
@@ -85,18 +81,17 @@ shootSound: pew
 x: 0.25
 y: 0
 rotate: true
-occlusion: 0
 bullet: {
-//frontColor: b7f35e
-//backColor: b7f35e
+frontColor: b7f35e
+backColor: b7f35e
 trailColor: b7f35e
 type: MissileBulletType
 speed: 2
 lifetime: 75
 fragBullets: 3
 fragBullet:{
-//frontColor: b7f35e
-//backColor: b7f35e
+frontColor: b7f35e
+backColor: b7f35e
 damage: 1
 speed: 2
 width: 5
@@ -119,18 +114,17 @@ shootSound: pew
 x: 0.75
 y: 0.2
 rotate: true
-occlusion: 0
 bullet: {
-//frontColor: b7f35e
-//backColor: b7f35e
+frontColor: b7f35e
+backColor: b7f35e
 trailColor: b7f35e
 type: MissileBulletType
 speed: 1
 lifetime: 150
 fragBullets: 3
 fragBullet:{
-//frontColor: b7f35e
-//backColor: b7f35e
+frontColor: b7f35e
+backColor: b7f35e
 damage: 1
 speed: 2
 width: 5

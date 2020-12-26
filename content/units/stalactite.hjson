@@ -20,7 +20,6 @@ ejectEffect: none
 top: false
 shootSound: flame
 rotate: false
-occlusion: 0
 recoil: 1
 x: 4.8
 y: 4

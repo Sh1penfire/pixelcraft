@@ -22,9 +22,6 @@ shootType: {
 	damage: 50
 	speed: 4
 	lifetime: 100
-//	homing: true
-//	homingPower: 0.05
-//	homingRange: 50
 	collides: true
 	collidesAir: true
 	pierce: true
@@ -32,8 +29,8 @@ shootType: {
 	height: 1
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
-	//frontColor: 86baf9
-	//backColor: 86baf9
+	frontColor: 86baf9
+	backColor: 86baf9
 	trailColor: 86baf9
 	fragBullets: 2
 	hitEffect: hitLancer
@@ -47,17 +44,13 @@ shootType: {
 	width: 4
 	height: 15
 	drag: 0.001
-	//frontColor: 86baf9
-	//backColor: 86baf9
+	frontColor: 86baf9
+	backColor: 86baf9
 	trailColor: 86baf9
 	hitEffect: hitLancer
 	despawnEffect: hitBulletSmall
 	fragBullets: 3
 	status: freezing
-//	homing: true
-//	homingRange: 100
-//	homingPower: 0.04
-//	bulletSprite: bullet
 	knockback: 0
 	fragBullet: {
 	knockback: 0

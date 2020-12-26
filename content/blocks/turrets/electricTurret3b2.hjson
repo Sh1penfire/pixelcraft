@@ -1,6 +1,6 @@
 type: PowerTurret
 name: Panic
-description: "The storm is here. An electric turret comparable to a minigunner, uses immense amounts of power to rain down many bullets at it's target. The bullets slightly home in and can knockback. Has insanely fast rotation speed."
+description: "The storm is here. An electric turret comparable to a minigunner, uses immense amounts of power to rain down many bullets at it's target, however can only target air units. The bullets slightly home in and can knockback. Has insanely fast rotation speed."
 health: 220
 shootSound: spark
 size: 3

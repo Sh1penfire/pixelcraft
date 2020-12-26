@@ -27,11 +27,10 @@ shootSound: pew
 x: 1
 y: -.5
 rotate: false
-occlusion: 0
 bullet: {
 type: BasicBulletType
-damage: 0
-speed: 2
+damage: 1000
+speed: 5
 width: 5
 height: 8
 lifetime: 60
