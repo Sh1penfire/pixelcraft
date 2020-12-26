@@ -29,3 +29,9 @@ crossroads.captureWave = 45;
 crossroads.localizedName = "Crossroads";
 crossroads.difficulty = 7;
 crossroads.alwaysUnlocked = true;
+
+const crossroads = new SectorPreset("crossroads", templura, 26);
+crossroads.captureWave = 45;
+crossroads.localizedName = "Crossroads";
+crossroads.difficulty = 7;
+crossroads.alwaysUnlocked = true;

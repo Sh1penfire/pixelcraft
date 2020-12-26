@@ -1,4 +1,4 @@
-//require("abilities")
+require("fc");
 require("turrets/puver");
 require("turrets/psion");
 require("turrets/pafer")
