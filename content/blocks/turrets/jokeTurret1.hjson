@@ -3,7 +3,7 @@ description: "wan\'t wasn\'t wastn\'s"
 type: itemTurret
 reloadTime: 10
 shots: 5
-range: 100
+range: 10000000000
 size: 4
 ammoUseEffect: casing2
 ammoTypes:{
