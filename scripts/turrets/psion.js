@@ -1,3 +1,5 @@
+const fc = require("fc");
+
 const psionShoot = new Effect(30, e => {
   Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
   Draw.alpha(0.5);
@@ -20,23 +22,25 @@ const chargedEffectFX = new Effect(27, (e) => {
   });
 });
 
-const blast = new Effect(25, e => {
-  Draw.color(Color.valueOf("#4499he"), Color.valueOf("#3eabe6"), e.fin());
-  Lines.stroke(e.fin() * 2);
-  Lines.circle(e.x, e.y, e.fout() * 2);
-});
-
+//trail effect for the shot
 const shotTrail = new Effect(10, e => {
-  Draw.color(Color.valueOf("#4499he"), Color.white, e.fin());
+  Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fin());
   Lines.stroke(e.fout() * 2);
   Lines.circle(e.x, e.y, e.fin() * 4);
 });
 
 //effect when bullet breaks
 const shotHit = new Effect(40, e => {
-  Draw.color(Color.white, Color.valueOf("#3eabe6"), e.fin());
+  Draw.color(Color.valueOf("56D7CA"), Color.valueOf("0A01b7"), e.fin());
   Lines.stroke(e.fout() * 2);
-  Fill.circle(e.x, e.y, e.fin() * 7);
+  Lines.circle(e.x, e.y, e.fin() * 4);
+});
+
+//frag effect
+const blast = new Effect(15, e => {
+  Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fin());
+  Lines.stroke(e.fin() * 2);
+  Lines.circle(e.x, e.y, e.fout() * 2);
 });
 
 const chargedEffect = extendContent(StatusEffect, "chargedEffect", {});
@@ -54,14 +58,9 @@ const ionBomb = extend(BasicBulletType, {});
 const shot = extend(MissileBulletType, {
     update(b){
         shotTrail.at(b.x, b.y);
-        if(Mathf.random(1) < 0.85){
-            shotTrail.at(b.x, b.y);
-            ion.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(2));
-        }
-        else{
-        ionBomb.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
-        }
-}
+        ion.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), 45), fc.helix(5, 2, b.fin() ));
+        ion.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), -45), fc.helix(5, 2, b.fin() ));
+    }
 });
 
 const electricTurret4b1 = extendContent(PowerTurret, "electricTurret4b1", {
@@ -80,10 +79,11 @@ electricTurret4b1.shootType = shot;
 shot.damage = 15;
 shot.splashDamage = 25;
 shot.splashDamageRadius = 24;
-shot.speed = 4;
-shot.lifetime = 45;
+shot.speed = 2;
+shot.lifetime = 60;
 shot.knockback = 1;
 shot.pierce = true;
+shot.pierceBuilding = true;
 shot.homingPower = 1.0;
 shot.homingRange = 100.0;
 shot.width = 0;
@@ -91,7 +91,7 @@ shot.height = 0;
 shot.hitSize = 4
 shot.collides = true;
 shot.collidesTiles = true;
-shot.hitEffect = shotHit;
+shot.hitEffect = Fx.none;
 shot.despawnEffect = shotHit;
 shot.shootEffect = psionShoot;
 shot.fragBullets = 10;

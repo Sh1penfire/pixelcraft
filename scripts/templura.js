@@ -29,3 +29,9 @@ crossroads.captureWave = 45;
 crossroads.localizedName = "Crossroads";
 crossroads.difficulty = 7;
 crossroads.alwaysUnlocked = true;
+
+const dunescapeCrags = new SectorPreset("dunescapeCrags", templura, 27);
+dunescapeCrags.captureWave = 65;
+dunescapeCrags.localizedName = "Dunescape Crags";
+dunescapeCrags.difficulty = 9;
+dunescapeCrags.alwaysUnlocked = true;

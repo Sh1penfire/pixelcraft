@@ -3,9 +3,9 @@ description: "Puffs blasts of charged energy that leave a cloud of ions and laun
 size: 2
 range: 128
 health: 800
-reloadTime: 85
-shots: 5
-inaccuracy: 15
+reloadTime: 35
+shots: 1
+inaccuracy: 0
 shootEffect: none
 smokeEffect: none
 shootSound: release
