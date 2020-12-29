@@ -5,12 +5,14 @@ require("turrets/pafer")
 require("turrets/beat");
 require("turrets/helgravator");
 require("turrets/fever");
-require("bombs");
-require("whiteGround");
-require("purpleNavals");
+require("blocks/bombs");
+require("units/whiteGround");
+require("units/purpleNavals");
 require("templura");
 require("blocks/pixel-com");
 require("blocks/bioFormer");
+require("units/mono");
+require("turrets/wasnts")
 
 var floodedVally = SectorPreset("floodedVally", Planets.serpulo, 206);
 floodedVally.localizedName = "Flooded Vally";
