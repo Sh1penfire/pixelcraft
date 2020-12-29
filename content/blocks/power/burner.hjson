@@ -10,8 +10,6 @@ itemDuration: 180
 generateEffect: smelt
 minItemEfficiency: 0.01
 requirements: [
-  copper/10
-  lead/25
   iron/25
 ]
 category: power

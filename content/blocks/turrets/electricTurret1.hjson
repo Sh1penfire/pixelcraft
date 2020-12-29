@@ -54,7 +54,7 @@ shootType: {
 }
 requirements: [
  iron/35
- magnitine/15
+ graphite/15
 ]
 category: turret
-research: arc
+research: basicTurret2b2

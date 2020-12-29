@@ -15,7 +15,6 @@ consumes: {
 requirements: [
   stone/50
   iron/70
-  graphite/20
 ]
 category: crafting
 research: graphite-press

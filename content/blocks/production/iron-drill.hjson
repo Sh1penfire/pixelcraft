@@ -3,7 +3,7 @@ description: A starting drill. (I thought this was stone)
 type: Drill
 size: 1
 tier: 2
-drillTime: 1200
+drillTime: 450
 consumes: {
   liquid: {
     liquid: water
@@ -13,7 +13,7 @@ consumes: {
   }
 }
 requirements: [
-  iron/10
+  iron/3
 ]
 category: production
 research: mechanical-drill

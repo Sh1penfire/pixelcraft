@@ -8,7 +8,6 @@ laserColor1: E9E9E9FF
 laserColor2: CFCFCFFF
 requirements: [
   magnitine/40
-  lead/100
   iron/30
   
 ]

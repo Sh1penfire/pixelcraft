@@ -8,7 +8,6 @@ laserColor1: E9E9E9FF
 laserColor2: CFCFCFFF
 requirements: [
   magnitine/30
-  lead/40
   iron/25
 ]
 category: power
