@@ -1,0 +1,16 @@
+name: Sxquad
+description: "An upgraded string, fires twisters of the metal that is shot."
+health: 850
+size: 2
+reloadTime: 20
+range: 90
+shots: 1
+ammoUseEffect: casing2Double
+rotateSpeed: 8
+requirements: [    
+  iron/150
+  graphite/25
+  titanium/75
+]
+category: turret
+research: basicTurret2b1
