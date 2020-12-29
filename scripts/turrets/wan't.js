@@ -1,5 +1,5 @@
 const fc = require("fc");
-const Bombs = require("bombs");
+const Bombs = require("blocks/bombs");
 
 const Ritual = new Effect(125, (e) => {
   Draw.color(Color.white, Color.valueOf("#86baf9"), e.fin());
