@@ -587,5 +587,6 @@ bombT1m8.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m8, {
     }
 });
 module.exports = {
-    prisBullets: prisBullets
+    prisBullets: prisBullets,
+    prismaticCrystal: prismaticCrystal
 };
