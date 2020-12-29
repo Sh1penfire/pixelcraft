@@ -1,1 +1,0 @@
-TempluraPlanetGenerator  new PlanetGenerator("TempluraPlanetGenerator");

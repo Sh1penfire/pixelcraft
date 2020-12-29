@@ -67,7 +67,7 @@ const ionisedStatus = extendContent(StatusEffect, "ionisedStatus", {});
 
 ionisedStatus.speedMultiplier = 0.5;
 ionisedStatus.armorMultiplier = 0.5;
-ionisedStatus.damage = .2;
+ionisedStatus.damage = 0.2;
 ionisedStatus.effect = ionisedStatusFX;
 ionisedStatus.color  = Color.white;
 

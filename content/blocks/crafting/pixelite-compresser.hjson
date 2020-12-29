@@ -1,8 +1,7 @@
-
 name: Pixelite compresser
 description: Compresses scrap under high heat and shapes it into pixelite. Much faster and takes scrap in smaller chunks, but coolent is needed. "Now with extra fire"
 liquidCapacity: 50
-ItemCapacity: 50
+itemCapacity: 50
 size: 2
 drawLiquidLight: false
 hasLiquids: true
