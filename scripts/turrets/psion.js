@@ -47,7 +47,7 @@ const chargedEffect = extendContent(StatusEffect, "chargedEffect", {});
 
 chargedEffect.speedMultiplier = 0.3;
 chargedEffect.armorMultiplier = 0.1;
-chargedEffect.damage = .3;
+chargedEffect.damage = 0.3;
 chargedEffect.effect = chargedEffectFX;
 chargedEffect.color  = Color.white;
 

@@ -31,8 +31,8 @@ weapon: {
         fragBullet: {
     type: BasicBulletType
     Peirce: true
-    speed: .25
-    damage: .25
+    speed: 0.25
+    damage: 0.25
     lifetime: 25
     bulletShrink: 1
     shootEffect: shootBigSmoke
@@ -46,8 +46,8 @@ weapon: {
         fragBullet: {
     type: BasicBulletType
     Peirce: true
-    speed: .5
-    damage: .25
+    speed: 0.5
+    damage: 0.25
     lifetime: 25
     bulletShrink: 1
     shootEffect: shootBigSmoke
@@ -62,7 +62,7 @@ weapon: {
     type: BasicBulletType
     Peirce: true
     speed: 1
-    damage: .25
+    damage: 0.25
     lifetime: 25
     bulletShrink: 1
     shootEffect: shootBigSmoke
@@ -74,7 +74,7 @@ weapon: {
         fragVelocityMax: 3
         fragBullet: {
         type: BasicBulletType
-        damage: .5
+        damage: 0.5
         speed: 0.1
         drag: 0.00
         bulletSprite: bullet
