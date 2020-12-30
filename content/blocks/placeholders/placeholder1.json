@@ -1,0 +1,7 @@
+{
+    "type": "Block",
+    "research": "core-shard",
+    "requirements": [
+        "placeholder2/1"
+    ]
+}

@@ -16,7 +16,7 @@ require("blocks/pixel-com");
 require("blocks/bioFormer");
 require("units/mono");
 require("turrets/wasnts");
-require("turrets/wave")
+require("turrets/wave");
 
 var floodedVally = SectorPreset("floodedVally", Planets.serpulo, 206);
 floodedVally.localizedName = "Flooded Vally";

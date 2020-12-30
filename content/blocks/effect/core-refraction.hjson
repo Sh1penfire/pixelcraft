@@ -6,7 +6,6 @@ itemCapacity: 4000
 size: 3
 unitCapModifier: 8
 unitType: rustydart
-research: core-shard
 //chanceDeflect: 10
 //flashHit: true
 requirements: [
@@ -17,4 +16,4 @@ category: effect
 hasItems: true
 solid: false
 alwaysUnlocked: true
-research: core-shard
+research: placeholder2
