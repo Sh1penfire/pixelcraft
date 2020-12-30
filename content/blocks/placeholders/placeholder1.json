@@ -1,6 +1,6 @@
 {
     "type": "Block",
-    "research": "core-shard",
+    "research": "launch-pad",
     "requirements": [
         "placeholder2/1"
     ]
