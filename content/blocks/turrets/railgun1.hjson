@@ -26,8 +26,8 @@ ammoTypes: {
 	fragBullets:1
 	fragVelocityMin: 1
 	fragVelocityMax: 1.5
-	//frontColor: 56d7ca
-	//backColor: 77b6b0
+	frontColor: 56d7ca
+	backColor: 77b6b0
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -38,19 +38,16 @@ ammoTypes: {
 	fragBullets:10
 	fragVelocityMin: 1
 	fragVelocityMax: 1.5
-	//frontColor: 56d7ca
-	//backColor: 77b6b0
+	frontColor: 56d7ca
+	backColor: 77b6b0
 	fragBullet: {
     type: ArtilleryBulletType
-	//frontColor: 56d7ca
-	//backColor: 77b6b0
+	frontColor: 56d7ca
+	backColor: 77b6b0
 	damage: 0.25
 	splashDamage: 1
 	splashDamageRadius: 20
 	status: freezing
-//	homing: true
-//	homingPower: 0.002
-//	homingRange: 100
 	hitEffect: none
 	despawnEffect: none
 	fragBullets:2
@@ -58,15 +55,12 @@ ammoTypes: {
 	fragVelocityMax: 0.3
 	fragBullet: {
     type: BasicBulletType
-	//frontColor: 56d7ca
-	//backColor: 77b6b0
+	frontColor: 56d7ca
+	backColor: 77b6b0
 	damage: 5
 	splashDamage: 2
 	splashDamageRadius: 20
 	status: freezing
-//	homing: true
-//	homingPower: 0.002
-//	homingRange: 100
 	hitEffect: none
 	despawnEffect: none
 	fragBullets: 1
@@ -74,16 +68,11 @@ ammoTypes: {
 	fragVelocityMax: 0.2
 	fragBullet: {
     type: LiquidBulletType
-	//frontColor: 56d7ca
-	//backColor: 77b6b0
 	damage: 0.25
 	splashDamage: 0.2
 	splashDamageRadius: 20
 	status: freezing
 	liquid: cryofluid
-//	homing: true
-//	homingPower: 0.002
-//	homingRange: 100
 	hitEffect: freezing
 	despawnEffect: freezing
 }
@@ -94,7 +83,7 @@ ammoTypes: {
  magnitine: {
     type: ArtilleryBulletType
 	speed: 32
-	damage: 100
+	damage: 65
 	width: 4
 	height: 32
 	shootEffect: shootSmall
@@ -110,12 +99,11 @@ ammoTypes: {
 	collidesTiles: true
 	fragBullet: {
     type: BasicBulletType
-	//frontColor: ffffff
-	//backColor: ffffff
+	frontColor: ffffff
+	backColor: ffffff
 	damage: 0.5
 	splashDamage: 0.5
 	splashDamageRadius: 20
-//	homing: false
 	hitEffect: none
 	despawnEffect: none
 	lifetime: 10
@@ -125,12 +113,9 @@ ammoTypes: {
 	shrinkY: 1
 	fragBullet: {
     type: BasicBulletType
-	//frontColor: ffffff
-	//backColor: ffffff
 	damage: 2.5
-	splashDamage: 0.2
+	splashDamage: 0.5
 	splashDamageRadius: 20
-//	homing: false
 	despawnEffect: none
 	hitEffect: none
 	lifetime: 50
@@ -141,9 +126,9 @@ ammoTypes: {
 	}
  }
 requirements: [
- iron/300
- magnitine/200
+ iron/125
+ magnitine/85
  titanium/70
 ]
 category: turret
-research: hail
+research: basicTurret2b2

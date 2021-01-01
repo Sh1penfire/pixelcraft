@@ -3,7 +3,7 @@ name: Burner
 description: "Burns items for fuel. Able to intake lower flabibility items, and uses items for longer."
 health: 125
 size: 1
-powerProduction: 1
+powerProduction: 1.1
 hasItems: true
 itemCapacity: 10
 itemDuration: 180

@@ -13,13 +13,13 @@ templura.atmosphereRadOut = 0.3;
 templura.localizedName = "Templura";
 
 const rustedValley = new SectorPreset("rustedValley", templura, 1);
-rustedValley.captureWave = 35;
+rustedValley.captureWave = 50;
 rustedValley.localizedName = "Rusted Valley";
 rustedValley.difficulty = 3;
 rustedValley.alwaysUnlocked = true;
 
 const shatteredGlacier = new SectorPreset("shatteredGlacier", templura, 2);
-shatteredGlacier.captureWave = 35;
+shatteredGlacier.captureWave = 36;
 shatteredGlacier.localizedName = "Shattered Glacier";
 shatteredGlacier.difficulty = 5;
 shatteredGlacier.alwaysUnlocked = true;
@@ -31,8 +31,8 @@ crossroads.difficulty = 7;
 crossroads.alwaysUnlocked = true;
 
 const dunescapeCrags = new SectorPreset("dunescapeCrags", templura, 27);
-dunescapeCrags.captureWave = 65;
+dunescapeCrags.captureWave = 100;
 dunescapeCrags.localizedName = "Dunescape Crags";
-dunescapeCrags.difficulty = 9;
+dunescapeCrags.difficulty = 10;
 dunescapeCrags.alwaysUnlocked = true;
 

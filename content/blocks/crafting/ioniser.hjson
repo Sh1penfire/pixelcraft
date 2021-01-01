@@ -6,6 +6,7 @@ hasItems: true
 craftTime: 100
 updateEffect: pulverizeRed
 consumes: {
+  power: 2
   items: {
     items: [
       iron/3

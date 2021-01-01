@@ -2,7 +2,7 @@
 const endgame = extend(Block, "wasnts", {
     localizedName: "wasnt's",
     description: "never was.",
-    buildVisibility: BuildVisibility.shown,
+    buildVisibility: BuildVisibility.hidden,
     size: 2,
     destructible: true,
     update: true,

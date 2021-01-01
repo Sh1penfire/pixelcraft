@@ -9,8 +9,8 @@ power: 2
 requirements: [
   stone/100
   iron/85
-  graphite/75
-  magnitine/50
+  graphite/50
+  magnitine/35
 ]
 category: production
 research: seed-extractor

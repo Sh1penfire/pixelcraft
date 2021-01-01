@@ -21,7 +21,7 @@ canBoost: true
 weapons: [ 
 {
 name: aged-blaster
-reload: 10
+reload: 15
 alternate: true
 ejectEffect: casing2
 top: false
@@ -45,7 +45,7 @@ speed: 1
 }
 {
 name: aged-blaster
-reload: 35
+reload: 50
 alternate: false
 ejectEffect: casing1
 top: false
@@ -54,7 +54,6 @@ x: 4
 y: -1.2
 rotate: false
 shots: 2
-//spread: 10
 bullet: {
 type: LightningBulletType
 lightning: 2
@@ -80,7 +79,7 @@ rotate: true
 bullet: {
 type: LiquidBulletType
 liquid: water
-damage: 9
+damage: 6
 speed: 4
 lifetime: 35
 knockback: 0.5

@@ -11,13 +11,13 @@ spread: 0
 targetAir: true
 ammoUseEffect: casing4
 rotateSpeed: 5
-ammoPerShot: 1
+ammoPerShot: 5
 itemCapacity: 10
 ammoTypes: {
  titanium: {
     type: ArtilleryBulletType
 	speed: 16
-	damage: 225
+	damage: 250
 	width: 4
 	height: 18
 	shootEffect: shootSmall
@@ -27,8 +27,8 @@ ammoTypes: {
 	fragBullets: 7
 	fragVelocityMin: 1
 	fragVelocityMax: 1.5
-	//frontColor: 56d7ca
-	//backColor: 77b6b0
+	frontColor: 56d7ca
+	backColor: 77b6b0
 	collides: true
 	collidesAir: true
 	collidesTiles: true

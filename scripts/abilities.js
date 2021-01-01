@@ -1,3 +1,4 @@
+//note: dosn't work yet
 const UniversalFieldAbility = extend(Ability, "Ability", {
     StatusFieldAbility(){}
     new UniversalFieldAbility = ("effect", duration, reload, range){

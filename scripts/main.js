@@ -16,16 +16,49 @@ require("blocks/pixel-com");
 require("blocks/bioFormer");
 require("units/mono");
 require("turrets/wasnts");
-require("turrets/wave");
+//require("turrets/wave");
 
 var floodedVally = SectorPreset("floodedVally", Planets.serpulo, 206);
 floodedVally.localizedName = "Flooded Vally";
 floodedVally.difficulty = 10;
 floodedVally.alwaysUnlocked = true;
 
-
-
 /*
+some code stuf
+const fireSpawn = extend(StatusEffect, "fireSpawn", {
+  update(unit, time){
+  if(Mathf.chance(0.1 * Time.delta)){
+    this.super$update;
+    print(unit.x);
+    };
+  }
+});
+
+fireSpawn.effect = Fx.fire;
+
+UnitTypes.crawler.abilities.add(new StatusFieldAbility(fireSpawn, 360, 360, 60));
+Vars.content.bullets().each(e => {
+    if(e instanceof LiquidBulletType){
+        e.fragBullet = e
+    };
+});
+
+const motar = extend(TractorBeamTurret, "motar", {});
+motar.targetsAir = false;
+motar.buildType = () => extend(TractorBeamTurret.TractorBeamBuild, motar, {
+    updateTile(){
+        Groups.unit.each(e => {
+            this.super$updateTile();
+            var target = Units.closestEnemy(this.team, this.x, this.y, 100, u => u.checkTarget(true, true));
+            print(target);
+            if(target != null){
+                target.health = target.health - 1;
+            }
+        });
+    }
+});
+
+
 const landfill = extendContent(Wall, "landfill", {
   icons() {
     return [Core.atlas.find(this.modName + this.name)];
