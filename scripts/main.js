@@ -18,10 +18,11 @@ require("units/mono");
 require("turrets/wasnts");
 //require("turrets/wave");
 
-var floodedVally = SectorPreset("floodedVally", Planets.serpulo, 206);
-floodedVally.localizedName = "Flooded Vally";
-floodedVally.difficulty = 10;
-floodedVally.alwaysUnlocked = true;
+var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
+    localizedName: "Flooded Vally",
+    difficulty: 10,
+    alwaysUnlocked: true
+});
 
 /*
 some code stuf
