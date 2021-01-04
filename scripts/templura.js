@@ -40,3 +40,16 @@ const dunescapeCrags = extend(SectorPreset, "dunescape-crags", templura, 27, {
     difficulty: 10,
     alwaysUnlocked: true
 });
+
+const sinkhole = extend(SectorPreset, "sinkhole", templura, 14, {
+    captureWave: 35,
+    localizedName: "Sinkhole",
+    difficulty: 6,
+    alwaysUnlocked: true
+});
+
+const dessertWastelands = extend(SectorPreset, "dessert-wastelands", templura, 15, {
+    localizedName: "Dessert Wastelands",
+    difficulty: 8,
+    alwaysUnlocked: true
+});
