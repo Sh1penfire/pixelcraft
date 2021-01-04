@@ -19,7 +19,7 @@ upgrades: [
 consumes: {
 items:{
   items: [
-  magnitine/15
+  magnitine/25
   coal/25
   ]
 }

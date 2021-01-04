@@ -49,17 +49,16 @@ plans: [
     unit: purpleN1
     requirements: [
       coal/15
-      silicon/20
-      metaglass/15
+      graphite/20
+      magnitine/45
     ]
     time: 285
   }
  {
  unit: crystal
  requirements:[
- silicon/15
- metaglass/5
- lead/25
+ iron/35
+ magnitine/25
 ]
  }
 ]
