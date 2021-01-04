@@ -45,36 +45,23 @@ plans: [
     ]
     time: 150
   }
-    {
+  {
     unit: purpleN1
     requirements: [
+      coal/15
+      silicon/20
+      metaglass/15
     ]
-    time: 150
+    time: 285
   }
-    {
-    unit: purpleN2
-    requirements: [
-    ]
-    time: 150
-  }
-    {
-    unit: purpleN3
-    requirements: [
-    ]
-    time: 150
-  }
-    {
-    unit: purpleN4
-    requirements: [
-    ]
-    time: 150
-  }
-    {
-    unit: crystal
-    requirements: [
-    ]
-    time: 150
-  }
+ {
+ unit: crystal
+ requirements:[
+ silicon/15
+ metaglass/5
+ lead/25
+]
+ }
 ]
 //consumes: {
 //  power: 1

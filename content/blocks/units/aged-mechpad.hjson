@@ -3,13 +3,14 @@ name: "Aged mechpad"
 size: 3
 health: 200
 description: "Long ago, capsules of ai were able to use these mech pads and transform into powerfull combat mechs. Now it's broken. Try using it with our units."
+details: "Moddeled after a long lost core."
 constructTime: 100
 upgrades: [
   [
     rustyalpha, rustydelta
   ]
   [
-    dagger, mace
+    purpleN1, purpleN2
   ]
 ]
 consumes: {
