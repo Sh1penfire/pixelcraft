@@ -24,6 +24,7 @@ var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     alwaysUnlocked: true
 });
 
+<<<<<<< HEAD
 const core = extend(Wall, "core", {
     localizedName: "core",
     size: 3,
@@ -48,6 +49,10 @@ placed(){
     
 }
     });
+=======
+
+
+>>>>>>> eabcb63c64e8d049e6b121b9340368b51146945c
 
 /*
 some code stuf
