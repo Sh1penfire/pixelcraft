@@ -1,10 +1,12 @@
 type: naval
 name: "Catapult"
-description: "A fast assult ship. Fires cannonballs and specialised bullets. Theres a note in titanium. It reads: Life on Serpulo was harsh after the inccident of the first mass extinction. Nothing could survive. Or so we thought."
+description: "A fast assult ship. Fires  bullets."
+details:" Theres a note in titanium. It reads: Life on Serpulo was harsh after the inccident of the first mass extinction. Nothing could survive. Or so we thought."
 speed: 1.5
 drag: 0.13
 hitSize: 7
-health: 235
+health: 200
+armor: 2
 accel: 0.5
 rotateSpeed: 3.3
 trailLength: 45
@@ -13,9 +15,10 @@ mineTier: 1
 mineSpeed: 0.5
 rotateShooting: false
 weapons: [
+
 {
 name: purple-weapon-mount
-reload: 7.8
+reload: 10
 alternate: true
 ejectEffect: none
 top: false
@@ -47,7 +50,7 @@ keepVelocity: false
 }
 {
 name: purple-missiles-mount
-reload: 15
+reload: 30
 alternate: false
 ejectEffect: none
 top: false
@@ -55,16 +58,16 @@ shootSound: bigshot
 recoil: 2
 x: 0
 shootY: 4
-y: -3.0
+y: -5
 rotate: true
+mirror: false
 bullet: {
-type: ArtilleryBulletType
-sprite: shell
+type: MissileBulletType
 frontColor: a447eb
 backColor: bf92f9
 trailColor: 665c9f
-damage: 28
-splashDamage: 5
+damage: 10
+splashDamage: 15
 splashDamageRadius: 25
 speed: 4
 lifetime: 40

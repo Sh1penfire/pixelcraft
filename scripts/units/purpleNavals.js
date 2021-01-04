@@ -65,7 +65,6 @@ const purpleN1 = extendContent(UnitType, "purpleN1", {});
 purpleN1.constructor = () => extend(UnitWaterMove, {});
 //Adding the healing field abilities
 purpleN1.abilities.add(new StatusFieldAbility(weakHeal, 3600, 360, 60));
-purpleN1.abilities.add(new RepairFieldAbility(25, 100, 35));
 
 const purpleN2 = extendContent(UnitType, "purpleN2", {});
 purpleN2.constructor = () => extend(UnitWaterMove, {});

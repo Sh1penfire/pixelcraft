@@ -1,10 +1,13 @@
 type: naval
 name: "Trebuche"
-description: "A fast assult ship. Theres a note in titanium. It reads: There was ife flourishing under the sea around geothermal vents. They were not of normal lifeforms, being fish who's scales were as dense as metal."
+description: "A fast, armored assult ship. Theres a note in titanium. It reads: There was ife flourishing under the sea around geothermal vents. They were not of normal lifeforms, being fish who's scales were as dense as metal."
 speed: 1.7
 drag: 0.13
-hitSize: 8
+hitSize: 10
 health: 450
+armor: 8
+aimDst: 10
+range: 200
 accel: 0.5
 rotateSpeed: 4
 trailLength: 45
@@ -15,40 +18,43 @@ rotateShooting: false
 weapons: [
 
 {
-name: purple-weapon-mount-double
-reload: 10
+name: purple-missiles-mount
+reload: 30
+alternate: true
 ejectEffect: none
 top: false
-shootSound: sap
-alternate: false
-recoil: 1
-x: 4
-shootY: 2
-y: -7
+shootSound: bigshot
+recoil: 2
+x: 5
+shootY: 4
+y: -3.2
 rotate: true
-mirror: true
 bullet: {
-type: SapBulletType
-sapStrength: 1
-hitColor: 6d56bf
-color: bf92f9
-damage: 5
-length: 125
-knockback: -0.5
-lifetime: 15
-hitSound: none
-width: 0.75
+type: MissileBulletType
+frontColor: a447eb
+backColor: bf92f9
+trailColor: 665c9f
+trailEffect: sapped
+damage: 15
+splashDamage: 25
+speed: 5
+lifetime: 50
+hitSound: boom
+width: 8
+height: 10
 collides: true
 collidesAir: true
 collidesTiles: true
-despawnEffect: none
-hitEffect: none
+hitEffect: explosion
+despawnEffect: explosion
 keepVelocity: false
+status: sapped
 }
 }
+
 {
 name: purple-weapon-mount
-reload: 5
+reload: 10
 alternate: true
 ejectEffect: none
 top: false
@@ -63,7 +69,7 @@ type: BasicBulletType
 sprite: shell
 frontColor: a447eb
 backColor: bf92f9
-damage: 3
+damage: 8
 speed: 3
 lifetime: 65
 hitSound: none
@@ -78,42 +84,7 @@ trailEffect: none
 keepVelocity: false
 status: sapped
 pierce: true
-}
-}
-
-{
-name: purple-missiles-mount
-reload: 45
-alternate: false
-ejectEffect: none
-top: false
-shootSound: bigshot
-recoil: 2
-x: 5
-shootY: 4
-y: -3.2
-rotate: true
-bullet: {
-type: MissileBulletType
-sprite: shell
-frontColor: a447eb
-backColor: bf92f9
-trailColor: 665c9f
-trailEffect: sapped
-damage: 22.5
-speed: 5
-lifetime: 50
-hitSound: boom
-width: 10
-height: 10
-collides: true
-collidesAir: true
-collidesTiles: true
-hitEffect: explosion
-despawnEffect: explosion
-keepVelocity: false
-pierce: true
-status: sapped
+pierceBuilding: true
 }
 }
 ]

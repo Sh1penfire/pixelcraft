@@ -85,7 +85,11 @@ const flPyra = extend(MissileBulletType, {
         this.super$hit;
         landMine.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
     },
-    drawLight(b){}
+    drawLight(b){},
+    draw(b){
+        Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, b.fin());
+        Fill.circle(b.x, b.y, 0.65 + b.fout() * 2);
+    }
 });
 
 flPyra.damage = 140;
@@ -94,8 +98,6 @@ flPyra.homingPower = 0;
 flPyra.pierce = true;
 flPyra.pierceBuilding = true;
 flPyra.lifetime = 15;
-flPyra.width = 0;
-flPyra.height = 0;
 flPyra.hitSize = 4;
 flPyra.collides = true;
 flPyra.collidesAir = true;

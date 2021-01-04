@@ -24,8 +24,35 @@ var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     alwaysUnlocked: true
 });
 
+const core = extend(Wall, "core", {
+    localizedName: "core",
+    size: 3,
+    description:"place able core able",
+    destructible: true,
+    update: true,
+    category: Category.effect,
+    requirements: ItemStack.with(
+        Items.copper, 50
+    ),
+    icons() {
+    return[Core.atlas.find("core-shard")]
+  }
+});
+
+core.buildVisibility = BuildVisibility.shown;
+
+core.buildType = () => extend(Wall.WallBuild, {
+placed(){
+    var tile = Vars.world.tile(this.tileX(), this.tileY());
+    Vars.world.tile(this.tile.x, this.tile.y).setBlock(Team.crux, Blocks.core-shard);
+    
+}
+    });
+
 /*
 some code stuf
+
+
 const fireSpawn = extend(StatusEffect, "fireSpawn", {
   update(unit, time){
   if(Mathf.chance(0.1 * Time.delta)){
