@@ -1,12 +1,12 @@
 type: Battery
 name: Magnetine Battery
-description: "Uses coils of magnetine to store power. In times of defict, outputs power."
+description: "Uses coils of magnitine to store power. In times of defict, outputs power."
 health: 50
 size: 1
 hasItems: true
 powerCapacity: 4000
 requirements: [
-  magnetine/10
+  magnitine/10
   iron/35
 ]
 category: power
