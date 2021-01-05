@@ -4,7 +4,9 @@ description: "Uses coils of magnitine to store power. In times of defict, output
 health: 50
 size: 1
 hasItems: true
-powerCapacity: 4000
+consumes:{
+powerBuffered: 4000
+}
 requirements: [
   magnitine/10
   iron/35
