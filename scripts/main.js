@@ -16,7 +16,7 @@ require("blocks/pixel-com");
 require("blocks/bioFormer");
 require("units/mono");
 require("turrets/wasnts");
-//require("turrets/wave");
+require("turrets/wave");
 
 var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     localizedName: "Flooded Vally",
@@ -24,6 +24,10 @@ var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     alwaysUnlocked: true
 });
 
+const autoUpdate = require("autoupdate");
+autoUpdate.autoUpdate("pixelcraft", "Sh1penfire/pixelcraft", "main")
+
+/*
 const core = extend(Wall, "core", {
     localizedName: "core",
     size: 3,
@@ -48,10 +52,11 @@ placed(){
     
 }
     });
+*/
 
 /*
 some code stuf
-
+w
 
 const fireSpawn = extend(StatusEffect, "fireSpawn", {
   update(unit, time){

@@ -20,5 +20,5 @@ const guildedSandBullet = extend(LiquidBulletType, {
 });
 
 Events.on(ClientLoadEvent, () => {
-Blocks.wave.ammoTypes.put(Vars.content.getByName(ContentType.liquid, "pixelcraft-guilded-sand"), guildedSandBullet);
+    Blocks.wave.ammoTypes.put(Vars.content.getByName(ContentType.liquid, "pixelcraft-guilded-sand"), guildedSandBullet);
 });
