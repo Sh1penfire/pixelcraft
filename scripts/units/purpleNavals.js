@@ -61,13 +61,61 @@ strongHeal.healthMultiplier = 1.1;
 strongHeal.effect = strongHealFX;
 strongHeal.color = Color.white;
 
+const spores = extend(BasicBulletType, {});
+spores.damage = 10;
+spores.lifetime = 100;
+spores.drag = 0.01;
+spores.status = StatusEffects.sapped;
+spores.buildingDamageMultiplier = 10;
+spores.homingPower = 0.04;
+
+const sporeExplosion = extend(BombBulletType, {});
+sporeExplosion.splashDamage = 25;
+sporeExplosion.lifetime = 0;
+sporeExplosion.drag = 0.01;
+sporeExplosion.status = StatusEffects.sapped;
+sporeExplosion.buildingDamageMultiplier = 2;
+
+
 const purpleN1 = extendContent(UnitType, "purpleN1", {});
-purpleN1.constructor = () => extend(UnitWaterMove, {});
+purpleN1.constructor = () => extend(UnitWaterMove, {
+    killed(){    
+        sporeExplosion.create(this, this.team, this.x, this.y, 0, 0);
+        let timer = 0;
+        while (timer < 8){
+            spores.create(this, this.team, this.x, this.y, timer * 45, 1);
+            timer++;
+        }
+        if (timer = 8){
+           this.dead = true;
+           }
+    },
+    update(){
+        this.super$update();
+        this.heal(0.03 - this.health/purpleN1.health * 0.02);   
+    }
+});
 //Adding the healing field abilities
 purpleN1.abilities.add(new StatusFieldAbility(weakHeal, 3600, 360, 60));
 
 const purpleN2 = extendContent(UnitType, "purpleN2", {});
-purpleN2.constructor = () => extend(UnitWaterMove, {});
+purpleN2.constructor = () => extend(UnitWaterMove, {
+        killed(){    
+        sporeExplosion.create(this, this.team, this.x, this.y, 0, 0);
+        let timer = 0;
+        while (timer < 8){
+            spores.create(this, this.team, this.x, this.y, timer * 45, 1);
+            timer++;
+        }
+        if (timer = 8){
+           this.dead = true;
+           }
+    },
+    update(){
+        this.super$update();
+        this.heal(0.03 - this.health/purpleN1.health * 0.02);   
+    }
+});
 //Adding the shield field
 purpleN2.abilities.add(new StatusFieldAbility(diminishedHeal, 3600, 360, 60));
 purpleN2.abilities.add(new ShieldRegenFieldAbility(20, 40, 300, 60));
@@ -85,6 +133,10 @@ purpleN3.constructor = () => extend(UnitWaterMove, {
         if (timer = 3){
            this.dead = true;
            }
+    },
+    update(){
+        this.super$update();
+        this.heal(0.03 - this.health/purpleN1.health * 0.02);   
     }
 });
 //Adding the boost fields

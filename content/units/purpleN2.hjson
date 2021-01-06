@@ -70,7 +70,7 @@ type: BasicBulletType
 sprite: shell
 frontColor: a447eb
 backColor: bf92f9
-damage: 8
+damage: 11
 speed: 3
 lifetime: 65
 hitSound: none
@@ -84,8 +84,6 @@ hitEffect: hitBulletSmall
 trailEffect: none
 keepVelocity: false
 status: sapped
-pierce: true
-pierceBuilding: true
 }
 }
 ]

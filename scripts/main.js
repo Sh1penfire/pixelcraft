@@ -1,6 +1,7 @@
 require("fc");
 require("turrets/wan't");
 require("turrets/Sx.quad");
+require("turrets/Sundry");
 require("turrets/bictfuse");
 require("turrets/puver");
 require("turrets/psion");

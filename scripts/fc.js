@@ -26,7 +26,7 @@ function slash(rotationTimes, radius, scaling, inOutTimes){
         pos = Mathf.sin(scaling * 3.142 * rotationTimes) * scaling * radius * Mathf.sin(scaling * inOutTimes * 3.142)
     };
     return pos;
-}
+};
 
 function clash(rotationTimes, radius, scaling, inOutTimes){
     var pos = 0;
@@ -37,11 +37,16 @@ function clash(rotationTimes, radius, scaling, inOutTimes){
         pos = Mathf.cos(scaling * 3.142 * rotationTimes) * scaling * radius * Mathf.cos(scaling * inOutTimes * 3.142)
     };
     return pos;
-}
+};
+
+function hpPercent(e, owner){
+    return e.health/owner.health
+};
 
 module.exports = {
     rotationFC: rotationFC,
     helix: helix,
     slash: slash, 
-    clash: clash
+    clash: clash,
+    hpPercent: hpPercent
 };

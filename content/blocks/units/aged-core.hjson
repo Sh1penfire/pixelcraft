@@ -1,0 +1,32 @@
+type: Reconstructor
+name: "Aged Core"
+size: 3
+health: 200
+description: "Some how, a core scimatic shows hwo to upgrade units"
+constructTime: 100
+upgrades: [
+  [
+    rustydelta, rustytau
+  ]
+  [
+    purpleN2, purpleN3
+  ]
+  [
+    stalactite, stalagmite
+  ]
+]
+consumes: {
+items:{
+  items: [
+  titanium/45
+  magnitine/35
+  ]
+}
+}
+category: units
+research: aged-mechpad
+requirements: [
+  graphite/75
+  magnitine/85
+  feromagnet/25
+]
