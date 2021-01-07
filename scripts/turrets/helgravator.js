@@ -1,25 +1,4 @@
-const hellfireFX = new Effect(20, e => {
-Draw.color(Color.orange, Color.red, e.fin());
-Fill.circle(e.x, e.y, e.fslope() * 4);
-Fill.circle(e.x, e.y, e.fout() * 2);
-Draw.color(Color.orange, Color.red, e.fin());
-Lines.stroke(e.fslope() * 2);
-Lines.circle(e.x, e.y, e.fin() * 6);
-Draw.color(Color.white, Color.orange, e.fin());
-Lines.stroke(e.fin() * 2); 
-});
-
-const sporefireFx = new Effect(20, e => {
-Draw.color(Color.blue, Color.purple, e.fin());
-Fill.circle(e.x, e.y, e.fslope() * 4);
-Fill.circle(e.x, e.y, e.fout() * 2);
-Draw.color(Color.purple, Color.white, e.fin());
-Lines.stroke(e.fslope() * 2);
-Lines.circle(e.x, e.y, e.fin() * 6);
-Draw.color(Color.white, Color.purple, e.fin());
-Lines.stroke(e.fin() * 2); 
-});
-
+const statuses = require("libs/statuses");
 
 const firehitFx = new Effect(20, e => {
   Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, e.fin());
@@ -41,22 +20,6 @@ const firelandFx = new Effect(20, e => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 0.4);
   })
 });
-
-const hellfire = extendContent(StatusEffect, "hellfire", {});
-
-hellfire.speedMultiplier = 0.8;
-hellfire.armorMultiplier = 0.75;
-hellfire.damage = 1;
-hellfire.effect = hellfireFX;
-hellfire.color = Color.white;
-
-const sporefire = extendContent(StatusEffect, "sporefire", {});
-
-sporefire.speedMultiplier = 0.6;
-sporefire.armorMultiplier = 0.75;
-sporefire.damage = 0.1;
-sporefire.effect = sporefireFx;
-sporefire.color = Color.white;
 
 const flCoalfrag = extend(LiquidBulletType, {});
 const flCoal = extend(BasicBulletType, {});
@@ -95,7 +58,7 @@ flSpore.shootSound = Sounds.flame2;
 flSpore.shootEffect = sporeShoot;
 flSpore.despawnEffect = Fx.none;
 flSpore.hitEffect = Fx.none;
-flSpore.status = sporefire;
+flSpore.status = statuses.sporefire;
 flSpore.trailEffect = Fx.none;
 flSpore.collides = true;
 flSpore.collidesTiles = true;
@@ -113,7 +76,7 @@ flCoalfrag.lifetime = 1;
 flCoalfrag.knockback = 0;
 flCoalfrag.despawnEffect = Fx.none;
 flCoalfrag.hitEffect = firelandFx;
-flCoalfrag.status = hellfire;
+flCoalfrag.status = statuses.hellfire;
 flCoalfrag.fragBullet = Bullets.standardCopper;
 //this will make the bullet always spawn a puddle even if it dosn't hit it's target.
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
