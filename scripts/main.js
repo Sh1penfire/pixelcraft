@@ -1,11 +1,13 @@
-require("fc");
+require("libs/fc");
+require("libs/statuses");
+
 require("turrets/wan't");
 require("turrets/Sx.quad");
 require("turrets/Sundry");
 require("turrets/bictfuse");
 require("turrets/puver");
 require("turrets/psion");
-require("turrets/pafer")
+require("turrets/pafer");
 require("turrets/beat");
 require("turrets/helgravator");
 require("turrets/fever");

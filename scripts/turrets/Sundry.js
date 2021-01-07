@@ -1,39 +1,10 @@
-const fc = require("fc");
+const fc = require("libs/fc");
+const statuses = require("libs/statuses");
 
 const shotFx = new Effect(20, e => {
   Draw.color(Color.valueOf("E06FFFFF"), Color.lightGray, e.fout()); 
   Fill.circle(e.x, e.y, e.fout() + 1 * 2);
 });
-
-const windsweptFx = new Effect(25, e => {
-Draw.color(Color.white, Color.white, e.fin());
-Lines.stroke(e.fin() * 1);
-Lines.circle(e.x, e.y, e.fin() * 0.5);
-    Lines.line(
-        e.x + Mathf.sin(e.fout() * 2) * e.fout() * -20 + Mathf.sin(e.fout() * 2),
-        e.y + Mathf.cos(e.fout() * 2) * e.fout() * -20 + Mathf.sin(e.fout() * 2),
-        e.x + Mathf.sin(e.fout() * 2) * e.fout() * 20 + Mathf.cos(e.fout() * 2),
-        e.y + Mathf.cos(e.fout() * 2) * e.fout() * 20 + Mathf.cos(e.fout() * 2)
-    );
-    Lines.line(
-        e.x + Mathf.cos(e.fout() * 2) * e.fout() * -20 + Mathf.cos(e.fout() * 2),
-        e.y + Mathf.sin(e.fout() * 2) * e.fout() * 20 + Mathf.cos(e.fout() * 2),
-        e.x + Mathf.cos(e.fout() * 2) * e.fout() * 20 + Mathf.sin(e.fout() * 2),
-        e.y + Mathf.sin(e.fout() * 2) * e.fout() * -20 + Mathf.sin(e.fout() * 2)
-    );
-});
-//unit.impulse(Tmp.v3.set(unit).sub(this.x, this.y).nor().scl(type.knockback * 80f));
-const windswept = extend (StatusEffect ,"windswept", {
-        update(unit, time){
-        this.super$update(unit, time);
-        //unit.impulse(Tmp.v1.set(unit.x, unit.y));
-        //print(Tmp.v3.set);
-        //print(unit.impulse);
-        }
-});
-windswept.speedMultiplier = 0.8
-windswept.damage = 0.08
-windswept.effect = windsweptFx;
 
 const ironBullet = extend(BasicBulletType, {
     draw(e){
@@ -49,7 +20,6 @@ const ironBullet = extend(BasicBulletType, {
     shrinkY: 1,
     pierce: true,
     pierceBuilding: true,
-    status: windswept,
     statusDuration: 60,
     homingPower: 0.05,
     shootEffect: Fx.shootSmall,
@@ -58,6 +28,7 @@ const ironBullet = extend(BasicBulletType, {
 });
 ironBullet.hitEffect = Fx.none;
 ironBullet.despawnEffect = Fx.none;
+ironBullet.status = statuses.windswept;
 
 const magnitineBullet = extend(BasicBulletType, {
     draw(e){
@@ -73,7 +44,6 @@ const magnitineBullet = extend(BasicBulletType, {
     shrinkY: 1,
     pierce: true,
     pierceBuilding: true,
-    status: windswept,
     statusDuration: 150,
     homingPower: 0.05,
     shootEffect: Fx.shootSmall,
@@ -83,6 +53,7 @@ const magnitineBullet = extend(BasicBulletType, {
 
 magnitineBullet.hitEffect = Fx.none;
 magnitineBullet.despawnEffect = Fx.none;
+magnitineBullet.status = statuses.windswept;
 
 const stormBullet = extend(BasicBulletType, {
     draw(e){

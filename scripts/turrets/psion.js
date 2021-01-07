@@ -1,4 +1,5 @@
-const fc = require("fc");
+const fc = require("libs/fc");
+const statuses = require("libs/statuses");
 
 const psionShoot = new Effect(30, e => {
   Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
@@ -11,15 +12,6 @@ const psionShoot = new Effect(30, e => {
   Angles.randLenVectors(e.id, 12, e.finpow() * 45, e.rotation, 10, (x, y) => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
   })
-});
-
-const chargedEffectFX = new Effect(27, (e) => {
-  Angles.randLenVectors(e.id, 2, 1 + e.fin() * 10, (x, y) => {
-    Draw.color(Color.white, Color.valueOf("0A01b7"), e.fslope());
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.8)
-    Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.5)
-  });
 });
 
 //trail effect for the shot
@@ -42,15 +34,6 @@ const blast = new Effect(15, e => {
   Lines.stroke(e.fin() * 2);
   Lines.circle(e.x, e.y, e.fout() * 2);
 });
-
-const chargedEffect = extendContent(StatusEffect, "chargedEffect", {});
-
-chargedEffect.speedMultiplier = 0.3;
-chargedEffect.armorMultiplier = 0.1;
-chargedEffect.damage = 0.3;
-chargedEffect.effect = chargedEffectFX;
-chargedEffect.color  = Color.white;
-
 
 const ion = extend(BasicBulletType, {});
 const ionBomb = extend(BasicBulletType, {});
@@ -110,7 +93,7 @@ ion.collidesTiles = false;
 ion.hitEffect = blast;
 ion.despawnEffect = blast;
 ion.smokeEffect = Fx.smokeCloud;
-ion.status = chargedEffect;
+ion.status = statuses.chargedEffect;
 
 ionBomb.damage = 0;
 ionBomb.lifetime = 0;
@@ -121,6 +104,6 @@ ionBomb.hitSize = 0;
 ionBomb.collidesTiles = false;
 ionBomb.hitEffect = blast;
 ionBomb.despawnEffect = blast;
-ionBomb.status = chargedEffect;
+ionBomb.status = statuses.chargedEffect;
 ionBomb.fragBullets = 10;
 ionBomb.fragBullet = ion;

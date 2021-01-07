@@ -1,5 +1,6 @@
 // Obligatory comment line for no reason at all
-const fc = require("fc");
+const fc = require("libs/fc");
+const statuses = require("libs/statuses");
 //shoot effect for puver
 const puverShoot = new Effect(30, e => {
   Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
@@ -55,21 +56,6 @@ const shot = extend(MissileBulletType, {
 
 //makes frag bullets
 const blastShot = extend(BasicBulletType, {});
-
-
-const ionisedStatusFX = new Effect(24, e => {
-Draw.color(Color.white, Color.black, e.fin());
-Lines.stroke(e.fin() * 1);
-Lines.circle(e.x, e.y, e.fslope() * 5);
-});
-
-const ionisedStatus = extendContent(StatusEffect, "ionisedStatus", {});
-
-ionisedStatus.speedMultiplier = 0.5;
-ionisedStatus.armorMultiplier = 0.5;
-ionisedStatus.damage = 0.2;
-ionisedStatus.effect = ionisedStatusFX;
-ionisedStatus.color  = Color.white;
 
 //extends off the puver hjson file
 const puver = extendContent(PowerTurret, "electricTurret3b1", {
@@ -127,4 +113,4 @@ blastShot.hitEffect = blast;
 blastShot.despawnEffect = blast;
 blastShot.shootEffect = puverShoot;
 blastShot.smokeEffect = Fx.smokeCloud;
-blastShot.status = ionisedStatus;
+blastShot.status = statuses.ionisedStatus;

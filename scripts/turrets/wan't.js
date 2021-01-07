@@ -1,4 +1,4 @@
-const fc = require("fc");
+const fc = require("libs/fc");
 const Bombs = require("blocks/bombs");
 
 const Ritual = new Effect(125, (e) => {

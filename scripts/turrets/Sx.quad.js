@@ -1,4 +1,4 @@
-const fc = require("fc");
+const fc = require("libs/fc");
 
 const shotFx = new Effect(20, e => {
   Draw.color(Color.valueOf("E06FFFFF"), Color.lightGray, e.fout()); 

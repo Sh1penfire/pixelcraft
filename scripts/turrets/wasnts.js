@@ -2,14 +2,13 @@
 const endgame = extend(Block, "wasnts", {
     localizedName: "wasnt's",
     description: "never was.",
-    buildVisibility: BuildVisibility.shown,
+    buildVisibility: BuildVisibility.hidden,
     size: 2,
     destructible: true,
     update: true,
     category: Category.turret,
     requirements: ItemStack.with(
-        Items.copper, Number.MAX_VALUE,
-        Items.phaseFabric, Number.MAX_VALUE
+        Items.copper, Number.MIN_VALUE
     ),
     alwaysUnlocked: true,
     inEditor: true,
