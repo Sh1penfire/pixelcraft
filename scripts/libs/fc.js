@@ -39,14 +39,18 @@ function clash(rotationTimes, radius, scaling, inOutTimes){
     return pos;
 };
 
-function hpPercent(e, owner){
-    return e.health/owner.health
+function rangeLimit(number, constraint){
+  let MIN = Math.abs(constraint) * -1;
+  let MAX = Math.abs(constraint);
+  let parsed = parseInt(number);
+  return Math.min(Math.max(parsed, MIN), MAX);
 };
+
 
 module.exports = {
     rotationFC: rotationFC,
     helix: helix,
     slash: slash, 
     clash: clash,
-    hpPercent: hpPercent
+    rangeLimit: rangeLimit
 };
