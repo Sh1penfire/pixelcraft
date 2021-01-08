@@ -1,4 +1,5 @@
 const statuses = require("libs/statuses");
+const fc = require("libs/fc");
 
 const cryoexplosion = new Effect(45, e => {
     Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
@@ -21,11 +22,10 @@ const cryoTrail = new Effect(15, e => {
   })
 });
 
-const magTrail = new Effect(5, e => {
-    Draw.color(Color.white, Color.valueOf("c0c2d3"), e.fin());
-    Angles.randLenVectors(e.id, 1, e.finpow() * 3, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 2);
-  })
+const magTrail = new Effect(30, e => {
+  Draw.color(Color.white, Color.valueOf("c0c2d3"), e.fin());
+  Lines.stroke(2 * e.fout());
+  Lines.line(e.x, e.y, e.data.x, e.data.y);
 });
 
 const shadowWave = new Effect(50, e => {
@@ -34,11 +34,10 @@ const shadowWave = new Effect(50, e => {
     Lines.circle(e.x, e.y, e.fin() * 25); 
 });
 
-const darknessTrail = new Effect(15, e => {
-    Draw.color(Color.black, Pal.darkMetal, e.fin());
-    Angles.randLenVectors(e.id, 1, e.finpow() * 3, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 2);
-  })
+const darknessTrail = new Effect(30, e => {
+  Draw.color(Color.black, Pal.darkMetal, e.fin());
+  Lines.stroke(5 * e.fout());
+  Lines.line(e.x, e.y, e.data.x, e.data.y);
 });
 
 const shadowShot = new Effect(15, e => {
@@ -88,10 +87,10 @@ const fragShot = extend(PointBulletType, {
 	speed: 32,
 	damage: 10,
     ammoMultiplier: 10,
-    reloadMultiplier: 20,
+    reloadMultiplier: 60,
 	lifetime: 20,
     fragBullet: magnetineFrag,
-	fragBullets: 15,
+	fragBullets: 5,
     trailEffect: magTrail,
     trailSpacing: 2,
 	collides: true,
@@ -109,7 +108,7 @@ const placeholdert = extend(BasicBulletType, {
     speed: 0
 });
 
-const blackoutShot = extend(PointBulletType, {
+const blackoutShot = extend(BombBulletType, {
     speed: 32,
     lifeimte: 20,
     splashDamage: 90,
@@ -136,4 +135,20 @@ const railgun3 = extendContent(ItemTurret, "railgun3", {
     this.super$init();
   }
 });
-//Thanks for the help with effects Puppycat :)
+
+
+railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
+    shoot(type){
+        let i = 0
+        let limitationX = Math.cos(this.rotation/180 * Math.PI) * this.range();
+        let limitationY = Math.sin(this.rotation/180 * Math.PI) * this.range();
+        
+        type.create(this, this.team, fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x, fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y, this.rotation, 0);
+        
+        type.trailEffect.at(fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x, fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y, 0, this);
+
+        
+        this.effects();
+        this.useAmmo();
+    }
+});
