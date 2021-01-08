@@ -1,0 +1,22 @@
+name: Tenemotus
+description: Extrudes out bolts 
+shootSound: laser
+health: 1200
+size: 4
+reloadTime: 250
+range: 600
+shots: 5
+burstSpacing: 5
+spread: 0
+recoil: 10
+targetAir: true
+ammoUseEffect: casing4
+rotateSpeed: 6
+requirements: [
+ iron/300
+ magnitine/260
+ titanium/95
+ feromagnet/65
+]
+category: turret
+research: railgun2

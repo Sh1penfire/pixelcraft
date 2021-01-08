@@ -1,0 +1,21 @@
+name: Neromagnet Drill
+description: Uses strong magnitism to move a drill part.
+type: Drill
+size: 2
+tier: 5
+drillTime: 275
+consumes: {
+  liquid: {
+    liquid: water
+    amount: 0.1
+    booster: true
+    optional: true
+  }
+ power: 0.3
+}
+requirements: [
+  feromagnet/25
+  magnitine/10
+]
+category: production
+research: magnitine-drill

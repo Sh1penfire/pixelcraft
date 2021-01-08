@@ -78,6 +78,7 @@ const stormBullet = extend(BasicBulletType, {
 
 stormBullet.hitEffect = Fx.none;
 stormBullet.despawnEffect = Fx.none;
+stormBullet.status = statuses.blackout;
 
 const ironShot = extend(BasicBulletType, {
     draw(e){

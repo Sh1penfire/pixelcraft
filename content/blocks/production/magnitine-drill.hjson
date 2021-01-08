@@ -3,7 +3,7 @@ description: Sturdy dril that uses magnitism to move it's parts.
 type: Drill
 size: 1
 tier: 3
-drillTime: 335
+drillTime: 355
 consumes: {
   liquid: {
     liquid: water

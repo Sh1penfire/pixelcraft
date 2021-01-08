@@ -1,4 +1,4 @@
-type: flying
+type: payload
 name: "Rusty dart"
 description: "Contains an ai that can transport itself into other mechinisms that allow it to."
 flying: true
@@ -20,9 +20,10 @@ rotateSpeed: 7
 lowAltitude: false
 omniMovement: true
 canDrown: false
+payloadCapacity : 3
 weapons: [ 
 {
-name: aged-repeargun
+name: none
 reload: 5
 alternate: true
 ejectEffect: casing2
@@ -44,97 +45,6 @@ knockback: 0
 hitSound: none
 healPercent: 1
 collidesTeam: true
-}
-}
-{
-name: aged-repeargun
-reload: 7
-alternate: true
-ejectEffect: casing2
-top: false
-shootSound: pew
-x: 2
-y: 1
-rotate: false
-bullet: {
-frontColor: b7f35e
-backColor: b7f35e
-type: BasicBulletType
-damage: 5
-speed: 2
-width: 6
-height: 9
-lifetime: 60
-knockback: 0
-hitSound: none
-healPercent: 1
-collidesTeam: true
-}
-}
-{
-name: aged-blaster-mount
-reload: 25
-alternate: false
-ejectEffect: casing2
-top: false
-shootSound: pew
-x: 0.25
-y: 0
-rotate: true
-bullet: {
-frontColor: b7f35e
-backColor: b7f35e
-trailColor: b7f35e
-type: MissileBulletType
-speed: 2
-lifetime: 75
-fragBullets: 3
-fragBullet:{
-frontColor: b7f35e
-backColor: b7f35e
-damage: 1
-speed: 2
-width: 5
-height: 8
-lifetime: 60
-knockback: 0
-hitSound: none
-healPercent: 1.5
-collidesTeam: true
-}
-}
-}
-{
-name: aged-blaster-mount
-reload: 25
-alternate: false
-ejectEffect: casing2
-top: false
-shootSound: pew
-x: 0.75
-y: 0.2
-rotate: true
-bullet: {
-frontColor: b7f35e
-backColor: b7f35e
-trailColor: b7f35e
-type: MissileBulletType
-speed: 1
-lifetime: 150
-fragBullets: 3
-fragBullet:{
-frontColor: b7f35e
-backColor: b7f35e
-damage: 1
-speed: 2
-width: 5
-height: 8
-lifetime: 60
-knockback: 0
-hitSound: none
-healPercent: 1.5
-collidesTeam: true
-}
 }
 }]
 research: {

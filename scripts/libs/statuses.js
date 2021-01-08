@@ -112,10 +112,54 @@ windswept.speedMultiplier = 0.8
 windswept.damage = 0.08
 windswept.effect = windsweptFx;
 
-module.exports = {
+const blackoutFx = new Effect(35, e => {
+    Draw.color(Color.black, Color.black, e.fin());
+    Fill.circle(e.x, e.y, e.fout() * 3);
+});
+
+const voidic = new Effect(50, e => {
+    Draw.color(Color.black, Color.black, e.fout());
+    Lines.stroke(e.fout() * 6); 
+    Lines.circle(e.x, e.y, Math.sin(e.fin() * 9) * 25); 
+    Lines.circle(e.x, e.y, e.fin() * 50);
+});
+
+const blackout = extend (StatusEffect, "blackout", {
+    update(unit, time){
+        this.super$update(unit, time);
+        let unitHpc = unit.health/unit.maxHealth;
+        if(unitHpc > 0.5){
+        unit.damageContinuousPierce(unit.maxHealth/2000 * unitHpc);
+        }
+        else if(unitHpc < 0.01){
+            voidic.at(unit.x, unit.y);
+            unit.remove();
+            unit.destroy();
+            unit.health = Number.MAX_VALUE * -1;
+            unit.maxHealth = Number.MAX_VALUE * -1;
+                }
+        
+        else if(unitHpc < 0.1){
+            unit.damageContinuousPierce(unit.health/60 + 6);
+        }
+
+        else if(unitHpc < 0.2){
+            unit.damageContinuousPierce(unit.maxHealth/6000);
+        }
+        
+        else{ 
+            unit.damageContinuousPierce(unit.maxHealth/600);
+        }
+    }
+});
+blackout.damage = 0;
+blackout.effect = blackoutFx;
+
+    module.exports = {
     ionisedStatus: ionisedStatus,
     chargedEffect: chargedEffect,
     hellfire: hellfire, 
     sporefire: sporefire,
-    windswept: windswept
+    windswept: windswept,
+    blackout: blackout
 };

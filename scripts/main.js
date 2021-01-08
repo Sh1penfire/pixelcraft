@@ -1,6 +1,5 @@
 require("libs/fc");
 require("libs/statuses");
-
 require("turrets/wan't");
 require("turrets/Sx.quad");
 require("turrets/Sundry");
@@ -11,9 +10,11 @@ require("turrets/pafer");
 require("turrets/beat");
 require("turrets/helgravator");
 require("turrets/fever");
+require("turrets/tenmotus");
 require("blocks/bombs");
 require("units/whiteGround");
 require("units/purpleNavals");
+require("units/rusted");
 require("templura");
 require("blocks/pixel-com");
 require("blocks/bioFormer");
