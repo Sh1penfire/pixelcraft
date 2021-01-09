@@ -27,6 +27,8 @@ Puver|A support turret that is electric, slows down hit targets. Frag bullets ig
 Psion|An upgrade to puver, shoots damaging helixes of ions into the target.
 Pafer|Causes a vortex wherever it shoots.
 
+![whevo it's a bionorb](https://raw.githubusercontent.com/Sh1penfire/pixelcraft/main/sprites/items/bionorb.png)
+
 # Maintainers 
 
 owner 
