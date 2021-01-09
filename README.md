@@ -1,6 +1,6 @@
 # Pixelcraft
 A v6 mod for mindustry
-![This mod aims to expand apon mindustry's content by adding a new main resource you can use, adding a new way to play the game.](file:///C:/Users/LAU0019/Downloads/the%20story%20of%20the%20river.jpg)
+This mod aims to expand apon mindustry's content by adding a new main resource you can use, adding a new way to play the game.
 - adds new resources, new turrets and new zones as well as slight tweaks to vanilla.
 - 56 new building blocks to play with, 1 environmental block, 2 ores and 6 items with more to come. (Outdated)
 - (Lore included, find the lore of the mod in building and unit descriptions/reading the source code)
