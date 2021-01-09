@@ -49,7 +49,7 @@ const blast = new Effect(25, e => {
 const shot = extend(MissileBulletType, {
     update(b){
         shotTrail.at(b.x, b.y);
-        blastShot.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), 90), fc.helix(7, 3, b.fin() ));
+        blastShot.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), 90), fc.helix(7, 3, b.fin()));
         blastShot.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), -90), fc.helix(7, 3, b.fin() ));
     }
 });

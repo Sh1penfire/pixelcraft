@@ -20,7 +20,7 @@ ionisedStatus.color  = Color.white;
 const chargedEffectFX = new Effect(27, (e) => {
   Angles.randLenVectors(e.id, 2, 1 + e.fin() * 10, (x, y) => {
     Draw.color(Color.white, Color.valueOf("0A01b7"), e.fslope());
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.8)
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.8);
     Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
     Fill.circle(e.x + x, e.y + y, e.fout() * 1.5)
   });
@@ -135,8 +135,7 @@ const blackout = extend (StatusEffect, "blackout", {
             voidic.at(unit.x, unit.y);
             unit.remove();
             unit.destroy();
-            unit.health = Number.MAX_VALUE * -1;
-            unit.maxHealth = Number.MAX_VALUE * -1;
+            unit.damageContinuousPierce(unit.maxHealth);
                 }
         
         else if(unitHpc < 0.1){
@@ -144,12 +143,17 @@ const blackout = extend (StatusEffect, "blackout", {
         }
 
         else if(unitHpc < 0.2){
-            unit.damageContinuousPierce(unit.maxHealth/6000);
+            unit.damageContinuousPierce(unit.maxHealth/8000);
+        }
+        
+        else if(unitHpc < 0.5){
+        unit.damageContinuousPierce(unit.maxHealth/6000);
         }
         
         else{ 
-            unit.damageContinuousPierce(unit.maxHealth/600);
+            unit.damageContinuousPierce(unit.maxHealth/4000);
         }
+        Puddles.deposit(Vars.world.tileWorld(unit.x + Mathf.random(10), unit.y + Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
     }
 });
 blackout.damage = 0;
