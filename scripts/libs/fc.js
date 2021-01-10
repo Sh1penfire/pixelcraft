@@ -17,6 +17,12 @@ function helix(helixes, magnitude, scaling){
     return Mathf.sin(scaling * helixes * 3.142) * scaling * magnitude;
 };
 
+// XD 
+function holex(holexs, magnitude, scaling) {
+  scaling = Math.abs(scaling);
+  return Mathf.cos(scaling * helixes * 3.142) * scaling * magnitude;
+};
+
 function slash(rotationTimes, radius, scaling, inOutTimes){
     var pos = 0;
     if(inOutTimes < 0){
@@ -47,10 +53,22 @@ function rangeLimit(number, constraint){
 };
 
 
+function optionalRotatorX(Timer,speed,startRotator,distanceCenter,positionX){
+  let rotatorX = positionX + Mathf.sin(Timer * speed + startRotator) * distanceCenter
+  return rotatorX
+}
+
+function optionalRotatorY(Timer, spaeed, startRotator, distanceCenter, positionY) {
+  let rotatorY = positionY + Mathf.cos(Timer * speed + startRotator) * distanceCenter
+  return rotatorY
+}
+
 module.exports = {
     rotationFC: rotationFC,
     helix: helix,
     slash: slash, 
     clash: clash,
-    rangeLimit: rangeLimit
+    rangeLimit: rangeLimit,
+    optionalRotatorX: optionalRotatorX,
+    optionalRotatorY: optionalRotatorY
 };
