@@ -58,7 +58,7 @@ function optionalRotatorX(Timer,speed,startRotator,distanceCenter,positionX){
   return rotatorX
 }
 
-function optionalRotatorY(Timer, spaeed, startRotator, distanceCenter, positionY) {
+function optionalRotatorY(Timer, speed, startRotator, distanceCenter, positionY) {
   let rotatorY = positionY + Mathf.cos(Timer * speed + startRotator) * distanceCenter
   return rotatorY
 }
