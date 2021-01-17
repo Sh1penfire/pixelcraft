@@ -2,8 +2,6 @@ const statuses = require("libs/statuses");
 const fc = require("libs/fc");
 const extras = require("extras/voidicsm");
 
-const firinDistance = 5;
-
 const cryoexplosion = new Effect(45, e => {
     Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
     Angles.randLenVectors(e.id, 25, e.finpow() * 75, e.rotation, 360, (x, y) => {
@@ -21,20 +19,20 @@ const cryoShot = new Effect(45, e => {
 
 const cryoTrail = new Effect(20, e => {
   Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
-    Lines.stroke(Math.abs(fc.helix(7, 3, e.fout())));
+  Lines.stroke(3 * e.fout());
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
+               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * 15,
+               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * 15);
 });
 
 const magTrail = new Effect(15, e => {
     Draw.color(Color.white, Color.valueOf("c0c2d3"), e.fin());
-    Lines.stroke(Math.abs(fc.helix(3, 3, e.fout())));
+    Lines.stroke(Math.abs(fc.helix(7, 3, e.fout())));
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
+               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * 15,
+               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * 15);
 });
 
 const shadowWave = new Effect(50, e => {
@@ -45,11 +43,11 @@ const shadowWave = new Effect(50, e => {
 
 const darknessTrail = new Effect(30, e => {
   Draw.color(Color.black, Pal.darkMetal, e.fin());
-    Lines.stroke(Math.abs(fc.helix(7, 5, e.fout())));
+  Lines.stroke(5 * e.fout());
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
+               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * 15,
+               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * 15);
 });
 
 const shadowShot = new Effect(15, e => {
@@ -104,8 +102,7 @@ const fragShot = extend(PointBulletType, {
 });
 fragShot.frontColor = Color.valueOf("ffffff");
 fragShot.backColor = Color.valueOf("ffffff");
-fragShot.shootEffect = Fx.none;
-fragShot.smokeEffect = Fx.none;
+fragShot.shootEffect = Fx.shootSmall;
 fragShot.hitEffect = Fx.hitBulletBig;
 fragShot.despawnEffect = Fx.none;
 fragShot.ammoUseEffect = Fx.none;
@@ -168,6 +165,7 @@ railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
             timer++;
             }
         }
+        
         this.effects();
         this.useAmmo();
         

@@ -1,3 +1,4 @@
+type: ItemTurret
 name: Leaf
 description: A bio turret. Shoots artillery bullets at a long range.
 health: 250

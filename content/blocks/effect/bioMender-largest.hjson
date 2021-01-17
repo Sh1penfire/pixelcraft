@@ -24,9 +24,10 @@ consumes: {
  }
 }
 requirements: [
-bionorb/15
+bionorb/10
 iron/30
 magnitine/25
+silicon/50
 ]
 category: effect
 research: bioMender

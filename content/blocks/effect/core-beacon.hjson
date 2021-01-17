@@ -1,6 +1,6 @@
 type: CoreBlock
 name: "Core beacon"
-details: "Years ago, a great flood overwhelmed Serpulo and rusted the grounds. Some 1000 years later, when they returned, a great discovery was made."
+description: "A note written in plastic has been left on the blueprint. It says: Years ago, a great flood overwhelmed Serpulo and rusted the grounds. 1000 years later when AI regained footing. It's half torn."
 health: 300
 itemCapacity: 7000
 size: 4

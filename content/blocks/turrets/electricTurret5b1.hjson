@@ -6,10 +6,9 @@ shootEffect: none
 smokeEffect: none
 shootSound: release
 requirements: [
-  iron/ 500
-  magnitine/240
-  feromagnet/250
-  stelarcrim/140
+  iron/ 250
+  magnitine/100
+  feromagnet/75
 ]
 category: turret
 research: electricTurret4b1

@@ -1,4 +1,4 @@
-const seeds = new Effect(25, e => {
+const seeds = new Effect(60, e => {
     Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
     Lines.stroke(e.fout() * 3)
     Lines.circle(e.x, e.y, e.fin() * 27)
@@ -29,8 +29,3 @@ const bioPressAni = new DrawAnimation();
 const bioPress = extendContent(GenericCrafter,"bioPress",{});
 bioPress.craftEffect = seeds;
 bioPress.drawer = bioPressAni;
-
-const bioniteMixer = extendContent(GenericCrafter,"bioniteMixer",{});
-bioniteMixer.craftEffect = seeds;
-
-const bioMender = extendContent(MendProjector, "bioMender", {});
