@@ -1,6 +1,7 @@
 type: mech
 name: "Rusty alpha"
-description: "Standard core unit in the days of old. Theres a note in magnitine. It says: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
+description: "Standard core unit in the days of old."
+details: "After it was found, the slag wars began. Sepulo was going through a period of increased volcanic activity due to weak spots leftover from the planet's formation."
 speed :0.75
 health: 275
 aimDst: 10

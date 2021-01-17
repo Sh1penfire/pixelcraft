@@ -12,6 +12,8 @@ require("turrets/beat");
 require("turrets/helgravator");
 require("turrets/fever");
 require("turrets/tenmotus");
+require("turrets/spreadTurrets");
+require("turrets/bioTurrets");
 require("blocks/bombs");
 require("units/whiteGround");
 require("units/purpleNavals");

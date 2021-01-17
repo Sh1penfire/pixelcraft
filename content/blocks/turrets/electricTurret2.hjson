@@ -11,22 +11,20 @@ powerUse: 2
 rotateSpeed: 5
 chargeBeginEffect: hitBulletBig
 chargeEffect: lancerLaserCharge
-chargeTime: 50
-chargeMaxDelay: 50
 inaccuracy: 0
 spread: 2
 targetAir: true
 targetGround: true
 shootType: {
-	type: ArtilleryBulletType
+	type: MissileBulletType
 	damage: 50
-	speed: 4
-	lifetime: 100
+	speed: 2
+	lifetime: 200
+	homingPower: 0.1
 	collides: true
 	collidesAir: true
-	pierce: true
-	width: 1
-	height: 1
+	width: 6
+	height: 10
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
 	frontColor: 86baf9

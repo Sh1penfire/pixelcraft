@@ -1,4 +1,3 @@
-type: MendProjector
 name: "Bio Mender"
 description: "A stone block covered with plantlife. Repears blocks using nature to repear gaps in blocks. Has a lot of range."
 reload: 100

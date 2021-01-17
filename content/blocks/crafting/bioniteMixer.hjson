@@ -1,0 +1,24 @@
+name: Bionite Mixer
+description: "Mutates plants with thorium and allows them to use iron as a nutriant."
+size: 2
+hasItems: true
+craftTime: 150
+consumes: {
+	power: 2
+	items:{
+		items:[
+			bionorb/5
+			iron/2
+			thorium/3
+		]
+	}
+}
+requirements: [
+ 	stone/100
+	iron/85
+  	graphite/50
+  	magnitine/35
+]
+category: crafting
+research: seed-extractor
+outputItem: bionite/1

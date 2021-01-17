@@ -56,3 +56,29 @@ A smell of char lingers...
 The diralect used a superweapon here
 The usage of it brought downfall to their conquest to concour the planet
 now all that remains is their tech
+
+
+
+The void
+
+Mindustry, A corupted simulation. A replicaiton of Earth that was deemed saveable but extremely hard. It started it's life with a planet and a sun. The simulation only had to simulate two things for what it was suposed to do. We never predicted that one error put the simulation on the brink of destruction.
+
+The simulation was formated like a game, objects having internal properties like health and speed. If  thing's hp dropred to 0 however, it was deleted and stoped existing instaid of it's state being turned to dead such as in our world.
+
+We wanted to start anew, simulating a planet where we don't know and never will find out that we are in a simulation. The tools provided to us here much much stronger than anything in the simulated universe.
+
+There was a problem with it however, starting with a little mistake. The simulation's host was damaged once. This caused a glitch in the system. An object that had the wrong properties. It coudn't be modified and before we were able to delete it, spread the coruption to other objects nearby like some sort of computer virus. We called the object spawned from this event, the null void.
+
+The modifications were simple. Objects that were touched by the null void or other corupted objects were unable to be modified and randomly experianced slightly lower gravity, higher max velocities, lower air resistance and other various things to do with speed.
+
+The file coruption eventualy got to a point where we could not delete objects via health modification fast enough and made the file harder to modify. The world was changing. The simulator using more processing power than before, creating history for the world an ever changing solar system.
+
+As a last ditch effort, we made a port to the world. A way to interact with the world. We gave the terminal's entity the ability to infinitely appear with their own object to inhabit.
+
+Fearing that the coruption had the power to coppy anything we did, we lowered the risk and created a flying ship with extremely weak combat ability. It could harnes the planet's natural resources and build objects from a database. 
+
+The coruption responded by flinging objects towards the ship trying to delete it. It eventualy stoped, instaid resorting to corupting it. As another coppy of the port ship was made, the file was deemed salvageable and wasn't deleted. A coppy of this file was created as a backup, modified to look like a game and then shiped out to potentual testers.
+
+At this point, the coruption had taken over the planet's surface and had used the port it corutped to create a mechanical race we dubed, the crux. File editers looked to help clear the coruptio but to no avail. Now, the game we call Mindustry is out there with nobody knowing what happened to make it a game.
+
+Something happened to the null void which changed how the simulator worked. It was generating history for the already existing objects and modifying Sepulo bit by bit. The crux as we called it were droids built by a corupted port, having access to every object we had in our databases. 

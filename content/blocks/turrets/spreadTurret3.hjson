@@ -1,0 +1,48 @@
+name: Vinca
+description: "Medium ranged turret that scatters bullets around itself. Initial shot causes a shockwave"
+health: 300
+size: 3
+shootSound: respawning
+reloadTime: 15
+range: 132
+shots: 8
+ammoUseEffect: none
+rotateSpeed: 10
+spread: 36
+ammoTypes: {
+iron: {
+type: basicBulletType
+damage: 45
+homingPower: 0.03
+lifetime: 125
+hitEffect: none
+despawnEffect: none
+status: slow
+statusDuration: 60
+shrinkY: 1
+}
+
+magnitine: {
+type: basicBulletType
+damage: 55
+homingPower: 0.03
+knockback: 1
+lifetime: 125
+splashDamage: 4
+width: 8
+height: 18
+splashDamageRadius: 18
+hitEffect: none
+despawnEffect: none
+status: slow
+statusDuration: 60
+shrinkY: 1
+}
+}
+requirements: [
+   iron/50
+   magnitine/85
+   titanium/35
+]
+category: turret
+research: spreadTurret1

@@ -10,13 +10,14 @@ burstSpacing: 5
 spread: 0
 recoil: 10
 targetAir: true
-ammoUseEffect: casing4
+ammoUseEffect: none
 rotateSpeed: 6
 requirements: [
- iron/300
- magnitine/260
- titanium/95
- feromagnet/65
+ iron/500
+ magnitine/360
+ titanium/310
+ feromagnet/300
+ stelarcrim/230
 ]
 category: turret
 research: railgun2
