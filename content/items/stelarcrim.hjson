@@ -1,9 +1,0 @@
-name: Selarcrim
-description: A light crystaline materiel used as structural suport and conductive/insulative plating.
-details: "Some say the materiel looks like crystalised light. Others say it's arcane magic."
-hardness: 5
-cost: 4
-color: 8899a3
-alwaysUnlocked: false
-research: feromagnet
-

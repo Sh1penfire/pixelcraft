@@ -10,7 +10,6 @@ rotateSpeed: 8
 requirements: [    
   iron/150
   graphite/25
-  magnitine/35
 ]
 category: turret
 research: basicTurret2b1

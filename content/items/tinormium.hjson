@@ -2,7 +2,7 @@ name: Tinorium
 description: A whitish crystaline mix of rare Earth metals to be used in advanced transport and unit facilities.
 hardness: 2
 cost: 3
-color: 8083ae
+color: #ffffff
 alwaysUnlocked: false
 research: thorium
 

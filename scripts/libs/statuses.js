@@ -37,15 +37,14 @@ chargedEffect.color  = Color.white;
 
 //helfire's fx
 const hellfireFX = new Effect(20, e => {
-    Draw.alpha(e.fout())
     Draw.color(Color.orange, Color.red, e.fin());
-    Fill.circle(e.x, e.y, e.fslope() * 2);
-    Fill.circle(e.x, e.y, e.fout() * 1);
+    Fill.circle(e.x, e.y, e.fslope() * 4);
+    Fill.circle(e.x, e.y, e.fout() * 2);
     Draw.color(Color.orange, Color.red, e.fin());
-    Lines.stroke(e.fslope() * 1);
-    Lines.circle(e.x, e.y, e.fin() * 3);
+    Lines.stroke(e.fslope() * 2);
+    Lines.circle(e.x, e.y, e.fin() * 6);
     Draw.color(Color.white, Color.orange, e.fin());
-    Lines.stroke(e.fin() * 1); 
+    Lines.stroke(e.fin() * 2); 
 });
 
 //spore fire's fx
@@ -60,26 +59,8 @@ const sporefireFx = new Effect(20, e => {
     Lines.stroke(e.fin() * 2); 
 });
 
-const extraFireSporeFx = new Effect(25, e => {
-    Draw.color(Color.blue, Color.white, e.fin());
-    Fill.circle(e.x, e.y, e.fslope() * 2);
-    Fill.circle(e.x, e.y, e.fout() * 1);
-});
-
 //helgravator's coal status
-const hellfire = extend(StatusEffect, "hellfire", {
-    update(unit, time){
-        this.super$update(unit, time);
-        if(Mathf.chance(0.1 * Time.delta)){
-            let rad = 3;
-            Units.nearby(unit.x, unit.y, rad * 8, rad * 8, cons(u => {
-            if(Mathf.dst(unit.x, unit.y, u.x, u.y) < 40){
-                if(!u.isDead) {u.apply(hellfire, time * 0.9);}
-                }
-            }));
-        }
-    }
-});
+const hellfire = extend(StatusEffect, "hellfire", {});
 
 hellfire.speedMultiplier = 0.8;
 hellfire.armorMultiplier = 0.75;
@@ -88,31 +69,9 @@ hellfire.effect = hellfireFX;
 hellfire.color = Color.white;
 
 //helgravator's spore status
-const sporefire = extend(StatusEffect, "sporefire", {
-    update(unit, time){
-    if(Mathf.chance(0.1 * Time.delta)){
-        Tmp.v1.rnd(unit.type.hitSize/2);
-        this.super$update(unit, time);
-            if(unit.statuses.size > 0){
-                for(let i = 0; i < unit.statuses.size; i++){
-                    let Cs = unit.statuses.get(i).effect;
-                    print(Cs);
-                    if(Cs == StatusEffects.sapped){
-                        unit.apply(StatusEffects.sporeSlowed, time);
-                        unit.damageContinuousPierce(0.01);
-                        extraFireSporeFx.at(unit.x + Tmp.v1.x, unit.y + Tmp.v1.y);
-                    }
-                    else if(Cs == StatusEffects.sporeSlowed){
-                        unit.apply(StatusEffects.sapped, time);
-                        unit.damageContinuousPierce(0.01);
-                    }
-                }
-            }
-        }
-    }
-});
+const sporefire = extend(StatusEffect, "sporefire", {});
 
-sporefire.speedMultiplier = 1;
+sporefire.speedMultiplier = 0.6;
 sporefire.armorMultiplier = 0.75;
 sporefire.damage = 0.1;
 sporefire.effect = sporefireFx;
@@ -143,12 +102,14 @@ Draw.color(Color.white, Color.white, e.fin());
 const windswept = extend (StatusEffect ,"windswept", {
     update(unit, time){
     this.super$update(unit, time);
-    unit.impulse(Mathf.range(150), Mathf.range(150));
+     //unit.impulse(Tmp.v1.set(unit.x + 1 - Mathf.random(2), unit.y) + 1 - Mathf.random(2));
+     //print(Tmp.v3.set);
+     //print(unit.impulse);
     }
 });
 
-windswept.speedMultiplier = 0.8;
-windswept.damage = 0.08;
+windswept.speedMultiplier = 0.8
+windswept.damage = 0.08
 windswept.effect = windsweptFx;
 
 const blackoutFx = new Effect(35, e => {
@@ -167,7 +128,6 @@ const blackout = extend (StatusEffect, "blackout", {
     update(unit, time){
         this.super$update(unit, time);
         let unitHpc = unit.health/unit.maxHealth;
-        if(Mathf.chance(Time.delta)){
         if(unitHpc > 0.5){
         unit.damageContinuousPierce(unit.maxHealth/2000 * unitHpc);
         }
@@ -195,43 +155,9 @@ const blackout = extend (StatusEffect, "blackout", {
         }
         Puddles.deposit(Vars.world.tileWorld(unit.x + Mathf.random(10), unit.y + Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
     }
-    }
 });
-blackout.damage = 0.05;
+blackout.damage = 0;
 blackout.effect = blackoutFx;
-
-const groveCurseFx = new Effect(25, e => {
-    Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, e.fin());
-    Fill.circle(e.x, e.y, e.fout());
-    Lines.spikes(e.x, e.y, e.fin() * 3, e.fout() * 5, 3, e.fin() * 4);
-});
-
-const groveCurse = extend(StatusEffect, "groveCurse", {
-    update(unit, time){
-        if(Mathf.chance(0.1 * Time.delta)){
-            this.super$update(unit, time);
-            let rad = 3;
-        
-            Units.nearby(unit.x, unit.y, rad * 8, rad * 8, cons(u => {
-            if(Mathf.dst(unit.x, unit.y, u.x, u.y) < 40){
-                if(!u.isDead) {u.apply(groveCurse, time * 0.9);}
-                }
-            }));
-            if(unit.statuses.size > 0){
-                for(let i = 0; i < unit.statuses.size; i++){
-                    let Cs = unit.statuses.get(i).effect;
-                    if(Cs == StatusEffects.burning){
-                        unit.apply(windswept, time);
-                        unit.damageContinuousPierce(0.05);
-                        Fires.create(Vars.world.tileWorld(unit.x,unit.y));
-                    }
-                }
-            }
-        }
-        }
-});
-groveCurse.damage = 0.1;
-groveCurse.effect = groveCurseFx;
 
     module.exports = {
     ionisedStatus: ionisedStatus,
@@ -239,6 +165,5 @@ groveCurse.effect = groveCurseFx;
     hellfire: hellfire, 
     sporefire: sporefire,
     windswept: windswept,
-    blackout: blackout,
-    groveCurse: groveCurse
+    blackout: blackout
 };

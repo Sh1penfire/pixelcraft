@@ -1,5 +1,4 @@
 const fc = require("libs/fc");
-const statuses = require("libs/statuses");
 
 const shotFx = new Effect(20, e => {
   Draw.color(Color.valueOf("E06FFFFF"), Color.lightGray, e.fout()); 
@@ -21,7 +20,6 @@ const ironBullet = extend(BasicBulletType, {
 });
 ironBullet.hitEffect = Fx.none;
 ironBullet.despawnEffect = Fx.none;
-ironBullet.status = statuses.windswept;
 
 const magnitineBullet = extend(BasicBulletType, {
     speed: 4,
@@ -39,7 +37,6 @@ const magnitineBullet = extend(BasicBulletType, {
 
 magnitineBullet.hitEffect = Fx.none;
 magnitineBullet.despawnEffect = Fx.none;
-magnitineBullet.status = statuses.windswept;
 
 const ironShot = extend(BasicBulletType, {
     draw(e){},

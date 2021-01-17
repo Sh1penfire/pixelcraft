@@ -3,16 +3,14 @@ description: "A powerfull sniper that plants landmines wherever it hits. 'And th
 health: 4500
 range: 250
 size: 4
-reloadTime: 4
+reloadTime: 6
 shots: 1
 insulated: true
 buildVisibility: shown
-requirements: [
-  iron/350    
-  magnitine/300
-  titanium/360
-  feromagnet/240
-  stelarcrim/150
+requirements: [    
+  magnitine/250
+  titanium/150
+  feromagnet/50
 ]
 category: turret
 research: flamethrower3

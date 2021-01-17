@@ -16,22 +16,23 @@ targetAir: true
 targetGround: false
 shootType: {
 	type: BasicBulletType
-	speed: 1
+	speed: 10
 	damage: 15
 	lifetime: 45
 	width: 2
 	height: 5
 	drag: 0.04
-	frontColor: 86baf9
-	backColor: 86baf9
+	//frontColor: 86baf9
+	//backColor: 86baf9
 	trailColor: 86baf9
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
 	despawnEffect: hitLancer
 	fragBullets: 4
-	homingRange: 100
-	homingPower: 1
+//	homing: true
+//	homingRange: 100
+//	homingPower: 1
 	fragBullet: {
 	type: BasicBulletType
 	speed: 10
@@ -40,14 +41,15 @@ shootType: {
 	width: 2
 	height: 5
 	drag: 0.04
-	frontColor: 86baf9
-	backColor: 86baf9
+	//frontColor: 86baf9
+	//backColor: 86baf9
 	trailColor: 86baf9
 	smokeEffect: hitBulletBig
 	hitEffect: hitLancer
 	despawnEffect: hitLancer
-	homingRange: 100
-	homingPower: 1
+//	homing: true
+//	homingRange: 100
+//	homingPower: 1
 }
 }
 requirements: [

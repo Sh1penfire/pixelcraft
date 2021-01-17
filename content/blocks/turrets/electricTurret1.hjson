@@ -1,11 +1,10 @@
 type: PowerTurret
 name: Pace
-description: Has powerfull missiles made of compacted electricity (somehow). 
-details:"Thunder is nothing compared to the storm it came from, but it keeps you running."
+description: Thunder is nothing compared to the storm it came from, but it keeps you running. Has powerfull missiles made of compacted electricity (somehow). 
 health: 220
 size: 1
-reloadTime: 30
-range: 140
+reloadTime: 60
+range: 100
 shots: 3
 powerUse: 2
 rotateSpeed: 6
@@ -17,13 +16,13 @@ targetGround: false
 shootType: {
 	type: MissileBulletType
 	speed: 6
-	damage: 15
+	damage: 10
 	lifetime: 60
 	width: 3
 	height: 10
 	drag: 0.04
-	frontColor: 86baf9
-	backColor: 86baf9
+	//frontColor: 86baf9
+	//backColor: 86baf9
 	trailColor: 86baf9
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
@@ -32,20 +31,23 @@ shootType: {
 	weaveScale: 1
 	weaveMag: 1
 	fragBullets: 3
+	pierce: true
 	status: melting
+//	homingRange: 8
+//	homingPower: 0.01
 	collides: true
-	collidesGround: false
 	collidesTiles: false
 	collidesAir: true
 	fragBullet: {
 	type: basicBulletType
 	damage: 5
 	status: burning
+	//backColor: 86baf9
+	trailColor: 86baf9
 	lifetime: 20
 	hitEffect: hitLancer
 	despawnEffect: hitBulletSmall
-	collides: true
-	collidesGround: false
+	collides: false
 	collidesTiles: false
 	collidesAir: true
 }
