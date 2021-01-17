@@ -1,3 +1,5 @@
+const statuses = require("libs/statuses");
+
 const shortCooldown = 20;
 const smallCooldown = 30;
 const mediumCooldown = 60;
@@ -101,7 +103,23 @@ const surgeShockwave = new Effect(50, e => {
   })
 });
 
+const bioThorn = new Effect(55, e => {
+    Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, e.fin());
+    Fill.circle(e.x, e.y, e.fout());
+    Lines.spikes(e.x, e.y, e.fout() * 7, e.fout() * 5, 8, e.fin() * 4);
+});
+      
+const bioHeal = new Effect(55, e => {
+    Draw.color(Color.valueOf("#ced671"), Color.black, Pal.darkMetal, e.fin());
+    Fill.circle(e.x, e.y, e.fout());
+    Lines.spikes(e.x, e.y, e.fin() * 7, e.fout() * 5, 4, e.fin() * 4);
+});
 
+const bioLight = new Effect(55, e => {
+    Draw.color(Color.valueOf("#ced671"), Color.green, Pal.darkMetal, e.fin());
+    Fill.circle(e.x, e.y, e.fout());
+    Lines.spikes(e.x, e.y, e.fout() * 7, e.fout() * 5, 6, e.fin() * 5);
+});
       
 const prismium = new StatusEffect("prismium");
 prismium.speedMultiplier = 1;
@@ -195,12 +213,14 @@ const lightning1 = extend(LightningBulletType, {});
 lightning1.damage = 25;
 lightning1.lightningLength = 8;
 lightning1.lifetime = 50;
+lightning1.status = StatusEffects.shocked;
 lightning1.lightningColor = Pal.surge;
 
 const lightning2 = extend(LightningBulletType, {});
 lightning2.damage = 25;
 lightning2.lightningLength = 10;
 lightning2.lifetime = 50;
+lightning2.status = StatusEffects.shocked;
 lightning2.lightningColor = Color.yellow;
 
 const coalExplosion = extend(BombBulletType, {});
@@ -226,7 +246,7 @@ blastExplosion.splashDamageRadius = 35;
 blastExplosion.splashDamage = 85;
 blastExplosion.lifetime = 0;
 blastExplosion.incendAmount = 0;
-blastExplosion.status = StatusEffects.burning;
+blastExplosion.status = StatusEffects.blasted;
 blastExplosion.despawnEffect = Fx.blastExplosion;
 blastExplosion.hitEffect = Fx.blastExplosion;
 
@@ -361,7 +381,7 @@ const bombT1m1 = extendContent(ShockMine, "bombT1m1", {
 bombT1m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m1, {
 	unitOn(b){
         if(b.team != this.team){
-            if (this.timer.get(0, mediumCooldown)) {
+            if(this.timer.get(0, mediumCooldown)) {
                 coalExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
                 Fx.fire.at(this.x, this.y);
                 this.damage(this.maxHealth / 1.1);
@@ -373,6 +393,10 @@ bombT1m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m1, {
     pyraExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
     //this.kill()
     this.remove()
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
     }
 });
 
@@ -399,6 +423,10 @@ bombT1m2.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m2, {
                 this.damage(this.maxHealth / 25);
             }
         }
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
     }
 });
 
@@ -425,6 +453,10 @@ bombT1m3.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m3, {
                 this.damage(this.maxHealth / 15);
             }
         }
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
     }
 });
 
@@ -451,6 +483,10 @@ bombT1m4.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m4, {
             plastExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
             plastDust.at(this.x, this.y);
         }
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
     }
 });
 
@@ -479,6 +515,10 @@ bombT1m5.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m5, {
             sporeExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(5));
             sporeCooldown.at(this.x, this.y);
         }
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
     }
 });
 
@@ -496,7 +536,7 @@ const bombT1m6 = extendContent(ShockMine, "bombT1m6", {
     this.stats.add(Stat.damage, "15");
     }
 });
-cryoGush
+
 bombT1m6.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m6, {
 	unitOn(b){
         if (this.timer.get(0, extrememlyLongCooldown)) {
@@ -512,6 +552,10 @@ bombT1m6.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m6, {
     cryoLeak.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
     //this.kill()
     this.remove()
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
     }
 });
 
@@ -541,6 +585,10 @@ bombT1m7.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m7, {
             surgeShockwave.at(this.x, this.y);
             Sounds.spark.at(this.x, this.y);
         }
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
     }
 });
 
@@ -584,8 +632,69 @@ bombT1m8.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m8, {
             Sounds.spark.at(this.x, this.y);
             Sounds.explosion.at(this.x, this.y);
         }
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
     }
 });
+
+
+
+const bombT2m1 = extendContent(ShockMine, "bombT2m1", {
+  icons(){
+    return [
+      Core.atlas.find("pixelcraft-bombT2m1")
+    ];
+  },
+  setStats(){
+    this.super$setStats();
+    this.stats.add(Stat.health, "+ 0.6 ps");
+    this.stats.add(Stat.range, "0");
+    this.stats.add(Stat.reload, "0.5")
+    this.stats.add(Stat.damage, "25");
+    }
+});
+
+bombT2m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT2m1, {
+	unitOn(b){
+        if (this.timer.get(0, mediumCooldown)){
+            if(b.team != this.team){
+                this.damage(this.maxHealth / 100);
+                b.damage(25);
+                b.apply(statuses.groveCurse, 360);
+                bioThorn.at(b.x, b.y);
+            }
+            else{
+                if(b.health != b.maxHealth){
+                    this.damage(this.maxHealth / 200);
+                    b.heal(25);
+                    bioHeal.at(b.x, b.y);
+                }
+                else{
+                bioLight.at(b.x, b.y);
+                }
+            }
+        }
+    },
+    update(){
+        this.super$update();
+        if(this.health < this.maxHealth){
+            this.heal(0.01);
+        }
+    },
+    onDestroyed(){
+    this.super$onDestroyed();
+    pyraExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
+    this.remove()
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
+    }
+});
+
+
 module.exports = {
     prisBullets: prisBullets,
     prismaticCrystal: prismaticCrystal

@@ -1,43 +1,41 @@
-type: ItemTurret
-name: Dust
-description: "Medium ranged turret that scatters bullets around itself. Initial shot causes a shockwave"
+name: Chalembra
+description: "Medium ranged turret that scatters bullets around itself. Launches bullets further at the longer sides."
 health: 300
 size: 2
 shootSound: respawning
-reloadTime: 15
-range: 100
-shots: 1
+reloadTime: 25
+range: 132
+shots: 8
+recoil: 0
 ammoUseEffect: none
 rotateSpeed: 10
 spread: 36
 ammoTypes: {
-magnitine: {
+iron: {
 type: basicBulletType
-speed: 10
-damage: 0
-width: 4
-height: 9
-shootEffect: none
-smokeEffect: none
-lifetime: 0
-collides: false
-fragBullets: 25
-hitEffect: none
-despawnEffect: none
-splashDamage: 10
-splashDamageRadius: 100
-fragBullet:{
-damage: 5
-knockback: 4
+damage: 25
 lifetime: 125
-splashDamage: 2
-splashDamageRadius: 8
 hitEffect: none
 despawnEffect: none
 status: slow
-statusDuration: 20
+statusDuration: 60
 shrinkY: 1
 }
+
+magnitine: {
+type: basicBulletType
+damage: 45
+knockback: 1
+lifetime: 125
+splashDamage: 4
+width: 8
+height: 18
+splashDamageRadius: 18
+hitEffect: none
+despawnEffect: none
+status: slow
+statusDuration: 60
+shrinkY: 1
 }
 }
 requirements: [

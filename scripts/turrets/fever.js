@@ -69,20 +69,17 @@ landMine.hitEffect = Fx.explosion;
 
 const groveExplosion = extend(BombBulletType, {});
 groveExplosion.splashDamageRadius = 35;
-groveExplosion.splashDamage = 35;
+groveExplosion.splashDamage = 5;
 groveExplosion.lifetime = 0;
-groveExplosion.incendAmount = 3;
-groveExplosion.status = statuses.hellfire;
+groveExplosion.status = statuses.groveCurse;
 groveExplosion.statusDuration = 900;
 groveExplosion.despawnEffect = Fx.none;
 groveExplosion.hitEffect = Fx.none;
-groveExplosion.fragBullets = 10;
-groveExplosion.fragBullet = liquid1;
 groveExplosion.hitSound = Sounds.none;
 
 const flamingGrove = extend(BombBulletType, {
     update(b){
-        if(Mathf.random() < 0.2){
+        if(Mathf.random() < 0.05){
                 groveExplosion.create(b.owner, b.team, b.x + Mathf.random(40) - 20, b.y + Mathf.random(40) - 20, Mathf.random(360), Mathf.random(3));
                 Fx.explosion.at(b.x, b.y);
         }
@@ -91,10 +88,9 @@ const flamingGrove = extend(BombBulletType, {
 flamingGrove.width = 0;
 flamingGrove.heigh = 0;
 flamingGrove.splashDamageRadius = 15;
-flamingGrove.splashDamage = 25;
+flamingGrove.splashDamage = 15;
 flamingGrove.lifetime = 240;
 flamingGrove.drag = 0.05;
-flamingGrove.incendAmount = 5;
 flamingGrove.despawnEffect = Fx.explosion;
 flamingGrove.hitEffect = Fx.explosion;
 
@@ -155,12 +151,12 @@ const flBionorb = extend(MissileBulletType, {
     },
     drawLight(b){},
     draw(b){
-        Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, b.fin());
+        Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, b.fin());
         Fill.circle(b.x, b.y, 0.65 + b.fout() * 2);
     }
 });
 
-flBionorb.damage = 45;
+flBionorb.damage = 25;
 flBionorb.speed = 16;
 flBionorb.homingPower = 0;
 flBionorb.pierce = true;
@@ -169,6 +165,7 @@ flBionorb.lifetime = 15;
 flBionorb.hitSize = 4;
 flBionorb.collides = true;
 flBionorb.collidesAir = true;
+flBionorb.status = statuses.groveCurse;
 flBionorb.trailEffect = Fx.none;
 flBionorb.trailChance = 1;
 flBionorb.hitEffect = Fx.explosion;
