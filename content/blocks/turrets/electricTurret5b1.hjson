@@ -1,5 +1,5 @@
 name: "Pafer"
-description: "The storm has closed in, gracefully drifting around it's target, while showering it with downpour. Snipes targets with a beam of light. Upon collision, it summons a vortex to electrocute targets and weather down their armor. The vortex lasts 2 seconds and electrocutes near by targets using lightning and missiles of compact electricity. Has a considerable amount of range."
+description: "Uses power to attack from a distance. Creates three projectiles which shoot at their target."
 size: 4
 range: 400
 shootEffect: none

@@ -287,8 +287,8 @@ electricTurret5b1.buildType = () => extendContent(PowerTurret.PowerTurretBuild, 
         let rot1 = this.rotation - 90;
         let shootOffset = 8 - 0.05;
         
-        shot2.create(this, this.team, this.x + Math.cos(rot1/180 * Math.PI) * shootOffset,  this.y + Math.sin(rot1/180 * Math.PI) * shootOffset, this.rotation, shot2.speed * 0.5);
-        shot2.create(this, this.team, this.x - Math.cos(rot1/180 * Math.PI) * shootOffset, this.y - Math.sin(rot1/180 * Math.PI) * shootOffset, this.rotation, shot2.speed * 0.5);
+        shot2.create(this, this.team, this.x + Math.cos(rot1/180 * Math.PI) * shootOffset,  this.y + Math.sin(rot1/180 * Math.PI) * shootOffset, this.rotation - 5, shot2.speed * 0.5);
+        shot2.create(this, this.team, this.x - Math.cos(rot1/180 * Math.PI) * shootOffset, this.y - Math.sin(rot1/180 * Math.PI) * shootOffset, this.rotation + 5, shot2.speed * 0.5);
     },
     draw(){
         let rot1 = this.rotation - 90;

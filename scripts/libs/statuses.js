@@ -119,21 +119,21 @@ sporefire.effect = sporefireFx;
 sporefire.color = Color.white;
 
 //wind struck effect
-const windsweptFx = new Effect(25, e => {
+const windsweptFx = new Effect(15, e => {
 Draw.color(Color.white, Color.white, e.fin());
     Lines.stroke(e.fin() * 1);
     Lines.circle(e.x, e.y, e.fin() * 0.5);
     Lines.line(
-        e.x + Mathf.sin(e.fout() * 2) * e.fout() * -20 + Mathf.sin(e.fout() * 2),
-        e.y + Mathf.cos(e.fout() * 2) * e.fout() * -20 + Mathf.sin(e.fout() * 2),
-        e.x + Mathf.sin(e.fout() * 2) * e.fout() * 20 + Mathf.cos(e.fout() * 2),
-        e.y + Mathf.cos(e.fout() * 2) * e.fout() * 20 + Mathf.cos(e.fout() * 2)
+        e.x + Mathf.sin(e.fout() * 2) * e.fout() * -5 + Mathf.sin(e.fout() * 2),
+        e.y + Mathf.cos(e.fout() * 2) * e.fout() * -5 + Mathf.sin(e.fout() * 2),
+        e.x + Mathf.sin(e.fout() * 2) * e.fout() * 5 + Mathf.cos(e.fout() * 2),
+        e.y + Mathf.cos(e.fout() * 2) * e.fout() * 5 + Mathf.cos(e.fout() * 2)
     );
     Lines.line(
-        e.x + Mathf.cos(e.fout() * 2) * e.fout() * -20 + Mathf.cos(e.fout() * 2),
-        e.y + Mathf.sin(e.fout() * 2) * e.fout() * 20 + Mathf.cos(e.fout() * 2),
-        e.x + Mathf.cos(e.fout() * 2) * e.fout() * 20 + Mathf.sin(e.fout() * 2),
-        e.y + Mathf.sin(e.fout() * 2) * e.fout() * -20 + Mathf.sin(e.fout() * 2)
+        e.x + Mathf.cos(e.fout() * 2) * e.fout() * -5 + Mathf.cos(e.fout() * 2),
+        e.y + Mathf.sin(e.fout() * 2) * e.fout() * 5 + Mathf.cos(e.fout() * 2),
+        e.x + Mathf.cos(e.fout() * 2) * e.fout() * 5 + Mathf.sin(e.fout() * 2),
+        e.y + Mathf.sin(e.fout() * 2) * e.fout() * -5 + Mathf.sin(e.fout() * 2)
     );
 });
 

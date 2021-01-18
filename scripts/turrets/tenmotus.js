@@ -63,25 +63,44 @@ const shadowShot = new Effect(15, e => {
 const freezingShot = extend(PointBulletType, {
     speed: 32,
     lifeimte: 20,
-    damage: 250,
-    splashDamage: 115,
+    damage: 340,
     splashDamageRadius: 35,
     hitEffect: cryoexplosion,
+    despawnEffect: cryoShot,
     trailEffect: cryoTrail,
     shootEffect: cryoShot,
     trailSpacing: 2,
     collides: true,
     collidesAir: true,
-    collidesGround: true,});
+    collidesGround: true,
+    buildingDamageMultiplier: 0,
+    setStats(){
+    this.super$setStats();
+    this.stats.add(Stat.splashDamage, "115");
+    this.stats.add(Stat.splashDamageRadius, "45");
+    },
+    hit(b){
+        cryoexplosion.at(b.x, b.y);
+        let rad = 6;
+        Units.nearby(b.x, b.y, rad * 8, rad * 8, cons(u => {
+        if(Mathf.dst(b.x, b.y, u.x, u.y) < 45){
+            if(!u.isDead) {
+                u.apply(StatusEffects.freezing, 360);
+                u.damageContinuousPierce(115);
+                print(u);
+                }
+            }
+        }));
+    }
+});
 
 const magnetineFrag = extend(BasicBulletType, {
-	damage: 5,
-	splashDamage: 5,
-	splashDamageRadius: 20,
+	damage: 25,
 	lifetime: 100,
 	shrinkY: 1,
 	homingRange: 100,
-	homingPower: 10
+	homingPower: 10,
+    buildingDamageMultiplier: 0
 });
 magnetineFrag.frontColor = Color.valueOf("ffffff");
 magnetineFrag.backColor = Color.valueOf("ffffff");
@@ -100,7 +119,8 @@ const fragShot = extend(PointBulletType, {
     trailSpacing: 2,
 	collides: true,
 	collidesAir: true,
-	collidesTiles: true
+	collidesTiles: true,
+    buildingDamageMultiplier: 0
 });
 fragShot.frontColor = Color.valueOf("ffffff");
 fragShot.backColor = Color.valueOf("ffffff");
@@ -127,6 +147,7 @@ const blackoutShot = extend(BombBulletType, {
     collides: true,
     collidesAir: true,
     collidesGround: true,
+    buildingDamageMultiplier: 0
 });
 blackoutShot.status = statuses.blackout;
 blackoutShot.statusDuration = 3600;
@@ -144,6 +165,12 @@ const railgun3 = extendContent(ItemTurret, "railgun3", {
 
 
 railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
+    findTarget(){
+        let TempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+        if(TempTarget != null){
+            this.target = TempTarget;
+        }
+    },
     shoot(type){
         let timer = 1
 
