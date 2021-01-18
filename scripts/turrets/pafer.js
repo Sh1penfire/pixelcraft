@@ -1,144 +1,61 @@
-//effect when bullet breaks
-const shotHit = new Effect(40, e => {
-  Draw.color(Color.white, Color.valueOf("#719df4"), e.fin());
-    Lines.stroke(e.fslope() * 3);
-    Lines.line(
-        e.x + Mathf.sin(e.fout() * 2) * e.fout() * -20,
-        e.y + Mathf.cos(e.fout() * 2) * e.fout() * -20,
-        e.x + Mathf.sin(e.fout() * 2) * e.fout() * 20,
-        e.y + Mathf.cos(e.fout() * 2) * e.fout() * 20
-    );
-    Lines.line(
-        e.x + Mathf.cos(e.fout() * 2) * e.fout() * -20,
-        e.y + Mathf.sin(e.fout() * 2) * e.fout() * 20,
-        e.x + Mathf.cos(e.fout() * 2) * e.fout() * 20,
-        e.y + Mathf.sin(e.fout() * 2) * e.fout() * -20
-    );
-});
-
-const explosions = new Effect(120, e => {
-  Draw.color(Color.white, Color.valueOf("#719df4"), e.fin());
-    Lines.stroke(e.fslope() * 4);
-    Lines.line(
-        e.x + Mathf.sin(e.fout() * 2) * e.fin() * -50,
-        e.y + Mathf.cos(e.fout() * 2) * e.fin() * -50,
-        e.x + Mathf.sin(e.fout() * 2) * e.fin() * 50,
-        e.y + Mathf.cos(e.fout() * 2) * e.fin() * 50
-    );
-    Lines.line(
-        e.x + Mathf.cos(e.fout() * 2) * e.fin() * -50,
-        e.y + Mathf.sin(e.fout() * 2) * e.fin() * 50,
-        e.x + Mathf.cos(e.fout() * 2) * e.fin() * 50,
-        e.y + Mathf.sin(e.fout() * 2) * e.fin() * -50
-    );
-    Lines.stroke(e.fslope() * 8);
-    Lines.line(
-        e.x + Mathf.sin(e.fout() * 4) * e.fin() * -30,
-        e.y + Mathf.cos(e.fout() * 4) * e.fin() * -30,
-        e.x + Mathf.sin(e.fout() * 4) * e.fin() * 30,
-        e.y + Mathf.cos(e.fout() * 4) * e.fin() * 30
-    );
-    Lines.line(
-        e.x + Mathf.cos(e.fout() * 4) * e.fin() * -30,
-        e.y + Mathf.sin(e.fout() * 4) * e.fin() * 30,
-        e.x + Mathf.cos(e.fout() * 4) * e.fin() * 30,
-        e.y + Mathf.sin(e.fout() * 4) * e.fin() * -30
-    );
-});
-
-const shootFX = new Effect(25, e => {
-  Draw.color(Color.white, Color.valueOf("#719df4"), e.fin());
-    Lines.stroke(e.fslope() * 2);
-    Lines.line(
-        e.x + Mathf.sin(e.fout() * 2) * e.fin() * -25,
-        e.y + Mathf.cos(e.fout() * 2) * e.fin() * -25,
-        e.x + Mathf.sin(e.fout() * 2) * e.fin() * 25,
-        e.y + Mathf.cos(e.fout() * 2) * e.fin() * 25
-    );
-    Lines.line(
-        e.x + Mathf.cos(e.fout() * 2) * e.fin() * -25,
-        e.y + Mathf.sin(e.fout() * 2) * e.fin() * 25,
-        e.x + Mathf.cos(e.fout() * 2) * e.fin() * 25,
-        e.y + Mathf.sin(e.fout() * 2) * e.fin() * -25
-    );
-    Lines.stroke(e.fslope() * 8);
-    Lines.line(
-        e.x + Mathf.cos(e.fout() * 4) * e.fin() * -15,
-        e.y + Mathf.sin(e.fout() * 4) * e.fin() * -15,
-        e.x + Mathf.cos(e.fout() * 4) * e.fin() * 15,
-        e.y + Mathf.sin(e.fout() * 4) * e.fin() * 15
-    );
-    Lines.line(
-        e.x + Mathf.sin(e.fout() * 4) * e.fin() * -15,
-        e.y + Mathf.cos(e.fout() * 4) * e.fin() * 15,
-        e.x + Mathf.sin(e.fout() * 4) * e.fin() * 15,
-        e.y + Mathf.cos(e.fout() * 4) * e.fin() * -15
-    );
-    Lines.stroke(e.fslope() * 4);
-    Lines.line(
-        e.x + Mathf.sin(e.fin() * 2) * e.fout() * -50,
-        e.y + Mathf.cos(e.fin() * 2) * e.fout() * -50,
-        e.x + Mathf.sin(e.fin() * 2) * e.fout() * 50,
-        e.y + Mathf.cos(e.fin() * 2) * e.fout() * 50
-    );
-    Lines.line(
-        e.x + Mathf.cos(e.fin() * 2) * e.fout() * -50,
-        e.y + Mathf.sin(e.fin() * 2) * e.fout() * 50,
-        e.x + Mathf.cos(e.fin() * 2) * e.fout() * 50,
-        e.y + Mathf.sin(e.fin() * 2) * e.fout() * -50
-    );
-    Lines.stroke(e.fslope() * 8);
-    Lines.line(
-        e.x + Mathf.sin(e.fin() * 4) * e.fout() * -30,
-        e.y + Mathf.cos(e.fin() * 4) * e.fout() * -30,
-        e.x + Mathf.sin(e.fin() * 4) * e.fout() * 30,
-        e.y + Mathf.cos(e.fin() * 4) * e.fout() * 30
-    );
-    Lines.line(
-        e.x + Mathf.cos(e.fin() * 4) * e.fout() * -30,
-        e.y + Mathf.sin(e.fin() * 4) * e.fout() * 30,
-        e.x + Mathf.cos(e.fin() * 4) * e.fout() * 30,
-        e.y + Mathf.sin(e.fin() * 4) * e.fout() * -30
-    );
-});
+const Pfx = require("libs/paferEffects");
 
 const lightning = extend(LightningBulletType, {});
 lightning.damage = 10;
 lightning.lightningLength = 7;
 
 const seekerFrag = extend(BasicBulletType, {});
-seekerFrag.damage = 20;
+seekerFrag.damage = 10;
 seekerFrag.homingPower = 0.1;
+seekerFrag.buildingDamageMultiplier = 0.25;
 seekerFrag.frontColor = Color.valueOf("86baf9");
 seekerFrag.backColor = Color.valueOf("719df4");
 seekerFrag.pierce = false;
 seekerFrag.hitShake = 0;
 seekerFrag.drag = 0.05;
 seekerFrag.hitSound = Sounds.none;
-seekerFrag.pierce = true;
+seekerFrag.pierce = false;
 seekerFrag.collidesAir = true;
 seekerFrag.reflectable = false;
 seekerFrag.hittable = false;
 seekerFrag.absorbable = false;
 
 const seeker = extend(BasicBulletType, {});
-seeker.damage = 60;
+seeker.damage = 20;
 seeker.homingPower = 0.05;
+seeker.buildingDamageMultiplier = 0.25;
 seeker.frontColor = Color.valueOf("86baf9");
 seeker.backColor = Color.valueOf("719df4");
 seeker.pierce = false;
 seeker.hitShake = 0;
 seeker.drag = 0.03;
 seeker.hitSound = Sounds.none;
-seeker.pierce = true;
+seeker.pierce = false;
 seeker.collidesAir = true;
 seeker.reflectable = false;
 seeker.hittable = false;
 seeker.absorbable = false;
 
+const redSeeker = extend(BasicBulletType, {});
+redSeeker.damage = 5;
+redSeeker.homingPower = 0.01;
+redSeeker.homingPower = 0.01;
+redSeeker.buildingDamageMultiplier = 0.25;
+redSeeker.frontColor = Color.white;
+redSeeker.backColor = Color.red;
+redSeeker.pierce = false;
+redSeeker.hitShake = 0;
+redSeeker.drag = 0.05;
+redSeeker.hitSound = Sounds.none;
+redSeeker.pierce = false;
+redSeeker.collidesAir = true;
+redSeeker.reflectable = false;
+redSeeker.hittable = false;
+redSeeker.absorbable = false;
+
 const balloLight = extend(ArtilleryBulletType, {
     update(b){
-        if(Mathf.chance(Time.delta * 0.25)){
+        if(Mathf.chance(Time.delta)){
                     var target = Units.closestEnemy(b.team, b.x, b.y, 160, u => u.checkTarget(true, true));
                     if(target != null){
                         seeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target), 8);
@@ -154,55 +71,37 @@ const balloLight = extend(ArtilleryBulletType, {
         
     }
 });
-balloLight.lifeimte = 120;
+balloLight.lifeimte = 160;
 balloLight.collidesAir = true;
 balloLight.reflectable = false;
 balloLight.hittable = false;
 balloLight.absorbable = false;
 
-
-
-const shot = extend(MissileBulletType, {
+const balloCross = extend(ArtilleryBulletType, {
     update(b){
         if(Mathf.chance(Time.delta)){
-            var target = Units.closestEnemy(b.team, b.x, b.y, 120, u => u.checkTarget(true, true));
-            //Units.bestTarget(b.team, b.x, b.y, 30, u => u.checkTarget(true, true), 1);
-            this.super$update(b);
-            if(Mathf.dst(b.x, b.y, b.owner.x, b.owner.y) > 240){
-                this.despawned(b);
-                b.remove();
-            }
-            if(target != null){
-                this.despawned(b);
-                b.remove();
-            }
+                    var target = Units.closestEnemy(b.team, b.x, b.y, 160, u => u.checkTarget(true, true));
+                    if(target != null){
+                        redSeeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target) - 90 * b.fout(), 6);
+                        redSeeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target) + 90 * b.fout(), 6);
+                    }
+                    else{
+                        redSeeker.create(b.owner, b.team, b.x, b.y, b.fout() * 360 - b.rotation(), 4);
+                        redSeeker.create(b.owner, b.team, b.x, b.y, b.fin() * 360 - b.rotation(), 4);
+                    }
+            lightning.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(360));
+            
         }
     },
-    despawned(b){
-    shotHit.at(b.x, b.y);
-    transition.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
-    },
-    draw(e){
-        Draw.color(Color.white, Color.valueOf("0A01b7"), e.fslope());
-        Fill.circle(e.x, e.y, e.fout() * 3);
-        Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
-        Fill.circle(e.x, e.y, e.fout() * 2);
+    draw(b){
+        
     }
-})
-shot.damage = 250;
-shot.splashDamage = 100;
-shot.homingRange = 20
-shot.homingPower = 0.1;
-shot.speed = 2;
-shot.lifetime = 1000;
-shot.trailEffect = Fx.none;
-shot.shootEffect = shootFX;
-shot.trailSpacing = 5;
-shot.collidesTiles = false;
-shot.collidesAir = true;
-shot.reflectable = false;
-shot.hittable = false;
-shot.absorbable = false;
+});
+balloCross.lifeimte = 120;
+balloCross.collidesAir = true;
+balloCross.reflectable = false;
+balloCross.hittable = false;
+balloCross.absorbable = false;
 
 const transition = extend(ArtilleryBulletType, {
     update(b){
@@ -216,18 +115,140 @@ const transition = extend(ArtilleryBulletType, {
         
     },
     despawned(b){
-    explosions.at(b.x, b.y);
+    Pfx.explosions.at(b.x, b.y);
     balloLight.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
     },
     draw(e){
     }
 });
+
 transition.lifeimte = 40;
-transition.despawnEffect = explosions;
 transition.collidesAir = true;
 transition.reflectable = false;
 transition.hittable = false;
 transition.absorbable = false;
+
+const spreading = extend(ArtilleryBulletType, {
+    update(b){
+        if(Mathf.chance(Time.delta * 0.25)){
+            this.super$update(b);
+                var target = Units.closestEnemy(b.team, b.x, b.y, 160, u => u.checkTarget(true, true));
+                if(target != null){
+                    redSeeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target) + Mathf.range(25 * b.fout()), 8);
+                }
+        }
+        
+    },
+    despawned(b){
+    Pfx.explosions2.at(b.x, b.y);
+    balloCross.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
+    },
+    draw(e){
+    }
+});
+
+spreading.lifeimte = 40;
+spreading.collidesAir = true;
+spreading.reflectable = false;
+spreading.hittable = false;
+spreading.absorbable = false;
+
+const Random = Mathf.round(Mathf.random(1));
+const ballShots = [transition, spreading];
+const ballShotsEffects = [Pfx.shotHit, Pfx.shotHit2];
+const ballColours = [Color.valueOf("0A01b7"), Color.valueOf("ff341c")];
+
+const shot = extend(MissileBulletType, {
+    update(b){
+        if(Mathf.chance(Time.delta)){
+            var target = Units.closestEnemy(b.team, b.x, b.y, 120, u => u.checkTarget(true, true));
+            //Units.bestTarget(b.team, b.x, b.y, 30, u => u.checkTarget(true, true), 1);
+            this.super$update(b);
+            if(Mathf.dst(b.x, b.y, b.owner.x, b.owner.y) > 400){
+                var rotato = b.rotation() - b.owner.angleTo(b.x, b.y);
+                rotato = rotato * 2;
+                if(Mathf.chance(0.1)){
+                    b.vel.setAngle(b.rotation() * 180 - rotato);
+                }
+            }
+            if(target != null){
+                this.hit(b);
+                b.remove();
+            }
+        }
+    },
+    hit(b){
+    ballShots[0].create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
+    ballShotsEffects[0].at(b.x, b.y);
+    },
+    draw(e){
+        Draw.color(Color.white, ballColours[0], e.fslope());
+        Fill.circle(e.x, e.y, 3);
+        Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
+        Fill.circle(e.x, e.y, 2);
+    }
+});
+
+shot.damage = 250;
+shot.splashDamage = 100;
+shot.homingRange = 20
+shot.homingPower = 0.1;
+shot.speed = 2;
+shot.lifetime = 400;
+shot.trailEffect = Fx.none;
+shot.shootEffect = Pfx.shootFX;
+shot.trailSpacing = 5;
+shot.collidesTiles = true;
+shot.collidesAir = true;
+shot.reflectable = false;
+shot.hittable = false;
+shot.absorbable = false;
+
+const shot2 = extend(MissileBulletType, {
+    update(b){
+        if(Mathf.chance(Time.delta)){
+            var target = Units.closestEnemy(b.team, b.x, b.y, 45, u => u.checkTarget(true, true));
+            this.super$update(b);
+            if(Mathf.dst(b.x, b.y, b.owner.x, b.owner.y) > 400){
+                var rotato = b.rotation() - b.owner.angleTo(b.x, b.y);
+                rotato = rotato * 2;
+                if(Mathf.chance(0.1)){
+                    b.vel.setAngle(b.rotation() * 180 - rotato);
+                }
+            }
+            if(target != null){
+                this.hit(b);
+                b.remove();
+            }
+        }
+    },
+    hit(b){
+    ballShots[1].create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
+    ballShotsEffects[1].at(b.x, b.y);
+    },
+    draw(e){
+        Draw.color(Color.white, ballColours[1], e.fslope());
+        Fill.circle(e.x, e.y, 3);
+        Draw.color(Color.valueOf("0A01b7"), Color.valueOf("ff341c"), e.fslope());
+        Fill.circle(e.x, e.y, 2);
+    }
+});
+
+shot2.damage = 250;
+shot2.splashDamage = 100;
+shot2.homingRange = 100
+shot2.homingPower = 1;
+shot2.speed = 2;
+shot2.lifetime = 400;
+shot2.trailEffect = Fx.none;
+shot2.shootEffect = Pfx.shootFX;
+shot2.trailSpacing = 5;
+shot2.collidesTiles = true;
+shot2.collidesAir = true;
+shot2.reflectable = false;
+shot2.hittable = false;
+shot2.absorbable = false;
+
 
 const electricTurret5b1 = extendContent(PowerTurret, "electricTurret5b1", {
     icons(){
@@ -261,9 +282,17 @@ electricTurret5b1.reloadTime = 120;
 
 //Ok look, I ctrl vd a bit much here but at least I can say I know what I'm doing :D
 electricTurret5b1.buildType = () => extendContent(PowerTurret.PowerTurretBuild, electricTurret5b1, {
+    shoot(type){
+        this.super$shoot(type);
+        let rot1 = this.rotation - 90;
+        let shootOffset = 8 - 0.05;
+        
+        shot2.create(this, this.team, this.x + Math.cos(rot1/180 * Math.PI) * shootOffset,  this.y + Math.sin(rot1/180 * Math.PI) * shootOffset, this.rotation, shot2.speed * 0.5);
+        shot2.create(this, this.team, this.x - Math.cos(rot1/180 * Math.PI) * shootOffset, this.y - Math.sin(rot1/180 * Math.PI) * shootOffset, this.rotation, shot2.speed * 0.5);
+    },
     draw(){
         let rot1 = this.rotation - 90;
-        let shootOffset = this.heat * 4 - 0.05;
+        let shootOffset = this.heat * 6 - 0.05;
         
         Draw.rect(electricTurret5b1.baseRegion, this.x, this.y, 0);
         
