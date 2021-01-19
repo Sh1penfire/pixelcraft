@@ -1,2 +1,2 @@
-//type: OreBlock
-//itemDrop: rubble
+type: OreBlock
+itemDrop: rubble
