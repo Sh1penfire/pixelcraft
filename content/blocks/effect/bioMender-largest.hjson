@@ -1,12 +1,12 @@
 type: MendProjector
 name: "Bio Projector"
 description: "A biger block of metal covered in plant life to cool it's systems. Requires a small amount of power."
-reload: 75
+reload: 115
 range: 200
 baseColor: ccd28d
 phaseColor: ced671
 healPercent: 2
-phaseBoost: 3
+phaseBoost: 2
 phaseRangeBoost: 30
 useTime: 1000
 itemCapacity: 100

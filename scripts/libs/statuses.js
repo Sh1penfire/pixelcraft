@@ -74,7 +74,11 @@ const hellfire = extend(StatusEffect, "hellfire", {
             let rad = 3;
             Units.nearby(unit.x, unit.y, rad * 8, rad * 8, cons(u => {
             if(Mathf.dst(unit.x, unit.y, u.x, u.y) < 40){
-                if(!u.isDead) {u.apply(hellfire, time * 0.9);}
+                if(!u.isDead){
+                    if(u.team = unit.team){
+                        u.apply(hellfire, time * 0.9);
+                    }
+                }
                 }
             }));
         }
@@ -166,38 +170,50 @@ const voidic = new Effect(50, e => {
 const blackout = extend (StatusEffect, "blackout", {
     update(unit, time){
         this.super$update(unit, time);
+        let multiplier = -1;
+        let damageAmount = 0;
+        let damageMulti = 1;
+        if(unit.statuses.size > 0){
+            for(let i = 0; i < unit.statuses.size; i++){
+                    if(unit.statuses.get(i).effect !== StatusEffects.boss){
+                        multiplier = multiplier + damageMulti;
+                        damageMulti = damageMulti * 0.5;
+                    }
+                }
+            }
         let unitHpc = unit.health/unit.maxHealth;
         if(Mathf.chance(Time.delta)){
         if(unitHpc > 0.5){
-        unit.damageContinuousPierce(unit.maxHealth/2000 * unitHpc);
+        damageAmount = unit.maxHealth/1000;
         }
         else if(unitHpc < 0.01){
             voidic.at(unit.x, unit.y);
             unit.remove();
             unit.destroy();
-            unit.damageContinuousPierce(unit.maxHealth);
-                }
-        
+            damageAmount = unit.maxHealth;
+            }
         else if(unitHpc < 0.1){
-            unit.damageContinuousPierce(unit.health/60 + 6);
+            damageAmount = unit.health/60 + 6;
         }
 
         else if(unitHpc < 0.2){
-            unit.damageContinuousPierce(unit.maxHealth/8000);
+            damageAmount = unit.maxHealth/4000;
         }
         
         else if(unitHpc < 0.5){
-        unit.damageContinuousPierce(unit.maxHealth/6000);
+        damageAmount = unit.maxHealth/3000;
         }
         
         else{ 
-            unit.damageContinuousPierce(unit.maxHealth/4000);
+            damageAmount = unit.maxHealth/2000;
         }
+        unit.damageContinuousPierce(damageAmount * multiplier);
+        
         Puddles.deposit(Vars.world.tileWorld(unit.x + Mathf.random(10), unit.y + Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
     }
     }
 });
-blackout.damage = 0.05;
+blackout.damage = 0.00;
 blackout.effect = blackoutFx;
 
 const groveCurseFx = new Effect(25, e => {
@@ -208,11 +224,11 @@ const groveCurseFx = new Effect(25, e => {
 
 const groveCurse = extend(StatusEffect, "groveCurse", {
     update(unit, time){
+        this.super$update(unit, time);
         if(Mathf.chance(0.1 * Time.delta)){
-            this.super$update(unit, time);
             let rad = 3;
         
-            Units.nearby(unit.x, unit.y, rad * 8, rad * 8, cons(u => {
+            Units.nearby(unit.team, unit.x, unit.y, rad * 8, rad * 8, cons(u => {
             if(Mathf.dst(unit.x, unit.y, u.x, u.y) < 40){
                 if(!u.isDead) {u.apply(groveCurse, time * 0.9);}
                 }

@@ -5,9 +5,8 @@ Spans multiple tiles."
 type: Wall
 health: 800
 size: 1
-insulated: true
 requirements: [
-  magnitine/10
+  magnitine/6
 ]
 category: defense
 research: iron-wall

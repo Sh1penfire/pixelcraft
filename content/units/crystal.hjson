@@ -1,7 +1,7 @@
 name: "Crystal"
-description: "Fires frozen projectiles that slow targets. Has a slight layer or armor."
+description: "Fires frozen projectiles that slow targets."
 speed : 0.7
-health: 150
+health: 125
 armor: 2
 aimDst: 10
 faceTarget: true
@@ -24,8 +24,9 @@ rotate: false
 bullet: {
 type: BasicBulletType
 damage: 8
-speed: 3
+speed: 3.5
 lifetime: 50
+drag: 0.01
 hitSound: pew
 status: freezing
 statusDuration: 180

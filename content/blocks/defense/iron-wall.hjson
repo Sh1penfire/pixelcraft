@@ -5,7 +5,6 @@ Decaying from the rust"
 type: Wall
 health: 400
 size: 1
-insulated: true
 requirements: [
   iron/6
 ]

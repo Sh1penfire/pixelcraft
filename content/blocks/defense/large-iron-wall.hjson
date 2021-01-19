@@ -5,7 +5,6 @@ Spans multiple tiles. Decaying from the rust"
 type: Wall
 health: 1400
 size: 2
-insulated: true
 requirements: [
   iron/24
 ]

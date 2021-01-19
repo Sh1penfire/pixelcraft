@@ -5,7 +5,6 @@ Spans multiple tiles."
 type: Wall
 health: 2500
 size: 2
-insulated: true
 requirements: [
   magnitine/24
 ]

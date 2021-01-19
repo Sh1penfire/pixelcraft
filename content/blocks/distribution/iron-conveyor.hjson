@@ -3,7 +3,7 @@ name: Iron conveyor
 health: 50
 solid: false
 floating: true
-insulated: true
+insulated: false
 description: A starter conveyer. Replacement for copper conveyers.
 requirements: [
   iron/1

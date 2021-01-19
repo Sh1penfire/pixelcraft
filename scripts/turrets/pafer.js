@@ -262,6 +262,7 @@ const electricTurret5b1 = extendContent(PowerTurret, "electricTurret5b1", {
     this.outlinesCells = [];
     this.cellHeat = [];
     this.super$load();
+    this.region = Core.atlas.find(this.name);
     this.region2 = Core.atlas.find(this.name + "-immage");
     this.cells[0] = Core.atlas.find(this.name + "-wing1");
     this.cells[1] = Core.atlas.find(this.name + "-wing2");
@@ -292,9 +293,10 @@ electricTurret5b1.buildType = () => extendContent(PowerTurret.PowerTurretBuild, 
     },
     draw(){
         let rot1 = this.rotation - 90;
-        let shootOffset = this.heat * 6 - 0.05;
-        
+        let shootOffset = this.heat * 5 - 0.05;
         Draw.rect(electricTurret5b1.baseRegion, this.x, this.y, 0);
+        
+        if(this.heat > 0.01){
         
         Draw.rect(electricTurret5b1.region2Outline, this.x, this.y, this.rotation - 90);
         
@@ -319,5 +321,10 @@ electricTurret5b1.buildType = () => extendContent(PowerTurret.PowerTurretBuild, 
         Draw.color(Color.white, Color.white, 1);
         
         Draw.rect(electricTurret5b1.region2, this.x, this.y, this.rotation - 90);
+            
+        }
+        else{
+            Draw.rect(electricTurret5b1.region, this.x, this.y, this.rotation - 90);
+        }
     }
 });

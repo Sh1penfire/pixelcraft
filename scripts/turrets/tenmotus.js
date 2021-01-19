@@ -31,6 +31,7 @@ const cryoTrail = new Effect(20, e => {
 const magTrail = new Effect(15, e => {
     Draw.color(Color.white, Color.valueOf("c0c2d3"), e.fin());
     Lines.stroke(Math.abs(fc.helix(3, 3, e.fout())));
+    
     Lines.line(e.x,
                e.y,
                e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
@@ -137,8 +138,6 @@ const blackoutShot = extend(BombBulletType, {
     speed: 32,
     lifeimte: 20,
     damage: 450,
-    splashDamage: 90,
-    splashDamageRadius: 35,
     fragBullet: placeholdert,
     hitEffect: shadowWave,
     trailEffect: darknessTrail,

@@ -6,7 +6,7 @@ shootSound: respawning
 reloadTime: 25
 range: 132
 shots: 12
-recoil: 0
+recoilAmount: 0
 ammoUseEffect: none
 rotateSpeed: 10
 spread: 36
