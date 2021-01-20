@@ -5,8 +5,8 @@ details: "After it was found, the slag wars began. Sepulo was going through a pe
 speed : 0.75
 health: 125
 aimDst: 10
-range: 50
-maxRange: 200
+range: 140
+maxRange: 220
 buildSpeed: 2
 clipSize: 1
 faceTarget: true
