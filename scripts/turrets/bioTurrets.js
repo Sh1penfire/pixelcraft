@@ -43,10 +43,11 @@ const basicTurret2b2 = extend(ItemTurret, "basicTurret2b2", {
     }
 });
 
-const bioShot1 = extend(BombBulletType, {
+const bioShot1 = extend(ArtilleryBulletType, {
     width: 0,
     length: 0,
-    lifetime: 10,
+    lifetime: 360,
+    speed: 6,
     despawned(b){
         bioShot2.create(b.owner, b.team, b.x, b.y, b.rotation(), 0);
         b.time = 0;
@@ -121,16 +122,5 @@ basicTurret3b2.buildType = () => extend(ItemTurret.ItemTurretBuild, basicTurret3
         else if(tempTarget2 != null){
             this.target = tempTarget2;
         }
-    },
-    shoot(type){
-        
-        let limitationX = Math.cos(this.rotation/180 * Math.PI) * this.range();
-        let limitationY = Math.sin(this.rotation/180 * Math.PI) * this.range();
-        
-        let fireDst = Mathf.dst(this.x, this.y, fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x, fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y);
-        
-        type.create(this, this.team, fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x, fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y, this.rotation, 0);
-        
-        this.useAmmo();
     }
 });

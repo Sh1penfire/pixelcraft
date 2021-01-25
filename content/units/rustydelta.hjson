@@ -4,6 +4,7 @@ description: "Special combat model reworked by engineers."
 details: "Some went rogue. Others tried to help their relatives survive. In the end, it didn't matter though. The only places safe were now the ever increasing amount of caves."
 speed: 1
 health: 500
+armor: 2
 aimDst: 10
 range: 50
 maxRange: 200
@@ -48,15 +49,15 @@ top: false
 shootSound: spark
 x: 3.5
 y: 0
-rotate: false
+rotate: true
 shots: 3
 bullet: {
 type: LightningBulletType
-lightningLength: 7
-lightningLengthRand: 8
+lightningLength: 3
+lightningLengthRand: 5
 healPercent: 2
 collidesTeam: true
-damage: 5
+damage: 15
 }
 }
 {

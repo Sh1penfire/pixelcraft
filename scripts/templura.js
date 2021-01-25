@@ -74,4 +74,15 @@ const dessertWastelands = extend(SectorPreset, "dessert-wastelands", templura, 1
     alwaysUnlocked: true
 });
 
-
+module.exports = {
+    templura: templura,
+    ancientGrotto: ancientGrotto,
+    loggery: loggery,
+    rustedValley: rustedValley,
+    shatteredGlacier: shatteredGlacier,
+    crossroads: crossroads,
+    dunescapeCrags: dunescapeCrags,
+    sinkhole: sinkhole,
+    frozenFalls: frozenFalls,
+    dessertWastelands: dessertWastelands
+}
