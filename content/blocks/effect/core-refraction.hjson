@@ -1,13 +1,12 @@
 type: CoreBlock
-name: "Core reflection"
+name: "Core refraction"
 description: "refleccore"
+description: "What goes up must come down"
 health: "3000"
 itemCapacity: 4000
 size: 3
 unitCapModifier: 8
 unitType: rustydart
-//chanceDeflect: 10
-//flashHit: true
 requirements: [
   stone/3000
   iron/3000

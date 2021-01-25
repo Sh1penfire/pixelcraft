@@ -42,19 +42,50 @@ fragmentBomb.hitSound = Sounds.none;
 fragmentBomb.fragBullets = 10;
 fragmentBomb.fragBullet = fragment;
 
+//Meep help please, I can't understand why this dosn't work aaaaaaaa
+function shardUnit(name, DC, DR, type, build){
+    const unit = extendContent(type, name, {});
+    unit.constructor = bt => {
+        bt = extendContent(build, {
+            damage(amount){
+                amount = amount - amount * DR;
+                if(amount > this.maxHealth * DC){
+                    amount = this.maxHealth * DC;
+                }
+                this.super$damage(amount);
+            },
+            killed(){
+                Fx.explosion.at(this.x, this.y)
+                fragmentBomb.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
+                this.dead = true;
+            }
+        });
+        return bt;
+    }
+    unit.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 360, 360, 60));
+    unit.abilities.add(new StatusFieldAbility(warmth, 360, 360, 60));
+    return unit;
+};
+
 const cryFac = extendContent(UnitFactory, "cryFac", {});
 
+shardUnit("crystal", 0.95, 0.1, UnitType, MechUnit);
+/*
 const crystal = extendContent(UnitType, "crystal", {});
 crystal.constructor = () => extend(MechUnit, {
+    damage(amount){
+        if(amount > this.maxHealth - 1){
+            amount = this.maxHealth - 1;
+            this.super$damage(amount);
+        }
+    },
     killed(){     
         Fx.explosion.at(this.x, this.y)
         fragmentBomb.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
         this.dead = true;
     }
 });
-crystal.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 360, 360, 60));
-crystal.abilities.add(new StatusFieldAbility(warmth, 360, 360, 60));
-
+*/
 
 const stalactite = extendContent(UnitType, "stalactite", {});
 stalactite.constructor = () => extend(MechUnit, {

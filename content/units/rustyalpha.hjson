@@ -1,18 +1,18 @@
 type: mech
 name: "Rusty alpha"
-description: "Standard core unit in the days of old. Theres a note in magnitine. It says: After it was found, the slag wars began. What was once a peacefull world had volcanoes errupt all over the world and requried help."
-speed :0.75
-health: 275
+description: "Standard core unit in the days of old. Missiles seek out their targets."
+details: "After it was found, the slag wars began. Sepulo was going through a period of increased volcanic activity due to weak spots leftover from the planet's formation."
+speed : 0.75
+health: 125
 aimDst: 10
-range: 50
-maxRange: 200
+range: 140
+maxRange: 220
 buildSpeed: 2
 clipSize: 1
 faceTarget: true
 rotateShooting : true
 mineTier: 2
 mineSpeed: 7.5
-range: 100
 rotateSpeed: 15
 lowAltitude: true
 omniMovement: true
@@ -27,13 +27,15 @@ ejectEffect: casing2
 top: false
 shootSound: shoot
 x: 4
-y: -.5
+y: -1
 rotate: false
 bullet: {
 type: MissileBulletType
-damage: 2
-speed: 4
-lifetime: 25
+damage: 10
+speed: 5
+shrinkY: 0.3
+lifetime: 50
+drag: 0.025
 fragBullets: 3
 hitSound: pew
 fragBullet:{
@@ -45,41 +47,18 @@ speed: 1
 }
 {
 name: aged-blaster
-reload: 50
-alternate: false
-ejectEffect: casing1
-top: false
-shootSound: spark
-x: 4
-y: -1.2
-rotate: false
-shots: 2
-bullet: {
-type: LightningBulletType
-lightning: 2
-lightningLength: 5
-lightningLengthRand: 7
-healPercent: 2
-collidesTeam: true
-damage: 1
-speed: 4
-lifetime: 50
-}
-}
-{
-name: aged-blaster
 reload: 5
-alternate: true
+alternate: false
 ejectEffect: wet
 top: false
 shootSound: none
-x: 1
-y: -2.0
-rotate: true
+x: 0.9
+y: -2.1
+rotate: false
 bullet: {
 type: LiquidBulletType
 liquid: water
-damage: 6
+damage: 2
 speed: 4
 lifetime: 35
 knockback: 0.5
@@ -91,31 +70,6 @@ liquid: cryofluid
 damage :0.5
 speed: 2
 lifetime: 25
-}
-}
-}
-{
-name: aged-blaster-mount
-reload: 50
-alternate: false
-ejectEffect: casing2
-top: false
-shootSound: bigshot
-x: 0
-y: -3.0
-rotate: true
-bullet: {
-type: ArtilleryBulletType
-damage: 4
-speed: 2
-lifetime: 80
-fragBullets: 10
-hitSound: boom
-despawnEffect: explosion
-fragBullet:{
-type: BasicBulletType
-damage: 2
-speed: 2
 }
 }
 }]

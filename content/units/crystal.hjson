@@ -1,8 +1,8 @@
 name: "Crystal"
-description: "A frozen dagger, left out on the ice. Fires frozen projectiles that slow targets. Has a slight layer or armor."
+description: "Fires frozen projectiles that slow targets."
 speed : 0.7
-health: 150
-armor: 5
+health: 125
+armor: 2
 aimDst: 10
 faceTarget: true
 rotateShooting : true
@@ -19,16 +19,17 @@ ejectEffect: casing2
 top: false
 shootSound: shoot
 x: 3.5
-y: 3
+y: 2
 rotate: false
 bullet: {
 type: BasicBulletType
-damage: 10
-speed: 3
+damage: 8
+speed: 3.5
 lifetime: 50
+drag: 0.01
 hitSound: pew
 status: freezing
-statusDuration: 35
+statusDuration: 180
 frontColor: b6cad6
 backColor: d7e0e5
 despawnEffect: freezing

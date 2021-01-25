@@ -1,0 +1,80 @@
+name: "Rusty Javalin"
+description: "Assult ship that reaches extremely high speeds and can build."
+flying: true
+speed: 6
+health: 220
+armor: 3
+aimDst: 10
+hitSize: 8
+range: 50
+drag: 0.0001
+accel: 0.025
+maxRange: 200
+buildSpeed: 3
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 2
+mineSpeed: 8
+range: 100
+rotateSpeed: 7
+lowAltitude: false
+omniMovement: true
+canDrown: false
+payloadCapacity: 3
+weapons: [
+{
+name: none
+reload: 25
+shots: 2
+inaccuracy: 2
+alternate: true
+ejectEffect: none
+velocityRnd: 0.2
+spacing: 1
+shootSound: missile
+bullet:{
+type: MissileBulletType
+damage: 2
+status: corroded
+width: 8
+height: 8
+speed: 3
+drag: -0.03
+keepVelocity: false
+splashDamage: 1
+splashDamageRadius: 20
+lifetime: 90
+trailColor: b6c6fd
+frontColor: b6c6fd
+backColor: 86baf9
+hitEffect: explosion
+despawnEffect: explosion
+weaveScale: 8
+weaveMag: 2
+}
+}
+{
+name: none
+reload: 5
+alternate: true
+ejectEffect: none
+top: false
+shootSound: spark
+rotate: false
+x: 1.0
+y: -1.0
+bullet:{
+type: LightningBulletType
+status: corroded
+statusDuration: 50
+lightningLength: 10
+lightningLengthRand: 5
+healPercent: 2
+collidesTeam: true
+damage: 10
+}
+}]
+research: {
+parent: core-refraction
+}

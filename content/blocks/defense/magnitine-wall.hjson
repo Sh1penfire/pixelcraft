@@ -1,13 +1,12 @@
 name: "Magnitine wall"
 description: "A sturdy defensive block.
-Provides moderate protection from enemies Blocks electric arcs.
+Provides moderate protection from enemies.
 Spans multiple tiles."
 type: Wall
-health: 800
+health: 600
 size: 1
-insulated: true
 requirements: [
-  magnitine/10
+  magnitine/6
 ]
 category: defense
 research: iron-wall

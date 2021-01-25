@@ -2,6 +2,8 @@ const statuses = require("libs/statuses");
 const fc = require("libs/fc");
 const extras = require("extras/voidicsm");
 
+const firinDistance = 5;
+
 const cryoexplosion = new Effect(45, e => {
     Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
     Angles.randLenVectors(e.id, 25, e.finpow() * 75, e.rotation, 360, (x, y) => {
@@ -19,20 +21,21 @@ const cryoShot = new Effect(45, e => {
 
 const cryoTrail = new Effect(20, e => {
   Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
-  Lines.stroke(3 * e.fout());
+    Lines.stroke(Math.abs(fc.helix(7, 3, e.fout())));
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * 15,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * 15);
+               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
+               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
 });
 
 const magTrail = new Effect(15, e => {
     Draw.color(Color.white, Color.valueOf("c0c2d3"), e.fin());
-    Lines.stroke(Math.abs(fc.helix(7, 3, e.fout())));
+    Lines.stroke(Math.abs(fc.helix(3, 3, e.fout())));
+    
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * 15,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * 15);
+               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
+               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
 });
 
 const shadowWave = new Effect(50, e => {
@@ -43,11 +46,11 @@ const shadowWave = new Effect(50, e => {
 
 const darknessTrail = new Effect(30, e => {
   Draw.color(Color.black, Pal.darkMetal, e.fin());
-  Lines.stroke(5 * e.fout());
+    Lines.stroke(Math.abs(fc.helix(7, 5, e.fout())));
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * 15,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * 15);
+               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
+               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
 });
 
 const shadowShot = new Effect(15, e => {
@@ -61,25 +64,44 @@ const shadowShot = new Effect(15, e => {
 const freezingShot = extend(PointBulletType, {
     speed: 32,
     lifeimte: 20,
-    damage: 250,
-    splashDamage: 115,
+    damage: 340,
     splashDamageRadius: 35,
     hitEffect: cryoexplosion,
+    despawnEffect: cryoShot,
     trailEffect: cryoTrail,
     shootEffect: cryoShot,
     trailSpacing: 2,
     collides: true,
     collidesAir: true,
-    collidesGround: true,});
+    collidesGround: true,
+    buildingDamageMultiplier: 0,
+    setStats(){
+    this.super$setStats();
+    this.stats.add(Stat.splashDamage, "115");
+    this.stats.add(Stat.splashDamageRadius, "45");
+    },
+    hit(b){
+        cryoexplosion.at(b.x, b.y);
+        let rad = 6;
+        Units.nearby(b.x, b.y, rad * 8, rad * 8, cons(u => {
+        if(Mathf.dst(b.x, b.y, u.x, u.y) < 45){
+            if(!u.isDead) {
+                u.apply(StatusEffects.freezing, 360);
+                u.damageContinuousPierce(115);
+                print(u);
+                }
+            }
+        }));
+    }
+});
 
 const magnetineFrag = extend(BasicBulletType, {
-	damage: 5,
-	splashDamage: 5,
-	splashDamageRadius: 20,
+	damage: 25,
 	lifetime: 100,
 	shrinkY: 1,
 	homingRange: 100,
-	homingPower: 10
+	homingPower: 10,
+    buildingDamageMultiplier: 0
 });
 magnetineFrag.frontColor = Color.valueOf("ffffff");
 magnetineFrag.backColor = Color.valueOf("ffffff");
@@ -98,11 +120,13 @@ const fragShot = extend(PointBulletType, {
     trailSpacing: 2,
 	collides: true,
 	collidesAir: true,
-	collidesTiles: true
+	collidesTiles: true,
+    buildingDamageMultiplier: 0
 });
 fragShot.frontColor = Color.valueOf("ffffff");
 fragShot.backColor = Color.valueOf("ffffff");
-fragShot.shootEffect = Fx.shootSmall;
+fragShot.shootEffect = Fx.none;
+fragShot.smokeEffect = Fx.none;
 fragShot.hitEffect = Fx.hitBulletBig;
 fragShot.despawnEffect = Fx.none;
 fragShot.ammoUseEffect = Fx.none;
@@ -114,8 +138,6 @@ const blackoutShot = extend(BombBulletType, {
     speed: 32,
     lifeimte: 20,
     damage: 450,
-    splashDamage: 90,
-    splashDamageRadius: 35,
     fragBullet: placeholdert,
     hitEffect: shadowWave,
     trailEffect: darknessTrail,
@@ -124,6 +146,7 @@ const blackoutShot = extend(BombBulletType, {
     collides: true,
     collidesAir: true,
     collidesGround: true,
+    buildingDamageMultiplier: 0
 });
 blackoutShot.status = statuses.blackout;
 blackoutShot.statusDuration = 3600;
@@ -141,6 +164,12 @@ const railgun3 = extendContent(ItemTurret, "railgun3", {
 
 
 railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
+    findTarget(){
+        let TempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+        if(TempTarget != null){
+            this.target = TempTarget;
+        }
+    },
     shoot(type){
         let timer = 1
 
@@ -165,7 +194,6 @@ railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
             timer++;
             }
         }
-        
         this.effects();
         this.useAmmo();
         

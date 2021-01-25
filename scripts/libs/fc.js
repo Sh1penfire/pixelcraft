@@ -58,16 +58,31 @@ function optionalRotatorX(Timer,speed,startRotator,distanceCenter,positionX){
   return rotatorX
 }
 
-function optionalRotatorY(Timer, speed, startRotator, distanceCenter, positionY) {
+function optionalRotatorY(Timer, spaeed, startRotator, distanceCenter, positionY) {
   let rotatorY = positionY + Mathf.cos(Timer * speed + startRotator) * distanceCenter
   return rotatorY
 }
+
+function rangeLimit(number, constraint){
+  let MIN = Math.abs(constraint) * -1;
+  let MAX = Math.abs(constraint);
+  let parsed = parseInt(number);
+  return Math.min(Math.max(parsed, MIN), MAX);
+};
+
+function rangeLimit2(number, constraintMin, constraintMax){
+  let MIN = constraintMin;
+  let MAX = constraintMax;
+  let parsed = parseInt(number);
+  return Math.min(Math.max(parsed, MIN), MAX);
+};
 
 module.exports = {
     rotationFC: rotationFC,
     helix: helix,
     slash: slash, 
     clash: clash,
+    rangeLimit2: rangeLimit2,
     rangeLimit: rangeLimit,
     optionalRotatorX: optionalRotatorX,
     optionalRotatorY: optionalRotatorY

@@ -1,12 +1,11 @@
-type: MendProjector
 name: "Bio Mender"
 description: "A stone block covered with plantlife. Repears blocks using nature to repear gaps in blocks. Has a lot of range."
-reload: 100
-range: 150
+reload: 150
+range: 100
 baseColor: ccd28d
 phaseColor: ced671
 healPercent: 1
-phaseBoost: 2
+phaseBoost: 1
 phaseRangeBoost: 30
 useTime: 1000
 itemCapacity: 75

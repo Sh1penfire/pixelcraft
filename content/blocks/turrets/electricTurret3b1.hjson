@@ -13,7 +13,6 @@ outlineIcon: true
 requirements: [
   iron/ 250
   magnitine/100
-  feromagnet/75
 ]
 category: turret
 research: electricTurret2

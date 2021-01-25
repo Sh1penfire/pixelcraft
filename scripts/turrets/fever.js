@@ -2,14 +2,14 @@ const statuses = require("libs/statuses");
 
 const shootEffectFlame = new Effect(60, e => {
   Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, e.fin());
-  Angles.randLenVectors(e.id, 25, e.finpow() * 240, e.rotation, 3, (x, y) => {
+  Angles.randLenVectors(e.id, 25, e.finpow() * 145, e.rotation, 3, (x, y) => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 2);
   })
 });
 
 const shootEffectFlameGreen = new Effect(60, e => {
   Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, e.fin());
-  Angles.randLenVectors(e.id, 25, e.finpow() * 240, e.rotation, 3, (x, y) => {
+  Angles.randLenVectors(e.id, 25, e.finpow() * 145, e.rotation, 3, (x, y) => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 2);
   })
 });
@@ -69,20 +69,17 @@ landMine.hitEffect = Fx.explosion;
 
 const groveExplosion = extend(BombBulletType, {});
 groveExplosion.splashDamageRadius = 35;
-groveExplosion.splashDamage = 35;
+groveExplosion.splashDamage = 5;
 groveExplosion.lifetime = 0;
-groveExplosion.incendAmount = 3;
-groveExplosion.status = statuses.hellfire;
+groveExplosion.status = statuses.groveCurse;
 groveExplosion.statusDuration = 900;
 groveExplosion.despawnEffect = Fx.none;
 groveExplosion.hitEffect = Fx.none;
-groveExplosion.fragBullets = 10;
-groveExplosion.fragBullet = liquid1;
 groveExplosion.hitSound = Sounds.none;
 
 const flamingGrove = extend(BombBulletType, {
     update(b){
-        if(Mathf.random() < 0.2){
+        if(Mathf.random() < 0.05){
                 groveExplosion.create(b.owner, b.team, b.x + Mathf.random(40) - 20, b.y + Mathf.random(40) - 20, Mathf.random(360), Mathf.random(3));
                 Fx.explosion.at(b.x, b.y);
         }
@@ -91,10 +88,9 @@ const flamingGrove = extend(BombBulletType, {
 flamingGrove.width = 0;
 flamingGrove.heigh = 0;
 flamingGrove.splashDamageRadius = 15;
-flamingGrove.splashDamage = 25;
+flamingGrove.splashDamage = 15;
 flamingGrove.lifetime = 240;
 flamingGrove.drag = 0.05;
-flamingGrove.incendAmount = 5;
 flamingGrove.despawnEffect = Fx.explosion;
 flamingGrove.hitEffect = Fx.explosion;
 
@@ -105,11 +101,11 @@ const flBlast = extend(MissileBulletType, {
 flBlast.damage = 150;
 flBlast.splashDamage = 50;
 flBlast.splashDamageRadius = 25;
-flBlast.speed = 16;
+flBlast.speed = 2.5;
 flBlast.homingPower = 0;
 flBlast.pierce = true;
 flBlast.pierceBuilding = true;
-flBlast.lifetime = 15;
+flBlast.lifetime = 60;
 flBlast.width = 0;
 flBlast.height = 0;
 flBlast.hitSize = 4;
@@ -120,6 +116,7 @@ flBlast.trailChance = 1;
 flBlast.hitEffect = Fx.explosion;
 flBlast.despawnEffect = Fx.none;
 flBlast.shootEffect = shootEffectFlame;
+flBlast.hitSound = Sounds.none;
 
 const flPyra = extend(MissileBulletType, {
     hit(b){
@@ -134,11 +131,12 @@ const flPyra = extend(MissileBulletType, {
 });
 
 flPyra.damage = 114;
-flPyra.speed = 16;
+flPyra.speed = 6.5;
+flPyra.drag = 0.045;
 flPyra.homingPower = 0;
 flPyra.pierce = true;
 flPyra.pierceBuilding = true;
-flPyra.lifetime = 15;
+flPyra.lifetime = 60;
 flPyra.hitSize = 4;
 flPyra.collides = true;
 flPyra.collidesAir = true;
@@ -147,6 +145,7 @@ flPyra.trailChance = 1;
 flPyra.hitEffect = Fx.explosion;
 flPyra.despawnEffect = Fx.none;
 flPyra.shootEffect = shootEffectFlame;
+flPyra.hitSound = Sounds.none;
 
 const flBionorb = extend(MissileBulletType, {
     hit(b){
@@ -155,25 +154,28 @@ const flBionorb = extend(MissileBulletType, {
     },
     drawLight(b){},
     draw(b){
-        Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, b.fin());
+        Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, b.fin());
         Fill.circle(b.x, b.y, 0.65 + b.fout() * 2);
     }
 });
 
-flBionorb.damage = 45;
-flBionorb.speed = 16;
+flBionorb.damage = 25;
+flBionorb.speed = 6.5;
+flBionorb.drag = 0.045;
 flBionorb.homingPower = 0;
 flBionorb.pierce = true;
 flBionorb.pierceBuilding = true;
-flBionorb.lifetime = 15;
+flBionorb.lifetime = 60;
 flBionorb.hitSize = 4;
 flBionorb.collides = true;
 flBionorb.collidesAir = true;
+flBionorb.status = statuses.groveCurse;
 flBionorb.trailEffect = Fx.none;
 flBionorb.trailChance = 1;
 flBionorb.hitEffect = Fx.explosion;
 flBionorb.despawnEffect = Fx.none;
 flBionorb.shootEffect = shootEffectFlameGreen;
+flBionorb.hitSound = Sounds.none;
 
 const fever = extendContent(ItemTurret, "flamethrower4",{
   init(){
@@ -195,3 +197,20 @@ const fever = extendContent(ItemTurret, "flamethrower4",{
 fever.shootSound = Sounds.flame2;
 fever.inaccuracy = 3;
 fever.rotateSpeed = 6;
+
+fever.buildType = () => extendContent(ItemTurret.ItemTurretBuild, fever, {
+    shoot(type){
+        
+        let limitationX = Math.cos(this.rotation/180 * Math.PI) * 5;
+        let limitationY = Math.sin(this.rotation/180 * Math.PI) * 5;
+        
+        type.create(this, this.team, this.x + limitationX, this.y + limitationY, this.rotation + Mathf.range(3));
+        
+        Sounds.flame2.at( this.x + limitationX, this.y + limitationY);
+        
+        type.shootEffect.at(this.x + limitationX, this.y + limitationY, this.rotation);
+        
+        this.useAmmo();
+        this.heat = 1;
+    },
+});

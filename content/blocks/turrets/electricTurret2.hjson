@@ -1,32 +1,30 @@
 type: PowerTurret
 name: Point
-description: Locks on to a target and fires tracer shots which home into enemies and damage them.
+description: Locks on to a target and fires tracer shots which home in on an enemy.
 health: 220
 size: 2
 reloadTime: 50
 inaccuracy: 25
 range: 400
-shots: 2
+shots: 1
 powerUse: 2
 rotateSpeed: 5
 chargeBeginEffect: hitBulletBig
 chargeEffect: lancerLaserCharge
-chargeTime: 50
-chargeMaxDelay: 50
 inaccuracy: 0
 spread: 2
 targetAir: true
 targetGround: true
 shootType: {
-	type: ArtilleryBulletType
-	damage: 50
-	speed: 4
-	lifetime: 100
+	type: MissileBulletType
+	damage: 25
+	speed: 2
+	lifetime: 200
+	homingPower: 0.1
 	collides: true
 	collidesAir: true
-	pierce: true
-	width: 1
-	height: 1
+	width: 6
+	height: 10
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
 	frontColor: 86baf9

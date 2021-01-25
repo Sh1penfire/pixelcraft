@@ -29,6 +29,7 @@ const ironBullet = extend(BasicBulletType, {
 ironBullet.hitEffect = Fx.none;
 ironBullet.despawnEffect = Fx.none;
 ironBullet.status = statuses.windswept;
+ironBullet.statusDuration = 540;
 
 const magnitineBullet = extend(BasicBulletType, {
     draw(e){
@@ -54,6 +55,7 @@ const magnitineBullet = extend(BasicBulletType, {
 magnitineBullet.hitEffect = Fx.none;
 magnitineBullet.despawnEffect = Fx.none;
 magnitineBullet.status = statuses.windswept;
+magnitineBullet.statusDuration = 540;
 
 const stormBullet = extend(BasicBulletType, {
     draw(e){

@@ -1,5 +1,6 @@
-name: "Rusted core"
-description: "The prediscessor of this core was found and quickely scaned for it's structural integrety. It was found to be broken but blueprints were recovered."
+name: "Rusted Core"
+description: "Produces various units. Output units can be used directly or moved into reconstructors for upgrading."
+details: "The prediscessor of this factory was found and quickely scaned for it's structural integrety. It was found to be broken but blueprints were recovered."
 type: UnitFactory
 health: 300
 size: 3
@@ -12,31 +13,22 @@ plans: [
     ]
     time: 600
   }
-    {
-    unit: rustydelta
-    requirements: [
-      iron/85
-      coal/50
-    ]
-    time: 1000
-  }
+   {
+ unit: crystal
+ requirements:[
+ coal/25
+ ceramic/15
+]
+time: 235
+ }
     {
     unit: rustytau
     requirements: [
       iron/35
-      magnitine/25
+      ceramic/25
       titanium/15
     ]
     time: 1000
-  }
-    {
-    unit: rustyomega
-    requirements: [
-      iron/70
-      magnitine/45
-      feromagnet/10
-    ]
-    time: 1500
   }
     {
     unit: rustydart
@@ -50,29 +42,17 @@ plans: [
     requirements: [
       coal/15
       graphite/20
-      magnitine/45
+      ceramic/45
     ]
     time: 285
   }
- {
- unit: crystal
- requirements:[
- iron/35
- magnitine/25
 ]
-time: 235
- }
-]
-//consumes: {
-//  power: 1
-//}
 category: units
-research: naval-factory
 requirements: [
-  stone/15
-  iron/75  
+  iron/75
+  magnitine/25
 ]
-
+research: core-refraction
 
 
 //Blocks.groundFactory.plans.add(new UnitFactory.UnitPlan("pixelcraft-rustyalpha", 60 * 25, 
