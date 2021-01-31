@@ -157,7 +157,10 @@ windswept.effect = windsweptFx;
 
 const blackoutFx = new Effect(35, e => {
     Draw.color(Color.black, Color.black, e.fin());
-    Fill.circle(e.x, e.y, e.fout() * 3);
+  Angles.randLenVectors(e.id, 2 , e.finpow() * 3, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1 + Math.sin(e.fin() * 2 * Math.PI));
+    Fill.circle(e.x + x, e.y + y, e.fout() * 1.2 + Math.sin(e.fin() * 2 * Math.PI));
+  })
 });
 
 const voidic = new Effect(50, e => {

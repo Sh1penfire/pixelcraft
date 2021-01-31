@@ -1,6 +1,5 @@
 name: Iron Drill
 description: A starting drill. (I thought this was stone)
-type: Drill
 size: 1
 tier: 2
 drillTime: 450
@@ -16,4 +15,4 @@ requirements: [
   iron/3
 ]
 category: production
-research: mechanical-drill
+research: core-refraction

@@ -98,8 +98,7 @@ const surgeShockwave = new Effect(50, e => {
     Lines.stroke(e.fout() * 10); 
     Lines.circle(e.x, e.y, e.fin() * 15); 
     Angles.randLenVectors(e.id, 10, e.finpow() * 30, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
-        
+    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);   
   })
 });
 
@@ -140,6 +139,7 @@ const plastExplFrag = extend(BasicBulletType, {});
 plastExplFrag.damage = 15;
 plastExplFrag.width = 6;
 plastExplFrag.height = 8;
+plastExplFrag.status = StatusEffects.corroded;
 plastExplFrag.pierce = true;
 plastExplFrag.lifetime = 25;
 plastExplFrag.incendAmount = 0;
@@ -176,7 +176,7 @@ sporeFrag.despawnEffect = Fx.none;
 sporeFrag.hitEffect = Fx.none;
 sporeFrag.shrinkY = 1;
 sporeFrag.backColor = Color.purple;
-sporeFrag.frontColor = Pal.spore
+sporeFrag.frontColor = Pal.spore;
 
 const sporeCluster = extend(BombBulletType, {
     update(b){
@@ -255,6 +255,7 @@ plastExplosion.splashDamageRadius = 25;
 plastExplosion.splashDamage = 55;
 plastExplosion.lifetime = 0;
 plastExplosion.incendAmount = 0;
+plastExplosion.status = StatusEffects.corroded;
 plastExplosion.despawnEffect = plastDust;
 plastExplosion.hitEffect = plastDust;
 plastExplosion.fragBullets = 25;

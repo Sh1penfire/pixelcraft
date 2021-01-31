@@ -1,4 +1,3 @@
-type: ItemTurret
 name: String
 description: An upgraded strand. Double the fireate for less range. Effective against ground units.
 health: 200

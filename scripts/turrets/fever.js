@@ -214,3 +214,7 @@ fever.buildType = () => extendContent(ItemTurret.ItemTurretBuild, fever, {
         this.heat = 1;
     },
 });
+
+module.exports = {
+    fever: fever
+};

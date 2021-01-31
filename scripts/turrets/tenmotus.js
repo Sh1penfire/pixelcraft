@@ -7,7 +7,6 @@ const firinDistance = 5;
 const cryoexplosion = new Effect(45, e => {
     Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
     Angles.randLenVectors(e.id, 25, e.finpow() * 75, e.rotation, 360, (x, y) => {
-    Puddles.deposit(Vars.world.tileWorld(e.x + x, e.y + y), Liquids.cryofluid, 1);
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
   })
 });
@@ -82,16 +81,22 @@ const freezingShot = extend(PointBulletType, {
     },
     hit(b){
         cryoexplosion.at(b.x, b.y);
+        Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 30);
         let rad = 6;
         Units.nearby(b.x, b.y, rad * 8, rad * 8, cons(u => {
         if(Mathf.dst(b.x, b.y, u.x, u.y) < 45){
             if(!u.isDead) {
+                Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 1);
                 u.apply(StatusEffects.freezing, 360);
                 u.damageContinuousPierce(115);
                 print(u);
                 }
             }
         }));
+    },
+    despawned(b){
+        this.hit(b)
+        this.super$despawned(b)
     }
 });
 
@@ -181,6 +186,8 @@ railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
         type.create(this, this.team, fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x, fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y, this.rotation, 0);
         
         type.trailEffect.at(fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x, fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y, 0, this);
+        
+        type.hitEffect.at(fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x, fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y, this.rotation, this);
         
         if(type.fragBullet != null){
             while (timer < 5){

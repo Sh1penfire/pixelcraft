@@ -1,5 +1,6 @@
-name: Iron
-description: A sturdy ore used in foundations. How did we get by without this? We couldn't have been using copper all this time...
+name: Rust
+description: The product of oxidation on iron. Used in basic buildings. Refineable, but slightly corrosive.
+details: How did we get by without this? We couldn't have been using copper all this time...
 hardness: 0
 cost: 0.25
 color: e3b27d
