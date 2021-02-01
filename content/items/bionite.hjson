@@ -1,5 +1,6 @@
-name: Bionorb
-description: Biomass compacted into orbs ready for use
+name: Bionite
+description: Plantlife that grows on rust via mutation
+details: The plants can stand the slightly acidic medium.
 hardness: 0
 cost: 2
 research: {
@@ -10,4 +11,4 @@ research: {
 }
 color: cad77d
 explosiveness: 0.0
-flammability: 0.65
+flammability: 0.15

@@ -33,7 +33,7 @@ rotate: false
 shots: 4
 bullet: {
 type: MissileBulletType
-damage: 15
+damage: 5
 weaveMag: 4
 weaveScale: 4
 speed: 2
@@ -48,10 +48,9 @@ lifetime: 10
 }
 }
 }
-
 {
 name: missile-shotgun
-reload: 5
+reload: 15
 alternate: true
 ejectEffect: casing2
 top: false
@@ -66,34 +65,6 @@ height: 10
 damage: 15
 speed: 6
 lifetime: 25
-}
-}
-{
-name: aged-blaster-mount
-reload: 50
-alternate: false
-ejectEffect: casing2
-top: false
-shootSound: shoot
-x: 0.25
-y: -2.0
-rotate: true
-bullet: {
-type: ArtilleryBulletType
-damage: 4
-speed: 2
-lifetime: 80
-fragBullets: 10
-hitSound: boom
-despawnEffect: explosion
-fragBullet:{
-type: MissileBulletType
-damage: 15
-weaveMag: 4
-weaveScale: 4
-speed: 2
-lifetime: 40
-}
 }
 }]
 research: {

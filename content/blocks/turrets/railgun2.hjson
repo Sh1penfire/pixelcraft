@@ -95,6 +95,7 @@ ammoTypes: {
 	frontColor: ffffff
 	backColor: ffffff
 	damage: 2.5
+	status: corroded
 	splashDamage: 0.2
 	splashDamageRadius: 20
 	despawnEffect: none

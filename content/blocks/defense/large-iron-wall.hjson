@@ -2,7 +2,6 @@ name: "Large Rusty wall"
 description: "A cheap defensive block.
 Provides moderate protection from enemies.
 Spans multiple tiles. Decaying from the rust"
-type: Wall
 health: 1400
 size: 2
 requirements: [

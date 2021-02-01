@@ -1,6 +1,5 @@
 name: Neromagnet Drill
 description: Uses strong magnitism to move a drill part.
-type: Drill
 size: 2
 tier: 5
 drillTime: 275

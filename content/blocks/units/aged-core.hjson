@@ -6,7 +6,7 @@ description: "Some how, a core scimatic shows how to upgrade units"
 constructTime: 100
 upgrades: [
   [
-    rustydelta, rustytau
+    rustydelta, rustyomega
   ]
   [
     purpleN2, purpleN3
@@ -28,5 +28,6 @@ research: aged-mechpad
 requirements: [
   graphite/75
   magnitine/85
-  feromagnet/25
+  feromagnet/70
+  thorium/65
 ]

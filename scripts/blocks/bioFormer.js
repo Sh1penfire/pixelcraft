@@ -12,7 +12,7 @@ const seeds = new Effect(25, e => {
     Angles.randLenVectors(e.id, 10, e.fin() * 15, e.rotation, 360,d)
 });
 
-const seedExtractor = extendContent(GenericCrafter,"seed-extractor",{});
+const seedExtractor = extendContent(GenericCrafter, "seed-extractor",{});
 seedExtractor.craftEffect = seeds;
 
 const bioDrill = extendContent(GenericCrafter, "bioDrill", {});

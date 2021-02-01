@@ -2,12 +2,12 @@ name: "Rusty Javalin"
 description: "Assult ship that reaches extremely high speeds and can build."
 flying: true
 speed: 6
-health: 220
+health: 180
 armor: 3
 aimDst: 10
 hitSize: 8
 range: 50
-drag: 0.0001
+drag: 0.0005
 accel: 0.025
 maxRange: 200
 buildSpeed: 3
@@ -21,7 +21,6 @@ rotateSpeed: 7
 lowAltitude: false
 omniMovement: true
 canDrown: false
-payloadCapacity: 3
 weapons: [
 {
 name: none

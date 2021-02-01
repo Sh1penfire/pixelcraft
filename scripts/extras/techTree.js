@@ -1,5 +1,6 @@
 let templura = require("templura");
-//Casually stals from [Gdeft/substructure]'s techtree.js
+let statuses = require("libs/statuses")
+let fever = require("turrets/fever");
 //Casually stals from [Gdeft/substructure]'s techtree.js
 
 /**
@@ -11,17 +12,40 @@ let templura = require("templura");
  * @property {Seq}                  objectives      - A sequence of Objectives required to unlock this node. Can be null.
  */
 const node = (parent, contentType, requirements, objectives) => {
-    const tnode = new TechTree.TechNode(TechTree.get(parent), contentType, requirements != null ? requirements : contentType.researchRequirements());
-    let used = new ObjectSet();
-    
-    if(objectives != null){
-        tnode.objectives.addAll(objectives);
-    };
-    return tnode;
+  const tnode = new TechTree.TechNode(TechTree.get(parent), contentType, requirements != null ? requirements : contentType.researchRequirements());
+  let used = new ObjectSet();
+  
+  if(objectives != null){
+    tnode.objectives.addAll(objectives);
+  };
 };
 
-function cblock(name){
-    return Vars.content.getByName(ContentType.block, name);
-};
+const cblock = name => Vars.content.getByName(ContentType.block, "pixelcraft-" + name);
 
-node("pixelcraft-core-refraction", "pixelcraft-ancientGrotto", null, Seq.with(new Objectives.SectorComplete(templura.loggery)));
+//pixelcraft only campaign
+node(Blocks.conveyor, templura.ancientGrotto, null, null);
+
+node(templura.ancientGrotto, templura.loggery, null, Seq.with(new Objectives.SectorComplete(templura.ancientGrotto), new Objectives.Research(cblock("basicTurret1"))));
+
+node(templura.loggery, templura.sinkhole, null, Seq.with(new Objectives.SectorComplete(templura.loggery), new Objectives.Research(cblock("bioDrill"))));
+
+node(templura.sinkhole, templura.dessertWastelands, null, Seq.with(new Objectives.SectorComplete(templura.sinkhole)));
+
+node(templura.loggery, templura.frozenFalls, null, Seq.with(new Objectives.SectorComplete(templura.sinkhole)));
+
+node(templura.frozenFalls, templura.birthplace, null, Seq.with(new Objectives.SectorComplete(templura.frozenFalls)));
+
+//mixed campaign
+node(templura.ancientGrotto, templura.rustedValley, null, Seq.with(new Objectives.SectorComplete(templura.ancientGrotto)));
+
+node(templura.rustedValley, templura.shatteredGlacier, null, Seq.with(new Objectives.SectorComplete(templura.rustedValley)));
+
+node(templura.shatteredGlacier, templura.crossroads, null, Seq.with(new Objectives.SectorComplete(templura.shatteredGlacier)));
+
+node(templura.crossroads, templura.dunescapeCrags, null, Seq.with(new Objectives.SectorComplete(templura.crossroads), new Objectives.Research(cblock("flamethrower4")), new Objectives.Research(Blocks.foreshadow)));
+
+//Blocks
+
+//Bio Technology
+node(Blocks.conveyor, statuses.blackout, ItemStack.with(), null);
+//node(cblock("flamethrower3"), cblock("flamethrower4"), null, Seq.with(new Objectives.SectorComplete(templura.loggery)));

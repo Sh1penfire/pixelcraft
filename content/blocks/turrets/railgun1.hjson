@@ -116,6 +116,7 @@ ammoTypes: {
 	damage: 2.5
 	splashDamage: 0.5
 	splashDamageRadius: 20
+	status: corroded
 	despawnEffect: none
 	hitEffect: none
 	lifetime: 50

@@ -1,10 +1,9 @@
-type: Conveyor
 name: Iron conveyor
 health: 50
 solid: false
 floating: true
 insulated: false
-description: 'Moves items fowards. "The corosion is hidden by stone"'
+description: 'Moves items fowards. Corrods enemies on it. "The corosion is hidden by stone"'
 requirements: [
   iron/1
   stone/2

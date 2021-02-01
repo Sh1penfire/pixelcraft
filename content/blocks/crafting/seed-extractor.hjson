@@ -9,5 +9,5 @@ requirements: [
   graphite/50
 ]
 category: production
-research: iron-drill
 outputItem: bionorb/1
+research: magnitine-drill

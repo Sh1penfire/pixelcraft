@@ -1,7 +1,6 @@
 type: GenericSmelter
-name: Tinorium Crystaliser
-description: Crystalises rare Earth metals
-details: "Perhaps making the chamber to make titanium and thorium in out of the verry materiels it's mixing wasn't a good idea..?"
+name: Reaction Chamber
+description: Creates a metal believed to be an arcane materiel
 liquidCapacity: 50
 itemCapacity: 12
 size: 3
@@ -15,14 +14,15 @@ consumes: {
   power: 2
   items: {
     items: [
+      iron/3
+      magnitine/2
       titanium/2
-      thorium/2
-      metaglass/3
+      bionite/3
     ]
   }
   liquid: {
     liquid: water
-    amount: 0.2
+    amount: 1
   }
 }
 requirements: [
@@ -31,4 +31,4 @@ requirements: [
 ]
 category: crafting
 research: bioniteMixer
-outputItem: tinormium/2
+outputItem: stelarcrim/1

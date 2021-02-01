@@ -1,7 +1,7 @@
 type: naval
 name: "Trebuche"
 description: "A fast, armored assult ship."
-details:"Theres a note in titanium. It reads: There was life flourishing in the pockets of water scattered throughout Sepulo. They had adapted to the harsh circumstances, growing metallic scales."
+details:"There was life flourishing in the pockets of water scattered throughout Sepulo. They had adapted to the harsh circumstances, growing metallic scales."
 speed: 1.7
 drag: 0.13
 hitSize: 10

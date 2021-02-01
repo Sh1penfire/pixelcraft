@@ -37,6 +37,8 @@ backColor: b7f35e
 type: BasicBulletType
 damage: 3
 speed: 2
+status: corroded
+statusDuration: 360
 width: 5
 height: 8
 lifetime: 60
