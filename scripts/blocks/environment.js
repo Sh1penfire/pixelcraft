@@ -7,9 +7,9 @@ let blocks = Seq.with(
     Blocks.stone
 );
 
-blocks[0].itemDrop = stone;
-blocks[1].itemDrop = Items.coal;
-blocks[2].itemDrop = iron;
-blocks[3].itemDrop = stone;
+blocks.get(0).itemDrop = stone;
+blocks.get(1).itemDrop = Items.coal;
+blocks.get(2).itemDrop = iron;
+blocks.get(3).itemDrop = stone;
 
 blocks.each(e => e.playerUnmineable = true);
