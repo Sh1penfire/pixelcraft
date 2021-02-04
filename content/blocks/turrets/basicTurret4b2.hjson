@@ -1,0 +1,18 @@
+name: Trunk
+description: A bio turret. Shoots clusters of bionorbs which heal allies and hurt enemies around it
+health: 250
+size: 3
+reloadTime: 200
+range: 400
+shots: 1
+ammoUseEffect: casing1
+rotateSpeed: 7
+targetAir: false
+recoilAmount: 0
+requirements: [  
+  stone/55 
+  graphite/25 
+  bionorb/5
+]
+category: turret
+research: basicTurret3b2

@@ -1,0 +1,15 @@
+name: "Sundry"
+description: "Sweeps the target away from vitals in the base with strong knockback"
+size: 4
+reloadTime: 5
+range: 200
+shots: 1
+inaccuracy: 10
+xRand: 4
+ammoUseEffect: casing4
+rotateSpeed: 8
+requirements: [    
+]
+category: turret
+research: basicTurret4b1
+               

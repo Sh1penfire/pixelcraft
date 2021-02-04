@@ -87,6 +87,84 @@ bioShot2.status = statuses.groveCurse;
 bioShot2.despawnEffect = grove;
 bioShot2.hitEffect = grove;
 
+
+const bioShot3 = extend(BasicBulletType, {
+    width: 0,
+    length: 0,
+    lifetime: 1200,
+    speed: 2.5,
+    collides: false,
+    update(b){
+        this.super$update(b);
+        if(Mathf.chance(Time.delta)){
+                let target1 = Units.closest(b.team, b.x, b.y, 92, u => u.damaged() && u.checkTarget(true, true));
+                let target2 = Units.closestEnemy(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
+                let target3 = Units.closest(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
+                if(target1 != null && target1.damaged()){
+                    target1.heal(0.1);
+                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target1), 0.1));
+                    b.time = b.time + 0.01
+                }
+                else if(target3 != null){
+                    let target4 = Units.closestEnemy(b.team, target3.x, target3.y, 256, u => u.checkTarget(true, true));
+                    if(target4 != null){
+                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.1));
+                        target4.damage(3 - Mathf.dst(b.x, b.y, b.owner.x, b.owner.y)/256);
+                    }
+                    else{
+                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.1));
+                    }
+                }
+                else if(target2 != null){
+                    target2.damage(1);
+                    target2.apply(statuses.groveCurse, 360);
+                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target2), 0.1));
+                }
+                else if(Units.closestEnemy(b.team, b.owner.x, b.owner.y, 400, u => u.checkTarget(true, true)) == null && Units.closest(b.team, b.owner.x, b.owner.y, 400, u => u.damaged() && u.checkTarget(true, true)) == null){
+                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(b.owner.x, b.owner.y), 0.1));
+                }
+                else if(Mathf.dst(b.x, b.y, b.owner.x, b.owner.y) > 400){
+                    b.vel.setAngle(b.angleTo(b.owner.x, b.owner.y));
+                }
+            }
+        },
+    draw(b){
+    this.super$draw(b);
+    Draw.color(Color.valueOf("#ced671"))
+    Fill.circle(b.x, b.y, 2);
+    Lines.stroke(0.5 + Math.abs(fc.helix(20, 1, b.fout())));
+    let target1 = Units.closest(b.team, b.x, b.y, 92, u => u.damaged() && u.checkTarget(true, true));
+    let target2 = Units.closestEnemy(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
+    let target3 = Units.closest(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
+    if(target1 != null && target1.damaged()){
+        Lines.line(b.x, b.y, target1.x, target1.y);
+        Fill.circle(target1.x, target1.y, 2);
+    }
+    else if(target3 != null){
+        let target4 = Units.closestEnemy(b.team, target3.x, target3.y, 256, u => u.checkTarget(true, true));
+        if(target4 != null){
+            Lines.line(b.x, b.y, target3.x, target3.y);
+            Fill.circle(target3.x, target3.y, 2);
+            Lines.line(b.x, b.y, target4.x, target4.y);
+            Fill.circle(target4.x, target4.y, 2);
+        }
+        else{
+            Lines.line(b.x, b.y, target3.x, target3.y);
+            Fill.circle(target3.x, target3.y, 2);
+            Lines.stroke(1);
+            Lines.spikes(b.x, b.y, b.fin() * 3, 1 + Math.abs(fc.helix(20, 5, b.fout())), 4, 0);
+        }
+    }
+    else if(target2 != null){
+        Lines.line(b.x, b.y, target2.x, target2.y);
+        Fill.circle(target2.x, target2.y, 2);
+    }
+}
+});
+bioShot3.status = statuses.groveCurse;
+bioShot3.despawnEffect = grove;
+bioShot3.hitEffect = grove;
+
 const basicTurret3b2 = extend(ItemTurret, "basicTurret3b2", {
     init(){
     this.ammo(
@@ -114,13 +192,59 @@ basicTurret3b2.buildType = () => extend(ItemTurret.ItemTurretBuild, basicTurret3
         }
     },
     findTarget(){
-        let tempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(false, true));
-        let tempTarget2 = Units.closest(this.team, this.x, this.y, this.range(), u => u.damaged() && u.checkTarget(false, true));
+        let tempTarget = Units.closest(this.team, this.x, this.y, this.range(), u => u.damaged() && u.checkTarget(false, true));
+        let tempTarget2 = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(false, true));
         if(tempTarget != null){
             this.target = tempTarget;
         }
         else if(tempTarget2 != null){
             this.target = tempTarget2;
+        }
+    }
+});
+const basicTurret4b2 = extend(ItemTurret, "basicTurret4b2", {
+    init(){
+    this.ammo(
+        Vars.content.getByName(ContentType.item,"pixelcraft-bionorb"), bioShot3
+    );
+    this.super$init();
+    }
+});
+basicTurret4b2.buildType = () => extend(ItemTurret.ItemTurretBuild, basicTurret4b2, {
+    validateTarget(){
+        if(this.target != null){
+            if(Units.closest(this.team, this.x, this.y, this.range(), u => u.damaged() && u.checkTarget(true, true)) != null || Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true)) != null){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else if(this.isControlled() == true || this.logicControlled() == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    },
+    findTarget(){
+        let tempTarget = Units.closest(this.team, this.x, this.y, this.range(), u => u.damaged() && u.checkTarget(true, true));
+        let tempTarget2 = Units.closest(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+        let tempTarget3 = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+        if(tempTarget != null){
+                this.target = tempTarget;       
+        }
+        else if(tempTarget2 != null){
+            let tempTarget4 = Units.closestEnemy(this.team, tempTarget2.x, tempTarget2.y, 200, u => u.checkTarget(true, true));
+            if(tempTarget4 != null){
+                this.target = tempTarget2;
+            }
+            else if(tempTarget3 != null){
+            this.target = tempTarget3;
+        }
+        }
+        else if(tempTarget3 != null){
+            this.target = tempTarget3;
         }
     }
 });
