@@ -1,6 +1,6 @@
 name: Stone
 description: It's stone. Nothing to see here
-details: Emits small bursts of light.
+details: Emits small bursts of light, yet infected by darkness.
 hardness: 0.1
 cost: 0.25
 color:  7b7f8e

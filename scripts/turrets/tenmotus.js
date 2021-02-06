@@ -261,13 +261,31 @@ const railgun3 = extendContent(ItemTurret, "railgun3", {
 
 
 railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
+    unitSort: (u, x, y) => -u.maxHealth,
     findTarget(){
         let TempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
         if(TempTarget != null){
             this.target = TempTarget;
         }
     },
+    validateTarget(){
+        if(this.target != null){
+            if(Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true))){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    },
     shoot(type){
+        /*
+        Units.findEnemyTile(this.team, this.float x, this.y, this.range(), unitSort{
+        if(team == Team.derelict)
+
+        return indexer.findEnemyTile(team, x, y, range, pred);
+    }*/
+        
         let timer = 1
 
         let limitationX = Math.cos(this.rotation/180 * Math.PI) * this.range();

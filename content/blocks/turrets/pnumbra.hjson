@@ -1,0 +1,27 @@
+type: LaserTurret
+name: Pnumbra
+shootEffect: shootBigSmoke2
+shootCone: 40
+recoilAmount: 4
+size: 4
+shootShake: 2
+range: 120
+reloadTime: 90
+firingMoveFract: 0.7
+shootDuration: 120
+powerUse: 5
+shootSound: laserbig
+loopSound: beam
+loopSoundVolume: 2
+shootType: {
+type: ContinuousLaserBulletType
+length: 150
+hitEffect: hitMeltdown
+hitColor: meltdownHit
+drawSize: 300
+}
+requirements: [    
+  iron/35
+]
+category: turret
+research: duo

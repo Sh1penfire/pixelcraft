@@ -95,15 +95,19 @@ const sporefire = extend(StatusEffect, "sporefire", {
             if(unit.statuses.size > 0){
                 for(let i = 0; i < unit.statuses.size; i++){
                     let Cs = unit.statuses.get(i).effect;
-                    print(Cs);
-                    if(Cs == StatusEffects.sapped){
-                        unit.apply(StatusEffects.sporeSlowed, time);
-                        unit.damageContinuousPierce(0.01);
-                        extraFireSporeFx.at(unit.x + Tmp.v1.x, unit.y + Tmp.v1.y);
+                    if(Cs == sporefireC){
+                        unit.heal(0.1);
                     }
-                    else if(Cs == StatusEffects.sporeSlowed){
-                        unit.apply(StatusEffects.sapped, time);
-                        unit.damageContinuousPierce(0.01);
+                    else{
+                        if(Cs == StatusEffects.sapped){
+                            unit.apply(StatusEffects.sporeSlowed, time);
+                            unit.damageContinuousPierce(0.01);
+                            extraFireSporeFx.at(unit.x + Tmp.v1.x, unit.y + Tmp.v1.y);
+                        }
+                        else if(Cs == StatusEffects.sporeSlowed){
+                            unit.apply(StatusEffects.sapped, time);
+                            unit.damageContinuousPierce(0.01);
+                        }
                     }
                 }
             }
@@ -113,9 +117,15 @@ const sporefire = extend(StatusEffect, "sporefire", {
 
 sporefire.speedMultiplier = 1;
 sporefire.armorMultiplier = 0.75;
-sporefire.damage = 0.1;
+sporefire.damage = 0;
 sporefire.effect = sporefireFx;
 sporefire.color = Color.white;
+
+const sporefireC = extend(StatusEffect, "sporefireC", {})
+sporefireC.speedMultiplier = 1.2;
+sporefireC.damage = 0;
+sporefireC.effect = sporefireFx;
+sporefireC.color = Color.white;
 
 //wind struck effect
 const windsweptFx = new Effect(15, e => {
@@ -282,6 +292,7 @@ groveCurse.effect = groveCurseFx;
     chargedEffect: chargedEffect,
     hellfire: hellfire, 
     sporefire: sporefire,
+    sporefireC: sporefireC,
     windswept: windswept,
     blackout: blackout,
     prismium: prismium,

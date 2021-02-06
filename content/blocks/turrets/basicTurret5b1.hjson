@@ -8,7 +8,12 @@ inaccuracy: 10
 xRand: 4
 ammoUseEffect: casing4
 rotateSpeed: 8
-requirements: [    
+requirements: [
+   iron/3500
+   magnitine/250
+   ceramic/120
+   titanium/150
+   stelarcrim/125
 ]
 category: turret
 research: basicTurret4b1

@@ -10,9 +10,11 @@ rotateSpeed: 7
 targetAir: false
 recoilAmount: 0
 requirements: [  
-  stone/55 
-  graphite/25 
-  bionorb/5
+  stone/100
+  graphite/65
+  titanium/45
+  bionorb/45
+  bionite/25
 ]
 category: turret
 research: basicTurret3b2

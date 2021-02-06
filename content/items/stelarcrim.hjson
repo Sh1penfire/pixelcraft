@@ -1,9 +1,6 @@
 name: Stelarcrim
-description: A light crystaline materiel used as structural suport and conductive/insulative plating.
-details: "Some say the materiel looks like crystalised light. Others say it's arcane magic."
-hardness: 5
-cost: 4
-color: 8899a3
+description: A light crystalline materiel used as structural support and conductive/insinuative plating.
+details: "Some say the materiel looks like crystallized light. A spark has been triggered, and the darkness purged."color: 8899a3
 alwaysUnlocked: false
 research: feromagnet
 

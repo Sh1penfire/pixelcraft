@@ -46,7 +46,7 @@ flCoal.fragBullet = flCoalfrag;
 
 const flSpore = extend(BasicBulletType, {});
 flSpore.speed = 5;
-flSpore.damage = 4;
+flSpore.damage = 0;
 flSpore.hitSize = 6;
 flSpore.width = 0;
 flSpore.height = 0;
