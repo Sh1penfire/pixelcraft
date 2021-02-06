@@ -5,7 +5,7 @@ require("extras/voidicsm");
 require("turrets/wan't");
 require("turrets/Sx.quad");
 require("turrets/several");
-require("turrets/sundry");
+require("turrets/Sundry");
 require("turrets/bictfuse");
 require("turrets/puver");
 require("turrets/psion");
