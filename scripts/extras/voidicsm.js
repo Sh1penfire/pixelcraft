@@ -124,6 +124,15 @@ voidicsm.effect = statuses.blackout;
 voidicsm.color = Pal.darkMetal;
 
 module.exports = {
+    stone: stone,
+    rust: rust,
+    magnitine: magnitine,
+    bionorb: bionorb,
+    pixelite: pixelite,
+    uberite: uberite,
+    feromagnet: feromagnet,
+    bionite: bionite,
+    stelacrim: stelacrim,
     ironDrill: ironDrill,
     magnitineDrill: magnitineDrill,
     neromagnetDrill: neromagnetDrill,
