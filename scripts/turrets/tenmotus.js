@@ -270,7 +270,7 @@ railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
     },
     validateTarget(){
         if(this.target != null){
-            if(Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true))){
+            if(Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true)) || this.isControlled() == true || this.logicControlled() == true){
                 return true;
             }
             else{

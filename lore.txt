@@ -16,6 +16,27 @@ Eventualy, after a few hundred years or so, life adapted to the surface's condit
 Howitzer:
 Mechs which resembled inscects, fish, birds and more were formed.
 
+war
+
+Core Beacon
+Years ago, a great flood overwhelmed Serpulo and rusted the grounds. Some 1000 years later, when they returned, a great discovery was made.
+
+Rusty Core
+The predecessor of an old core was found and quickly scanned for it's structural integrity. blueprints were recovered from it, revealing the history of Sepulo's environment. 
+
+Rusty Alpha:
+After it was found, the slag wars began. Sepulo was going through a period of increased volcanic activity due to weak spots leftover from the planet's formation.
+
+Rusty Delta:
+Some went rogue. Others tried to help their relatives survive. In the end, it didn't matter though. The only places safe were now the ever increasing amount of caves.
+
+slag
+
+Volitile generator:
+When they first discovered scrap, they didn't know what to think. One suggested that something happened, though the others dismissed the idea as blasphemy. 
+
+Coal compresser:
+Eventualy the bots had found out that it had many metals in it, even the valued thorium that kept their reactors fueled. For now, they tried to figure out how to extract the metals directly. Nothing they tried worked.  One of the bots decided to melt the scrap. They said that the idea was pointless, as these were ancient fossils which they were studying. The bot's name was dart. They were banished to the farlands and told never to come back again, with threats to be shot on sight.
 
 The lore (In order of events)
 
@@ -39,25 +60,12 @@ Mechanical Life:
 Sepulo was a lush planet full of life, which is evident due to the amount of coal present. That all changed one day. A mass extinction that wiped out nearly every lifeform on Sepulo happened, and there was almost no hope for it to recover it's biodiversity. It never did. Most land based creatures were wiped out after the initial freeze and the ones that survived died of starvation. The lakes were frozen and larger bodies of water covered in a thick layer of ice. These small isolated pockets of water would give birth to new life. Metallic beasts which roamed Sepulo acting like the fauna from before.
 
 war
-Core Beacon
-Years ago, a great flood overwhelmed Serpulo and rusted the grounds. Some 1000 years later, when they returned, a great discovery was made.
+//The crux existed back then, and were involved in this
+Fights between groups happen, and theres more than one reason for them to happen. This one in particular happened because of greed and resource distribution. A flood happened on Sepulo, and with it came a problem. The cause of the flood was unknown, but it left the groups it hit unable to recover in time for when volcanos started going off. Battles were fought over safe patches of land, and groups decimated. Only two survived, and they became what we know as Crux and Diralect. Sharded was still trying to get out of ground zero, and had almost no hope untill the port came about and changed everything.
 
-Rusty Core
-The predecessor of an old core was found and quickly scanned for it's structural integrity. blueprints were recovered from it, revealing the history of Sepulo's environment. 
-
-Rusty Alpha:
-After it was found, the slag wars began. Sepulo was going through a period of increased volcanic activity due to weak spots leftover from the planet's formation.
-
-Rusty Delta:
-Some went rogue. Others tried to help their relatives survive. In the end, it didn't matter though. The only places safe were now the ever increasing amount of caves.
 
 slag
-
-Volitile generator:
-When they first discovered scrap, they didn't know what to think. One suggested that something happened, though the others dismissed the idea as blasphemy. 
-
-Coal compresser:
-Eventualy the bots had found out that it had many metals in it, even the valued thorium that kept their reactors fueled. For now, they tried to figure out how to extract the metals directly. Nothing they tried worked.  One of the bots decided to melt the scrap. They said that the idea was pointless, as these were ancient fossils which they were studying. The bot's name was dart. They were banished to the farlands and told never to come back again, with threats to be shot on sight.
+Scrap. Ancient remains of great civilisations, ground up into a powder and melted down for it's precious metals. The melting of scrap was not forbidden untill they found Slag. Slag was rich with minerals and precious titanium and thorium, and could easly be extracted from slag pools back then. Sepulo was full of slag pools reminiscent from it's initial formation, but these were running out. With slag pool's disipearence, a bot decided to start melting scrap again. Their name was Dart, and they were exiled on the spot. This is how the sharded group was formed, and they were the only one to remain pure during the coruption.
 
 Crux using pixelcraft tech
 
@@ -93,7 +101,7 @@ The file coruption eventualy got to a point where we could not delete objects vi
 
 As a last ditch effort, we made a port to the world. A way to interact with the world. We gave the terminal's entity the ability to infinitely appear with their own object to inhabit.
 
-Fearing that the coruption had the power to coppy anything we did, we lowered the risk and created a flying ship with extremely weak combat ability. It could harnes the planet's natural resources and build objects from a database. 
+Fearing that the coruption had the power to coppy anything we did, we lowered the risk and created a flying ship with extremely weak combat ability. It could harnes the planet's natural resources and build objects from a database.
 
 The coruption responded by flinging objects towards the ship trying to delete it. It eventualy stoped, instaid resorting to corupting it. As another coppy of the port ship was made, the file was deemed salvageable and wasn't deleted. A coppy of this file was created as a backup, modified to look like a game and then shiped out to potentual testers.
 

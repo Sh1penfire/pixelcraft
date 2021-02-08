@@ -1,9 +1,14 @@
 const fc = require("libs/fc");
 const statuses = require("libs/statuses");
 
-function shootTo(Bullet, Origin, Target){
+function shootTo(Bullet, Origin, Target, inacurracy){
     //essentualy artillery bullet code but not at all, since this shoots a bullet from a bullet.
-    Bullet.create(Origin.owner, Origin.team, Origin.x, Origin.y, Origin.angleTo(Target) + Mathf.range(25), 1, Mathf.dst(Origin.x, Origin.y, Target.x, Target.y)/Bullet.lifetime/Bullet.speed + 0.1);
+    Bullet.create(Origin.owner, Origin.team, Origin.x, Origin.y, Origin.angleTo(Target) + Mathf.range(inacurracy), 1, Mathf.dst(Origin.x, Origin.y, Target.x, Target.y)/Bullet.lifetime/Bullet.speed + 0.1);
+}
+
+function shootTo2(Bullet, ShootX, ShootY, Origin){
+    //essentualy artillery bullet code but not at all, since this shoots a bullet from a bullet.
+    Bullet.create(Origin.owner, Origin.team, Origin.x, Origin.y, Origin.angleTo(ShootX, ShootY), 1, Mathf.dst(Origin.x, Origin.y, ShootX, ShootY)/Bullet.lifetime/Bullet.speed + 0.1);
 }
 
 const thorns = new Effect(25, e=>{
@@ -364,6 +369,18 @@ const sporeOrbShot = extend(BasicBulletType, {
     status: statuses.sporefire
 });
 
+const sporeOrbShot2 = extend(BasicBulletType, {
+	damage: 3,
+    speed: 4,
+	lifetime: 20,
+	shrinkY: 0.5,
+    frontColor: Pal.spore,
+    backColor: Color.purple,
+    hitEffect: statuses.sporefire.effect,
+    despawnEffect: statuses.sporefire.effect,
+    status: statuses.sporefire
+});
+
 //Spore shots will shoot targets instaid of atatching to them, but can still attach to friendly units. They can also attack enemy blocks. WIP
 const bioShot5 = extend(BasicBulletType, {
     width: 0,
@@ -389,7 +406,6 @@ const bioShot5 = extend(BasicBulletType, {
                 let target2 = Units.closestTarget(b.team, b.x, b.y, 256, u => u.checkTarget(true, true));
                 let target3 = Units.closest(b.team, b.x, b.y, 128, u => u.checkTarget(true, true));
                 let target5 = Units.closest(b.team, b.owner.x, b.owner.y, b.owner.range(), u => !fc.statusCheck(u, statuses.sporefireC));
-            
                 if(target1 != null && target1.damaged()){
                     target1.heal(0.05);
                     b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target1), 0.1));
@@ -397,22 +413,31 @@ const bioShot5 = extend(BasicBulletType, {
                 }
                 else if(target3 != null){
                     target3.apply(statuses.sporefireC, 360)
-                    let target4 = Units.closestEnemy(b.team, target3.x, target3.y, 256, u => u.checkTarget(true, true));
-                    if(target4 != null){
-                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.1));
-                        if(Math.abs(fc.helix(25, 1, 1, b.fout())) > 0.9){
-                                shootTo(sporeOrbShot, b, target4)
+                    let target4 = Units.closestTarget(b.team, target3.x, target3.y, 256, u => u.checkTarget(true, true));
+                    if(target3.isShooting == true){
+                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.05));
+                        //define the max x and y difrence
+                        let limitationX = Math.cos(b.angleTo(target3.aimX, target3.aimY)/180 * Math.PI) * 256;
+                        let limitationY = Math.sin(b.angleTo(target3.aimX, target3.aimY)/180 * Math.PI) * 256;
+                        if(Math.abs(fc.helix(100, 1, 1, b.fout())) > 0.95){
+                            shootTo2(sporeOrbShot2, fc.rangeLimit(target3.aimX - b.x, limitationX) + target3.x, fc.rangeLimit(target3.aimY - b.y, limitationY) + target3.y, b)
+                        }
+                    }
+                    else if(target4 != null){
+                        //lil extra nudge to stay closer
+                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.05));
+                        if(Math.abs(fc.helix(25, 1, 1, b.fout())) > 0.9725){
+                                shootTo(sporeOrbShot, b, target4, 25)
                            }
-                        target4.apply(statuses.sporefire, 360);
                     }
                     else{
-                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.05));
                         target3.apply(statuses.sporefireC, 720)
                     }
+                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.05));
                 }
                 else if(target2 != null){
                     if(Math.abs(fc.helix(15, 1, 1, b.fout())) > 0.95){
-                        shootTo(sporeOrbShot, b, target2)
+                        shootTo(sporeOrbShot, b, target2, 25)
                     }
                     b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target2), 0.025));
                 }
@@ -443,15 +468,28 @@ const bioShot5 = extend(BasicBulletType, {
         }
     let target1 = Units.closest(b.team, b.x, b.y, 128, u => u.damaged() && u.checkTarget(true, true));
     let target2 = Units.closestTarget(b.team, b.x, b.y, 256, u => u.checkTarget(true, true));
-    let target3 = Units.closest(b.team, b.x, b.y, 128, u => u.checkTarget(true, true));                
+    let target3 = Units.closest(b.team, b.x, b.y, 128, u => u.checkTarget(true, true));
     let target5 = Units.closest(b.team, b.owner.x, b.owner.y, b.owner.range(), u => !fc.statusCheck(u, statuses.sporefireC));
+        
     if(target1 != null && target1.damaged()){
         Lines.line(b.x, b.y, target1.x, target1.y);
         Fill.circle(target1.x, target1.y, 2);
     }
     else if(target3 != null){
-        let target4 = Units.closestEnemy(b.team, target3.x, target3.y, 256, u => u.checkTarget(true, true));
-        if(target4 != null){
+        let target4 = Units.closestTarget(b.team, target3.x, target3.y, 256, u => u.checkTarget(true, true));
+        if(target3.isShooting == true){
+            let limitationX = Math.cos(b.angleTo(target3.aimX, target3.aimY)/180 * Math.PI) * 256;
+            let limitationY = Math.sin(b.angleTo(target3.aimX, target3.aimY)/180 * Math.PI) * 256;
+            let TargX = fc.rangeLimit(target3.aimX - b.x, limitationX) + target3.x
+            let TargY = fc.rangeLimit(target3.aimY - b.y, limitationY) + target3.y
+            fc.rangeLimit(target3.aimY - b.y, limitationY) + b.y
+            Lines.line(b.x, b.y, target3.x, target3.y);
+            Fill.circle(target3.x, target3.y, 2);
+            Draw.alpha(0.5);
+            Lines.line(target3.x, target3.y, TargX, TargY);
+            Fill.circle(TargX, TargY, 2);
+        }
+        else if(target4 != null){
             Lines.line(b.x, b.y, target3.x, target3.y);
             Fill.circle(target3.x, target3.y, 2);
             Draw.alpha(0.5);
@@ -578,8 +616,11 @@ basicTurret4b2.buildType = () => extend(ItemTurret.ItemTurretBuild, basicTurret4
                 }
             }
             else if(this.peekAmmo().status == statuses.sporefireC && this.peekAmmo().buildingDamageMultiplier !== 0){
-                    tempTarget5 = Units.closest(this.team, this.x, this.y, this.range(), u => !fc.statusCheck(u, statuses.sporefireC));
-                    tempTarget3 = Units.closestTarget(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+                tempTarget5 = Units.closest(this.team, this.x, this.y, this.range(), u => !fc.statusCheck(u, statuses.sporefireC));
+                tempTarget3 = Units.closestTarget(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+                if(tempTarget2 != null){
+                    tempTarget4 = Units.closestTarget(this.team, tempTarget2.x, tempTarget2.y, 200, u => u.checkTarget(true, true));
+                }
             }
         }
         //start the targeting checks
