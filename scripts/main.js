@@ -2,6 +2,7 @@ require("libs/fc");
 require("libs/statuses");
 require("libs/paferEffects");
 require("extras/voidicsm");
+require("blocks/environment");
 require("turrets/wan't");
 require("turrets/Sx.quad");
 require("turrets/Sundry");
