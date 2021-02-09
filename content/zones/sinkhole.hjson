@@ -1,0 +1,35 @@
+name: Sinkhole
+description: An enemy fortification guarding presumeably a rare resource. Take it out.
+loadout: basicFoundation
+startingItems: [
+  copper/200
+  lead/300
+]
+//Mode: Attack
+conditionWave: 15
+launchPeriod: 20
+configureObjective: {	
+	//Mode: Attack
+	type: Launched
+	zone: sinkhole
+}
+requirements: [
+  {
+    type: ZoneWave
+    zone: crossroads
+    wave: 0
+  }
+  {
+    type: Unlock
+    block: dusk
+  }
+]
+resources: [
+  scrap
+  copper
+  lead
+  coal
+  iron
+  sand
+  titanium
+]

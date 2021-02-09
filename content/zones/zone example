@@ -1,0 +1,28 @@
+name: Rusted Valley
+description: A passage to the old lands. Iron has collected here in a great amounts.
+loadout: basicFoundation
+startingItems: [
+  copper/200
+  lead/300
+]
+conditionWave: 10
+launchPeriod: 20
+requirements: [
+  {
+    type: ZoneWave
+    zone: groundZero
+    wave: 10
+  }
+  {
+    type: Unlock
+    block: shiny-beacon
+  }
+]
+resources: [
+  scrap
+  copper
+  lead
+  coal
+  iron
+  sand
+]
