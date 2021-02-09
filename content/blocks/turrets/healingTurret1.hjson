@@ -1,4 +1,3 @@
-type: PowerTurret
 name: Pulse
 description: "A suport controlled turret that can heal blocks. Does decent damage"
 health: 220
