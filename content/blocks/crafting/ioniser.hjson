@@ -1,6 +1,7 @@
 type: GenericSmelter
 name: Ioniser
-description: "Uses magnets to magnitise pieces of iron and mixes the magnitised iron with magnitine to further increase the magnitsm. Theres a note in the scimatics. It reads: However, there was a small problem with the formation of the planets. Held together by nothing but gravity, Templura's surface was jagged, unlike other planets which looked rounded, almost perfectly spherical."
+description: "Uses magnets to magnitise pieces of rust and mixes the magnitised rust with magnitine to further increase the magnitsm. Red paint not included."
+details: "However, there was a small problem with the formation of the planets. Held together by nothing but gravity, Templura's surface was jagged, unlike other planets which looked rounded, almost perfectly spherical."
 size: 3
 hasItems: true
 craftTime: 100

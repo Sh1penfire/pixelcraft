@@ -15,6 +15,9 @@ upgrades: [
   [
     crystal, stalactite
   ]
+  [
+    rustydart, rustyjavalin
+  ]
 ]
 consumes: {
 items:{

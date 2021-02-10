@@ -1,6 +1,5 @@
-type: ItemTurret
 name: Strand
-description: A standard turret. Effective against ground units.
+description: The first object the coruption created which was used to fend off intruders.
 health: 200
 size: 1
 reloadTime: 17.5

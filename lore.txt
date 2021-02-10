@@ -1,6 +1,26 @@
+Building Descriptions Related to lore
+
+Unit Descriptions Related to lore
+
+Mechanical Life
+
+Catapult:
+Life on Serpulo was harsh after the inccident of the first mass extinction. Nothing could survive. Or so we thought.
+
+Trebuche:
+There was life flourishing in the pockets of water scattered throughout Sepulo. They had adapted to the harsh circumstances, growing metallic scales.
+
+Cannon:
+Eventualy, after a few hundred years or so, life adapted to the surface's conditions. Not biological life, but mechanical life.
+
+Howitzer:
+Mechs which resembled inscects, fish, birds and more were formed.
+
+
 The lore (In order of events)
 
 Stone
+//This is from the perspective of the crux, and they don't know what really causes the stone to glow as they can only percieve what is being simulated.
 Surprisingly, each universe incarnation might be different from the last one in not just it's formation, but it's rules. Apparently in this iteration, radioactive materials take an extremely short time to react as processes down at the quantum level are sped up. How do we know this? The last iteration had left behind indestructible information before it was reborn. Information on how nuclear reactions worked. There was one exception that exists however. In the stone of planets, there remains a glowing property. Radioactive materiels in the stone of each planet decaying extremely slowly. We are able to see at night because of this. It emits enough light to dimly light up the surface of many planets. The light is on the lower end of the spectrum, still on the visible portion making it usable for a light source deep in space. This was normal to us. The glowing stone was a blessing to have and we valued it until we found better ways of lighting up our encampments.
 
 Templura 
@@ -14,19 +34,9 @@ However, there was a small problem with the formation of the planets. Held toget
 Sand Reversal Unit:
 Serpulo's surface was cooling down. It had a magnetic field caused by the swirling of molten metal at the planet's core, protecting gasses from intense solar winds. However, as there was high volcanic activity, the surface never formed an ocean. There were isolated pockets of water on it but no grand seas for sailors to explore.
 
-life
-
-Catapult:
-Life on Serpulo was harsh after the inccident of the first mass extinction. Nothing could survive. Or so we thought.
-
-Trebuche:
-There was life flourishing in the pockets of water scattered throughout Sepulo. They had adapted to the harsh circumstances, growing metallic scales.
-
-Cannon:
-Eventualy, after a few hundred years or so, life adapted to the surface's conditions. Not biological life, but mechanical life.
-
-Howitzer:
-Mechs which resembled inscects, fish, birds and more were formed.
+Mechanical Life:
+//This is from the perspective of the crux, and they don't know what really caused mechanical life as they can only perceive what is being simulated.
+Sepulo was a lush planet full of life, which is evident due to the amount of coal present. That all changed one day. A mass extinction that wiped out nearly every lifeform on Sepulo happened, and there was almost no hope for it to recover it's biodiversity. It never did. Most land based creatures were wiped out after the initial freeze and the ones that survived died of starvation. The lakes were frozen and larger bodies of water covered in a thick layer of ice. These small isolated pockets of water would give birth to new life. Metallic beasts which roamed Sepulo acting like the fauna from before.
 
 war
 Core Beacon
@@ -49,6 +59,10 @@ When they first discovered scrap, they didn't know what to think. One suggested 
 Coal compresser:
 Eventualy the bots had found out that it had many metals in it, even the valued thorium that kept their reactors fueled. For now, they tried to figure out how to extract the metals directly. Nothing they tried worked.  One of the bots decided to melt the scrap. They said that the idea was pointless, as these were ancient fossils which they were studying. The bot's name was dart. They were banished to the farlands and told never to come back again, with threats to be shot on sight.
 
+Crux using pixelcraft tech
+
+They had found it before us. It was inevitable. We had lost the race for the rusted core, and the schematics held within on Templura. As they setup the cores and drills, they realized that their technology was incompatible. a debate was to be held at their base on whether or not to claim Templura as their own. Eventualy, they came to the conclusion that they should take over Templura. One by one, prebuilt cores were launched onto the surface to find an uninhabited, living land free of spores.
+
 Dunescape crags
 
 Lava cannels run underground
@@ -57,7 +71,11 @@ The diralect used a superweapon here
 The usage of it brought downfall to their conquest to concour the planet
 now all that remains is their tech
 
+The infestation
 
+The spores. Recognised as a source of power and the ruthless destroyer of life.
+The crux didn't know it but they are being controlled, and the "accident" happened because the crux's spore production facilities were built in a spot where diralect would attack which released the spores. They knew it would happen and it impacted diralect heavily, since they relied on natural sources to make power. This would be one of many blows to diralect as they slowly lost control of Sepulo.
+Templura's life was resilient enough to fight back against the spores that happened to land on Templura from the crux's launch. There was one spot on Templura which was almost perfectly suited for the spores to inhabit however, and are the main source of spores on Templura.
 
 The void
 

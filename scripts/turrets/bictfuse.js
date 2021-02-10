@@ -3,7 +3,7 @@ const titaniumbullet = extend(ShrapnelBulletType,{});
 titaniumbullet.length = 380;
 titaniumbullet.width = 30;
 titaniumbullet.lifetime = 20;
-titaniumbullet.damage = 100;
+titaniumbullet.damage = 75;
 titaniumbullet.ammoMultiplier = 1;
 titaniumbullet.hitEffect = Fx.hitLancer;
 titaniumbullet.shootEffect = Fx.lightningShoot;
@@ -12,9 +12,9 @@ titaniumbullet.fromColor = Color.valueOf("7DE7FFFF");
 
 const graphitebullet = extend(ShrapnelBulletType,{});
 
-graphitebullet.length = 50;
+graphitebullet.length = 380;
 graphitebullet.width = 30;
-graphitebullet.damage = 300;
+graphitebullet.damage = 65;
 graphitebullet.lifetime = 20;
 graphitebullet.ammoMultiplier = 2;
 graphitebullet.hitEffect = Fx.hitLancer;
@@ -45,9 +45,9 @@ const sporebullet = extend(ShrapnelBulletType ,{
   
 });
 
-sporebullet.length = 200;
+sporebullet.length = 380;
 sporebullet.width = 10;
-sporebullet.damage = 200;
+sporebullet.damage = 50;
 sporebullet.lifetime = 20;
 sporebullet.ammoMultiplier = 2;
 sporebullet.toColor =  Pal.spore;
@@ -56,7 +56,7 @@ sporebullet.hitEffect = sporeFx;
 sporebullet.fromColor = Pal.sapBullet;
 sporebullet.smokeEffect = sporeFx;
 
-const vanilaTurret1 = extendContent(ItemTurret, "vanilaTurret1", {
+const vanilaTurret1 = extend(ItemTurret, "vanilaTurret1", {
   init(){
     this.ammo(
       Items.titanium,titaniumbullet,

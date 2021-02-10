@@ -1,8 +1,11 @@
 type: StackConveyor
 name: "Tinormium rails"
-description: "Packs items into a comforta ble ride on a foam box."
+description: "Packs items into a comfortable ride on a foam box."
 speed: 0.1
 itemCapacity: 50
 category: distribution
-//displayedSpeed: 10
+requirements: [
+  tinormium/1
+  bionite/1
+]
 buildVisibility: shown

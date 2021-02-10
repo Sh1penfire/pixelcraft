@@ -1,12 +1,12 @@
-type: mech
 name: "Rusty alpha"
 description: "Standard core unit in the days of old. Missiles seek out their targets."
 details: "After it was found, the slag wars began. Sepulo was going through a period of increased volcanic activity due to weak spots leftover from the planet's formation."
 speed : 0.75
 health: 125
 aimDst: 10
-range: 50
-maxRange: 200
+range: 70
+hitSize: 8
+maxRange: 100
 buildSpeed: 2
 clipSize: 1
 faceTarget: true
@@ -33,13 +33,17 @@ bullet: {
 type: MissileBulletType
 damage: 10
 speed: 5
+status: corroded
+statusDuration: 360
 shrinkY: 0.3
+drag: 0.01
 lifetime: 50
-drag: 0.025
 fragBullets: 3
 hitSound: pew
 fragBullet:{
 type: BasicBulletType
+frontColor: b7f35e
+backColor: b7f35e
 damage: 1
 speed: 1
 }
@@ -60,6 +64,8 @@ type: LiquidBulletType
 liquid: water
 damage: 2
 speed: 4
+status: corroded
+statusDuration: 360
 lifetime: 35
 knockback: 0.5
 inaccuracy: 15

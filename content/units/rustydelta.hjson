@@ -1,14 +1,16 @@
-type: mech
 name: "Rusty delta"
 description: "Special combat model reworked by engineers."
 details: "Some went rogue. Others tried to help their relatives survive. In the end, it didn't matter though. The only places safe were now the ever increasing amount of caves."
 speed: 1
 health: 500
+armor: 2
 aimDst: 10
 range: 50
+hitSize: 10
 maxRange: 200
 buildSpeed: 3
 clipSize: 1
+flying: false
 faceTarget: true
 rotateShooting : true
 mineTier: 3
@@ -21,73 +23,23 @@ canDrown: false
 canBoost: true
 weapons: [ 
 {
-name: aged-blaster
-reload: 15
-alternate: true
-ejectEffect: casing1
-top: false
-shootSound: pew
-shots: 5
-x: 3.5
-y: 0
-rotate: false
-bullet: {
-type: BasicBulletType
-speed: 3
-damage: 10
-healPercent: 1
-collidesTeam: true
-}
-}
-{
 name: aged-zapper
 reload: 35
 alternate: true
 ejectEffect: casing1
 top: false
 shootSound: spark
-x: 3.5
-y: 0
+x: 5
+y: 2
 rotate: false
 shots: 3
 bullet: {
 type: LightningBulletType
-lightningLength: 7
-lightningLengthRand: 8
+lightningLength: 10
+lightningLengthRand: 13
 healPercent: 2
 collidesTeam: true
-damage: 5
-}
-}
-{
-name: aged-blaster-mount
-reload: 50
-alternate: false
-ejectEffect: casing3
-top: false
-shootSound: pew
-rotate: true
-x: 1.0
-y: -1.0
-bullet:{
-type: ArtilleryBulletType
-damage: 0
-speed: 4
-width: 5
-height: 7
-splashDamage: 5
-splashDamageRadius: 16
-despawnEffect: explosion
-fragBullets: 2
-hitSound: boom
-fragBullet: {
-type: LightningBulletType
-lightningLength: 3
-lightningLengthRand: 5
-healPercent: 2
-collidesTeam: true
-damage: 7
-}
+damage: 15
 }
 }]
 research: {

@@ -1,7 +1,7 @@
 name: "Cannon"
 type: naval
 description: "An assult ship with piercing cannonballs. Mobile and armored. Boosts nearby allies."
-details: "Theres a note in titanium. It reads: Eventualy, after a few hundred years or so, life adapted to the surface's conditions. Not biological life, but mechanical life."
+details: "Eventualy, after a few hundred years or so, life adapted to the surface's conditions. Not biological life, but mechanical life."
 speed: 1.7
 drag: 0.13
 hitSize: 15

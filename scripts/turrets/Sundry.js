@@ -13,7 +13,7 @@ const ironBullet = extend(BasicBulletType, {
         Lines.circle(e.x, e.y, e.fin() * 0.5);
     },
     speed: 4,
-    damage: 4,
+    damage: 3,
     knockback: -1,
     width: 3,
     height: 6,
@@ -38,7 +38,7 @@ const magnitineBullet = extend(BasicBulletType, {
         Lines.circle(e.x, e.y, e.fin() * 1);
     },
     speed: 4,
-    damage: 6,
+    damage: 4,
     knockback: -1,
     width: 5,
     height: 8,
@@ -64,7 +64,7 @@ const stormBullet = extend(BasicBulletType, {
         Lines.circle(e.x, e.y, e.fin() * 1);
     },
     speed: 4,
-    damage: 0,
+    damage: 1,
     knockback: -2,
     width: 5,
     height: 8,
@@ -95,12 +95,12 @@ const ironShot = extend(BasicBulletType, {
     }
 });
 ironShot.knockback = 2;
-ironShot.damage = 8;
+ironShot.damage = 9;
 ironShot.lifeimte = 10;
 ironShot.collides = true;
 ironShot.pierce = true;
 ironShot.pierceBuilding = true;
-ironShot.speed = 1.2;
+ironShot.speed = 1.4;
 
 const magnitineShot = extend(BasicBulletType, {
     draw(e){
@@ -115,12 +115,12 @@ const magnitineShot = extend(BasicBulletType, {
     }
 });
 magnitineShot.knockback = 3;
-magnitineShot.damage = 8;
+magnitineShot.damage = 10;
 magnitineShot.lifeimte = 10;
 magnitineShot.collides = true;
 magnitineShot.pierce = true;
 magnitineShot.pierceBuilding = true;
-magnitineShot.speed = 1.6;
+magnitineShot.speed = 1.8;
 
 const stormShot = extend(BasicBulletType, {
     draw(e){
@@ -135,22 +135,20 @@ const stormShot = extend(BasicBulletType, {
     }
 });
 stormShot.knockback = 3;
-stormShot.damage = 0;
+stormShot.damage = 3;
 stormShot.lifeimte = 10;
 stormShot.collides = true;
 stormShot.pierce = true;
 stormShot.pierceBuilding = true;
-stormShot.speed = 1.6;
+stormShot.speed = 1.8;
 
-const basicTurret4b1 = extendContent(ItemTurret, "basicTurret4b1", {
-    size: 3,
-    rotationSpeed: 6,
-    reloadTime: 15,
+const basicTurret5b1 = extendContent(ItemTurret, "basicTurret5b1", {
+    shootDst: 25,
     init() {
     this.ammo(
         Vars.content.getByName(ContentType.item,"pixelcraft-iron"), ironShot,
         Vars.content.getByName(ContentType.item,"pixelcraft-magnitine"), magnitineShot,
-        Vars.content.getByName(ContentType.item,"sand"), stormShot
+        Vars.content.getByName(ContentType.item,"pixelcraft-ceramic"), stormShot
     );
     this.super$init();
   }

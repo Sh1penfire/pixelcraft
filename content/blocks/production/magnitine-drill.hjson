@@ -1,6 +1,5 @@
 name: Magnitine Drill
 description: Sturdy dril that uses magnitism to move it's parts.
-type: Drill
 size: 1
 tier: 3
 drillTime: 355

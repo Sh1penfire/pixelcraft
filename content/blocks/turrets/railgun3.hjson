@@ -5,8 +5,6 @@ health: 1200
 size: 4
 reloadTime: 225
 range: 600
-shots: 5
-burstSpacing: 5
 spread: 0
 recoil: 10
 targetAir: true

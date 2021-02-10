@@ -1,9 +1,9 @@
 name: "Large Magnitine wall"
 description: "A sturdy defensive block.
-Provides moderate protection from enemies Blocks electric arcs.
+Provides moderate protection from enemies.
 Spans multiple tiles."
 type: Wall
-health: 2500
+health: 2400
 size: 2
 requirements: [
   magnitine/24

@@ -1,5 +1,6 @@
 name: Feromagnet
-description: Oh wow look at that, this description tells nothing
+description: "A strong object, drawing it's strength from the darkness within and electromagnetic force."
+details: "Motion magnifies the darkness."
 hardness: 2
 cost: 1
 research: {

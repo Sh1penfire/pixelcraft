@@ -32,7 +32,74 @@ overload.damage = 0.0;
 overload.effect = overloadFX;
 overload.color  = Color.green;
 
-//extends off the beat hjson file
+const pulse = extend(PowerTurret, "healingTurret1", {})
+pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
+    updateTile(){
+        this.super$updateTile();
+        this.beamAlpha = Mathf.slerpDelta(this.beamAlpha, 0, 0.05)
+    },
+    findTarget(){
+        let TempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+        let TempTarget2 = null
+        let tempVar = Units.findDamagedTile(this.team, this.x, this.y);
+        if(tempVar != null){
+            if(Mathf.dst(this.x, this.y, tempVar.x, tempVar.y) < this.range()){
+                TempTarget2 = tempVar
+            }
+        }
+        if(TempTarget != null){
+            this.target = TempTarget;
+            this.shootingBuilding = false
+        }
+        else if(TempTarget2 != null){
+            this.target = TempTarget2;
+            this.shootingBuilding = true
+        }
+        else{
+            this.shootingBuilding = false
+        }
+    },
+    validateTarget(){
+        if(this.target != null){
+            let TempTarget = null
+            let tempVar = Units.findDamagedTile(this.team, this.x, this.y);
+            if(tempVar != null){
+                if(Mathf.dst(this.x, this.y, tempVar.x, tempVar.y) < this.range()){
+                    TempTarget = tempVar;
+                }
+            }
+            if(Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true) || TempTarget != null)){
+                return true;
+            }
+            else if(this.isControlled() == true || this.logicControlled() == true || this.shootingBuilding){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    },
+    shoot(type){
+        if(this.shootingBuilding){
+            target.heal(target.maxHealth/type.healPercent)
+        }
+        else{
+            this.super$shoot(type);
+        }
+    },
+    draw(){
+        this.super$draw();
+        if(this.shootingBuilding == true && this.isShooting() && this.canShoot() == true){
+            Draw.color(Color.valueOf("#82f48f"), Color.valueOf("#62ac7d"), 0.3 + Mathf.random(0.4))
+            Draw.alpha(0.5 + this.target.health/this.target.maxHealth * 0.5);
+            Lines.line(this.x, this.y, this.targetPos.x, this.targetPos.y);
+        }
+    }
+})
+//the beat hjson file modifies beat, as this just defines it
 const beat = extendContent(PowerTurret, "healingTurret2", {
   icons(){
     return [

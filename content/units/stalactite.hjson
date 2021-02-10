@@ -33,7 +33,7 @@ collidesTiles: true
 damage: 10
 pierce: true
 pierceCap: 3
-speed: 5
+speed: 7
 lifetime: 10
 inaccuracy: 15
 hitSound: none
