@@ -14,7 +14,6 @@ const shotHit = new Effect(20, e => {
   Lines.circle(e.x, e.y, e.fin() * 12.5);
 });
 
-
 //makes the shoot effect of beat
 const shot = extend(LaserBoltBulletType, {});
         
@@ -35,12 +34,28 @@ overload.color  = Color.green;
 const pulse = extend(PowerTurret, "healingTurret1", {})
 pulse.beamAlpha = 1
 pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
+    setLastP(){
+        //used to set target last position
+        if(this.target != null){
+            //stands for last position x and last position y
+            this.LTPx = this.target.x
+            this.LTPy = this.target.y
+        }
+    },
     updateTile(){
-        this.super$updateTile();
-        if(this.beamAlpha == undefined){
+        this.setLastP();
+        if(this.beamAlpha === undefined){
             this.beamAlpha = 0;
         }
-        this.beamAlpha = Mathf.slerpDelta(this.beamAlpha, 0, 0.05);
+        if(this.LTPx === undefined){
+            this.LTPx = 0;
+        }
+        if(this.LTPy === undefined){
+            this.LTPy = 0;
+        }
+        this.beamAlpha = Mathf.slerpDelta(this.beamAlpha, 0, 0.025);
+        //run super after to prevent undefined fields
+        this.super$updateTile();
     },
     findTarget(){
         let TempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
@@ -80,12 +95,15 @@ pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
             if(Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true) || TempTarget != null)){
                 return true;
             }
-            else if(this.isControlled() == true || this.logicControlled() == true || this.shootingBuilding){
+            else if(this.shootingBuilding){
                 return true;
             }
             else{
                 return false;
             }
+        }
+        else if(this.isControlled() == true || this.logicControlled() == true){
+            return true;
         }
         else{
             return false;
@@ -96,6 +114,7 @@ pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
             this.target.heal(this.target.maxHealth/type.healPercent);
             Fx.healBlockFull.at(this.target.x, this.target.y, this.target.block.size, Color.valueOf("#82f48f"))
             this.beamAlpha = 1;
+            this.setLastP()
         }
         else{
             this.super$shoot(type);
@@ -103,11 +122,10 @@ pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
     },
     draw(){
         this.super$draw();
-        if(this.shootingBuilding && this.target != null && this.logicControlled() != true && this.isControlled() != true){
-            Draw.color(Color.valueOf("#82f48f"), Color.valueOf("#62ac7d"), 0.3 + Mathf.random(0.4))
-            Draw.alpha(this.beamAlpha);
-            Lines.line(this.x, this.y, this.target.x, this.target.y);
-        }
+        Draw.color(Color.valueOf("#62ac7d"), Color.valueOf("#82f48f"), this.beamAlpha)
+        Draw.alpha(this.beamAlpha);
+        Lines.stroke(this.beamAlpha * this.beamAlpha)
+        Lines.line(this.x, this.y, this.LTPx, this.LTPy);
     }
 })
 //the beat hjson file modifies beat, as this just defines it
