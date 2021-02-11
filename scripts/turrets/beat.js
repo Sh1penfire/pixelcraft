@@ -33,10 +33,14 @@ overload.effect = overloadFX;
 overload.color  = Color.green;
 
 const pulse = extend(PowerTurret, "healingTurret1", {})
+pulse.beamAlpha = 1
 pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
     updateTile(){
         this.super$updateTile();
-        this.beamAlpha = Mathf.slerpDelta(this.beamAlpha, 0, 0.05)
+        if(this.beamAlpha == undefined){
+            this.beamAlpha = 0;
+        }
+        this.beamAlpha = Mathf.slerpDelta(this.beamAlpha, 0, 0.05);
     },
     findTarget(){
         let TempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
@@ -53,7 +57,12 @@ pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
         }
         else if(TempTarget2 != null){
             this.target = TempTarget2;
-            this.shootingBuilding = true
+            if(this.isControlled() != true || this.logicControlled() != true){
+                this.shootingBuilding = true
+            }
+            else{
+                this.shootingBuilding = false
+            }
         }
         else{
             this.shootingBuilding = false
@@ -83,8 +92,10 @@ pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
         }
     },
     shoot(type){
-        if(this.shootingBuilding){
-            target.heal(target.maxHealth/type.healPercent)
+        if(this.shootingBuilding != false && this.target != null && this.logicControlled() != true && this.isControlled() != true){
+            this.target.heal(this.target.maxHealth/type.healPercent);
+            Fx.healBlockFull.at(this.target.x, this.target.y, this.target.block.size, Color.valueOf("#82f48f"))
+            this.beamAlpha = 1;
         }
         else{
             this.super$shoot(type);
@@ -92,10 +103,10 @@ pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
     },
     draw(){
         this.super$draw();
-        if(this.shootingBuilding == true && this.isShooting() && this.canShoot() == true){
+        if(this.shootingBuilding && this.target != null && this.logicControlled() != true && this.isControlled() != true){
             Draw.color(Color.valueOf("#82f48f"), Color.valueOf("#62ac7d"), 0.3 + Mathf.random(0.4))
-            Draw.alpha(0.5 + this.target.health/this.target.maxHealth * 0.5);
-            Lines.line(this.x, this.y, this.targetPos.x, this.targetPos.y);
+            Draw.alpha(this.beamAlpha);
+            Lines.line(this.x, this.y, this.target.x, this.target.y);
         }
     }
 })
