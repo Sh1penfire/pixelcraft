@@ -1,6 +1,10 @@
 const fc = require("libs/fc");
 const statuses = require("libs/statuses");
 
+const basicTurret1 = extend(ItemTurret, "basicTurret1", {});
+
+const basicTurret2b1 = extend(ItemTurret, "basicTurret2b1", {});
+
 const shotFx = new Effect(20, e => {
   Draw.color(Color.valueOf("E06FFFFF"), Color.lightGray, e.fout()); 
   Fill.circle(e.x, e.y, e.fout() + 1 * 2);

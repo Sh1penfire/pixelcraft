@@ -48,12 +48,11 @@ time: 235
   }
 ]
 category: units
-research: naval-factory
 requirements: [
   iron/75
   magnitine/25
 ]
-
+research: core-refraction
 
 
 //Blocks.groundFactory.plans.add(new UnitFactory.UnitPlan("pixelcraft-rustyalpha", 60 * 25, 

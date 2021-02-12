@@ -2,9 +2,11 @@ require("libs/fc");
 require("libs/statuses");
 require("libs/paferEffects");
 require("extras/voidicsm");
+require("blocks/teleporter");
 require("turrets/wan't");
 require("turrets/Sx.quad");
-require("turrets/Sundry");
+require("turrets/several");
+require("turrets/sundry");
 require("turrets/bictfuse");
 require("turrets/puver");
 require("turrets/psion");
@@ -17,6 +19,7 @@ require("turrets/spreadTurrets");
 require("turrets/bioTurrets");
 require("blocks/bombs");
 require("units/whiteGround");
+require("units/rusted");
 require("units/purpleNavals");
 require("templura");
 require("blocks/pixel-com");
@@ -24,6 +27,7 @@ require("blocks/bioFormer");
 require("units/mono");
 require("turrets/wasnts");
 require("turrets/wave");
+require("extras/techTree");
 
 var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     localizedName: "Flooded Vally",

@@ -41,13 +41,12 @@ flCoal.collidesTiles = true;
 flCoal.colidesAir = true;
 flCoal.ammoMultiplier = 10;
 flCoal.pierce = true;
-flCoal.incendAmount = 1;
 flCoal.fragBullets = 2;
 flCoal.fragBullet = flCoalfrag;
 
 const flSpore = extend(BasicBulletType, {});
 flSpore.speed = 5;
-flSpore.damage = 4;
+flSpore.damage = 0;
 flSpore.hitSize = 6;
 flSpore.width = 0;
 flSpore.height = 0;
@@ -79,6 +78,7 @@ flCoalfrag.hitEffect = firelandFx;
 flCoalfrag.status = statuses.hellfire;
 flCoalfrag.fragBullet = Bullets.standardCopper;
 //this will make the bullet always spawn a puddle even if it dosn't hit it's target.
+
 const helgravator = extendContent(ItemTurret, "flamethrower3",{
   init(){
     this.super$init();

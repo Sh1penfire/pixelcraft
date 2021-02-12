@@ -1,6 +1,7 @@
 type: GenericSmelter
 name: Magnitine forgery
-description: "Smelts iron using coal to create magnitine. Don't think about it to hard. Theres a note in plastic. It says: For now, they tried to figure out how to extract the metals directly. Nothing they tried worked."
+description: "Smelts rust using coal to create magnitine. Don't think about it to hard. 
+details: For now, they tried to figure out how to extract the metals directly. Nothing they tried worked."
 liquidCapacity: 50
 size: 2
 hasPower: true

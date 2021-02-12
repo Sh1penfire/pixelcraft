@@ -4,9 +4,10 @@ description: A railgun so powerful that the bolts desintagrate into fine dust ap
 shootSound: laser
 health: 1200
 size: 3
-reloadTime: 100
+reloadTime: 200
 range: 450
-shots: 1
+shots: 3
+burstSpacing: 7.5
 spread: 0
 targetAir: true
 ammoUseEffect: casing4
@@ -15,7 +16,7 @@ ammoTypes: {
  titanium: {
     type: ArtilleryBulletType
 	speed: 16
-	damage: 250
+	damage: 125
 	width: 4
 	height: 18
 	shootEffect: shootSmall
@@ -46,9 +47,9 @@ ammoTypes: {
 	type: LiquidBulletType
 	liquid: cryofluid
 	speed: 1
-	damage: 1
+	damage: 1.5
 	lifetime: 100
-	knockback: 0
+	knockback: -0.1
 	status: freezing
 	fragBullets: 1
 	homingPower: 0.03
@@ -61,7 +62,7 @@ ammoTypes: {
  magnitine: {
     type: ArtilleryBulletType
 	speed: 32
-	damage: 300
+	damage: 175
 	width: 4
 	height: 32
 	shootEffect: shootSmall
@@ -94,6 +95,7 @@ ammoTypes: {
 	frontColor: ffffff
 	backColor: ffffff
 	damage: 2.5
+	status: corroded
 	splashDamage: 0.2
 	splashDamageRadius: 20
 	despawnEffect: none
@@ -109,9 +111,9 @@ ammoTypes: {
  feromagnet: {
     type: MissileBulletType
 	speed: 8
-	damage: 50
-	splashDamage: 300
-	splashDamageRadius: 50
+	damage: 100
+	splashDamage: 75
+	splashDamageRadius: 28.5
 	width: 4
 	height: 32
 	shootEffect: shootSmall

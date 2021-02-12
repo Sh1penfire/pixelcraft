@@ -1,12 +1,11 @@
-name: "Large Iron wall"
+name: "Large Rusty wall"
 description: "A cheap defensive block.
-Provides moderate protection from enemies Blocks electric arcs.
+Provides moderate protection from enemies.
 Spans multiple tiles. Decaying from the rust"
-type: Wall
 health: 1400
 size: 2
 requirements: [
   iron/24
 ]
 category: defense
-research: magnitine-wall
+research: iron-wall

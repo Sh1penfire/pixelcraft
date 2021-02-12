@@ -1,8 +1,7 @@
-name: "Iron wall"
+name: "Rusty wall"
 description: "A cheap defensive block.
-Provides moderate protection from enemies Blocks electric arcs.
+Provides moderate protection from enemies.
 Decaying from the rust"
-type: Wall
 health: 400
 size: 1
 requirements: [

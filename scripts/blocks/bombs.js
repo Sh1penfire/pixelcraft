@@ -98,8 +98,7 @@ const surgeShockwave = new Effect(50, e => {
     Lines.stroke(e.fout() * 10); 
     Lines.circle(e.x, e.y, e.fin() * 15); 
     Angles.randLenVectors(e.id, 10, e.finpow() * 30, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
-        
+    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);   
   })
 });
 
@@ -121,14 +120,6 @@ const bioLight = new Effect(55, e => {
     Lines.spikes(e.x, e.y, e.fout() * 7, e.fout() * 5, 6, e.fin() * 5);
 });
       
-const prismium = new StatusEffect("prismium");
-prismium.speedMultiplier = 1;
-prismium.healthMultiplier = 1;
-prismium.damageMultiplier = 0.75;
-prismium.damage = 0.5;
-prismium.effect = prismiumFX;
-prismium.color = Color.white;
-
 const cryoSpray = new Effect(35, e => {
     Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
     Angles.randLenVectors(e.id, 25, e.finpow() * 30, e.rotation, 360, (x, y) => {
@@ -136,16 +127,17 @@ const cryoSpray = new Effect(35, e => {
   })
 });
 
-const plastExplFrag = extend(BasicBulletType, {});
-plastExplFrag.damage = 15;
-plastExplFrag.width = 6;
-plastExplFrag.height = 8;
-plastExplFrag.pierce = true;
-plastExplFrag.lifetime = 25;
-plastExplFrag.incendAmount = 0;
+const plastExplFrag = extend(BasicBulletType, {
+    damage: 15,
+    width: 6,
+    height: 8,
+    pierce: true,
+    lifetime: 25,
+    shrinkY: 1
+});
+plastExplFrag.status = StatusEffects.corroded;
 plastExplFrag.despawnEffect = Fx.none;
 plastExplFrag.hitEffect = Fx.none;
-plastExplFrag.shrinkY = 1;
 plastExplFrag.backColor = Pal.plastaniumBack;
 plastExplFrag.frontColor = Pal.plastaniumFront;
 
@@ -176,7 +168,7 @@ sporeFrag.despawnEffect = Fx.none;
 sporeFrag.hitEffect = Fx.none;
 sporeFrag.shrinkY = 1;
 sporeFrag.backColor = Color.purple;
-sporeFrag.frontColor = Pal.spore
+sporeFrag.frontColor = Pal.spore;
 
 const sporeCluster = extend(BombBulletType, {
     update(b){
@@ -255,6 +247,7 @@ plastExplosion.splashDamageRadius = 25;
 plastExplosion.splashDamage = 55;
 plastExplosion.lifetime = 0;
 plastExplosion.incendAmount = 0;
+plastExplosion.status = StatusEffects.corroded;
 plastExplosion.despawnEffect = plastDust;
 plastExplosion.hitEffect = plastDust;
 plastExplosion.fragBullets = 25;
@@ -340,7 +333,7 @@ const prismaticBlast = extend(BombBulletType, {});
 prismaticBlast.splashDamageRadius = 60;
 prismaticBlast.splashDamage = 50;
 prismaticBlast.lifetime = 0;
-prismaticBlast.status = prismium;
+prismaticBlast.status = statuses.prismium;
 prismaticBlast.despawnEffect = prismiumExplosion;
 prismaticBlast.hitEffect = prismiumExplosion;
 prismaticBlast.hitSound = Sounds.none;
