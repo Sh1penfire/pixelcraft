@@ -2,10 +2,11 @@ name: Pulse
 description: "A support controlled turret that can heal blocks. Does decent damage"
 health: 220
 size: 1
-reloadTime: 55
+reloadTime: 30
 inaccuracy: 7.5
-range: 200
+range: 150
 shots: 2
+burstSpacing: 1
 powerUse: 0.5
 rotateSpeed: 10
 targetAir: true

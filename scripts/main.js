@@ -11,6 +11,7 @@ require("turrets/bictfuse");
 require("turrets/puver");
 require("turrets/psion");
 require("turrets/pafer");
+require("turrets/pulse");
 require("turrets/beat");
 require("turrets/helgravator");
 require("turrets/fever");
