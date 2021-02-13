@@ -41,12 +41,24 @@ const uberite = extend(Item, "uberite", {});
 const feromagnet = extend(Item, "feromagnet", {});
 const bionite = extend(Item, "bionite", {});
 const stelacrim = extend(Item, "stelacrim", {});
+/*
+    getReplacement(req, requests){
+        let cont = p => requests.contains(o => o.x == req.x + p.x && o.y == req.y + p.y && (req.block instanceof ironConveyor || req.block instanceof Junction));
+        return cont.get(Geometry.d4(req.rotation)) &&
+            cont.get(Geometry.d4(req.rotation - 2)) &&
+            req.tile() != null &&
+            req.tile().block() instanceof ironConveyor &&
+            Mathf.mod(req.tile().build.rotation - req.rotation, 2) == 1 ? Blocks.junction : this;
+    }*/
 
 const ironConveyor = extend(Conveyor, "iron-conveyor", {});
 ironConveyor.buildType = () => extend(Conveyor.ConveyorBuild,  ironConveyor, {
+    /*getReplacement(){
+        this.super$getReplacement()
+    },*/
     unitOn(b){
         if(b.team == this.team){
-            this.super$unitOn(b)
+            this.super$unitOn(b);
         }
         else{
             b.apply(StatusEffects.corroded, 1)
@@ -54,11 +66,13 @@ ironConveyor.buildType = () => extend(Conveyor.ConveyorBuild,  ironConveyor, {
     }
 });
 
+
+
 const magnitineConveyor = extend(Conveyor, "magnitine-conveyor", {});
 magnitineConveyor.buildType = () => extend(Conveyor.ConveyorBuild,  magnitineConveyor, {
     unitOn(b){
         if(b.team == this.team){
-            this.super$unitOn(b)
+            this.super$unitOn(b);
         }
         else{
             b.apply(StatusEffects.corroded, 1)
@@ -124,15 +138,6 @@ voidicsm.effect = statuses.blackout;
 voidicsm.color = Pal.darkMetal;
 
 module.exports = {
-    stone: stone,
-    rust: rust,
-    magnitine: magnitine,
-    bionorb: bionorb,
-    pixelite: pixelite,
-    uberite: uberite,
-    feromagnet: feromagnet,
-    bionite: bionite,
-    stelacrim: stelacrim,
     ironDrill: ironDrill,
     magnitineDrill: magnitineDrill,
     neromagnetDrill: neromagnetDrill,

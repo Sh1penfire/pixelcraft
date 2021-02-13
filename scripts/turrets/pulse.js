@@ -1,50 +1,15 @@
-// Obligatory comment line for no reason at all
-
 const fc = require("libs/fc")
 
-//shoot effect for beat
-const beatShoot = new Effect(30, e => {
-  Draw.color(Color.valueOf("05700b"), Color.valueOf("acfbb0"), e.fin());
-  Lines.stroke(e.fout()*2);
-  Lines.circle(e.x, e.y, e.fin() * 10);
-});
-
-//effect when bullet hits a target
-const shotHit = new Effect(20, e => {
-  Draw.color(Color.valueOf("05700b"), Color.valueOf("acfbb0"), e.fin());
-  Lines.stroke(e.fout()*1);
-  Lines.circle(e.x, e.y, e.fin() * 12.5);
-});
-
-
-//makes the shoot effect of beat
-const shot = extend(LaserBoltBulletType, {});
-        
-//make effects of overload
-const overloadFX = new Effect(40, e => {
-Draw.color(Color.yellow, Color.white, e.fin());
-Fill.circle(e.x, e.y, e.fslope() * 6);
-});
-
-const overload = extendContent(StatusEffect, "overload", {});
-
-overload.speedMultiplier = 1.3;
-overload.armorMultiplier = 1.1;
-overload.damage = 0.0;
-overload.effect = overloadFX;
-overload.color  = Color.green;
-
-//extends off the beat hjson file
-const beat = extendContent(PowerTurret, "healingTurret2", {
-  icons(){
-    return [
-      Core.atlas.find("block-1"),
-      Core.atlas.find("pixelcraft-healingTurret2")
-    ];
-  }
-});
-//wait a second, this wasn't here befo-
-beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
+const pulse = extend(PowerTurret, "healingTurret1", {
+    setStats(){
+    this.super$setStats();
+    //multiply by 100 to leave two decimal places, then devide by 100 to make value accurate
+    this.repairTime = Mathf.round(100 * this.shootType.healPercent * this.reloadTime * 100/60)/100/this.shots
+    this.stats.add(Stat.repairTime, this.repairTime.toString() + " Seconds");
+    }
+})
+pulse.beamAlpha = 1
+pulse.buildType = () => extend(PowerTurret.PowerTurretBuild, pulse, {
     setLastP(){
         //used to set target last position
         if(this.isShooting()){
@@ -87,9 +52,19 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
         let TempTarget2 = Units.closestTarget(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
         if(TempTarget != null){
             this.target = TempTarget;
+            if(this.isControlled() != true || this.logicControlled() != true){
+                this.shootingBuilding = true
+            }
+            else{
+                this.shootingBuilding = false
+            }
         }
         else if(TempTarget2 != null){
             this.target = TempTarget2;
+            this.shootingBuilding = false
+        }
+        else{
+            this.shootingBuilding = false
         }
     },
     validateTarget(){
@@ -104,6 +79,9 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
             if(Units.closestTarget(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true) || TempTarget != null)){
                 return true;
             }
+            else if(this.shootingBuilding){
+                return true;
+            }
             else{
                 return false;
             }
@@ -116,7 +94,7 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
         }
     },
     shoot(type){
-        if(this.target != null && this.logicControlled() != true && this.isControlled() != true && this.target.team == this.team){
+        if(this.target != null && this.logicControlled() != true && this.isControlled() != true && this.shootingBuilding != false){
             this.target.heal(this.target.maxHealth/100 * type.healPercent);
             Fx.healBlockFull.at(this.target.x, this.target.y, this.target.block.size, Color.valueOf("#82f48f"))
             this.beamAlpha = 1;
@@ -126,7 +104,8 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
             let TempBuild = Vars.world.buildWorld(this.targetPos.x, this.targetPos.y)
             if(TempBuild != null){
                if(TempBuild.team == this.team && TempBuild.damaged() && Mathf.dst(TempBuild.x, TempBuild.y, this.x, this.y) < this.range() + 1){
-                   TempBuild.heal(TempBuild.maxHealth/100 * type.healPercent)
+                    TempBuild.heal(TempBuild.maxHealth/100 * type.healPercent)
+                    Fx.healBlockFull.at(TempBuild.x, TempBuild.y, TempBuild.block.size, Color.valueOf("#82f48f"))
                     this.beamAlpha = 1;
                     this.setLastP()
                }
@@ -163,33 +142,3 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
         }
     }
 });
-//givving things stats
-
-//givving beat it's stats (Some are predefined in the beat.hjson file
-beat.recoil = 1;
-beat.restitution = 0.015;
-beat.shootType = shot;
-beat.targetAir = true;
-beat.targetGround = true;
-
-//stats of bullet shot by beat
-shot.damage = 0;
-shot.speed = 5;
-shot.lifetime = 50;
-shot.knockback = 0;
-shot.width = 2;
-shot.height = 4;
-shot.collides = true;
-shot.collidesTiles = true;
-shot.hitEffect = shotHit;
-shot.despawnEffect = beatShoot
-shot.shootEffect = beatShoot;
-shot.status = overload;
-shot.statusDuration = 900;
-shot.pierce = true;
-shot.healPercent = 2;
-shot.collidesTeam = true;
-/*
-shot.frontColor = Color.valueOf(05700b);
-shot.backColor = Color.valueOf(05700b);
-*/

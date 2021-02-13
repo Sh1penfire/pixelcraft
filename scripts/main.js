@@ -2,14 +2,16 @@ require("libs/fc");
 require("libs/statuses");
 require("libs/paferEffects");
 require("extras/voidicsm");
-require("blocks/environment");
+require("blocks/teleporter");
 require("turrets/wan't");
 require("turrets/Sx.quad");
-require("turrets/Sundry");
+require("turrets/several");
+require("turrets/sundry");
 require("turrets/bictfuse");
 require("turrets/puver");
 require("turrets/psion");
 require("turrets/pafer");
+require("turrets/pulse");
 require("turrets/beat");
 require("turrets/helgravator");
 require("turrets/fever");
@@ -34,11 +36,8 @@ var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     alwaysUnlocked: true
 });
 
-// commenting this out because anuke "fixed" it
-/*
 const autoUpdate = require("autoupdate");
 autoUpdate.autoUpdate("pixelcraft", "Sh1penfire/pixelcraft", "main")
-*/
 
 /*
 const core = extend(Wall, "core", {

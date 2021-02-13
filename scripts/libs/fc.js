@@ -12,9 +12,12 @@ function rotationFC(p1, p2){
 };
 
 //helix structure
-function helix(helixes, magnitude, scaling){
+function helix(helixes, magnitude, scaling, base){
+    if(base == null){
+        base = scaling
+    }
     scaling = Math.abs(scaling);
-    return Mathf.sin(scaling * helixes * 3.142) * scaling * magnitude;
+    return Mathf.sin(base * helixes * 3.142) * scaling * magnitude;
 };
 
 // XD 
@@ -44,6 +47,8 @@ function clash(rotationTimes, radius, scaling, inOutTimes){
     };
     return pos;
 };
+
+//clans.mp4
 
 function rangeLimit(number, constraint){
   let MIN = Math.abs(constraint) * -1;
@@ -76,6 +81,16 @@ function rangeLimit2(number, constraintMin, constraintMax){
   let parsed = parseInt(number);
   return Math.min(Math.max(parsed, MIN), MAX);
 };
+//status effect checker
+function statusCheck(Unit, Status){
+    let returnVar = false
+    for(let i = 0; i < Unit.statuses.size; i++){
+        if(Unit.statuses.get(i).effect == Status){
+            returnVar = true;
+        }
+    }
+    return returnVar
+}
 
 module.exports = {
     rotationFC: rotationFC,
@@ -85,5 +100,6 @@ module.exports = {
     rangeLimit2: rangeLimit2,
     rangeLimit: rangeLimit,
     optionalRotatorX: optionalRotatorX,
-    optionalRotatorY: optionalRotatorY
+    optionalRotatorY: optionalRotatorY,
+    statusCheck: statusCheck
 };

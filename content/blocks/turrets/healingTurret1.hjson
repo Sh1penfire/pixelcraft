@@ -1,18 +1,19 @@
-type: PowerTurret
 name: Pulse
-description: "A suport controlled turret that can heal blocks. Does decent damage"
+description: "A support controlled turret that can heal blocks. Does decent damage"
 health: 220
 size: 1
-reloadTime: 20
+reloadTime: 30
 inaccuracy: 7.5
-range: 200
+range: 150
 shots: 2
+burstSpacing: 1
 powerUse: 0.5
 rotateSpeed: 10
 targetAir: true
 targetGround: true
 shootType: {
 type: LaserBoltBulletType
+shootSound: lasershoot
 damage: 5
 speed: 5
 lifetime: 40

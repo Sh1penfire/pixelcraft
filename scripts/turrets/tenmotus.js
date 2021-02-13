@@ -60,9 +60,35 @@ const shadowShot = new Effect(15, e => {
   })
 });
 
+const prismaticWave = new Effect(50, e => {
+  Draw.color(Color.white, Pal.darkMetal, e.fin());
+    Lines.stroke(e.fout() * 6); 
+    Lines.circle(e.x, e.y, e.fin() * 25); 
+});
+
+const prismaticTrail = new Effect(30, e => {
+  Draw.color(Color.white, Pal.darkMetal, e.fin());
+    Lines.stroke(Math.abs(fc.helix(7, 5, e.fout())));
+    Lines.line(e.x,
+               e.y,
+               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
+               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
+});
+
+const freezingShotFrag = extend(BasicBulletType, {
+	damage: 5,
+	lifetime: 100,
+    despawnEffect: cryoShot,
+    hitEffect: cryoShot,
+    buildingDamageMultiplier: 0,
+    status: StatusEffects.freezing
+});
+freezingShotFrag.frontColor = Color.cyan;
+freezingShotFrag.backColor = Color.cyan;
+
 const freezingShot = extend(PointBulletType, {
     speed: 32,
-    lifeimte: 20,
+    lifeimte: 0,
     damage: 340,
     splashDamageRadius: 35,
     hitEffect: cryoexplosion,
@@ -70,6 +96,8 @@ const freezingShot = extend(PointBulletType, {
     trailEffect: cryoTrail,
     shootEffect: cryoShot,
     trailSpacing: 2,
+    fragBullet: freezingShotFrag,
+    fragBullets: 1,
     collides: true,
     collidesAir: true,
     collidesGround: true,
@@ -79,24 +107,23 @@ const freezingShot = extend(PointBulletType, {
     this.stats.add(Stat.splashDamage, "115");
     this.stats.add(Stat.splashDamageRadius, "45");
     },
-    hit(b){
+    cryoSplash(b){
         cryoexplosion.at(b.x, b.y);
         Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 30);
-        let rad = 6;
-        Units.nearby(b.x, b.y, rad * 8, rad * 8, cons(u => {
-        if(Mathf.dst(b.x, b.y, u.x, u.y) < 45){
+        let rad = 10;
+        Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
             if(!u.isDead) {
                 Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 1);
                 u.apply(StatusEffects.freezing, 360);
-                u.damageContinuousPierce(115);
-                print(u);
-                }
+                u.damageContinuousPierce(50);
             }
         }));
     },
+    hit(b){
+        this.cryoSplash(b);
+    },
     despawned(b){
-        this.hit(b)
-        this.super$despawned(b)
+        this.cryoSplash(b);
     }
 });
 
@@ -136,7 +163,9 @@ fragShot.hitEffect = Fx.hitBulletBig;
 fragShot.despawnEffect = Fx.none;
 fragShot.ammoUseEffect = Fx.none;
 
-const placeholdert = extend(BasicBulletType, {});
+const placeholdert = extend(BasicBulletType, {
+    speed: 1
+});
 placeholdert.status = statuses.blackout;
 
 const blackoutShot = extend(BombBulletType, {
@@ -151,17 +180,80 @@ const blackoutShot = extend(BombBulletType, {
     collides: true,
     collidesAir: true,
     collidesGround: true,
-    buildingDamageMultiplier: 0
+    buildingDamageMultiplier: 0,
+    darkSplash(b){
+        shadowWave.at(b.x, b.y);
+        let rad = 5;
+        Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
+            if(!u.isDead) {
+                Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 1);
+                u.apply(statuses.blackout, 360);
+                u.damageContinuousPierce(55);
+            }
+        }));
+    },
+    hit(b){
+        this.darkSplash(b);
+    },
+    despawned(b){
+        this.darkSplash(b);
+    }
 });
 blackoutShot.status = statuses.blackout;
 blackoutShot.statusDuration = 3600;
+
+const placeholdert2 = extend(BasicBulletType, {});
+placeholdert2.status = statuses.prismium;
+placeholdert2.pierce = true;
+
+const lightShot = extend(BombBulletType, {
+    speed: 32,
+    lifeimte: 20,
+    damage: 600,
+    fragBullet: placeholdert2,
+    fragBullets: 25,
+    hitEffect: prismaticWave,
+    trailEffect: prismaticTrail,
+    shootEffect: prismaticWave,
+    trailSpacing: 2,
+    buildingDamageMultiplier: 0,
+    collides: true,
+    collidesAir: true,
+    collidesGround: true,
+    collidesTiles: false,
+    lightWave(b){
+        prismaticWave.at(b.x, b.y);
+        let rad = 4;
+        Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
+            if(!u.isDead) {
+                Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 1);
+                u.apply(statuses.prismium, 360);
+                u.damageContinuousPierce(100);
+            }
+        }));
+    },
+    hit(b){
+        this.despawned(b);
+        this.lightWave(b);
+    },
+    despawned(b){
+        let timer = 0
+        while(timer < 25){
+            placeholdert2.create(b.owner, b.team, b.x, b.y, 360/25 * timer, 1);
+            timer++
+        }
+        this.lightWave(b);
+    }
+})
+lightShot.status = statuses.prismium;
 
 const railgun3 = extendContent(ItemTurret, "railgun3", {
     init() {
     this.ammo(
         Vars.content.getByName(ContentType.item,"titanium"), freezingShot,
         Vars.content.getByName(ContentType.item,"pixelcraft-magnitine"), fragShot,
-        Vars.content.getByName(ContentType.item,"pixelcraft-feromagnet"), blackoutShot
+        Vars.content.getByName(ContentType.item,"pixelcraft-feromagnet"), blackoutShot,
+        Vars.content.getByName(ContentType.item,"pixelcraft-stelarcrim"), lightShot
     );
     this.super$init();
   }
@@ -169,13 +261,31 @@ const railgun3 = extendContent(ItemTurret, "railgun3", {
 
 
 railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
+    unitSort: (u, x, y) => -u.maxHealth,
     findTarget(){
         let TempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
         if(TempTarget != null){
             this.target = TempTarget;
         }
     },
+    validateTarget(){
+        if(this.target != null){
+            if(Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true))){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    },
     shoot(type){
+        /*
+        Units.findEnemyTile(this.team, this.float x, this.y, this.range(), unitSort{
+        if(team == Team.derelict)
+
+        return indexer.findEnemyTile(team, x, y, range, pred);
+    }*/
+        
         let timer = 1
 
         let limitationX = Math.cos(this.rotation/180 * Math.PI) * this.range();

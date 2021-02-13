@@ -11,15 +11,15 @@ note: Has been ported over to 115, enjoy the mod!
 
 ||**Guide to turrets**| 
 |:-----:|:-----:|
-Strand|A starting turret from Rust. A bit weaker than Duo and uses non traditional ammo types.
+Strand|A starting turret from iron. A bit weaker than Duo and uses non traditional ammo types.
 String|Upgraded Strand. Double the firepower with less range.
 Sxquad|Upgraded string, fires a flurry of projectiels into the target that pull the target in. Usefull for air units.
 Several|Fires typhoons of projectiles to damage the target and suck them in. Sand causes enemy systems to blackout
 Blaze|A flamethrower that can hit air. Just like Scorch can pierce indefinantly. Uses a wide aray of combustibles for ammo.
-Helgravator|A flamethrower which uses coal or spore pods to shred targets.
-Fever|A turret from both trees, uses pyratite in vanilla to do extremely heavy damage to it's targets. Pixelite and bionorbs are also options.
-Dusk|A powerful railgun that can use Titanium and Magnitine. Can't target air without help.
-Shade|An extremely powerfull railgun that can target air. Now can handle Feromagnets as projectiles
+Helgravator|A coal only flamethrower which has the ability to spawn flamming oil puddles wherever the shots land.
+Fever|A turret from both ctrees, uses pyratite and blast compound in vanilla to do extremely heavy damage to it's targets.
+Dusk|A powerful railgun that can use titanium and steel. Can't target air without help.
+Shade|An extremely powerfull railgun that can target air. Now can handle feromagnets as projectiles
 Tenemotus|The msot powerfull railgun for now in the mod, fires beams of the materiel loaded in. Causes enemy systems to blackout from mini emps using feromagnets.
 Dawn|A turret that shoots 8 bullets outwards.
 Chalembra|A turret that shoots 8 bullets outwards. Bullets closer to the fronts and ends are shot out with more speed.
@@ -27,9 +27,9 @@ Vinca|Shoots 8 separate bursts of bullets which home in on enemies
 Austutin|Shoots 16 bullets which rotate around the turret for their lifetime
 Pace Point and Panic|Electric anti air turrets. Point however can target ground. The trio fire forms of electric attacks using electric missiles.
 Pulse and Beat|Suport turrets that shoots healing bullets that repair blocks. They don't auto aim yet.
-Puver|An electric suport turret, slows down hit targets. Frag bullets ignore tiles, and can also inflict the debuff.
+Puver|A support turret that is electric, slows down hit targets. Frag bullets ignore tiles can also inflict the debuff.
 Psion|An upgrade to puver, shoots damaging helixes of ions into the target.
-Pafer|Causes contained electric vortexes to appear using swarms of electric balls.
+Pafer|Causes a vortex wherever it shoots.
 Leaf|A bio turret that shoots clumps of bionorbs to do damage.
 Root|A bio turret that suports it's team by shooting healing fields which damage other teams.
 
