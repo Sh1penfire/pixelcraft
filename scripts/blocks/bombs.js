@@ -133,13 +133,13 @@ const plastExplFrag = extend(BasicBulletType, {
     height: 8,
     pierce: true,
     lifetime: 25,
-    shrinkY: 1
+    shrinkY: 1,
+    status: StatusEffects.corroded,
+    despawnEffect: Fx.none,
+    hitEffect: Fx.none,
+    backColor: Pal.plastaniumBack,
+    frontColor: Pal.plastaniumFront
 });
-plastExplFrag.status = StatusEffects.corroded;
-plastExplFrag.despawnEffect = Fx.none;
-plastExplFrag.hitEffect = Fx.none;
-plastExplFrag.backColor = Pal.plastaniumBack;
-plastExplFrag.frontColor = Pal.plastaniumFront;
 
 const explosionFrag2 = extend(BasicBulletType, {});
 explosionFrag2.damage = 15;
