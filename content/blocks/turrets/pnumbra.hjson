@@ -14,6 +14,7 @@ shootDuration: 120
 powerUse: 5
 shootSound: laserbig
 loopSound: beam
+loopSoundVolume: 2
 shootType: {
 type: ContinuousLaserBulletType
 length: 100
