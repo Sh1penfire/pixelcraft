@@ -1,14 +1,15 @@
 // Just a little note to not forget Pixellandia :D
 //I won't forget :)
-const templura = extend(Planet, "templura", Planets.sun, 1, 0.5, {
+const templura = extend(Planet, "templura", Planets.sun, 3, 3, {
     generator: new SerpuloPlanetGenerator(),
+    meshLoader: () => new HexMesh(this, 6),
     bloom: true,
-    radius: 3,
+    radius: 1,
     accessible: true,
     hasAtmosphere: true,
     atmosphereColor: Color.valueOf("80ff00"),
     atmosphereRadIn: 0.06,
-    atmosphereRadOut: 0.9,
+    atmosphereRadOut: 0.09,
     localizedName: "Templura"
 });
 templura.meshLoader = () => extend(HexMesh, templura, 6, {});
