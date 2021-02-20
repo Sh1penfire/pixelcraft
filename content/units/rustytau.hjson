@@ -1,10 +1,13 @@
 type: mech
 name: "Rusty tau"
-description: "A suport unit from the old days. Has Extremely powerfull minning lasers, although degraded over centuries. Comes with a build in suport gun for use in attacking and repear."
-health: 750
+description: "A suport unit from the old days mixed with the bulkey omega. Has Extremely powerfull minning lasers, although degraded over centuries. Comes with a build in suport gun for use in attacking and repear."
+health: 720
 armor: 5
-speed: 0.65
-boostMultiplier: 1.5
+speed: 0.75
+drag: 0.6
+accel: 1
+hitSize: 12
+boostMultiplier: 1.25
 range: 155
 canDrown: false
 canBoost: true
@@ -23,7 +26,8 @@ reload: 30
 alternate: false
 ejectEffect: casing1
 top: false
-shootSound: pew
+shootSound: shootBig
+shake: 0.25
 shots: 1
 x: 5
 y: -0.05
@@ -33,8 +37,8 @@ type: MissileBulletType
 damage: 25
 splashDamage: 15
 splashDamageRadius: 25
-speed: 3
-lifetime: 40
+speed: 2
+lifetime: 80
 healPercent: 1.3
 collidesTeam: true
 hitShake: 5
@@ -55,21 +59,49 @@ backColor: 98ffa9
 }
 }
 {
+name: aged-repeargun
+reload: 30
+alternate: false
+ejectEffect: casing1
+top: false
+shootSound: shootBig
+shots: 1
+shake: 0.25
+x: 5
+y: -0.05
+rotate: false
+bullet: {
+type: MissileBulletType
+damage: 5
+splashDamage: 2
+splashDamageRadius: 25
+speed: 1.25
+lifetime: 60
+healPercent: 1.3
+collidesTeam: true
+hitShake: 5
+frontColor: ffffff
+backColor: 98ffa9
+trailColor: 98ffa9
+}
+}
+{
 name: none
 mirror: false
+shake: 2
 reload: 125
-recoil: -5
-shootSound: shootBig
+shootSound: laser
 ejectEffect: none
 top: false
 shots: 1
+shake: 1
 x: 0
 y: 5
 rotate: false
 bullet: {
 type: ShrapnelBulletType
-damage: 15
-length: 25
+damage: 45
+length: 75
 serrationLenScl: 2
 serrationSpaceOffset: 5
 serrationFadeOffset: 0
@@ -79,8 +111,13 @@ drawSize: 200
 healPercent: 0.1
 collidesTeam: true
 collidesTeam: true
+fromColor: ffffff
+toColor: 98ffa9
 }
 }
+]
+immunities: [
+freezing
 ]
 research: {
 parent: rustydelta

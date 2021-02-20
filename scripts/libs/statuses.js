@@ -10,7 +10,7 @@ const ionisedStatusFX = new Effect(24, e => {
 //puver's status effect
 const ionisedStatus = extend(StatusEffect, "ionisedStatus", {});
 
-ionisedStatus.speedMultiplier = 0.5;
+ionisedStatus.speedMultiplier = 0.9;
 ionisedStatus.armorMultiplier = 0.5;
 ionisedStatus.damage = 0.2;
 ionisedStatus.effect = ionisedStatusFX;
@@ -29,8 +29,8 @@ const chargedEffectFX = new Effect(27, (e) => {
 //psion's status effect
 const chargedEffect = extend(StatusEffect, "chargedEffect", {});
 
-chargedEffect.speedMultiplier = 0.3;
-chargedEffect.armorMultiplier = 0.1;
+chargedEffect.speedMultiplier = 0.8;
+chargedEffect.armorMultiplier = 0.3;
 chargedEffect.damage = 0.3;
 chargedEffect.effect = chargedEffectFX;
 chargedEffect.color  = Color.white;

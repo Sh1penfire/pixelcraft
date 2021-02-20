@@ -2,6 +2,7 @@ localizedName: "Beat"
 description: "Propells beams of energy that power up nearby allies. (Used on difrent teamed units, needs logic to be aimed)"
 range: 220
 health: 150
+size: 2
 inaccuracy: 7.5
 reloadTime: 5
 shots: 1

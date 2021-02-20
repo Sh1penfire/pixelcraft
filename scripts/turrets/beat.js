@@ -38,7 +38,7 @@ overload.color  = Color.green;
 const beat = extendContent(PowerTurret, "healingTurret2", {
   icons(){
     return [
-      Core.atlas.find("block-1"),
+      Core.atlas.find("block-2"),
       Core.atlas.find("pixelcraft-healingTurret2")
     ];
   }
@@ -87,9 +87,19 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
         let TempTarget2 = Units.closestTarget(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
         if(TempTarget != null){
             this.target = TempTarget;
+            if(this.isControlled() != true || this.logicControlled() != true){
+                this.shootingBuilding = true
+            }
+            else{
+                this.shootingBuilding = false
+            }
         }
         else if(TempTarget2 != null){
             this.target = TempTarget2;
+            this.shootingBuilding = false
+        }
+        else{
+            this.shootingBuilding = false
         }
     },
     validateTarget(){
@@ -102,6 +112,9 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
                 }
             }
             if(Units.closestTarget(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true) || TempTarget != null)){
+                return true;
+            }
+            else if(this.shootingBuilding){
                 return true;
             }
             else{

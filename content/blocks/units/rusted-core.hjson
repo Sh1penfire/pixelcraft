@@ -21,21 +21,12 @@ plans: [
 ]
 time: 235
  }
-    {
-    unit: rustytau
-    requirements: [
-      iron/35
-      ceramic/25
-      titanium/15
-    ]
-    time: 1000
-  }
-    {
-    unit: rustydart
-    requirements: [
-      iron/125
-    ]
-    time: 150
+ {
+   unit: rustydart
+   requirements: [
+     iron/125
+   ]
+  time: 150
   }
   {
     unit: purpleN1

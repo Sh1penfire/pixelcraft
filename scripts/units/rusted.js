@@ -1,3 +1,4 @@
+const refresh = require("libs/refresh")
 //Surge shockwave but delta
 const LandFx = new Effect(25, e => {
     Draw.color(Color.white, Color.valueOf("#a9d8ff"), e.fin());
@@ -41,6 +42,7 @@ rustyjavalin.constructor = () => extend(UnitEntity, {
     }
 });
 rustyjavalin.abilities.add(new MoveLightningAbility(6.4 * Vars.state.rules.unitDamageMultiplier, 10, 0.05, 10, 3, 6, Color.valueOf("#a9d8ff"), "pixelcraft-rustyjavalin-full"));
+refresh.register(rustyjavalin)
 
 const rustyAlpha = extendContent(UnitType, "rustyalpha", {});
 rustyAlpha.constructor = () => extendContent(MechUnit, {});
@@ -67,3 +69,4 @@ rustyDelta.constructor = () => extendContent(MechUnit, {
         this.super$update();
     }  
 })
+refresh.register(rustyDelta)

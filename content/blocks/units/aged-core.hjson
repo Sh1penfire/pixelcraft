@@ -6,7 +6,7 @@ description: "Some how, a core scimatic shows how to upgrade units"
 constructTime: 100
 upgrades: [
   [
-    rustydelta, rustyomega
+    rustydelta, rustytau
   ]
   [
     purpleN2, purpleN3
