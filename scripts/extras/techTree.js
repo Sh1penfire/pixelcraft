@@ -35,6 +35,7 @@ node(templura.loggery, templura.frozenFalls, null, Seq.with(new Objectives.Secto
 
 node(templura.frozenFalls, templura.birthplace, null, Seq.with(new Objectives.SectorComplete(templura.frozenFalls)));
 
+node(templura.sinkhole, templura.trionCentral, null, Seq.with(new Objectives.SectorComplete(templura.sinkhole), new Objectives.SectorComplete(templura.birthplace), new Objectives.Research(cblock("railgun3"))));
 //mixed campaign
 node(templura.ancientGrotto, templura.rustedValley, null, Seq.with(new Objectives.SectorComplete(templura.ancientGrotto)));
 

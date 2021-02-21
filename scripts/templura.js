@@ -16,6 +16,7 @@ templura.meshLoader = () => extend(HexMesh, templura, 6, {});
 
 const ancientGrotto = extend(SectorPreset, "ancient-grotto", templura, 6, {
     captureWave: 14,
+    description: "A grove full of rust. Collect rust and stone.",
     localizedName: "Ancient Grotto",
     difficulty: 1,
     alwaysUnlocked: true
@@ -64,14 +65,22 @@ const frozenFalls = extend(SectorPreset, "frozen-falls", templura, 17, {
 
 const dessertWastelands = extend(SectorPreset, "dessert-wastelands", templura, 15, {
     localizedName: "Dessert Wastelands",
+    description: "Water collects here, in a zone reminding of the wastelands. \n There is an enemy base here. Destroy it.",
     difficulty: 8
 });
 
 const birthplace = extend(SectorPreset, "birthplace", templura, 24, {
     captureWave: 50,
+    description: "Origin of grass. Thorium has deposited here overtime. Slag pools have resurfaced. \n Research thorium technology. Create bionite to enhance your base. Survive.",
     localizedName: "Birthplace",
     difficulty: 8
 });
+
+const trionCentral = extend(SectorPreset, "trion-central", templura, 55, {
+    localizedName: "Trion Central",
+    description: "Capital crux base dedicated to researching rediscover technology.  Use rusty tau units. Take out the core.",
+    difficulty: 9
+})
 
 module.exports = {
     templura: templura,
@@ -84,5 +93,6 @@ module.exports = {
     sinkhole: sinkhole,
     frozenFalls: frozenFalls,
     dessertWastelands: dessertWastelands,
-    birthplace: birthplace
+    birthplace: birthplace,
+    trionCentral: trionCentral
 }
