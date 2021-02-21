@@ -68,7 +68,7 @@ lifetime: 25
 }
 }]
 research: {
-parent: rustydelta
+parent: rustytau
 requirements: [
     iron/2500
     titanium/550

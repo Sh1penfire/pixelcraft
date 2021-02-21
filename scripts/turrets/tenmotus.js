@@ -80,7 +80,7 @@ const freezingShotFrag = extend(BasicBulletType, {
 	lifetime: 100,
     despawnEffect: cryoShot,
     hitEffect: cryoShot,
-    buildingDamageMultiplier: 0,
+    buildingDamageMultiplier: 0.5,
     status: StatusEffects.freezing
 });
 freezingShotFrag.frontColor = Color.cyan;
@@ -101,7 +101,7 @@ const freezingShot = extend(PointBulletType, {
     collides: true,
     collidesAir: true,
     collidesGround: true,
-    buildingDamageMultiplier: 0,
+    buildingDamageMultiplier: 0.5,
     setStats(){
     this.super$setStats();
     this.stats.add(Stat.splashDamage, "115");
@@ -153,7 +153,7 @@ const fragShot = extend(PointBulletType, {
 	collides: true,
 	collidesAir: true,
 	collidesTiles: true,
-    buildingDamageMultiplier: 0
+    buildingDamageMultiplier: 0.25
 });
 fragShot.frontColor = Color.valueOf("ffffff");
 fragShot.backColor = Color.valueOf("ffffff");
@@ -180,7 +180,7 @@ const blackoutShot = extend(BombBulletType, {
     collides: true,
     collidesAir: true,
     collidesGround: true,
-    buildingDamageMultiplier: 0,
+    buildingDamageMultiplier: 0.35,
     darkSplash(b){
         shadowWave.at(b.x, b.y);
         let rad = 5;
@@ -216,7 +216,7 @@ const lightShot = extend(BombBulletType, {
     trailEffect: prismaticTrail,
     shootEffect: prismaticWave,
     trailSpacing: 2,
-    buildingDamageMultiplier: 0,
+    buildingDamageMultiplier: 0.75,
     collides: true,
     collidesAir: true,
     collidesGround: true,
@@ -262,22 +262,6 @@ const railgun3 = extendContent(ItemTurret, "railgun3", {
 
 railgun3.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun3, {
     unitSort: (u, x, y) => -u.maxHealth,
-    findTarget(){
-        let TempTarget = Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
-        if(TempTarget != null){
-            this.target = TempTarget;
-        }
-    },
-    validateTarget(){
-        if(this.target != null){
-            if(Units.closestEnemy(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true))){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-    },
     shoot(type){
         /*
         Units.findEnemyTile(this.team, this.float x, this.y, this.range(), unitSort{

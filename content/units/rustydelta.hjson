@@ -4,10 +4,12 @@ details: "Some went rogue. Others tried to help their relatives survive. In the 
 speed: 1
 health: 500
 armor: 2
+speed: 0.8
+drag: 0.4
 aimDst: 10
 range: 50
 hitSize: 10
-maxRange: 200
+maxRange: 80
 buildSpeed: 3
 clipSize: 1
 flying: false

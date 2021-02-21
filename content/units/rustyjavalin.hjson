@@ -8,7 +8,7 @@ aimDst: 10
 hitSize: 8
 range: 50
 drag: 0.0005
-accel: 0.025
+accel: 0.01
 maxRange: 200
 buildSpeed: 3
 clipSize: 1
@@ -39,7 +39,7 @@ status: corroded
 width: 8
 height: 8
 speed: 3
-drag: -0.03
+drag: -0.005
 keepVelocity: false
 splashDamage: 1
 splashDamageRadius: 20
@@ -75,5 +75,5 @@ damage: 10
 }
 }]
 research: {
-parent: core-refraction
+parent: rustydart
 }
