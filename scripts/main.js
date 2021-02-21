@@ -6,7 +6,7 @@ require("blocks/teleporter");
 require("turrets/wan't");
 require("turrets/Sx.quad");
 require("turrets/several");
-//require("turrets/sundry"); sh1p please fix this because this is causing a bunch of errors
+require("turrets/sundry");
 require("turrets/bictfuse");
 require("turrets/puver");
 require("turrets/psion");
