@@ -9,6 +9,7 @@ drag: 0.4
 aimDst: 10
 range: 50
 hitSize: 10
+boostMultiplier: 1.25
 maxRange: 80
 buildSpeed: 3
 clipSize: 1

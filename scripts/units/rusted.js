@@ -39,16 +39,17 @@ rustyjavalin.constructor = () => extend(UnitEntity, {
             this.lightn = 2
             this.apply(StatusEffects.overclock, this.lightn * 60);
         }
-    }
-});
+    },
+    classId: () => rustyjavalin.classId
+})
 rustyjavalin.abilities.add(new MoveLightningAbility(6.4 * Vars.state.rules.unitDamageMultiplier, 10, 0.05, 10, 3, 6, Color.valueOf("#a9d8ff"), "pixelcraft-rustyjavalin-full"));
-refresh.register(rustyjavalin)
+refresh(rustyjavalin)
 
-const rustyAlpha = extendContent(UnitType, "rustyalpha", {});
-rustyAlpha.constructor = () => extendContent(MechUnit, {});
+const rustyAlpha = extend(UnitType, "rustyalpha", {});
+rustyAlpha.constructor = () => extend(MechUnit, {});
 
-const rustyDelta = extendContent(UnitType, "rustydelta", {});
-rustyDelta.constructor = () => extendContent(MechUnit, {
+const rustyDelta = extend(UnitType, "rustydelta", {});
+rustyDelta.constructor = () => extend(MechUnit, {
         onLandE(){
         let temp = 0
         while(temp <  5 + Mathf.random(4)){
@@ -67,6 +68,16 @@ rustyDelta.constructor = () => extendContent(MechUnit, {
             this.onLandE()
         }
         this.super$update();
-    }  
+    },
+    classId: () => rustyDelta.classId
 })
-refresh.register(rustyDelta)
+refresh(rustyDelta)
+
+const shard = extend(UnitType, "shard", {});
+shard.constructor = () => extend(UnitEntity, {
+    killed(){
+        this.super$killed()
+        print("does it work?")
+    }
+})
+refresh(shard)
