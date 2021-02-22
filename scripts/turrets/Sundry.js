@@ -100,7 +100,7 @@ ironShot.lifeimte = 10;
 ironShot.collides = true;
 ironShot.pierce = true;
 ironShot.pierceBuilding = true;
-ironShot.speed = 1.4;
+ironShot.speed = 2;
 
 const magnitineShot = extend(BasicBulletType, {
     draw(e){
@@ -120,7 +120,7 @@ magnitineShot.lifeimte = 10;
 magnitineShot.collides = true;
 magnitineShot.pierce = true;
 magnitineShot.pierceBuilding = true;
-magnitineShot.speed = 1.8;
+magnitineShot.speed = 2.5;
 
 const stormShot = extend(BasicBulletType, {
     draw(e){
@@ -140,7 +140,7 @@ stormShot.lifeimte = 10;
 stormShot.collides = true;
 stormShot.pierce = true;
 stormShot.pierceBuilding = true;
-stormShot.speed = 1.8;
+stormShot.speed = 2.5;
 
 const basicTurret5b1 = extendContent(ItemTurret, "basicTurret5b1", {
     shootDst: 25,

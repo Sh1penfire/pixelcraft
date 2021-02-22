@@ -18,6 +18,9 @@ upgrades: [
   [
     rustydart, rustyjavalin
   ]
+  [
+    shard, capsule
+  ]
 ]
 consumes: {
 items:{

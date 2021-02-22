@@ -1,6 +1,7 @@
 require("libs/fc");
 require("libs/statuses");
 require("libs/paferEffects");
+require("libs/refresh")
 require("extras/voidicsm");
 require("blocks/teleporter");
 require("turrets/wan't");

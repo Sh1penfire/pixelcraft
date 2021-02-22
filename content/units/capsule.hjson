@@ -2,48 +2,74 @@ type: flying
 name: "Capsule"
 description: "Contains an ai that can transport itself into other mechinisms that allow it to."
 flying: true
-speed: 0
-accel: 0.02
-drag: 0.05
+speed: 3.2
+accel: 0.03
+drag: 0.015
 health: 300
 aimDst: 10
 range: 50
-maxRange: 200
+maxRange: 145
 buildSpeed: 3
 clipSize: 1
+hitSize: 6
 faceTarget: true
-rotateShooting : true
+rotateShooting: true
 mineTier: 3
 mineSpeed: 8
 range: 100
-rotateSpeed: 7
+rotateSpeed: 8
 lowAltitude: false
 omniMovement: true
 canDrown: false
 weapons: [ 
 {
-name: heal-weapon
-reload: 5
-alternate: false
+name: none
+reload: 35
+recoil: 0.1
+alternate: true
+mirror: false
 ejectEffect: casing2
 top: false
 shootSound: pew
-x: 1
-y: -.5
+x: 0
+y: 0.5
+rotate: true
+bullet: {
+type: MissileBulletType
+damage: 15
+splashDamage: 25
+splashDamageRadius: 25
+frontColor: fff8e8
+backColor: f9c27a
+trailColor: ffffff
+speed: 3
+width: 10
+height: 10
+lifetime: 50
+knockback: 2
+keepVelocity: false
+}
+}
+{
+name: tinyBlaster
+reload: 15
+recoil: 1
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1.9
+y: 6
 rotate: false
 bullet: {
-frontColor: b7f35e
-backColor: b7f35e
 type: BasicBulletType
-damage: 0
+damage: 10
 speed: 2
-width: 5
-height: 8
-lifetime: 60
+width: 9
+height: 12
+lifetime: 75
 pierce: true
-knockback: 4
+pierceCap: 2
 hitSound: none
-healPercent: 2
-collidesTeam: true
 }
 }]
