@@ -82,12 +82,21 @@ function rangeLimit2(number, constraintMin, constraintMax){
   return Math.min(Math.max(parsed, MIN), MAX);
 };
 //status effect checker
-function statusCheck(Unit, Status){
+function statusCheck(unit, Status){
     let returnVar = false
-    for(let i = 0; i < Unit.statuses.size; i++){
-        if(Unit.statuses.get(i).effect == Status){
+    for(let i = 0; i < unit.statuses.size; i++){
+        if(unit.statuses.get(i).effect == Status){
             returnVar = true;
         }
+    }
+    return returnVar
+}
+//checks for if the unit has an enemy nearby. thsi code is stupid and I have no words.
+function validateNearby(unit, range){
+    let returnVar = false
+    let target = Units.closestTarget(unit.team, unit.x, unit.y, range, u => u.checkTarget(true, true))
+    if(target != null){
+        returnVar = true
     }
     return returnVar
 }
@@ -101,5 +110,6 @@ module.exports = {
     rangeLimit: rangeLimit,
     optionalRotatorX: optionalRotatorX,
     optionalRotatorY: optionalRotatorY,
-    statusCheck: statusCheck
+    statusCheck: statusCheck,
+    validateNearby: validateNearby
 };

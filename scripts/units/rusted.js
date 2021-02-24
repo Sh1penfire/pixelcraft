@@ -1,4 +1,6 @@
 const refresh = require("libs/refresh")
+const fc = require("libs/fc")
+const theAislol = require("libs/theAislol")
 //Surge shockwave but delta
 const LandFx = new Effect(25, e => {
     Draw.color(Color.white, Color.valueOf("#a9d8ff"), e.fin());
@@ -44,6 +46,7 @@ rustyjavalin.constructor = () => extend(UnitEntity, {
 })
 rustyjavalin.abilities.add(new MoveLightningAbility(6.4 * Vars.state.rules.unitDamageMultiplier, 10, 0.05, 10, 3, 6, Color.valueOf("#a9d8ff"), "pixelcraft-rustyjavalin-full"));
 refresh(rustyjavalin)
+rustyjavalin.defaultController = theAislol.swarmAI
 
 const rustyAlpha = extend(UnitType, "rustyalpha", {});
 rustyAlpha.constructor = () => extend(MechUnit, {});
@@ -75,9 +78,26 @@ refresh(rustyDelta)
 
 const shard = extend(UnitType, "shard", {});
 shard.constructor = () => extend(UnitEntity, {
-    killed(){
-        this.super$killed()
-        print("does it work?")
-    }
+    collision(bullet){
+        if(bullet.type.reflectable != false && bullet.damage < this.health){
+            print("hai")
+            bullet.type.create(this, this.team, this.x, this.y, bullet.rotation() + 180, 1, bullet.fout())
+        }
+    },
+    classId: () => shard.classId
 })
+shard.defaultController = theAislol.swarmAI
 refresh(shard)
+
+const capsule = extend(UnitType, "capsule", {});
+capsule.constructor = () => extend(UnitEntity, {
+    collision(bullet){
+        if(bullet.type.reflectable != false && bullet.damage < this.health){
+            bullet.type.create(this, this.team, this.x, this.y, bullet.rotation() + 180, 1, bullet.fout())
+        }
+    },
+    classId: () => capsule.classId
+})
+capsule.defaultController = theAislol.swarmAI
+capsule.abilities.add(new RepairFieldAbility(10, 250, 55))
+refresh(capsule)

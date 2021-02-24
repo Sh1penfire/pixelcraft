@@ -1,13 +1,12 @@
 name: "Shard"
-description: "A hit and run assult unit which can be mass produced."
+description: "A hit and run assult unit which has a large detection range and can be mass produced."
 flying: true
-speed: 2.5
+speed: 2
 health: 85
 aimDst: 10
 range: 50
 drag: 0.055
 accel: 0.075
-maxRange: 20
 clipSize: 1
 engineSize: 0.95
 hitSize: 4
@@ -17,8 +16,7 @@ circleTarget: true
 mineTier: 2
 mineSpeed: 0
 buildSpeed: 0
-range: 100
-maxRange: 200
+range: 250
 rotateSpeed: 5
 lowAltitude: true
 omniMovement: true
@@ -40,6 +38,8 @@ speed: 2
 drag: -0.0015
 homingPower: 0.01
 homingRange: 15
+frontColor: eeb393
+backColor: a97567
 pierce: true
 pierceCap: 2
 status: corroded
@@ -49,6 +49,38 @@ height: 8
 lifetime: 60
 knockback: 0
 hitSound: none
+}
+}
+{
+name: none
+reload: 12.5
+alternate: false
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1.5
+y: 1.45
+rotate: false
+bullet: {
+type: BasicBulletType
+damage: 10
+speed: 1.5
+drag: -0.0015
+homingPower: 0.05
+homingRange: 45
+frontColor: eeb393
+backColor: a97567
+pierce: true
+pierceCap: 2
+status: corroded
+statusDuration: 360
+width: 6
+height: 10
+lifetime: 95
+knockback: 0
+hitSound: none
+healPercent: 0.3
+collidesTeam: true
 }
 }]
 research: {
