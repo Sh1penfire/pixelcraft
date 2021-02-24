@@ -157,7 +157,7 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
         this.super$draw();
         if(this.beamAlpha !== undefined){
         Draw.reset()
-        Layer.bullet;
+        Draw.z(Layer.bullet);
         this.pulsate = fc.helix(8, 1, 1, this.beamAlpha * this.beamAlpha) * 0.25 + this.beamAlpha * 0.75
         Draw.color(Color.valueOf("#62ac7d"), Color.valueOf("#82f48f"), this.beamAlpha)
         Draw.alpha(this.beamAlpha);

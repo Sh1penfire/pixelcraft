@@ -193,6 +193,7 @@ sporeCluster.hitSound = Sounds.none;
 
 const cryoLiquid = extend(LiquidBulletType, {});
 cryoLiquid.liquid = Liquids.cryofluid;
+cryoLiquid.statuses = StatusEffects.freezing
 cryoLiquid.lifetime = 10;
 cryoLiquid.fragBullet = Bullets.standardCopper;
 
@@ -265,7 +266,7 @@ cryoExplosion.splashDamage = 15;
 cryoExplosion.width = 0;
 cryoExplosion.height = 0;
 cryoExplosion.lifetime = 60;
-cryoExplosion.status = StatusEffects.freezing
+cryoExplosion.status = statuses.slushFall
 cryoExplosion.despawnEffect = cryoSpray;
 cryoExplosion.hitEffect = cryoSpray;
 cryoExplosion.hitSound = Sounds.none;
@@ -282,7 +283,7 @@ cryoLeak.splashDamage = 35;
 cryoLeak.width = 0;
 cryoLeak.height = 0;
 cryoLeak.lifetime = 100;
-cryoLeak.status = StatusEffects.freezing
+cryoLeak.status = statuses.slushFall
 cryoLeak.despawnEffect = cryoSpray;
 cryoLeak.hitEffect = cryoSpray;
 cryoLeak.hitSound = Sounds.none;

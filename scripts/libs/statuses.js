@@ -28,12 +28,18 @@ const chargedEffectFX = new Effect(27, (e) => {
 
 //psion's status effect
 const chargedEffect = extend(StatusEffect, "chargedEffect", {});
-
 chargedEffect.speedMultiplier = 0.8;
 chargedEffect.armorMultiplier = 0.3;
 chargedEffect.damage = 0.3;
 chargedEffect.effect = chargedEffectFX;
 chargedEffect.color  = Color.white;
+
+const warmth = extend(StatusEffect, "warmth", {});
+warmth.speedMultiplier = 1.5;
+warmth.healthMultiplier = 1.15;
+warmth.reloadMultiplier = 1.15;
+warmth.effect = Fx.freezing;
+warmth.effectChance = 0.07;
 
 //helfire's fx
 const hellfireFX = new Effect(20, e => {
@@ -287,14 +293,82 @@ const groveCurse = extend(StatusEffect, "groveCurse", {
 groveCurse.damage = 0.1;
 groveCurse.effect = groveCurseFx;
 
-    module.exports = {
+
+
+const slushFall = extend(StatusEffect, "slushFall", {
+    update(unit, time){
+        this.super$update(unit, time)
+        //past 12 seconds, scl is 1. Anywhere below 12 seconds and scl drops.
+        let scl = Mathf.round(Mathf.slerpDelta(0, 1, time/720) * 1000)/1000
+        if(fc.statusCheck(unit, StatusEffects.freezing) && !fc.statusCheck(unit, warmth) && this.time < 721){
+            this.time = 721
+        }
+        this.speedMultiplier = 1 - scl
+        this.reloadMultiplier = 1 - scl
+        //Untill I figure out how to change unit vel easly, this is going in the trash
+        //unit.vel.set(Mathf.round(Mathf.slerpDelta(0, unit.vel.len, unit.speed/10) * 1000)/1000)
+        let slushFallCovering = new Effect(5, e => {
+        Draw.color(Color.valueOf("#6ecdec"), Color.valueOf("#b6cad6"), scl);
+        Draw.alpha(scl)
+        
+        let drawingLayer = 0
+        if((!unit.isGrounded() && unit.hovering) || unit.flying){
+           drawingLayer = Layer.flyingUnit + 1
+        }
+        else{
+           drawingLayer = Layer.groundUnit + 1
+        }
+        Draw.z(drawingLayer)
+        Draw.rect(unit.type.outlineRegion, unit.x, unit.y, unit.rotation - 90);
+        Draw.rect(unit.type.region, unit.x, unit.y, unit.rotation - 90);
+        
+        Draw.color(Color.valueOf("#b6cad6"), unit.team.color, scl);
+        Draw.rect(unit.type.cellRegion, unit.x, unit.y, unit.rotation - 90);
+        
+        Draw.color(Color.valueOf("#b6cad6"), Color.valueOf("#6ecdec"), scl);
+        for(let i = 0; i < unit.mounts.length; i++){
+            let mount = unit.mounts[i];
+            let weapon = mount.weapon;
+            
+            //Meep I understand this is in a lib but I don't want the mod to have dependancies...
+            let weaponRotation = unit.rotation + (weapon.rotate ? mount.rotation : 0);
+            let recoil = ((mount.reload) / weapon.reload * weapon.recoil);
+            
+            let wx = unit.x + Math.cos(weaponRotation/180 * Math.PI) * weapon.x + Angles.trnsx(weaponRotation, recoil);
+            let wy = unit.y + Math.sin(weaponRotation/180 * Math.PI) * weapon.y + Angles.trnsy(weaponRotation, recoil);
+            
+            Draw.alpha(scl)
+            
+            //when you can't get weapons to show up correctly: :cherrycri:
+            Fill.circle(wx, wy, scl * 2)
+            Draw.rect(weapon.region, wx, wy, weaponRotation - 90);
+            //will be used for outlines
+            if(!mount.top){
+                Draw.z(drawingLayer - 0.5);
+            }
+            else{
+                Draw.z(drawingLayer + 2.5);
+            }
+            if(weapon.outlineRegion != Core.atlas.find("error")){
+                Draw.rect(weapon.outlineRegion, wx, wy, weaponRotation - 90);
+            }
+        }
+}).at(unit.x, unit.y)
+    }
+});
+slushFall.damage = 0.1;
+//slushFall.effect = windsweptFx;
+
+module.exports = {
     ionisedStatus: ionisedStatus,
     chargedEffect: chargedEffect,
+    warmth: warmth,
     hellfire: hellfire, 
     sporefire: sporefire,
     sporefireC: sporefireC,
     windswept: windswept,
     blackout: blackout,
     prismium: prismium,
-    groveCurse: groveCurse
+    groveCurse: groveCurse,
+    slushFall: slushFall
 };

@@ -1,12 +1,12 @@
 const statuses = require("libs/statuses");
 const fc = require("libs/fc");
 const extras = require("extras/voidicsm");
-
+const bombs = require("blocks/bombs")
 const firinDistance = 5;
 
 const cryoexplosion = new Effect(45, e => {
     Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
-    Angles.randLenVectors(e.id, 25, e.finpow() * 75, e.rotation, 360, (x, y) => {
+    Angles.randLenVectors(e.id, 55, e.finpow() * 75, e.rotation, 360, (x, y) => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
   })
 });
@@ -18,8 +18,16 @@ const cryoShot = new Effect(45, e => {
   })
 });
 
+const lingeringCryo = new Effect(360, e =>{
+    Draw.color(Color.cyan, Color.valueOf("#6ecdec"), e.fin());
+    Angles.randLenVectors(e.id, 15, e.finpow() * 5, e.rotation, 360, (x, y) => {
+    Fill.circle(e.data.x + x, e.data.y + y, e.fout() * 1.5);
+  })
+})
+
 const cryoTrail = new Effect(20, e => {
   Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
+    Draw.z(Layer.bullet)
     Lines.stroke(Math.abs(fc.helix(7, 3, e.fout())));
     Lines.line(e.x,
                e.y,
@@ -29,8 +37,8 @@ const cryoTrail = new Effect(20, e => {
 
 const magTrail = new Effect(15, e => {
     Draw.color(Color.white, Color.valueOf("c0c2d3"), e.fin());
+    Draw.z(Layer.bullet)
     Lines.stroke(Math.abs(fc.helix(3, 3, e.fout())));
-    
     Lines.line(e.x,
                e.y,
                e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
@@ -45,6 +53,7 @@ const shadowWave = new Effect(50, e => {
 
 const darknessTrail = new Effect(30, e => {
   Draw.color(Color.black, Pal.darkMetal, e.fin());
+    Draw.z(Layer.bullet)
     Lines.stroke(Math.abs(fc.helix(7, 5, e.fout())));
     Lines.line(e.x,
                e.y,
@@ -68,6 +77,7 @@ const prismaticWave = new Effect(50, e => {
 
 const prismaticTrail = new Effect(30, e => {
   Draw.color(Color.white, Pal.darkMetal, e.fin());
+    Draw.z(Layer.bullet)
     Lines.stroke(Math.abs(fc.helix(7, 5, e.fout())));
     Lines.line(e.x,
                e.y,
@@ -109,13 +119,17 @@ const freezingShot = extend(PointBulletType, {
     },
     cryoSplash(b){
         cryoexplosion.at(b.x, b.y);
+        bombs.prisBullets[5].create(b.owner, b.team, b.x, b.y, b.rotation() + Mathf.range(180), 0)
         Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 30);
-        let rad = 10;
+        let rad = 20;
         Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
             if(!u.isDead) {
                 Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 1);
-                u.apply(StatusEffects.freezing, 360);
-                u.damageContinuousPierce(50);
+                if(u.team != b.team){
+                    u.apply(statuses.slushFall, 900 - Mathf.dst(b.x, b.y, u.x, u.y)/180 * 900);
+                    u.damageContinuousPierce(50 - Mathf.dst(b.x, b.y, u.x, u.y)/180 * 50);
+                    lingeringCryo.at(u.x, u.y, 0, u)
+                }
             }
         }));
     },

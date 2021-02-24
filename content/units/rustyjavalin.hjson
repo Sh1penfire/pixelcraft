@@ -7,8 +7,8 @@ armor: 4
 aimDst: 10
 hitSize: 8
 range: 50
-drag: 0.005
-accel: 0.05
+drag: 0.013
+accel: 0.015
 maxRange: 200
 buildSpeed: 3
 clipSize: 1

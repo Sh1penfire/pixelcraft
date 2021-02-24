@@ -34,8 +34,12 @@ rustyjavalin.constructor = () => extend(UnitEntity, {
         }
     },
     collision(b){
-        if(this.lightn < 0.1 && b.damage > 0){
-            Lightning.create(this.team, Color.valueOf("#a9d8ff"), 10 * Vars.state.rules.unitDamageMultiplier, this.x, this.y, b.rotation() + 180, 8);
+        if(this.lightn < 0.1 && b.damage >= 0){
+            let temp = 0
+            while(temp <  5 + Mathf.random(4)){
+                Lightning.create(this.team, Color.valueOf("#a9d8ff"), 10 * Vars.state.rules.unitDamageMultiplier, this.x, this.y, b.rotation() + 180 + Mathf.range(10), 10  + Mathf.range(5));
+                temp++
+            }
             Sounds.spark.at(this.x, this.y);
             this.impulse(Mathf.range(300), Mathf.range(300));
             this.lightn = 2
@@ -72,6 +76,10 @@ rustyDelta.constructor = () => extend(MechUnit, {
         }
         this.super$update();
     },
+    killed(){
+        this.super$killed()
+        this.onLandE()
+    },
     classId: () => rustyDelta.classId
 })
 refresh(rustyDelta)
@@ -80,7 +88,6 @@ const shard = extend(UnitType, "shard", {});
 shard.constructor = () => extend(UnitEntity, {
     collision(bullet){
         if(bullet.type.reflectable != false && bullet.damage < this.health){
-            print("hai")
             bullet.type.create(this, this.team, this.x, this.y, bullet.rotation() + 180, 1, bullet.fout())
         }
     },
