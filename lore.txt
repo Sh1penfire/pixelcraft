@@ -61,42 +61,26 @@ Eventualy the bots had found out that it had many metals in it, even the valued 
 
 Crux using pixelcraft tech
 
-They had found it before us. It was inevitable. We had lost the race for the rusted core, and the schematics held within on Templura. As they setup the cores and drills, they realized that their technology was incompatible. a debate was to be held at their base on whether or not to claim Templura as their own. Eventualy, they came to the conclusion that they should take over Templura. One by one, prebuilt cores were launched onto the surface to find an uninhabited, living land free of spores.
+They had found the schematics to the ancient tech of our grandfathers . The accomplishment we all this time was searching for , now discovered by our own foes . They had scanned all the forgotten tech upon our once lush homeworld . An unanticipated move by our enemies , perhaps they knew it all along ? Templura , the planet we had been vying control for millenias since our arrival to the Haven , was perhaps known by many upon those who had lived through the cruel trip to this planet . It doesn't matter , now , all our resources are on shortage , and we must retake the planet before they can build a permament base .
 
 Dunescape crags
 
-Lava cannels run underground
-A smell of char lingers...
-The diralect used a superweapon here
-The usage of it brought downfall to their conquest to concour the planet
-now all that remains is their tech
+Lava and magma floods the area on massive canals 
+Char-dusted air is chock full with the ever-so-occasional char smell 
+The Savestas (now known as Derelict when their downfall happened) once used a mighty superweapon here during one of their last stands againt the invaders . Perhaps salvaging their tech from a slaggy demise would be good to preserve this cultuure .
 
 The infestation
 
-The spores. Recognized as a source of power and the ruthless destroyer of life.
+Spores , the artificial life that once was the savior of Serpulo , now turned into the destructor of life . 
 The crux didn't know it but they were being controlled, and the "accident" happened because the crux's spore production facilities were built in a spot where dialect would attack which released the spores. They knew it would happen and it impacted dialect heavily, since they relied on natural sources to make power. This would be one of many blows to dialect as they slowly lost control of Sepulo.
 Templura's life was resilient enough to fight back against the spores that happened to land on Templura from the crux's launch. There was one spot on Templura which was almost perfectly suited for the spores to inhabit however, and are the main source of spores on Templura.
 
-The void
+The Grand Prophecy's Last Prediction
 
-Mindustry, A corupted simulation. A replicaiton of Earth that was deemed saveable but extremely hard. It started it's life with a planet and a sun. The simulation only had to simulate two things for what it was suposed to do. We never predicted that one error put the simulation on the brink of destruction.
+Serpulo , now our race's last core world , is all that is left of our grand empire .
+Millenias ago , our race was a proud and glorius country , standing uncontested in the void of space . There , we had buildings shimmering in gold bright and beautiful spacecraft flying in our spaceports in the orbits of our countless worlds in our domain . Templura - as it was called , was once the home of our vast empire , housing the statues and monuments of great leaders in our empire's history , shining bright above our home planet . In one of the rooms , there housed an ancient book , called The Grand Prophecy . The book is written in a god-who-knows language that was only translated when one of the staff had opened it fully , letting the book to unravel it's ancient horrors to eat his soul . It ate the staff's soul , and in exchange , let the contents be translated into our language . The opening of the book made a shockwave to emitted a wide screeching with ancient voices speaking , muttering the words of "The Prophecy" , "It shall be thy last dream" and the final "It shall be thy undoing"
 
-The simulation was formated like a game, objects having internal properties like health and speed. If  thing's hp dropred to 0 however, it was deleted and stoped existing instaid of it's state being turned to dead such as in our world.
+Our leaders would slowly walk into the room , seeing the ancient book opened , and a dead body lying on the ground 
 
-We wanted to start anew, simulating a planet where we don't know and never will find out that we are in a simulation. The tools provided to us here much much stronger than anything in the simulated universe.
-
-There was a problem with it however, starting with a little mistake. The simulation's host was damaged once. This caused a glitch in the system. An object that had the wrong properties. It coudn't be modified and before we were able to delete it, spread the coruption to other objects nearby like some sort of computer virus. We called the object spawned from this event, the null void.
-
-The modifications were simple. Objects that were touched by the null void or other corupted objects were unable to be modified and randomly experianced slightly lower gravity, higher max velocities, lower air resistance and other various things to do with speed.
-
-The file coruption eventualy got to a point where we could not delete objects via health modification fast enough and made the file harder to modify. The world was changing. The simulator using more processing power than before, creating history for the world an ever changing solar system.
-
-As a last ditch effort, we made a port to the world. A way to interact with the world. We gave the terminal's entity the ability to infinitely appear with their own object to inhabit.
-
-Fearing that the coruption had the power to coppy anything we did, we lowered the risk and created a flying ship with extremely weak combat ability. It could harnes the planet's natural resources and build objects from a database. 
-
-The coruption responded by flinging objects towards the ship trying to delete it. It eventualy stoped, instaid resorting to corupting it. As another coppy of the port ship was made, the file was deemed salvageable and wasn't deleted. A coppy of this file was created as a backup, modified to look like a game and then shiped out to potentual testers.
-
-At this point, the coruption had taken over the planet's surface and had used the port it corutped to create a mechanical race we dubed, the crux. File editers looked to help clear the coruptio but to no avail. Now, the game we call Mindustry is out there with nobody knowing what happened to make it a game.
-
-Something happened to the null void which changed how the simulator worked. It was generating history for the already existing objects and modifying Sepulo bit by bit. The crux as we called it were droids built by a corupted port, having access to every object we had in our databases. 
+(unfinished Roomba changes)
+(wip , this is going to be continued as it's late in the night now)
