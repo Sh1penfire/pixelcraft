@@ -18,13 +18,6 @@ const cryoShot = new Effect(45, e => {
   })
 });
 
-const lingeringCryo = new Effect(360, e =>{
-    Draw.color(Color.cyan, Color.valueOf("#6ecdec"), e.fin());
-    Angles.randLenVectors(e.id, 15, e.finpow() * 5, e.rotation, 360, (x, y) => {
-    Fill.circle(e.data.x + x, e.data.y + y, e.fout() * 1.5);
-  })
-})
-
 const cryoTrail = new Effect(20, e => {
   Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
     Draw.z(Layer.bullet)
@@ -128,7 +121,6 @@ const freezingShot = extend(PointBulletType, {
                 if(u.team != b.team){
                     u.apply(statuses.slushFall, 900 - Mathf.dst(b.x, b.y, u.x, u.y)/180 * 900);
                     u.damageContinuousPierce(50 - Mathf.dst(b.x, b.y, u.x, u.y)/180 * 50);
-                    lingeringCryo.at(u.x, u.y, 0, u)
                 }
             }
         }));

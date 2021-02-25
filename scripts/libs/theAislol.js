@@ -27,7 +27,12 @@ const swarmAI = () => extend(FlyingAI, {
             return t;
         }
         else{
-            return this.super$findTarget(x, y, range, air, ground)
+        let result = null
+        if(ground) result = this.targetFlag(x, y, BlockFlag.generator, true);
+        if(result != null) return result;
+            
+        if(ground) result = this.targetFlag(x, y, BlockFlag.core, true);
+        if(result != null) return result;
         }
     }
 });

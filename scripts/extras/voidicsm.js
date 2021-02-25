@@ -129,6 +129,14 @@ Bullets.artilleryPlasticFrag.statusDuration = 3600;
 Bullets.standardThoriumBig.status = StatusEffects.corroded;
 Bullets.artilleryPlasticFrag.statusDuration = 7200;
 
+Blocks.snow.status = statuses.slushFall
+Blocks.snow.statusDuration = 125
+Blocks.iceSnow.status = statuses.slushFall
+Blocks.iceSnow.statusDuration = 255
+Blocks.ice.status = statuses.slushFall
+Blocks.ice.statusDuration = 350
+
+
 const voidicsm = extend(Liquid, "voidicsm", {
     tempretature: 0,
     heatCapacity: 1,

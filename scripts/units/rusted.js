@@ -49,8 +49,8 @@ rustyjavalin.constructor = () => extend(UnitEntity, {
     classId: () => rustyjavalin.classId
 })
 rustyjavalin.abilities.add(new MoveLightningAbility(6.4 * Vars.state.rules.unitDamageMultiplier, 10, 0.05, 10, 3, 6, Color.valueOf("#a9d8ff"), "pixelcraft-rustyjavalin-full"));
-refresh(rustyjavalin)
 rustyjavalin.defaultController = theAislol.swarmAI
+refresh(rustyjavalin)
 
 const rustyAlpha = extend(UnitType, "rustyalpha", {});
 rustyAlpha.constructor = () => extend(MechUnit, {});

@@ -256,7 +256,12 @@ const prismium = extend(StatusEffect, "prismium", {
     damageMultiplier: 0.75,
     damage: 0.5,
     effect: prismiumStatusFX,
-    effectChance: 0.09
+    effectChance: 0.09,
+    update(unit, time){
+        this.super$update(unit, time)
+        unit.apply(hellfire, time/8)
+        unit.apply(slushFall, time/8)
+    }
 });
 prismium.color = Color.white;
 
@@ -293,24 +298,44 @@ const groveCurse = extend(StatusEffect, "groveCurse", {
 groveCurse.damage = 0.1;
 groveCurse.effect = groveCurseFx;
 
-
+const lingeringCryo = new Effect(360, e =>{
+    Draw.color(Color.cyan, Color.valueOf("#6ecdec"), e.fin());
+    Draw.alpha(0.25)
+    Angles.randLenVectors(e.id, 15, e.finpow() * 5, e.rotation, 360, (x, y) => {
+    Fill.circle(e.data.x + x, e.data.y + y, e.fout() * 1.5);
+  })
+})
 
 const slushFall = extend(StatusEffect, "slushFall", {
     update(unit, time){
         this.super$update(unit, time)
         //past 12 seconds, scl is 1. Anywhere below 12 seconds and scl drops.
-        let scl = Mathf.round(Mathf.slerpDelta(0, 1, time/720) * 1000)/1000
+        let scl = Mathf.slerpDelta(0, 1, time/720)
         if(fc.statusCheck(unit, StatusEffects.freezing) && !fc.statusCheck(unit, warmth) && this.time < 721){
             this.time = 721
+            lingeringCryo.at(unit.x, unit.y)
+        }
+        if(this.time > 550){
+            unit.damageContinuousPierce(0.1)
         }
         this.speedMultiplier = 1 - scl
         this.reloadMultiplier = 1 - scl
+        let colour1 = Color.valueOf("#b6cad6"), colour2 = Color.valueOf("#6ecdec")
         //Untill I figure out how to change unit vel easly, this is going in the trash
         //unit.vel.set(Mathf.round(Mathf.slerpDelta(0, unit.vel.len, unit.speed/10) * 1000)/1000)
         let slushFallCovering = new Effect(5, e => {
-        Draw.color(Color.valueOf("#6ecdec"), Color.valueOf("#b6cad6"), scl);
-        Draw.alpha(scl)
+        let colour1 = Color.valueOf("#b6cad6"), colour2 = Color.valueOf("#6ecdec")
+        if(fc.statusCheck(unit, blackout)){
+           colour1 = Pal.darkMetal, colour2 = Color.black
+        }
+        Draw.color(colour1, colour2, scl);
+        Draw.alpha(scl * e.fslope())
         
+        if(unit.dead || unit.health <= 0){
+            Puddles.deposit(Vars.world.tileWorld(unit.x, unit.y), Liquids.cryofluid, unit.hitSize * 2);
+        }    
+        
+        let unitRotation = unit.rotation - 90
         let drawingLayer = 0
         if((!unit.isGrounded() && unit.hovering) || unit.flying){
            drawingLayer = Layer.flyingUnit + 1
@@ -319,44 +344,45 @@ const slushFall = extend(StatusEffect, "slushFall", {
            drawingLayer = Layer.groundUnit + 1
         }
         Draw.z(drawingLayer)
-        Draw.rect(unit.type.outlineRegion, unit.x, unit.y, unit.rotation - 90);
-        Draw.rect(unit.type.region, unit.x, unit.y, unit.rotation - 90);
+        Draw.rect(unit.type.outlineRegion, unit.x, unit.y, unitRotation);
+        Draw.rect(unit.type.region, unit.x, unit.y, unitRotation);
         
-        Draw.color(Color.valueOf("#b6cad6"), unit.team.color, scl);
-        Draw.rect(unit.type.cellRegion, unit.x, unit.y, unit.rotation - 90);
+        Draw.alpha(scl * e.fslope())
+        Draw.color(colour1, unit.team.color, scl);
+        Draw.rect(unit.type.cellRegion, unit.x, unit.y, unitRotation);
         
-        Draw.color(Color.valueOf("#b6cad6"), Color.valueOf("#6ecdec"), scl);
+        Draw.color(colour1, colour2, scl);
         for(let i = 0; i < unit.mounts.length; i++){
             let mount = unit.mounts[i];
             let weapon = mount.weapon;
             
             //Meep I understand this is in a lib but I don't want the mod to have dependancies...
-            let weaponRotation = unit.rotation + (weapon.rotate ? mount.rotation : 0);
-            let recoil = ((mount.reload) / weapon.reload * weapon.recoil);
+            let weaponRotation = unit.rotation - 90
+            if(weapon.rotate){
+                weaponRotation = mount.rotation + unit.rotation - 90
+            }
+            let recoil = -mount.reload/weapon.reload * weapon.recoil;
+            let mirrornt = 1
+            if(weapon.mirror = true){
+                mirrornt = -1
+            }
+                let wx = unit.x + Angles.trnsx(unitRotation, weapon.x, weapon.y) + Angles.trnsx(weaponRotation, 0, recoil)
+                let wy = unit.y + Angles.trnsy(unitRotation, weapon.x, weapon.y) + Angles.trnsy(weaponRotation, 0, recoil)
             
-            let wx = unit.x + Math.cos(weaponRotation/180 * Math.PI) * weapon.x + Angles.trnsx(weaponRotation, recoil);
-            let wy = unit.y + Math.sin(weaponRotation/180 * Math.PI) * weapon.y + Angles.trnsy(weaponRotation, recoil);
-            
-            Draw.alpha(scl)
+            Draw.alpha(scl * e.fslope())
             
             //when you can't get weapons to show up correctly: :cherrycri:
-            Fill.circle(wx, wy, scl * 2)
-            Draw.rect(weapon.region, wx, wy, weaponRotation - 90);
-            //will be used for outlines
-            if(!mount.top){
-                Draw.z(drawingLayer - 0.5);
-            }
-            else{
-                Draw.z(drawingLayer + 2.5);
-            }
+            //when weapons glitch out: :kindlingship:
             if(weapon.outlineRegion != Core.atlas.find("error")){
-                Draw.rect(weapon.outlineRegion, wx, wy, weaponRotation - 90);
+                Draw.rect(weapon.outlineRegion, wx, wy, weaponRotation);
             }
+            //Fill.circle(wx, wy, scl * 2)
+            Draw.rect(weapon.region, wx, wy, weaponRotation);
         }
-}).at(unit.x, unit.y)
+        }).at(unit.x, unit.y);
     }
 });
-slushFall.damage = 0.1;
+slushFall.damage = 0;
 //slushFall.effect = windsweptFx;
 
 module.exports = {
