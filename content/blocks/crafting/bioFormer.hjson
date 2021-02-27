@@ -1,5 +1,5 @@
 name: Bioformer
-description: "Grows plants and compresses them down into orbs. Needs water to grow plants"
+description: "Grows plants and compresses them down into orbs. Needs water to grow plants."
 size: 2
 hasLiquids: true
 hasItems: true
