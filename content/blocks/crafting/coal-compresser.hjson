@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Coal Compresser
-description: "Compresses coal into pure sheets of graphite. Theres a note in plastic. It says: Eventualy the bots had found out that it had many metals in it, even the valued thorium that kept their reactors fueled."
+description: "Compresses coal into pure sheets of graphite. There's a note in plastic. It says: Eventualy the bots had found out that it had many metals in it, even the valued thorium that kept their reactors fueled."
 size: 2
 hasItems: true
 craftTime: 120
