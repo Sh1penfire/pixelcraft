@@ -1,6 +1,6 @@
 type: battery
 name: Magnitine Battery
-description: "Uses coils of magnitine to store power. In times of defict, outputs power."
+description: "Uses coils of magnitine to store power. In times of deficit, outputs power."
 health: 50
 size: 1
 hasPower: true
