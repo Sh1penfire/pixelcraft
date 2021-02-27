@@ -1,6 +1,6 @@
 type: MendProjector
 name: "Bio Projector"
-description: "A biger block of metal covered in plant life to cool it's systems. Requires a small amount of power."
+description: "A bigger block of metal covered in plant life to cool it's systems. Requires a small amount of power."
 reload: 115
 range: 200
 baseColor: ccd28d
