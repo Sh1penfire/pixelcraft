@@ -1,7 +1,7 @@
 type: GenericSmelter
 name: Tinorium Crystaliser
-description: Crystalises rare Earth metals
-details: "Perhaps making the chamber to make titanium and thorium in out of the verry materiels it's mixing wasn't a good idea..?"
+description: Crystalises rare Earth metals.
+details: "Perhaps making the chamber to make titanium and thorium in out of the very materiels it's mixing wasn't a good idea..?"
 liquidCapacity: 50
 itemCapacity: 12
 size: 3
