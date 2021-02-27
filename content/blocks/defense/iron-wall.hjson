@@ -1,7 +1,7 @@
 name: "Rusty wall"
 description: "A cheap defensive block.
 Provides moderate protection from enemies.
-Decaying from the rust"
+Decaying from the rust."
 health: 400
 size: 1
 requirements: [
