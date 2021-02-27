@@ -1,5 +1,5 @@
 name: Pulse
-description: "A support controlled turret that can heal blocks. Does decent damage"
+description: "A support controlled turret that can heal blocks. Does decent damage."
 health: 220
 size: 1
 reloadTime: 30
