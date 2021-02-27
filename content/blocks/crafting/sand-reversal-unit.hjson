@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Sand Reversal Unit
-description: "Compresses sand under high preasure and heat and mixes it with water to form stone. Theres a note in the scimatics. It reads: Serpulo's surface was cooling down. It had a magnetic field caused by the swirling of molten metal at the planet's core, protecting gasses from intense solar winds. However, as there was high volcanic activity, the surface never formed an ocean. There were isolated pockets of water on it but no grand seas for sailors to explore."
+description: "Compresses sand under high preasure and heat and mixes it with water to form stone. There's a note in the schematics. It reads: Serpulo's surface was cooling down. It had a magnetic field caused by the swirling of molten metal at the planet's core, protecting gasses from intense solar winds. However, as there was high volcanic activity, the surface never formed an ocean. There were isolated pockets of water on it but no grand seas for sailors to explore."
 size: 3
 hasItems: true
 craftTime: 50
