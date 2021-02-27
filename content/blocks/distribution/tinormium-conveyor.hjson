@@ -1,5 +1,5 @@
 type: StackConveyor
-name: "Tinormium rails"
+name: "Tinormium Rails"
 description: "Packs items into a comfortable ride on a foam box."
 speed: 0.1
 itemCapacity: 50
