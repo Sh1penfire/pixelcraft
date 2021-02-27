@@ -1,5 +1,5 @@
 name: Austutin
-description: Long ranged turret that spreads boomerangs around itself. Shoots 16 bullets
+description: Long ranged turret that spreads boomerangs around itself. Shoots 16 bullets.
 health: 300
 size: 4
 shootSound: respawning
