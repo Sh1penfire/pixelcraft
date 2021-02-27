@@ -1,5 +1,5 @@
 name: Trunk
-description: A bio turret. Shoots clusters of bionorbs which heal allies and hurt enemies around it
+description: A bio turret. Shoots clusters of bionorbs which heal allies and hurt enemies around it.
 health: 250
 size: 3
 reloadTime: 200
