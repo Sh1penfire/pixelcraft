@@ -48,6 +48,7 @@ const crossroads = extend(SectorPreset, "crossroads", templura, 26, {
 
 const dunescapeCrags = extend(SectorPreset, "dunescape-crags", templura, 27, {
     captureWave: 100,
+    description: "A smell of char lingers...\n The diralect used a superweapon here \nThe usage of it brought downfall to their conquest to concour the planet \nnow all that remains is their tech",
     localizedName: "Dunescape Crags",
     difficulty: 10
 });

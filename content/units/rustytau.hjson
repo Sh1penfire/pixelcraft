@@ -117,7 +117,8 @@ toColor: 98ffa9
 }
 ]
 immunities: [
-freezing
+freezing,
+corroded
 ]
 research: {
 parent: rustydelta

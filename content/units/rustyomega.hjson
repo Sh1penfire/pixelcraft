@@ -1,72 +1,123 @@
-type: mech
-name: "Rusty omega"
-description: "pew pew"
-speed :0.65
-health: 800
-armor: 25
-aimDst: 10
-range: 50
-maxRange: 100
-buildSpeed: 2
-clipSize: 1
-faceTarget: true
-rotateShooting : true
-mineTier: 3
-mineSpeed: 10
-range: 160
-rotateSpeed: 8
-lowAltitude: true
-omniMovement: true
+name: "Rusty Omega"
+description: "A suport unit from the old days mixed with the bulkey omega. Has Extremely powerfull minning lasers, although degraded over centuries. Comes with a build in suport gun for use in attacking and repear."
+health: 3450
+armor: 8.5
+speed: 0.45
+drag: 0.7
+accel: 2
+hitSize: 16
+boostMultiplier: 1.25
+range: 235
 canDrown: false
 canBoost: true
-weapons: [ 
+buildSpeed: 10
+mineSpeed: 10
+mineTier: 4
+itemCapacity: 70
+faceTarget: true
+rotateSpeed: 2
+lowAltitude: true
+omniMovement: true
+weapons: [
 {
-name: aged-blaster
-reload: 35
+name: aged-charger
+reload: 100
 alternate: true
 ejectEffect: casing2
 top: false
 shootSound: shoot
-x: 4
-y: -.5
+x: 12.5
+y: 0
 rotate: false
 shots: 4
+inaccuracy: 5
 bullet: {
 type: MissileBulletType
-damage: 5
+damage: 10
 weaveMag: 4
-weaveScale: 4
-speed: 2
-lifetime: 40
-fragBullets: 3
+weaveScale: 10
+speed: 3
+lifetime: 100
+homingPower: 0
 hitSound: pew
-fragBullet:{
-type: BasicBulletType
-damage: 1
-speed: 1
-lifetime: 10
-}
+keepVelocity: false
 }
 }
 {
-name: missile-shotgun
-reload: 15
+name: aged-charger
+reload: 50
 alternate: true
 ejectEffect: casing2
 top: false
 shootSound: shoot
-x: 4
-y: 2
+x: 12.5
+y: 0
 rotate: false
+shots: 1
+bullet: {
+type: ArtilleryBulletType
+damage: 35
+width: 12
+length: 12
+lifetime: 200
+hitShake: 3.5
+hitEffect: none
+collides: true
+collidesAir: true
+collidesTiles: true
+despawnEffect: explosion
+fragCone: 30
+fragVelocityMin: 0.6
+fragBullets: 25
+fragCone: 45
+keepVelocity: false
+fragBullet: {
+type: BasicBulletType
+damage: 1
+speed: 3
+pierce: true
+pierceCap: 5
+drag: 0.03
+despawnEffect: none
+hitSound: none
+lifetime: 40
+shrinkY: 1
+knockback: -0.15
+hitSound: pew
+keepVelocity: false
+}
+}
+}
+{
+name: aged-blaster
+reload: 15
+recoil: 0.1
+alternate: true
+mirror: true
+ejectEffect: casing2
+top: true
+shootSound: pew
+x: 10
+y: 0.5
+rotate: true
 bullet: {
 type: BasicBulletType
-width: 7
-height: 10
-damage: 15
-speed: 6
-lifetime: 25
+damage: 12.5
+splashDamage: 2.5
+splashDamageRadius: 25
+frontColor: eeb393
+backColor: a97567
+speed: 2
+width: 10
+height: 16
+lifetime: 125
+keepVelocity: false
 }
 }]
+immunities: [
+freezing,
+corroded
+]
 research: {
 parent: rustytau
 requirements: [

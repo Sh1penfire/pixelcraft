@@ -4,7 +4,7 @@ description: A railgun so powerful that the bolts desintagrate into fine dust ap
 shootSound: laser
 health: 1200
 size: 3
-reloadTime: 200
+reloadTime: 235
 range: 450
 shots: 3
 burstSpacing: 7.5
