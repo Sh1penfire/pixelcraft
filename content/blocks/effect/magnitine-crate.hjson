@@ -1,4 +1,4 @@
-name: Steel crate
+name: Steel Crate
 description: A storage for items. Not the best, but gets the job done. Place next to the core to expand it's storage, although not by much.
 type: StorageBlock
 itemCapacity: 75

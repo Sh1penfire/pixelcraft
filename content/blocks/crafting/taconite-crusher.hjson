@@ -1,6 +1,6 @@
 type: GenericCrafter
-name: Taconite crusher
-description: "Crushes stone and extracts impure iron within. Theres a note in plastic. It says: The bot's name was dart. They were banished to the farlands and told never to come back again, with threats to be shot on sight."
+name: Taconite Crusher
+description: "Crushes stone and extracts impure iron within. There's a note in plastic. It says: The bot's name was dart. They were banished to the farlands and told never to come back again, with threats to be shot on sight."
 size: 2
 hasItems: true
 craftTime: 80

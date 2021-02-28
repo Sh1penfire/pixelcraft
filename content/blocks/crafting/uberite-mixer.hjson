@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Uberite Mixer
-description: makes uberite
+description: Makes Uberite.
 size: 2
 craftTime: 100
 consumes:{

@@ -1,9 +1,9 @@
-name: Magnitine conveyor
+name: Magnitine Conveyor
 health: 200
 solid: false
 floating: true
 insulated: false
-description: Old conveyer scimatic revitalised, it damages enemies on it and has a good sum of health.
+description: Old conveyor schematic revitalised, it damages enemies on it and has a good sum of health.
 requirements: [
   graphite/1
   iron/1

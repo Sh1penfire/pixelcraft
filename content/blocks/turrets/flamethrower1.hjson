@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Blaze
-description: "A powerfull flamethrower which shoots streams of fire at it's enemies. Can compress spore pods and smelt scrap. It can also hit air units. This was a good idea!"
+description: "A powerful flamethrower which shoots streams of fire at it's enemies. Can compress spore pods and smelt scrap. It can also hit air units. This was a good idea!"
 shootSound: flame2
 health: 300
 size: 2

@@ -1,7 +1,7 @@
 type: CoreBlock
-name: "Core refraction"
+name: "Core Refraction"
 description: "refleccore"
-description: "What goes up must come down"
+details: "What goes up must come down."
 health: "3000"
 itemCapacity: 4000
 size: 3

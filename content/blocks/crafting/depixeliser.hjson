@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: "Depixeliser"
-description: "Depixelises Pixelite and turns it into pyratite for usage outside the mod. Needs oil to desolve pixelite and dry it out. Producess in large batches."
+description: "Depixelises Pixelite and turns it into pyratite for usage outside the mod. Needs oil to desolve pixelite and dry it out. Produces in large batches."
 size: 2
 hasPower: true
 hasLiquids: true

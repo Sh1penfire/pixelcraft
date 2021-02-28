@@ -2,7 +2,7 @@ type: Reconstructor
 name: "Aged Core"
 size: 3
 health: 200
-description: "Some how, a core scimatic shows how to upgrade units"
+description: "Somehow, a core schematic that shows how to upgrade units."
 constructTime: 100
 upgrades: [
   [

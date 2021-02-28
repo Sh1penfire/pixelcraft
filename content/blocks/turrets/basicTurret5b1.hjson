@@ -1,5 +1,5 @@
 name: "Sundry"
-description: "Sweeps the target away from vitals in the base with strong knockback"
+description: "Sweeps the target away from vitals in the base with strong knockback."
 size: 4
 reloadTime: 5
 range: 200

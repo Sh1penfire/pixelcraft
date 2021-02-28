@@ -1,5 +1,5 @@
 type: GenericSmelter
-name: Pixelite mixer
+name: Pixelite Mixer
 description: Burns away scrap and produces pyratite from what remains... Though it looks a bit pixelated.
 liquidCapacity: 50
 size: 2

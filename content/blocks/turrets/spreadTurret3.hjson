@@ -1,5 +1,5 @@
 name: Vinca
-description: "Medium ranged turret that scatters bullets around itself. Initial shot causes a shockwave"
+description: "Medium ranged turret that scatters bullets around itself. Initial shot causes a shockwave."
 health: 300
 size: 3
 shootSound: respawning
