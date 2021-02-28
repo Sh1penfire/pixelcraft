@@ -1,10 +1,10 @@
-type: mech
 name: "Rusty omega"
 description: "pew pew"
 speed :0.65
 health: 800
 armor: 25
 aimDst: 10
+hitSize: 16
 range: 50
 maxRange: 100
 buildSpeed: 2
@@ -21,14 +21,14 @@ canDrown: false
 canBoost: true
 weapons: [ 
 {
-name: aged-blaster
+name: aged-charger
 reload: 35
 alternate: true
 ejectEffect: casing2
 top: false
 shootSound: shoot
-x: 4
-y: -.5
+x: 12.5
+y: 0
 rotate: false
 shots: 4
 bullet: {
@@ -38,33 +38,7 @@ weaveMag: 4
 weaveScale: 4
 speed: 2
 lifetime: 40
-fragBullets: 3
 hitSound: pew
-fragBullet:{
-type: BasicBulletType
-damage: 1
-speed: 1
-lifetime: 10
-}
-}
-}
-{
-name: missile-shotgun
-reload: 15
-alternate: true
-ejectEffect: casing2
-top: false
-shootSound: shoot
-x: 4
-y: 2
-rotate: false
-bullet: {
-type: BasicBulletType
-width: 7
-height: 10
-damage: 15
-speed: 6
-lifetime: 25
 }
 }]
 research: {
