@@ -298,21 +298,19 @@ const groveCurse = extend(StatusEffect, "groveCurse", {
 groveCurse.damage = 0.1;
 groveCurse.effect = groveCurseFx;
 
-const lingeringCryo = new Effect(75, e =>{
-    Draw.color(Color.white, Color.valueOf("#b6cad6"), e.fin());
-    Draw.alpha(0.55 * e.fslope())
-    Draw.z(Layer.bullet)
-    Angles.randLenVectors(e.id, 2, e.finpow() * 5, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fslope() * 1.5);
+const lingeringCryo = new Effect(360, e =>{
+    Draw.color(Color.cyan, Color.valueOf("#6ecdec"), e.fin());
+    Draw.alpha(0.25)
+    Angles.randLenVectors(e.id, 15, e.finpow() * 5, e.rotation, 360, (x, y) => {
+    Fill.circle(e.data.x + x, e.data.y + y, e.fout() * 1.5);
   })
 })
 
 const slushFall = extend(StatusEffect, "slushFall", {
     update(unit, time){
+        this.super$update(unit, time)
         //past 12 seconds, scl is 1. Anywhere below 12 seconds and scl drops.
         let scl = Mathf.slerpDelta(0, 1, time/720)
-        this.speedMultiplier = 1 - scl
-        this.reloadMultiplier = 1 - scl
         if(fc.statusCheck(unit, StatusEffects.freezing) && !fc.statusCheck(unit, warmth) && this.time < 721){
             this.time = 721
             lingeringCryo.at(unit.x, unit.y)
@@ -320,6 +318,8 @@ const slushFall = extend(StatusEffect, "slushFall", {
         if(this.time > 550){
             unit.damageContinuousPierce(0.1)
         }
+        this.speedMultiplier = 1 - scl
+        this.reloadMultiplier = 1 - scl
         let colour1 = Color.valueOf("#b6cad6"), colour2 = Color.valueOf("#6ecdec")
         //Untill I figure out how to change unit vel easly, this is going in the trash
         //unit.vel.set(Mathf.round(Mathf.slerpDelta(0, unit.vel.len, unit.speed/10) * 1000)/1000)
@@ -355,7 +355,7 @@ const slushFall = extend(StatusEffect, "slushFall", {
         for(let i = 0; i < unit.mounts.length; i++){
             let mount = unit.mounts[i];
             let weapon = mount.weapon;
-            if(weapon.region != Core.atlas.find("none")){
+            
             //Meep I understand this is in a lib but I don't want the mod to have dependancies...
             let weaponRotation = unit.rotation - 90
             if(weapon.rotate){
@@ -379,28 +379,11 @@ const slushFall = extend(StatusEffect, "slushFall", {
             //Fill.circle(wx, wy, scl * 2)
             Draw.rect(weapon.region, wx, wy, weaponRotation);
         }
-        }
         }).at(unit.x, unit.y);
-        this.super$update(unit, time)
     }
 });
 slushFall.damage = 0;
-slushFall.effect = lingeringCryo;
-
-module.exports = {
-    ionisedStatus: ionisedStatus,
-    chargedEffect: chargedEffect,
-    warmth: warmth,
-    hellfire: hellfire, 
-    sporefire: sporefire,
-    sporefireC: sporefireC,
-    windswept: windswept,
-    blackout: blackout,
-    prismium: prismium,
-    groveCurse: groveCurse,
-    slushFall: slushFall
-};
-slushFall.effect = lingeringCryo;
+//slushFall.effect = windsweptFx;
 
 module.exports = {
     ionisedStatus: ionisedStatus,

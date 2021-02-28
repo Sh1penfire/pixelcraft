@@ -84,13 +84,6 @@ rustyDelta.constructor = () => extend(MechUnit, {
 })
 refresh(rustyDelta)
 
-//const omegaWeapon1 = extend()
-
-const rustyomega = extend(UnitType, "rustyomega", {});
-rustyomega.constructor = () => extend(MechUnit, {
-    classId: () => rustyomega.classId
-});
-
 const shard = extend(UnitType, "shard", {});
 shard.constructor = () => extend(UnitEntity, {
     collision(bullet){

@@ -78,35 +78,16 @@ const prismaticTrail = new Effect(30, e => {
                e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
 });
 
-const cryoFragment = extend(BasicBulletType, {
-	damage: 5,
-	lifetime: 500,
-    shrinkX: 0.85,
-    shrinkY: 0.75,
-    drag: 0.01,
-    despawnEffect: Fx.none,
-    hitEffect: Fx.none,
-    buildingDamageMultiplier: 0.25,
-    status: StatusEffects.freezing,
-    frontColor: Color.cyan,
-    backColor: Color.cyan
-});
-
 const freezingShotFrag = extend(BasicBulletType, {
-	damage: 15,
+	damage: 5,
 	lifetime: 100,
     despawnEffect: cryoShot,
     hitEffect: cryoShot,
     buildingDamageMultiplier: 0.5,
-    status: StatusEffects.freezing,
-    frontColor: Color.cyan,
-    backColor: Color.cyan,
-    despawned(b){
-        this.super$despawned(b)
-        cryoFragment.create(b.owner, b.team, b.x, b.y, b.rotation() + 25, 1, b.type.speed/2);
-        cryoFragment.create(b.owner, b.team, b.x, b.y, b.rotation() - 25, 1, b.type.speed/2);
-    }
+    status: StatusEffects.freezing
 });
+freezingShotFrag.frontColor = Color.cyan;
+freezingShotFrag.backColor = Color.cyan;
 
 const freezingShot = extend(PointBulletType, {
     speed: 32,
