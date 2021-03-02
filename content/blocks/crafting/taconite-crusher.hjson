@@ -1,6 +1,6 @@
 type: GenericCrafter
-name: Taconite Crusher
-description: "Crushes stone and extracts impure iron within. There's a note in plastic. It says: The bot's name was dart. They were banished to the farlands and told never to come back again, with threats to be shot on sight."
+name: Taconite crusher
+description: Crushes stone and extracts the iron within.
 size: 2
 hasItems: true
 craftTime: 80
@@ -8,7 +8,7 @@ updateEffect: pulverizeRed
 consumes: {
   items: {
     items: [
-      stone/5
+      stone/3
     ]
   }
 }
@@ -16,7 +16,7 @@ requirements: [
   stone/30
 ]
 category: crafting
-research: graphite-press
-ambientSound: respawning
-ambientSoundVolume: 0.5
-outputItem: iron/3
+research: iron
+idleSound: respawning
+idleSoundVolume: 0.5
+outputItem: iron/2

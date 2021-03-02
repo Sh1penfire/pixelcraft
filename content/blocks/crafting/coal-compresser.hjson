@@ -1,19 +1,19 @@
 type: GenericCrafter
 name: Coal Compresser
-description: "Compresses coal into pure sheets of graphite. There's a note in plastic. It says: Eventualy the bots had found out that it had many metals in it, even the valued thorium that kept their reactors fueled."
+description: Compresses coal into pure sheets of graphite.
 size: 2
 hasItems: true
-craftTime: 120
+craftTime: 80
 updateEffect: pulverizeRed
 consumes: {
   items: {
     items: [
-      coal/4
+      coal/2
     ]
   }
 }
 requirements: [
-  stone/50
+  stone/30
   iron/70
 ]
 category: crafting

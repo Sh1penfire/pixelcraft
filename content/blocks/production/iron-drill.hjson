@@ -1,8 +1,9 @@
 name: Iron Drill
 description: A starting drill. (I thought this was stone)
+type: Drill
 size: 1
 tier: 2
-drillTime: 450
+drillTime: 350
 consumes: {
   liquid: {
     liquid: water
@@ -12,7 +13,7 @@ consumes: {
   }
 }
 requirements: [
-  iron/3
+  iron/5
 ]
 category: production
-research: core-refraction
+research: shiny-beacon
