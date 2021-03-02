@@ -44,6 +44,11 @@ time: 235
     ]
     time: 285
   }
+  {
+  unit: rustyomega
+  requirements: []
+  time: 0
+  }
 ]
 category: units
 requirements: [
