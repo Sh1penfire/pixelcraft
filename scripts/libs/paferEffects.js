@@ -17,7 +17,7 @@ const shotHit = new Effect(40, e => {
 });
 
 const shotHit2 = new Effect(40, e => {
-  Draw.color(Color.white, Color.valueOf("ff341c"), e.fin());
+  Draw.color(Color.valueOf("fc4336"), Color.valueOf("91160d"), e.fin());
     Lines.stroke(e.fslope() * 3);
     Lines.line(
         e.x + Mathf.sin(e.fout() * 2) * e.fout() * -20,
@@ -64,7 +64,7 @@ const explosions = new Effect(120, e => {
 });
 
 const explosions2 = new Effect(120, e => {
-  Draw.color(Color.white, Color.valueOf("ff341c"), e.fin());
+  Draw.color(Color.valueOf("fc4336"), Color.valueOf("91160d"), e.fin());
     Lines.stroke(e.fslope() * 4);
     Lines.line(
         e.x + Mathf.sin(e.fout() * 2) * e.fin() * -50,

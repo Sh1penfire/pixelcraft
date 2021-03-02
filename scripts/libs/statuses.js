@@ -382,25 +382,10 @@ const slushFall = extend(StatusEffect, "slushFall", {
         }
         }).at(unit.x, unit.y);
         this.super$update(unit, time)
-    }
+    },
+    damage: 0,
+    effect: lingeringCryo
 });
-slushFall.damage = 0;
-slushFall.effect = lingeringCryo;
-
-module.exports = {
-    ionisedStatus: ionisedStatus,
-    chargedEffect: chargedEffect,
-    warmth: warmth,
-    hellfire: hellfire, 
-    sporefire: sporefire,
-    sporefireC: sporefireC,
-    windswept: windswept,
-    blackout: blackout,
-    prismium: prismium,
-    groveCurse: groveCurse,
-    slushFall: slushFall
-};
-slushFall.effect = lingeringCryo;
 
 module.exports = {
     ionisedStatus: ionisedStatus,

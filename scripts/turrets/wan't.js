@@ -53,6 +53,10 @@ const begone = extend(BasicBulletType, {
     },
     update(b){
         Sounds.explosion.at(b.x, b.y);
+    },
+    collision(unit){
+        this.super$collision(unit)
+        unit.remove()
     }
 });
 begone.status = hornyJAIL;

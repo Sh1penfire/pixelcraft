@@ -1,6 +1,7 @@
 const refresh = require("libs/refresh")
 const fc = require("libs/fc")
 const theAislol = require("libs/theAislol")
+const statuses = require("libs/statuses")
 //Surge shockwave but delta
 const LandFx = new Effect(25, e => {
     Draw.color(Color.white, Color.valueOf("#a9d8ff"), e.fin());
@@ -88,18 +89,41 @@ refresh(rustyDelta)
 
 const rustyOmega = extend(UnitType, "rustyomega", {});
 rustyOmega.constructor = () => extend(MechUnit, {
-    classId: () => rustyOmega.classId
+    update(){
+        this.super$update()
+        if(!this.setUp){
+            rustyOmega.weapons.get(3).bullet.fragBullet.status = statuses.windswept
+            rustyOmega.weapons.get(5).bullet.fragBullet = rustyOmega.weapons.get(3).bullet.fragBullet
+            rustyOmega.immunities.add(statuses.windswept)
+            
+            this.setUp = true
+        }
+    },
+    classId: () => rustyOmega.classId,
+    setUp: false
 });
 refresh(rustyOmega)
 
 const shard = extend(UnitType, "shard", {});
 shard.constructor = () => extend(UnitEntity, {
+    update(){
+        this.super$update()
+        this.chargeTimer = Mathf.slerpDelta(this.chargeTimer, 1, 0.01)
+    },
     collision(bullet){
-        if(bullet.type.reflectable != false && bullet.damage < this.health){
-            bullet.type.create(this, this.team, this.x, this.y, bullet.rotation() + 180, 1, bullet.fout())
+        if(bullet.type.reflectable && !bullet.pierce && this.reflectionCharge > bullet.type.damage && this.chargeTimer){
+            bullet.type.create(this, this.team, this.x, this.y, this.angleTo(bullet), 1, bullet.fout())
+            this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, 0, bullet.type.damage)
+            this.chargeTimer = 0
+        }
+        else{
+            this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, this.chargeCap, bullet.type.damage)
         }
     },
-    classId: () => shard.classId
+    classId: () => shard.classId,
+    chargeCap: 55,
+    reflectionCharge: 0,
+    chargeTimer: 1
 })
 shard.defaultController = theAislol.swarmAI
 refresh(shard)
@@ -107,11 +131,17 @@ refresh(shard)
 const capsule = extend(UnitType, "capsule", {});
 capsule.constructor = () => extend(UnitEntity, {
     collision(bullet){
-        if(bullet.type.reflectable != false && bullet.damage < this.health){
-            bullet.type.create(this, this.team, this.x, this.y, bullet.rotation() + 180, 1, bullet.fout())
+        if(bullet.type.reflectable && !bullet.pierce && this.reflectionCharge > bullet.type.damage){
+            bullet.type.create(this, this.team, this.x, this.y, this.angleTo(bullet), 1, bullet.fout())
+            this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, 0, bullet.type.damage)
+        }
+        else{
+            this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, this.chargeCap, bullet.type.damage)
         }
     },
-    classId: () => capsule.classId
+    classId: () => capsule.classId,
+    chargeCap: 125,
+    reflectionCharge: 0
 })
 capsule.defaultController = theAislol.swarmAI
 capsule.abilities.add(new RepairFieldAbility(10, 250, 55))

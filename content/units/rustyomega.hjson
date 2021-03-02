@@ -21,6 +21,31 @@ omniMovement: true
 weapons: [
 {
 name: aged-charger
+reload: 25
+alternate: false
+ejectEffect: casing3
+top: false
+shootSound: shoot
+shootShake: 0.5
+x: 12.5
+y: 0
+rotate: false
+shots: 2
+shotDelay: 5
+bullet: {
+type: MissileBulletType
+damage: 5
+weaveMag: 5
+weaveScale: 8
+speed: 2
+lifetime: 200
+homingPower: 0
+hitSound: pew
+keepVelocity: false
+}
+}
+{
+name: aged-charger
 reload: 100
 alternate: true
 ejectEffect: casing2
@@ -29,37 +54,16 @@ shootSound: shoot
 x: 12.5
 y: 0
 rotate: false
-shots: 4
-inaccuracy: 5
-bullet: {
-type: MissileBulletType
-damage: 10
-weaveMag: 4
-weaveScale: 10
-speed: 3
-lifetime: 100
-homingPower: 0
-hitSound: pew
-keepVelocity: false
-}
-}
-{
-name: aged-charger
-reload: 50
-alternate: true
-ejectEffect: casing2
-top: false
-shootSound: shoot
-x: 12.5
-y: 0
-rotate: false
-shots: 1
+shots: 3
+spacing: 15
 bullet: {
 type: ArtilleryBulletType
 damage: 35
+speed: 1.5
+drag: 0.001
+lifetime: 250
 width: 12
 length: 12
-lifetime: 200
 hitShake: 3.5
 hitEffect: none
 collides: true
@@ -75,6 +79,9 @@ fragBullet: {
 type: BasicBulletType
 damage: 1
 speed: 3
+frontColor: eeb393
+backColor: a97567
+statusDuration: 15
 pierce: true
 pierceCap: 5
 drag: 0.03
@@ -83,14 +90,14 @@ hitSound: none
 lifetime: 40
 shrinkY: 1
 knockback: -0.15
-hitSound: pew
+hitSound: none
 keepVelocity: false
 }
 }
 }
 {
 name: aged-blaster
-reload: 15
+reload: 25
 recoil: 0.1
 alternate: true
 mirror: true
@@ -103,15 +110,91 @@ rotate: true
 bullet: {
 type: BasicBulletType
 damage: 12.5
-splashDamage: 2.5
-splashDamageRadius: 25
+splashDamage: 5.5
+splashDamageRadius: 45
 frontColor: eeb393
 backColor: a97567
+hitEffect: explosion
+despawnEffect: pulverizeRed
 speed: 2
 width: 10
 height: 16
 lifetime: 125
 keepVelocity: false
+}
+}
+{
+name: aged-blaster
+reload: 75
+recoil: 0.1
+alternate: false
+mirror: true
+ejectEffect: casing2
+top: true
+shootSound: pew
+x: 13
+y: -0.5
+inaccuracy: 5
+shots: 3
+shotDelay: 5
+rotate: true
+bullet: {
+type: ArtilleryBulletType
+sprite: bullet
+trailEffect: none
+hitEffect: explosion
+despawnEffect: pulverizeRed
+damage: 0
+splashDamage: 0
+splashDamageRadius: 15
+knockback: -0.5
+collides: true
+collidesAir: true
+collidesTiles: true
+frontColor: eeb393
+backColor: a97567
+hitSound: none
+speed: 5
+width: 6
+height: 10
+lifetime: 40
+keepVelocity: false
+fragBullets: 5
+fragVelocityMax: 0.5
+fragLifeMin: 0.57
+fragLifeMax: 2
+fragBullet:{
+type: BombBulletType
+splashDamage: 0
+lifetime: 125
+collides: true
+collidesAir: true
+collidesTiles: true
+frontColor: eeb393
+backColor: a97567
+width: 10
+length: 10
+shrinkX: 1
+shrinkY: 1
+fragBullets: 1
+fragBullet:{
+type: LightningBulletType
+status: none
+lightningLength: 2
+lightningLengthRand: 3
+damage: 1
+fragBullets: 1
+fragBullet:{
+type: LiquidBulletType
+liquid: water
+knockback: 0
+orbSize: 0
+puddleSize: 15
+lifetime: 0
+fragBullet: {}
+}
+}
+}
 }
 }]
 immunities: [
