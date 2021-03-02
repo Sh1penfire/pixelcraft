@@ -1,0 +1,144 @@
+type: ItemTurret
+name: Dusk
+description: Powerfull railgun that can't target air. It shoots powerfull bolts that fragment off. Shots do critical damage against large targets.
+shootSound: laser
+health: 600
+size: 2
+reloadTime: 150
+range: 400
+shots: 3
+targetAir: false
+ammoUseEffect: casing4
+rotatespeed: 6
+ammoPerShot: 2
+itemCapacity: 10
+ammoTypes: {
+ titanium: {
+        type: BasicBulletType
+	speed: 32
+	damage: 25
+	width: 4
+	height: 18
+	shootEffect: shootSmall
+	smokeEffect: hitBulletBig
+	ammoMultiplier: 2
+	lifetime: 15
+	fragBullets:1
+	fragVelocityMin: 1
+	fragVelocityMax: 1.5
+	frontColor: 56d7ca
+	backColor: 77b6b0
+	fragBullet: {
+	damage: 75
+	speed: 0
+	lifetime: 5
+	fragBullets:10
+	fragVelocityMin: 1
+	fragVelocityMax: 1.5
+	frontColor: 56d7ca
+	backColor: 77b6b0
+	fragBullet: {
+        type: ArtilleryBulletType
+	frontColor: 56d7ca
+	backColor: 77b6b0
+	damage: .25
+	splashDamage: 1
+	splashDamageRadius: 20
+	status: freezing
+	homing: true
+	homingPower: 0.002
+	homingRange: 100
+	hitEffect: none
+	despawnEffect: none
+	fragBullets:2
+	fragVelocityMin: .2
+	fragVelocityMax: .3
+	fragBullet: {
+        type: BasicBulletType
+	frontColor: 56d7ca
+	backColor: 77b6b0
+	damage: 5
+	splashDamage: 2
+	splashDamageRadius: 20
+	status: freezing
+	homing: true
+	homingPower: 0.002
+	homingRange: 100
+	hitEffect: none
+	despawnEffect: none
+	fragBullets:1
+	fragVelocityMin: .1
+	fragVelocityMax: .2
+	fragBullet: {
+        type: LiquidBulletType
+	frontColor: 56d7ca
+	backColor: 77b6b0
+	damage: .25
+	splashDamage: .2
+	splashDamageRadius: 20
+	status: freezing
+	liquid: cryofluid
+	homing: true
+	homingPower: 0.002
+	homingRange: 100
+	hitEffect: freezing
+	despawnEffect: freezing
+}
+}
+}
+	}
+}
+ steel: {
+        type: BasicBulletType
+	speed: 32
+	damage: 100
+	width: 4
+	height: 32
+	shootEffect: shootSmall
+	smokeEffect: shootBigSmoke
+	hitEffect: hitBulletBig
+	despawnEffect: none
+	ammoMultiplier: 6
+	reloadMultiplier: 1.5
+	lifetime: 15
+	fragBullets:100
+	fragVelocityMin: 1
+	fragVelocityMax: 4
+	fragBullet: {
+        type: BasicBulletType
+	frontColor: ffffff
+	backColor: ffffff
+	damage: .5
+	splashDamage: .5
+	splashDamageRadius: 20
+	homing: false
+	hitEffect: hitBulletSmall
+	despawnEffect: none
+	lifetime: 10
+	fragBullets:2
+	fragVelocityMin: 1
+	fragVelocityMax: 2
+	hitEffect: none
+	despawnEffect: none
+	fragBullet: {
+        type: BasicBulletType
+	frontColor: ffffff
+	backColor: ffffff
+	damage: 2.5
+	splashDamage: .2
+	splashDamageRadius: 20
+	homing: false
+	hitEffect: hitBulletSmall
+	despawnEffect: none
+	lifetime: 5
+}
+}
+	}
+ }
+requirements: [
+ iron/300
+ steel/200
+ titanium/70
+]
+category: turret
+research: strand

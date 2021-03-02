@@ -1,0 +1,33 @@
+type: GenericSmelter
+name: Pixelite compresser
+description: Compresses scrap under high heat and shapes it into pixelite. Much faster and takes scrap in smaller chunks, but coolent is needed. "Now with extra fire"
+liquidCapacity: 50
+size: 3
+hasPower: true
+hasLiquids: true
+hasItems: true
+craftTime: 90
+updateEffect: ballfire
+consumes: {
+  power: 2
+  items: {
+    items: [
+      scrap/3
+    ]
+  }
+  liquid: {
+    liquid: water
+    amount: .5
+  }
+}
+requirements: [
+  iron/70
+  lead/150
+  titanium/75
+  graphite/180
+]
+category: crafting
+research: pixelite-mixer
+idleSound: respawning
+idleSoundVolume: 0.5
+outputItem: pixelite/12

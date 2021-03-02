@@ -1,5 +1,5 @@
 name: "Coal Mine"
-description: "Explodes upon enemy contact. The explosion nearly destroys the mine"
+description: "Explodes upon enemy contact. The explosion nearly destroys the mine."
 hasShadow: false
 health: 100
 update: false

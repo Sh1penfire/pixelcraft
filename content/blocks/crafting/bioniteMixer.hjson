@@ -1,5 +1,5 @@
 name: Bionite Mixer
-description: "Mutates plants with thorium and allows them to use rust as a nutriant."
+description: "Mutates plants with thorium and allows them to use rust as a nutrient."
 size: 2
 hasItems: true
 craftTime: 150

@@ -228,6 +228,8 @@ bullet: {
 type: MissileBulletType
 trailEffect: none
 damage: 10
+status: corroded
+statusDuration: 360
 pierce: true
 pierceCap: 2
 weaveMag: 2

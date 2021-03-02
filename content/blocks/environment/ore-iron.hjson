@@ -1,4 +1,4 @@
-name: iron
+name: Iron
 type: OreBlock
 itemDrop: iron
 oreDefault: true

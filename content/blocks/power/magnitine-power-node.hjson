@@ -1,6 +1,6 @@
 type: PowerNode
 name: Magnitine Node
-description: "it is a superior energy node because it is made of magnitine"
+description: "It is a superior energy node because it is made of magnitine."
 size: 1
 laserRange: 15
 maxNodes: 10

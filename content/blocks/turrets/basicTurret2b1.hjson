@@ -1,5 +1,5 @@
 name: String
-description: An upgraded strand. Double the fireate for less range. Effective against ground units.
+description: An upgraded strand. Double the firerate for less range. Effective against ground units.
 health: 200
 size: 1
 reloadTime: 17.5

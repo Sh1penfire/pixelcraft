@@ -1,6 +1,6 @@
 type: GenericSmelter
 name: Reaction Chamber
-description: Creates a metal believed to be an arcane materiel
+description: Creates a metal believed to be an arcane material.
 liquidCapacity: 50
 itemCapacity: 12
 size: 3

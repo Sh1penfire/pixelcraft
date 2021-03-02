@@ -1,4 +1,4 @@
-name: Sand extractor
+name: Sand Extractor
 description: Grinds rocks below and extracts the dust in a tube. Needs coal to fuel a fire which pumps the sand up. Looks golden...
 type: Fracker
 itemCapacity: 10

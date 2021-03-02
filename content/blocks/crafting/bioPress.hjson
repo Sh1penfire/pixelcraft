@@ -1,5 +1,5 @@
 name: Biopress
-description: "Presses down bionorbs for water"
+description: "Presses down bionorbs for water."
 size: 1
 hasLiquids: true
 hasItems: true

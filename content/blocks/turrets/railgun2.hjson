@@ -1,10 +1,10 @@
 type: ItemTurret
 name: Shade
-description: A railgun so powerful that the bolts desintagrate into fine dust apon impact. Can target air.
+description: A railgun so powerful that the bolts disintegrate into fine dust upon impact. Can target air.
 shootSound: laser
 health: 1200
 size: 3
-reloadTime: 235
+reloadTime: 200
 range: 450
 shots: 3
 burstSpacing: 7.5

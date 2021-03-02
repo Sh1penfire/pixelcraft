@@ -1,6 +1,6 @@
 type: PowerTurret
 name: Pace
-description: Has powerfull missiles made of compacted electricity (somehow). 
+description: Has powerful missiles made of compacted electricity (somehow). 
 details:"Thunder is nothing compared to the storm it came from, but it keeps you running."
 health: 220
 size: 1

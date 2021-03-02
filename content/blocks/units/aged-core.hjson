@@ -2,7 +2,7 @@ type: Reconstructor
 name: "Aged Core"
 size: 3
 health: 200
-description: "Repurpose core design now used for installing addons to units, and weilding on parts."
+description: "Somehow, a core schematic that shows how to upgrade units."
 constructTime: 100
 upgrades: [
   [

@@ -1,0 +1,171 @@
+type: ItemTurret
+name: Blaze
+description: "An upgraded scorch which shoots streams of fire at it's enemies. Can compress spore pods and smelt scrap. It can also hit air units. Higher teirs of ammo don't get reflected by phase walls. If you use processors you can extend the range of blaze. This was a good idea!"
+shootSound: flame2
+health: 300
+size: 2
+reloadTime: 2.5
+range: 75
+shots: 3
+ammoUseEffect: fire
+rotatespeed: 8
+ammoTypes: {
+  coal: {
+    type: BasicBulletType
+    speed: 4
+    damage: 10
+    width: .1
+    height: .1
+    shootEffect: shootPyraFlame
+    smokeEffect: shootPyraFlame
+    lifetime: 40  
+    bulletSprite: ExampleMod-particle
+	frontColor: f38e30
+	backColor: f38e30
+	despawnEffect: none
+	hitEffect: shootBigSmoke
+	status: melting
+    }
+  pyratite: {
+pierce: true
+    type: BasicBulletType
+    speed: 4
+    damage: 13
+    width: .1
+    height: .1
+    shootEffect: shootPyraFlame
+    smokeEffect: fire
+    lifetime: 40  
+    bulletSprite: ExampleMod-particle
+	frontColor: f38e30
+	backColor: f38e30
+	despawnEffect: fire
+	hitEffect: shootPyraFlame
+	status: melting
+    }
+  spore-pod: {
+    type: BasicBulletType
+    speed: 4
+    damage: 7
+    width: .5
+    height: 2
+    shootEffect: shootSmall
+    smokeEffect: fire
+    lifetime: 40  
+    bulletSprite: ExampleMod-particle
+	frontColor: 4d107e
+	backColor: 4d107e
+	hitEffect: shootBigSmoke
+	status: melting
+        fragBullets: 2
+        fragVelocityMin: 1
+        fragVelocityMax: 3
+        fragBullet: {
+	type: LiquidBulletType
+	liquid: oil
+	damage: 0
+	speed: 1
+	width: 1
+	height: 1
+	lifetime: 10
+}
+    }
+  blast-compound: {
+    type: BasicBulletType
+    speed: 4
+    damage: 3
+    width: .1
+    height: .1
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+    lifetime: 40  
+    bulletSprite: ExampleMod-particle
+	splashDamage: 3
+	splashDamageRadius: 20
+	frontColor: f38e30
+	backColor: f38e30
+	hitEffect: shootBigSmoke
+	despawnEffect: none
+	status: melting
+    }
+  pixelite: {
+pierce: true
+    type: BasicBulletType
+    speed: 8
+    damage: 13
+    pierce: true
+    width: .1
+    height: .1
+    shootEffect: shootPyraFlame
+    smokeEffect: fire
+    lifetime: 20
+    bulletSprite: ExampleMod-particle
+    splashDamage: 2
+    splashDamageRadius: 25
+	homing: false
+	frontColor: f38e30
+	backColor: f38e30
+	trailColor: f38e30
+	hitEffect: fire
+	despawnEffect: fire
+	status: melting
+        inacurracy: 20
+        fragBullets: 5
+        fragVelocityMin: 1
+        fragVelocityMax: 2
+        fragBullet: {
+	status: melting
+	frontColor: f38e30
+	backColor: f38e30
+        type: BasicBulletType
+        damage: 1  
+        drag: 0.01
+	hitEffect: shootPyraFlame
+	despawnEffect: fire
+        bulletSprite: bullet
+        width: .1
+        height: .1
+        lifetime: 10
+        }
+    }
+  scrap: {
+    type: BasicBulletType
+    speed: 4
+    damage: .3
+    width: .5
+    height: 2
+    shootEffect: shootSmall
+    smokeEffect: fire
+    lifetime: 40  
+    bulletSprite: ExampleMod-particle
+	frontColor: f38e30
+	backColor: f38e30
+	hitEffect: shootBigSmoke
+	status: melting
+        fragBullets: 2
+        fragVelocityMin: 1
+        fragVelocityMax: 3
+        fragBullet: {
+	type: LiquidBulletType
+	liquid: slag
+	damage: 0
+	speed: 1
+	width: 1
+	height: 1
+	lifetime: 10
+}
+    }
+}
+booster: {
+liquid: [
+liquid: oil
+]
+optional: false
+}
+requirements: [    
+  iron/25
+  steel/70
+  titanium/25
+]
+category: turret
+research: strand

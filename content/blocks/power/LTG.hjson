@@ -1,6 +1,6 @@
 type: ThermalGenerator
 name: Little Thermoelectric Generator
-description: "Uses Thermal energy to generate heat. Not to be confused with a LG or an RTG"
+description: "Uses thermal energy to generate heat. Not to be confused with a LG or an RTG"
 health: 125
 size: 1
 powerProduction: 1.5

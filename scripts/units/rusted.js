@@ -101,9 +101,6 @@ rustyOmega.constructor = () => extend(MechUnit, {
                 if(!fc.statusCheck(this, StatusEffects.boss) && weapon.name == "pixelcraft-none"){
                     print(this.mounts[i].weapon.name)
                     this.mounts.splice(i, 1)
-                    //note to self: print no work but code does
-                    print("no u")
-                    print(weapon.name)
                 }
             }
             rustyOmega.weapons.get(1).bullet.fragBullet.status = statuses.windswept

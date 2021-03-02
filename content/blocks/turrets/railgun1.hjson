@@ -1,10 +1,10 @@
 type: ItemTurret
 name: Dusk
-description: Powerfull railgun that can't target air. It shoots powerfull bolts that fragment off. Shots do critical damage against large targets.
+description: Powerful railgun that can't target air. It shoots powerful bolts that fragment off. Shots do critical damage against large targets.
 shootSound: laser
 health: 600
 size: 2
-reloadTime: 165
+reloadTime: 150
 range: 400
 shots: 5
 burstSpacing: 7.5

@@ -1,6 +1,6 @@
 type: LaserTurret
 name: Pnumbra
-description: Fires short bursts of lasers
+description: Fires short bursts of lasers.
 shootEffect: shootBigSmoke2
 range: 90
 shootCone: 40

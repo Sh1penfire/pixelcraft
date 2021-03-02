@@ -198,6 +198,9 @@ const blackout = extend (StatusEffect, "blackout", {
                         multiplier = multiplier + multiplier;
                         damageMulti = damageMulti * 2;
                     }
+                    else if(unit.statuses.get(i).effect == StatusEffects.boss){
+                        damageMulti = damageMulti * 0.1
+                    }
                 }
             }
         let unitHpc = unit.health/unit.maxHealth;
