@@ -91,12 +91,24 @@ const rustyOmega = extend(UnitType, "rustyomega", {});
 rustyOmega.constructor = () => extend(MechUnit, {
     update(){
         this.super$update()
-        if(!this.setUp){
-            rustyOmega.weapons.get(3).bullet.fragBullet.status = statuses.windswept
-            rustyOmega.weapons.get(5).bullet.fragBullet = rustyOmega.weapons.get(3).bullet.fragBullet
-            rustyOmega.immunities.add(statuses.windswept)
+        if(this.setUp != true || Mathf.chance(0.01)){
             
             this.setUp = true
+            
+            for(let i = 0; i < this.mounts.length; i++){
+                let mount = this.mounts[i];
+                let weapon = mount.weapon;
+                if(!fc.statusCheck(this, StatusEffects.boss) && weapon.name == "pixelcraft-none"){
+                    print(this.mounts[i].weapon.name)
+                    this.mounts.splice(i, 1)
+                    //note to self: print no work but code does
+                    print("no u")
+                    print(weapon.name)
+                }
+            }
+            rustyOmega.weapons.get(1).bullet.fragBullet.status = statuses.windswept
+            rustyOmega.weapons.get(2).bullet.fragBullet = rustyOmega.weapons.get(1).bullet.fragBullet
+            rustyOmega.immunities.add(statuses.windswept)
         }
     },
     classId: () => rustyOmega.classId,

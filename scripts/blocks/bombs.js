@@ -625,6 +625,7 @@ bombT1m8.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m8, {
             Sounds.sap.at(this.x, this.y);
             Sounds.spark.at(this.x, this.y);
             Sounds.explosion.at(this.x, this.y);
+            b.apply(StatusEffects.boss)
         }
     },
     draw(){

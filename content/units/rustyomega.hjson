@@ -21,31 +21,6 @@ omniMovement: true
 weapons: [
 {
 name: aged-charger
-reload: 25
-alternate: false
-ejectEffect: casing3
-top: false
-shootSound: shoot
-shootShake: 0.5
-x: 12.5
-y: 0
-rotate: false
-shots: 2
-shotDelay: 5
-bullet: {
-type: MissileBulletType
-damage: 5
-weaveMag: 5
-weaveScale: 8
-speed: 2
-lifetime: 200
-homingPower: 0
-hitSound: pew
-keepVelocity: false
-}
-}
-{
-name: aged-charger
 reload: 100
 alternate: true
 ejectEffect: casing2
@@ -81,7 +56,8 @@ damage: 1
 speed: 3
 frontColor: eeb393
 backColor: a97567
-statusDuration: 15
+statusDuration: 120
+buildingDamageMultiplier: 0.05
 pierce: true
 pierceCap: 5
 drag: 0.03
@@ -97,7 +73,7 @@ keepVelocity: false
 }
 {
 name: aged-blaster
-reload: 25
+reload: 55
 recoil: 0.1
 alternate: true
 mirror: true
@@ -106,6 +82,8 @@ top: true
 shootSound: pew
 x: 10
 y: 0.5
+shots: 3
+shotDelay: 4.5
 rotate: true
 bullet: {
 type: BasicBulletType
@@ -116,10 +94,43 @@ frontColor: eeb393
 backColor: a97567
 hitEffect: explosion
 despawnEffect: pulverizeRed
-speed: 2
+speed: 3
 width: 10
 height: 16
-lifetime: 125
+lifetime: 95
+keepVelocity: false
+}
+}
+{
+name: none
+reload: 55
+recoil: 0.1
+alternate: true
+mirror: true
+ejectEffect: casing2
+top: true
+shootSound: pew
+x: 10
+y: 0.5
+shots: 12
+shotDelay: 2.5
+inaccuracy: 5
+rotate: true
+bullet: {
+type: BasicBulletType
+damage: 5
+knockback: -1
+splashDamage: 2.5
+splashDamageRadius: 45
+frontColor: eeb393
+backColor: a97567
+hitEffect: explosion
+despawnEffect: pulverizeRed
+speed: 3
+drag: 0.01
+width: 3
+height: 6
+lifetime: 95
 keepVelocity: false
 }
 }
@@ -162,7 +173,7 @@ keepVelocity: false
 fragBullets: 5
 fragVelocityMax: 0.5
 fragLifeMin: 0.57
-fragLifeMax: 2
+fragLifeMax: 1.26
 fragBullet:{
 type: BombBulletType
 splashDamage: 0
@@ -176,6 +187,7 @@ width: 10
 length: 10
 shrinkX: 1
 shrinkY: 1
+hitSound: spark
 fragBullets: 1
 fragBullet:{
 type: LightningBulletType
@@ -195,6 +207,40 @@ fragBullet: {}
 }
 }
 }
+}
+}
+{
+name: none
+reload: 480
+ejectEffect: casing3
+mirror: true
+alternate: true
+top: false
+shootSound: shoot
+shootShake: 0.5
+x: 12.5
+y: 0
+rotate: false
+shots: 100
+shotDelay: 2.5
+inaccuracy: 90
+bullet: {
+type: MissileBulletType
+trailEffect: none
+damage: 10
+pierce: true
+pierceCap: 2
+weaveMag: 2
+weaveScale: 10
+buildingDamageMultiplier: 0.1
+speed: 2
+width: 5
+height: 8
+lifetime: 200
+homingPower: 0.005
+homingRange: 400
+hitSound: pew
+keepVelocity: false
 }
 }]
 immunities: [

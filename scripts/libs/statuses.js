@@ -163,7 +163,7 @@ const windswept = extend (StatusEffect ,"windswept", {
     }
 });
 
-windswept.speedMultiplier = 0.8;
+windswept.speedMultiplier = 0.725;
 windswept.damage = 0.08;
 windswept.effect = windsweptFx;
 
