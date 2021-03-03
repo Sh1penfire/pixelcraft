@@ -1,8 +1,0 @@
-type: Conduit
-name: Aquaduct
-description: Liquid transport block. Used in conjunction with pumps and other aquaducts.
-category: liquid
-requirements: [
-	ceramic/1
-]
-research: magnitine-conveyor
