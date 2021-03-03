@@ -1,0 +1,16 @@
+type: BurnerGenerator
+name: Burner
+description: "Burns items for fuel. Able to intake lower flammability items, and uses items for longer."
+health: 125
+size: 1
+powerProduction: 1.1
+hasItems: true
+itemCapacity: 10
+itemDuration: 180
+generateEffect: smelt
+minItemEfficiency: 0.01
+requirements: [
+  iron/25
+]
+category: power
+research: combustion-generator

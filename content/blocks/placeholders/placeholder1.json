@@ -1,0 +1,7 @@
+{
+    "type": "Block",
+    "research": "launch-pad",
+    "requirements": [
+        "placeholder2/1"
+    ]
+}

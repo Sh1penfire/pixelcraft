@@ -1,0 +1,11 @@
+name: "Rusty Wall"
+description: "A cheap defensive block.
+Provides moderate protection from enemies.
+Decaying from the rust."
+health: 400
+size: 1
+requirements: [
+  iron/6
+]
+category: defense
+research: copper-wall

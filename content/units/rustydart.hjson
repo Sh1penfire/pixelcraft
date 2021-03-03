@@ -1,0 +1,53 @@
+name: "Rusty dart"
+description: "Contains an ai that can transport itself into other mechinisms that allow it to."
+flying: true
+speed: 3.3
+health: 150
+aimDst: 10
+range: 50
+drag: 0.05
+accel: 0.075
+maxRange: 200
+buildSpeed: 3
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 2
+mineSpeed: 8
+range: 100
+rotateSpeed: 7
+lowAltitude: false
+omniMovement: true
+canDrown: false
+payloadCapacity : 3
+weapons: [ 
+{
+name: none
+reload: 5
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1.5
+y: 3
+rotate: false
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+type: BasicBulletType
+damage: 3
+speed: 2
+status: corroded
+statusDuration: 360
+width: 5
+height: 8
+lifetime: 60
+knockback: 0
+hitSound: none
+healPercent: 1
+collidesTeam: true
+}
+}]
+research: {
+parent: core-refraction
+}

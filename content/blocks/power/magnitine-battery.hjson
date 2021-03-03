@@ -1,0 +1,16 @@
+type: battery
+name: Magnitine Battery
+description: "Uses coils of magnitine to store power. In times of deficit, outputs power."
+health: 50
+size: 1
+hasPower: true
+hasItems: false
+consumes:{
+powerBuffered: 4000
+}
+requirements: [
+  magnitine/10
+  iron/35
+]
+category: power
+research: burner

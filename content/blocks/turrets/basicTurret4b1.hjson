@@ -1,0 +1,18 @@
+name: "Several"
+description: "Melts the target with a typhoon of bullets."
+size: 3
+reloadTime: 10
+range: 150
+shots: 1
+inaccuracy: 5
+xRand: 2
+ammoUseEffect: casing2Double
+rotateSpeed: 8
+requirements: [    
+  iron/150
+  titanium/95
+  magnitine/85
+]
+category: turret
+research: basicTurret3b1
+               

@@ -1,0 +1,31 @@
+name: Pulse
+description: "A support controlled turret that can heal blocks. Does decent damage."
+health: 220
+size: 1
+reloadTime: 30
+inaccuracy: 7.5
+range: 150
+shots: 2
+burstSpacing: 1
+powerUse: 0.5
+rotateSpeed: 10
+targetAir: true
+targetGround: true
+shootType: {
+type: LaserBoltBulletType
+shootSound: lasershoot
+damage: 5
+speed: 5
+lifetime: 40
+healPercent: 1.3
+collidesTeam: true
+frontColor: ffffff
+backColor: 98ffa9
+}
+requirements: [
+ copper/60
+ lead/25
+ silicon/25
+]
+category: turret
+research: lancer

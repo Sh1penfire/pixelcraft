@@ -1,0 +1,13 @@
+name: Rust
+description: The product of oxidation on an iron based substance. Used in basic buildings. Refineable, but slightly corrosive.
+details: How did we get by without this? We couldn't have been using copper all this time... Then again, copper is more pure than whatever this was before it became rust.
+hardness: 0
+cost: 0.25
+color: e3b27d
+alwaysUnlocked: true
+research: {
+  parent: stone
+  requiremenst:[
+  stone/500
+  ]
+}

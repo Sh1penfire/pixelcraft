@@ -1,0 +1,34 @@
+type: GenericSmelter
+name: Reaction Chamber
+description: Creates a metal believed to be an arcane material.
+liquidCapacity: 50
+itemCapacity: 12
+size: 3
+drawLiquidLight: false
+hasLiquids: true
+emitLight: false
+hasItems: true
+lightColor: B0BAC000
+craftTime: 90
+consumes: {
+  power: 2
+  items: {
+    items: [
+      iron/3
+      magnitine/2
+      titanium/2
+      bionite/3
+    ]
+  }
+  liquid: {
+    liquid: water
+    amount: 1
+  }
+}
+requirements: [
+  titanium/75
+  thorium/180
+]
+category: crafting
+research: bioniteMixer
+outputItem: stelarcrim/1

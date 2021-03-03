@@ -1,0 +1,17 @@
+name: "Helgravator"
+description: "Sprays bursts of hellfire or sporefire onto the target that severely burns the target with it's respective flame. (Was named plasma in mindustry classic)"
+details: Apparently, this used to look like a fish. 
+health: 600
+range: 100
+size: 3
+reloadTime: 5
+shots: 5
+insulated: true
+buildVisibility: shown
+requirements: [    
+  magnitine/250
+  titanium/150
+  feromagnet/50
+]
+category: turret
+research: flamethrower1

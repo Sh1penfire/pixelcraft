@@ -1,0 +1,33 @@
+name: "Magnitiser"
+description: "Enhances magnetic properties of magnitine while mixing it in titanium to strengthen the structure. Red paint not included."
+details: "One of the bots decided to melt the scrap. The others said that the idea was pointless, as these were ancient fossils which they were studying."
+type: GenericSmelter
+liquidCapacity: 1
+size: 2
+hasPower: true
+hasLiquids: true
+hasItems: true
+craftTime: 30
+updateEffect: wet
+consumes: {
+  power: 2
+  items: {
+    items: [
+      magnitine/2
+      titanium/2
+    ]
+  }
+  liquid: {
+    liquid: water
+    amount: 0.1
+  }
+}
+requirements: [
+  stone/120
+  iron/70
+  magnitine/45
+  graphite/65
+]
+category: crafting
+research: magnitine-forgery
+outputItem: feromagnet/3

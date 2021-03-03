@@ -1,0 +1,80 @@
+type: PowerTurret
+name: Point
+description: Locks on to a target and fires tracer shots which home in on an enemy.
+health: 220
+size: 2
+reloadTime: 50
+inaccuracy: 25
+range: 400
+shots: 1
+powerUse: 2
+rotateSpeed: 5
+chargeBeginEffect: hitBulletBig
+chargeEffect: lancerLaserCharge
+inaccuracy: 0
+spread: 2
+targetAir: true
+targetGround: true
+shootType: {
+	type: MissileBulletType
+	damage: 25
+	speed: 2
+	lifetime: 200
+	homingPower: 0.1
+	collides: true
+	collidesAir: true
+	width: 6
+	height: 10
+	shootEffect: lancerLaserShoot
+	smokeEffect: hitBulletBig
+	frontColor: 86baf9
+	backColor: 86baf9
+	trailColor: 86baf9
+	fragBullets: 2
+	hitEffect: hitLancer
+	despawnEffect: hitBulletSmall
+	fragBullet:{
+	type: MissileBulletType
+	pierce: false
+	speed: 2
+	damage: 10
+	lifetime: 100
+	width: 4
+	height: 15
+	drag: 0.001
+	frontColor: 86baf9
+	backColor: 86baf9
+	trailColor: 86baf9
+	hitEffect: hitLancer
+	despawnEffect: hitBulletSmall
+	fragBullets: 3
+	status: freezing
+	knockback: 0
+	fragBullet: {
+	knockback: 0
+	type: BasicBulletType
+	damage: 0.5
+	speed: 0.5
+	lifetime: 5
+	despawnEffect: none
+	hitEffect: none
+	fragBullets: 1
+	fragBullet: {
+	type: BasicBulletType
+	damage: 0
+	splashDamage: 0.5
+	splashDamageRadius: 25
+	lifetime: 5
+	knockback: 0.5
+	
+}
+}
+}
+}
+requirements: [
+ iron/65
+ magnitine/60
+ graphite/50
+]
+category: turret
+research: electricTurret1

@@ -1,0 +1,16 @@
+name: "Surge Mine"
+description: "Explodes with electricity upon enemy contact. The explosion damages the mine."
+hasShadow: false
+health: 400
+update: false
+solid: false
+targetable: false
+rebuildable: true
+requirements: [
+	coal/5
+	surge-alloy/5
+	graphite/10
+]
+
+category: effect
+research: bombT1m5

@@ -1,0 +1,31 @@
+type: LaserTurret
+name: Pnumbra
+description: Fires short bursts of lasers.
+shootEffect: shootBigSmoke2
+range: 90
+shootCone: 40
+recoilAmount: 4
+size: 4
+shootShake: 2
+range: 120
+reloadTime: 50
+firingMoveFract: 0.7
+shootDuration: 120
+powerUse: 5
+shootSound: laserbig
+loopSound: beam
+loopSoundVolume: 2
+shootType: {
+type: ContinuousLaserBulletType
+length: 100
+hitEffect: hitMeltdown
+hitColor: meltdownHit
+drawSize: 300
+}
+requirements: [    
+  silicon/150
+  graphite/100
+  titanium/75
+]
+category: turret
+research: lancer

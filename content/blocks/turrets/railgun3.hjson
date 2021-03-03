@@ -1,0 +1,21 @@
+name: Tenemotus
+description: Extrudes out rails which hit targets. Each rail type has a unique effect.
+shootSound: laser
+health: 1200
+size: 4
+reloadTime: 225
+range: 600
+spread: 0
+recoil: 10
+targetAir: true
+ammoUseEffect: none
+rotateSpeed: 6
+requirements: [
+ iron/500
+ magnitine/360
+ titanium/310
+ feromagnet/300
+ stelarcrim/230
+]
+category: turret
+research: railgun2

@@ -1,0 +1,8 @@
+type: Floor
+speedMultiplier: 1.5
+variants: 2
+itemDrop: ceramic
+playerUnmineable: true
+status: shielded
+statusDuration: 25
+solid: false

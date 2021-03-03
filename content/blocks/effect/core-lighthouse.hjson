@@ -1,0 +1,17 @@
+type: CoreBlock
+name: "Core Lighthouse"
+description: "Light core."
+health: 3000
+itemCapacity: 7000
+size: 5
+unitCapModifier: 15
+unitType: quad
+research: core-beacon
+requirements: [
+  iron/3000
+  magnitine/1000
+] 
+category: effect
+hasItems: true
+buildVisibility: shown
+solid: false

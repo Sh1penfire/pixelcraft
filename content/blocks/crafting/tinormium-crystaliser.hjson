@@ -1,0 +1,34 @@
+type: GenericSmelter
+name: Tinorium Crystaliser
+description: Crystalises rare Earth metals.
+details: "Perhaps making the chamber to make titanium and thorium in out of the very materiels it's mixing wasn't a good idea..?"
+liquidCapacity: 50
+itemCapacity: 12
+size: 3
+drawLiquidLight: false
+hasLiquids: true
+emitLight: false
+hasItems: true
+lightColor: B0BAC000
+craftTime: 90
+consumes: {
+  power: 2
+  items: {
+    items: [
+      titanium/2
+      thorium/2
+      metaglass/3
+    ]
+  }
+  liquid: {
+    liquid: water
+    amount: 0.2
+  }
+}
+requirements: [
+  titanium/75
+  thorium/180
+]
+category: crafting
+research: bioniteMixer
+outputItem: tinormium/2

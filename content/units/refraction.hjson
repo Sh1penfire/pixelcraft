@@ -1,0 +1,43 @@
+type: flying
+name: "Refraction"
+description: "A giant battlesip designesd to tank hits and slowly decimate the target."
+flying: true
+speed: 0.6
+accel: 0.02
+drag: 0.05
+health: 10000
+aimDst: 100
+range: 100
+maxRange: 200
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+rotateSpeed: 7
+lowAltitude: false
+omniMovement: true
+canDrown: false
+weapons: [ 
+{
+name: heal-weapon
+reload: 25
+alternate: false
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1
+y: -.5
+rotate: false
+bullet: {
+type: BasicBulletType
+damage: 1000
+speed: 5
+width: 5
+height: 8
+lifetime: 60
+pierce: true
+knockback: 4
+hitSound: none
+healPercent: 2
+collidesTeam: true
+}
+}]

@@ -1,0 +1,33 @@
+type: GenericSmelter
+name: Crucible
+description: "Smelts clay into Ceramic. Uses water extremely slowly."
+liquidCapacity: 50
+size: 2
+hasPower: true
+hasItems: true
+craftTime: 120
+updateEffect: fire
+consumes: {
+  power: 1
+  items: {
+    items: [
+      sand/2
+      iron/1
+    ]
+  }
+  liquid: {
+    liquid: water
+    amount: 0.02
+  }
+}
+requirements: [
+  stone/15
+  iron/35
+  graphite/25
+  bionorb/15
+]
+category: crafting
+research: magnitine-forgery
+ambientSound: respawning
+ambientSoundVolume: 0.5
+outputItem: ceramic/1

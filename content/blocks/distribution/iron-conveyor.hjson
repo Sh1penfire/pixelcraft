@@ -1,0 +1,14 @@
+name: Iron Conveyor
+health: 50
+solid: false
+floating: true
+insulated: false
+description: 'Moves items forwards. Corrodes enemies on it. "The corrosion is hidden by stone"'
+requirements: [
+  iron/1
+  stone/2
+]
+category: distribution
+speed: 0.07
+displayedSpeed: 7
+research: core-refraction

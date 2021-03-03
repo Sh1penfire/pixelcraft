@@ -1,0 +1,15 @@
+name: "Coal Mine"
+description: "Explodes upon enemy contact. The explosion nearly destroys the mine."
+hasShadow: false
+health: 100
+update: false
+solid: false
+targetable: false
+rebuildable: true
+requirements: [
+	coal/25
+	graphite/5
+]
+
+category: effect
+research: shock-mine

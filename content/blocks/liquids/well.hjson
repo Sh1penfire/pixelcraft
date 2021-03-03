@@ -1,0 +1,12 @@
+type: Pump
+name: Well
+description: Extracts liquid from liquid tiles that it is on.
+pumpAmount: 0.155
+category: liquid
+requirements: [
+	stone/10
+	bionorb/15
+	ceramic/10
+]
+squareSprite: false
+research: magnitine-conveyor

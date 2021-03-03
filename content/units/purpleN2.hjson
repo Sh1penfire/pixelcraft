@@ -1,0 +1,96 @@
+type: naval
+name: "Trebuche"
+description: "A fast, armored assult ship."
+details:"There was life flourishing in the pockets of water scattered throughout Sepulo. They had adapted to the harsh circumstances, growing metallic scales."
+speed: 1.7
+drag: 0.13
+hitSize: 10
+health: 450
+armor: 8
+aimDst: 10
+range: 200
+accel: 0.5
+rotateSpeed: 4
+trailLength: 45
+buildSpeed: 0.6
+mineTier: 1
+mineSpeed: 0.6
+rotateShooting: false
+weapons: [
+
+{
+name: purple-missiles-mount
+reload: 30
+alternate: true
+ejectEffect: none
+top: false
+shootSound: bigshot
+recoil: 2
+x: 5
+shootY: 4
+y: -3.2
+rotate: true
+bullet: {
+type: MissileBulletType
+frontColor: a447eb
+backColor: bf92f9
+trailColor: 665c9f
+trailEffect: sapped
+damage: 15
+splashDamage: 25
+speed: 5
+lifetime: 50
+hitSound: boom
+width: 8
+height: 10
+collides: true
+collidesAir: true
+collidesTiles: true
+hitEffect: explosion
+despawnEffect: explosion
+keepVelocity: false
+status: sapped
+}
+}
+
+{
+name: purple-weapon-mount
+reload: 10
+alternate: true
+ejectEffect: none
+top: false
+shootSound: pew
+recoil: 1
+x: 2.5
+shootY: 4
+y: 3.5
+rotate: true
+bullet: {
+type: BasicBulletType
+sprite: shell
+frontColor: a447eb
+backColor: bf92f9
+damage: 11
+speed: 3
+lifetime: 65
+hitSound: none
+width: 6
+height: 8
+collides: true
+collidesAir: true
+collidesTiles: true
+despawnEffect: hitBulletSmall
+hitEffect: hitBulletSmall
+trailEffect: none
+keepVelocity: false
+status: sapped
+}
+}
+]
+research:{
+parent: purpleN1
+requirements: [
+graphite/4000
+silicon/4000
+]
+}
