@@ -1,107 +1,101 @@
 const Pfx = require("libs/paferEffects");
 
-const lightning = extend(LightningBulletType, {});
-lightning.damage = 10;
-lightning.lightningLength = 7;
+const lightning = extend(LightningBulletType, {
+    damage: 5,
+    lightningLength: 7
+});
 
-const seekerFrag = extend(BasicBulletType, {});
-seekerFrag.damage = 10;
-seekerFrag.homingPower = 0.1;
-seekerFrag.buildingDamageMultiplier = 0.25;
-seekerFrag.frontColor = Color.valueOf("86baf9");
-seekerFrag.backColor = Color.valueOf("719df4");
-seekerFrag.pierce = false;
-seekerFrag.hitShake = 0;
-seekerFrag.drag = 0.05;
-seekerFrag.hitSound = Sounds.none;
-seekerFrag.pierce = false;
-seekerFrag.collidesAir = true;
-seekerFrag.reflectable = false;
-seekerFrag.hittable = false;
-seekerFrag.absorbable = false;
+const seekerFrag = extend(BasicBulletType, {
+    damage: 10,
+    homingPower: 0.1,
+    buildingDamageMultiplier: 0.25,
+    frontColor: Color.valueOf("86baf9"),
+    backColor: Color.valueOf("719df4"),
+    hitShake: 0,
+    drag: 0.05,
+    hitSound: Sounds.none,
+    pierce: false,
+    collidesAir: true,
+    reflectable: false,
+    hittable: false,
+    absorbable: false
+});
+const seeker = extend(BasicBulletType, {
+    damage: 20,
+    homingPower: 0.05,
+    buildingDamageMultiplier: 0.25,
+    frontColor: Color.valueOf("86baf9"),
+    backColor: Color.valueOf("719df4"),
+    hitShake: 0,
+    drag: 0.03,
+    hitSound: Sounds.none,
+    pierce: false,
+    collidesAir: true,
+    reflectable: false,
+    hittable: false,
+    absorbable: false
+});
 
-const seeker = extend(BasicBulletType, {});
-seeker.damage = 20;
-seeker.homingPower = 0.05;
-seeker.buildingDamageMultiplier = 0.25;
-seeker.frontColor = Color.valueOf("86baf9");
-seeker.backColor = Color.valueOf("719df4");
-seeker.pierce = false;
-seeker.hitShake = 0;
-seeker.drag = 0.03;
-seeker.hitSound = Sounds.none;
-seeker.pierce = false;
-seeker.collidesAir = true;
-seeker.reflectable = false;
-seeker.hittable = false;
-seeker.absorbable = false;
-
-const redSeeker = extend(BasicBulletType, {});
-redSeeker.damage = 5;
-redSeeker.homingPower = 0.01;
-redSeeker.homingPower = 0.01;
-redSeeker.buildingDamageMultiplier = 0.25;
-redSeeker.frontColor = Color.white;
-redSeeker.backColor = Color.red;
-redSeeker.pierce = false;
-redSeeker.hitShake = 0;
-redSeeker.drag = 0.05;
-redSeeker.hitSound = Sounds.none;
-redSeeker.pierce = false;
-redSeeker.collidesAir = true;
-redSeeker.reflectable = false;
-redSeeker.hittable = false;
-redSeeker.absorbable = false;
+const redSeeker = extend(BasicBulletType, {
+    damage: 5,
+    homingPower: 0.01,
+    buildingDamageMultiplier: 0.25,
+    frontColor: Color.white,
+    backColor: Color.red,
+    hitShake: 0,
+    drag: 0.05,
+    hitSound: Sounds.none,
+    pierce: false,
+    collidesAir: true,
+    reflectable: false,
+    hittable: false,
+    absorbable: false
+});
 
 const balloLight = extend(ArtilleryBulletType, {
     update(b){
         if(Mathf.chance(Time.delta)){
-                    var target = Units.closestEnemy(b.team, b.x, b.y, 160, u => u.checkTarget(true, true));
-                    if(target != null){
-                        seeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target), 8);
-                    }
-                    else{
-                        seeker.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(3));
-                    }
+            var target = Units.closestEnemy(b.team, b.x, b.y, 160, u => u.checkTarget(true, true));
+            if(target != null){
+                seeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target), 8);
+            }
+            else{
+                seeker.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(3));
+            }
             lightning.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(360));
-            
         }
     },
-    draw(b){
-        
-    }
+    draw(b){},
+    lifeimte: 160,
+    collidesAir: true,
+    reflectable: false,
+    hittable: false,
+    absorbable: false
 });
-balloLight.lifeimte = 160;
-balloLight.collidesAir = true;
-balloLight.reflectable = false;
-balloLight.hittable = false;
-balloLight.absorbable = false;
+
 
 const balloCross = extend(ArtilleryBulletType, {
     update(b){
         if(Mathf.chance(Time.delta)){
-                    var target = Units.closestEnemy(b.team, b.x, b.y, 160, u => u.checkTarget(true, true));
-                    if(target != null){
-                        redSeeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target) - 90 * b.fout(), 6);
-                        redSeeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target) + 90 * b.fout(), 6);
-                    }
-                    else{
-                        redSeeker.create(b.owner, b.team, b.x, b.y, b.fout() * 360 - b.rotation(), 4);
-                        redSeeker.create(b.owner, b.team, b.x, b.y, b.fin() * 360 - b.rotation(), 4);
-                    }
+            var target = Units.closestEnemy(b.team, b.x, b.y, 160, u => u.checkTarget(true, true));
+            if(target != null){
+                redSeeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target) - 90 * b.fout(), 6);
+                redSeeker.create(b.owner, b.team, b.x, b.y, b.angleTo(target) + 90 * b.fout(), 6);
+            }
+            else{
+                redSeeker.create(b.owner, b.team, b.x, b.y, b.fout() * 360 - b.rotation(), 4);
+                redSeeker.create(b.owner, b.team, b.x, b.y, b.fin() * 360 - b.rotation(), 4);
+            }
             lightning.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(360));
-            
         }
     },
-    draw(b){
-        
-    }
+    draw(b){},
+    lifeimte: 120,
+    collidesAir: true,
+    reflectable: false,
+    hittable: false,
+    absorbable: false
 });
-balloCross.lifeimte = 120;
-balloCross.collidesAir = true;
-balloCross.reflectable = false;
-balloCross.hittable = false;
-balloCross.absorbable = false;
 
 const transition = extend(ArtilleryBulletType, {
     update(b){
@@ -118,15 +112,13 @@ const transition = extend(ArtilleryBulletType, {
     Pfx.explosions.at(b.x, b.y);
     balloLight.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
     },
-    draw(e){
-    }
+    draw(b){},
+    lifeimte: 40,
+    collidesAir: true,
+    reflectable: false,
+    hittable: false,
+    absorbable: false
 });
-
-transition.lifeimte = 40;
-transition.collidesAir = true;
-transition.reflectable = false;
-transition.hittable = false;
-transition.absorbable = false;
 
 const spreading = extend(ArtilleryBulletType, {
     update(b){
@@ -143,15 +135,13 @@ const spreading = extend(ArtilleryBulletType, {
     Pfx.explosions2.at(b.x, b.y);
     balloCross.create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
     },
-    draw(e){
-    }
+    draw(b){},
+lifeimte: 40,
+collidesAir: true,
+reflectable: false,
+hittable: false,
+absorbable: false
 });
-
-spreading.lifeimte = 40;
-spreading.collidesAir = true;
-spreading.reflectable = false;
-spreading.hittable = false;
-spreading.absorbable = false;
 
 const Random = Mathf.round(Mathf.random(1));
 const ballShots = [transition, spreading];
@@ -181,28 +171,26 @@ const shot = extend(MissileBulletType, {
     ballShots[0].create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
     ballShotsEffects[0].at(b.x, b.y);
     },
-    draw(e){
-        Draw.color(Color.white, ballColours[0], e.fslope());
-        Fill.circle(e.x, e.y, 3);
-        Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), e.fslope());
-        Fill.circle(e.x, e.y, 2);
-    }
+    draw(b){
+        Draw.color(Color.white, ballColours[0], b.fslope());
+        Fill.circle(b.x, b.y, 3);
+        Draw.color(Color.valueOf("0A01b7"), Color.valueOf("56D7CA"), b.fslope());
+        Fill.circle(b.x, b.y, 2);
+    },
+    damage: 250,
+    splashDamage: 100,
+    homingRange: 20,
+    homingPower: 0.1,
+    speed: 2,
+    lifetime: 400,
+    trailEffect: Fx.none,
+    shootEffect: Pfx.shootFX,
+    collidesTiles: true,
+    collidesAir: true,
+    reflectable: false,
+    hittable: false,
+    absorbable: false
 });
-
-shot.damage = 250;
-shot.splashDamage = 100;
-shot.homingRange = 20
-shot.homingPower = 0.1;
-shot.speed = 2;
-shot.lifetime = 400;
-shot.trailEffect = Fx.none;
-shot.shootEffect = Pfx.shootFX;
-shot.trailSpacing = 5;
-shot.collidesTiles = true;
-shot.collidesAir = true;
-shot.reflectable = false;
-shot.hittable = false;
-shot.absorbable = false;
 
 const shot2 = extend(MissileBulletType, {
     update(b){
@@ -226,29 +214,26 @@ const shot2 = extend(MissileBulletType, {
     ballShots[1].create(b.owner, b.team, b.x, b.y, Mathf.random(360), Mathf.random(0));
     ballShotsEffects[1].at(b.x, b.y);
     },
-    draw(e){
-        Draw.color(Color.white, ballColours[1], e.fslope());
-        Fill.circle(e.x, e.y, 3);
-        Draw.color(Color.valueOf("0A01b7"), Color.valueOf("ff341c"), e.fslope());
-        Fill.circle(e.x, e.y, 2);
-    }
+    draw(b){
+        Draw.color(Color.white, ballColours[1], b.fslope());
+        Fill.circle(b.x, b.y, 3);
+        Draw.color(Color.valueOf("0A01b7"), Color.valueOf("ff341c"), b.fslope());
+        Fill.circle(b.x, b.y, 2);
+    },
+    damage: 250,
+    splashDamage: 100,
+    homingRange: 100,
+    homingPower: 1,
+    speed: 2,
+    lifetime: 400,
+    trailEffect: Fx.none,
+    shootEffect: Pfx.shootFX,
+    collidesTiles: true,
+    collidesAir: true,
+    reflectable: false,
+    hittable: false,
+    absorbable: false
 });
-
-shot2.damage = 250;
-shot2.splashDamage = 100;
-shot2.homingRange = 100
-shot2.homingPower = 1;
-shot2.speed = 2;
-shot2.lifetime = 400;
-shot2.trailEffect = Fx.none;
-shot2.shootEffect = Pfx.shootFX;
-shot2.trailSpacing = 5;
-shot2.collidesTiles = true;
-shot2.collidesAir = true;
-shot2.reflectable = false;
-shot2.hittable = false;
-shot2.absorbable = false;
-
 
 const electricTurret5b1 = extendContent(PowerTurret, "electricTurret5b1", {
     icons(){

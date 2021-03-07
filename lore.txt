@@ -1,4 +1,22 @@
+Sector lore:
+
+Ancient Grotto:
+A void infected port crashed here and changed the land around it. Ice and snow were liquified instantly, and the ores moved. It was turned into a grassland, partialy filled with life. The port moved on from this location, after creating a small base from the resources surounding.
+
+Loggery:
+Derelict had been cutting down trees here before they were pushed back. Coal is present here and is abundant. This was a zone full of life before a mass extinction and still is. The second port sent mechs to this area in hopes that it could delay the player from finding a way to purge the void.
+
+Sinkhole:
+Baren, like most things were untill grass had become a normality on Templura. Nothing of inturest has happened here, yet the void wants to keep hold of this place.
+
+Frozen falls:
+Water is found here in small lakes. More importantly, sand appears here, crushed and erroded stone filled with void. The crux forces had come here to research the sand's properties in a cold environment. 
+
+---=---+---=---
+
 Building Descriptions Related to lore
+
+---=---+---=---
 
 Unit Descriptions Related to lore
 
@@ -16,6 +34,7 @@ Eventualy, after a few hundred years or so, life adapted to the surface's condit
 Howitzer:
 Mechs which resembled inscects, fish, birds and more were formed.
 
+---=---+---=---
 
 The lore (In order of events)
 
@@ -67,7 +86,7 @@ Dunescape crags
 
 Lava cannels run underground
 A smell of char lingers...
-The diralect used a superweapon here
+The Derelict used a superweapon here
 The usage of it brought downfall to their conquest to concour the planet
 now all that remains is their tech
 

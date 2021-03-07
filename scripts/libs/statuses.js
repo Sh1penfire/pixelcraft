@@ -169,17 +169,35 @@ windswept.effect = windsweptFx;
 
 const blackoutFx = new Effect(35, e => {
     Draw.color(Color.black, Color.black, e.fin());
-  Angles.randLenVectors(e.id, 2 , e.finpow() * 3, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1 + Math.sin(e.fin() * 2 * Math.PI));
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1.2 + Math.sin(e.fin() * 2 * Math.PI));
-  })
+    Angles.randLenVectors(e.id, 2 , e.finpow() * 3, e.rotation, 360, (x, y) => {
+        Fill.circle(e.x + x, e.y + y, e.fout() * 1 + Math.sin(e.fin() * 2 * Math.PI));
+        Fill.circle(e.x + x, e.y + y, e.fout() * 1.2 + Math.sin(e.fin() * 2 * Math.PI));
+    })
 });
 
-const voidic = new Effect(50, e => {
+const voidic = new Effect(65, e => {
     Draw.color(Color.black, Color.black, e.fout());
     Lines.stroke(e.fout() * 6); 
+    
+    let alpha = 1 -Math.sin(e.fout() * Math.PI + Math.PI/3)
+    
+    Draw.alpha(alpha)
+    
+    let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841")
+    fromColor.a = alpha, toColor.a = alpha
+    
+    Fill.light(e.x, e.y, 15, -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3) * 65, fromColor, toColor)
+    
     Lines.circle(e.x, e.y, Math.sin(e.fin() * 9) * 25); 
     Lines.circle(e.x, e.y, e.fin() * 50);
+    Angles.randLenVectors(e.id, 35 , e.fin() *  17 + 13, e.rotation, 360, (x, y) => {
+        Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), Math.abs(x/30) * Math.abs(y/30) * e.fout())
+        Fill.circle(e.x + x, e.y + y, e.fout() * 1.2 + Math.sin(e.fin() * 4 * Math.PI));
+    });
+    Angles.randLenVectors(e.id, 15 , e.fin() *  7 + 23, e.rotation, 360, (x, y) => {
+        Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), Math.abs(x/30) * Math.abs(y/30) * e.fout())
+        Fill.circle(e.x + x, e.y + y, e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
+    });
 });
 
 const blackout = extend (StatusEffect, "blackout", {
@@ -199,6 +217,7 @@ const blackout = extend (StatusEffect, "blackout", {
                         damageMulti = damageMulti * 2;
                     }
                     else if(unit.statuses.get(i).effect == StatusEffects.boss){
+                        multiplier = multiplier + damageMulti;
                         damageMulti = damageMulti * 0.1
                     }
                 }

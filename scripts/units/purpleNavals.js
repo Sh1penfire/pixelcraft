@@ -10,64 +10,66 @@ const MoralBoostFX = new Effect(27, (e) => {
 });
 
 const strongHealFX = new Effect(15, (e) => {
-  Draw.color(Color.lime, Color.green, e.fout());
-  Angles.randLenVectors(e.id, 2, 1 + e.fin() * 10, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 1 + 0.3)
-  });
+    Draw.color(Color.lime, Color.green, e.fout());
+    Angles.randLenVectors(e.id, 2, 1 + e.fin() * 10, (x, y) => {
+        Fill.circle(e.x + x, e.y + y, e.fout() * 1 + 0.3)
+    });
 });
 //the status effect for the boost field for Cannon
-const MoralBoost = new StatusEffect("MoralBoost");
-MoralBoost.speedMultiplier = 1.4;
-MoralBoost.healthMultiplier = 1.25;
-MoralBoost.damageMultiplier = 1.25;
-MoralBoost.damage = -0.0;
-MoralBoost.effect = MoralBoostFX;
-MoralBoost.color = Color.white;
+const MoralBoost = extend(StatusEffect, ("MoralBoost"), {
+    speedMultiplier: 1.4,
+    healthMultiplier: 1.25,
+    damageMultiplier: 1.25,
+    damage: -0.0,
+    effect: MoralBoostFX,
+    color: Color.white
+});
 
 const weakHeal = extend(StatusEffect, "weakHeal", {
-  update(unit, time){
-    this.super$update(unit, time);
-//heals the unit for around 1 hp every second
-    unit.heal(0.015);
-  }
+    update(unit, time){
+        this.super$update(unit, time);
+        //heals the unit for around 1 hp every second
+        unit.heal(0.015);
+    }
 });
 
 const diminishedHeal = extend(StatusEffect, "diminishedHeal", {
-  update(unit, time){
-    this.super$update(unit, time);
-//heals the unit for around 3 hp every second
-    unit.heal(0.025);
-  }
+        update(unit, time){
+        this.super$update(unit, time);
+        //heals the unit for around 3 hp every second
+        unit.heal(0.025);
+    }
 });
 
 
 const heal = extend(StatusEffect, "heal", {
-  update(unit, time){
-    this.super$update(unit, time);
-//heals the unit for 5 hp every second
-    unit.heal(0.12);
-  }
+    update(unit, time){
+        this.super$update(unit, time);
+        //heals the unit for 5 hp every second
+        unit.heal(0.12);
+    }
 });
 
 const strongHeal = extend(StatusEffect, "strongHeal", {
-  update(unit, time){
-    this.super$update(unit, time);
-//heals the unit for 30 hp every second
-    unit.heal(0.5);
-  }
+    speedMultiplier: 1.1,
+    healthMultiplier: 1.1,
+    effect: strongHealFX,
+    color: Color.white,
+    update(unit, time){
+        this.super$update(unit, time);
+        //heals the unit for 30 hp every second
+        unit.heal(0.5);
+    }
 });
-strongHeal.speedMultiplier = 1.1;
-strongHeal.healthMultiplier = 1.1;
-strongHeal.effect = strongHealFX;
-strongHeal.color = Color.white;
 
-const spores = extend(BasicBulletType, {});
-spores.damage = 10;
-spores.lifetime = 100;
-spores.drag = 0.01;
-spores.status = StatusEffects.sapped;
-spores.buildingDamageMultiplier = 10;
-spores.homingPower = 0.04;
+const spores = extend(BasicBulletType, {
+damage: 10,
+lifetime: 100,
+drag: 0.01,
+status: StatusEffects.sapped,
+buildingDamageMultiplier: 10,
+homingPower: 0.04,
+});
 
 const sporeExplosion = extend(BombBulletType, {});
 sporeExplosion.splashDamage = 25;

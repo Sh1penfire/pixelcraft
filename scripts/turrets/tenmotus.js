@@ -189,9 +189,29 @@ fragShot.despawnEffect = Fx.none;
 fragShot.ammoUseEffect = Fx.none;
 
 const placeholdert = extend(BasicBulletType, {
-    speed: 1
+    lifetime: 120,
+    speed: 1.1,
+    drag: 0.0025,
+    damage: 15,
+    draw(b){
+        Fill.circle(b.x, b.y, b.fout() * 4)
+        b.data.draw(Pal.darkMetal, b.fout() * 4)
+    },
+    update(b){
+        this.super$update(b);
+        if(Mathf.chance(Time.delta)){
+        b.data.update(b.x, b.y);
+        }
+    },
+    init(b){
+        if(!b)return;
+        b.data = new Trail(10);
+    },
+    status: statuses.blackout,
+    pierce: true,
+    homingPower: 0.05,
+    homingRange: 100
 });
-placeholdert.status = statuses.blackout;
 
 const blackoutShot = extend(BombBulletType, {
     speed: 32,
@@ -227,9 +247,57 @@ const blackoutShot = extend(BombBulletType, {
 blackoutShot.status = statuses.blackout;
 blackoutShot.statusDuration = 3600;
 
-const placeholdert2 = extend(BasicBulletType, {});
-placeholdert2.status = statuses.prismium;
-placeholdert2.pierce = true;
+const placeholdert2 = extend(BasicBulletType, {
+    lifetime: 120,
+    speed: 1.1,
+    drag: 0.0025,
+    damage: 15,
+    draw(b){
+        Fill.circle(b.x, b.y, b.fout() * 4)
+        b.data.draw(Color.white, b.fout() * 4)
+    },
+    update(b){
+        this.super$update(b);
+        if(Mathf.chance(Time.delta)){
+        b.data.update(b.x, b.y);
+        }
+    },
+    init(b){
+        if(!b)return;
+        b.data = new Trail(10);
+    },
+    status: statuses.prismium,
+    pierce: true,
+    homingPower: 0.05,
+    homingRange: 100
+});
+
+const placeholdert3 = extend(BasicBulletType, {
+    lifetime: 120,
+    speed: 1.1,
+    drag: 0.0025,
+    damage: 5,
+    knockback: -1,
+    draw(b){
+        Fill.circle(b.x, b.y, b.fout() * 4)
+        b.data.draw(Color.white, b.fout() * 4)
+    },
+    update(b){
+        this.super$update(b);
+        let offset = fc.helix(5, 10, b.fout())
+        if(Mathf.chance(Time.delta)){
+        b.data.update(b.x, b.y);
+        b.vel.setAngle(b.rotation() + offset);
+        }
+    },
+    init(b){
+        if(!b)return;
+        b.data = new Trail(5);
+    },
+    status: statuses.prismium,
+    pierce: true,
+    homingRange: 100
+});
 
 const lightShot = extend(BombBulletType, {
     speed: 32,
@@ -264,7 +332,7 @@ const lightShot = extend(BombBulletType, {
     despawned(b){
         let timer = 0
         while(timer < 25){
-            placeholdert2.create(b.owner, b.team, b.x, b.y, 360/25 * timer, 1);
+            placeholdert3.create(b.owner, b.team, b.x, b.y, 360/25 * timer, 1);
             timer++
         }
         this.lightWave(b);

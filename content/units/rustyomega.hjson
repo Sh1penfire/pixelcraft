@@ -127,7 +127,7 @@ backColor: a97567
 hitEffect: explosion
 despawnEffect: pulverizeRed
 speed: 3
-drag: 0.01
+drag: -0.001
 width: 3
 height: 6
 lifetime: 95
@@ -223,11 +223,12 @@ y: 0
 rotate: false
 shots: 100
 shotDelay: 2.5
-inaccuracy: 90
+inaccuracy: 120
 bullet: {
 type: MissileBulletType
 trailEffect: none
 damage: 10
+drag: -0.001
 status: corroded
 statusDuration: 360
 pierce: true

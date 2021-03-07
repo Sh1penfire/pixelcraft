@@ -33,7 +33,9 @@ node(templura.sinkhole, templura.dessertWastelands, null, Seq.with(new Objective
 
 node(templura.loggery, templura.frozenFalls, null, Seq.with(new Objectives.SectorComplete(templura.sinkhole)));
 
-node(templura.frozenFalls, templura.birthplace, null, Seq.with(new Objectives.SectorComplete(templura.frozenFalls)));
+node(templura.frozenFalls, templura.grasslandGrave, null, Seq.with(new Objectives.SectorComplete(templura.frozenFalls)))
+
+node(templura.grasslandGrave, templura.birthplace, null, Seq.with(new Objectives.SectorComplete(templura.grasslandGrave)));
 
 node(templura.sinkhole, templura.trionCentral, null, Seq.with(new Objectives.SectorComplete(templura.sinkhole), new Objectives.SectorComplete(templura.birthplace), new Objectives.Research(cblock("railgun3"))));
 //mixed campaign
@@ -48,5 +50,5 @@ node(templura.crossroads, templura.dunescapeCrags, null, Seq.with(new Objectives
 //Blocks
 
 //Bio Technology
-node(Blocks.conveyor, statuses.blackout, ItemStack.with(), null);
+//node(Blocks.conveyor, statuses.blackout, ItemStack.with(), null);
 //node(cblock("flamethrower3"), cblock("flamethrower4"), null, Seq.with(new Objectives.SectorComplete(templura.loggery)));

@@ -91,7 +91,8 @@ function statusCheck(unit, Status){
     }
     return returnVar
 }
-//checks for if the unit has an enemy nearby. thsi code is stupid and I have no words.
+
+//checks for if the unit has an enemy nearby. this code is stupid and I have no words.
 function validateNearby(unit, range){
     let returnVar = false
     let target = Units.closestTarget(unit.team, unit.x, unit.y, range, u => u.checkTarget(true, true))

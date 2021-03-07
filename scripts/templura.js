@@ -1,8 +1,8 @@
 // Just a little note to not forget Pixellandia :D
 //I won't forget :)
-const templuraGen = require("extras/templuraGen")
+//const templuraGen = require("extras/templuraGen")
 const templura = extend(Planet, "templura", Planets.sun, 3, 3, {
-    generator: templuraGen.templura,
+    generator: new SerpuloPlanetGenerator(),
     meshLoader: () => new HexMesh(this, 6),
     bloom: true,
     radius: 1,
@@ -78,11 +78,19 @@ const birthplace = extend(SectorPreset, "birthplace", templura, 24, {
     difficulty: 8
 });
 
+const grasslandGrave = extend(SectorPreset, "grassland-grave", templura, 45, {
+    captureWave: 48,
+    description: "Resting grounds for most of original mechs when landing. Slag pools are semi abundant. \n There are naval routes here. Build railguns to cover area. Survive.",
+    details: "Omegas were left behind when escaping, and have gone rogue.",
+    localizedName: "Grassland Grave",
+    difficulty: 8
+});
+
 const trionCentral = extend(SectorPreset, "trion-central", templura, 55, {
     localizedName: "Trion Central",
     description: "Capital crux base dedicated to researching rediscover technology.  Use rusty tau units. Take out the core.",
     difficulty: 9
-})
+});
 
 module.exports = {
     templura: templura,
@@ -96,5 +104,6 @@ module.exports = {
     frozenFalls: frozenFalls,
     dessertWastelands: dessertWastelands,
     birthplace: birthplace,
+    grasslandGrave: grasslandGrave,
     trionCentral: trionCentral
-}
+};

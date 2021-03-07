@@ -76,3 +76,6 @@ healPercent: 0.3
 collidesTeam: true
 }
 }]
+research: {
+parent: shard
+}
