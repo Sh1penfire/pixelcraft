@@ -70,7 +70,7 @@ const voidicExplosionB = extend(BombBulletType, {
 const blink = extend(UnitType, "blink", {
     load(){
         this.super$load()
-        let blinkImmunities = [StatusEffects.freezing, StatusEffects.burning, StatusEffects.melting, StatusEffects.corroded, statuses.blackout];
+        let blinkImmunities = [StatusEffects.wet, StatusEffects.burning, StatusEffects.melting, StatusEffects.corroded, statuses.blackout];
         for (var i in blinkImmunities){
             blink.immunities.add(blinkImmunities[i]);
         }
@@ -85,52 +85,63 @@ blink.constructor = () => extend(MechUnit, {
                 this.DR = 1;
                 this.vShield--;
                 this.eAlpha = 1;
+                if(this.vShield < 1 && !this.sBroken){
+                    this.sBroken = true;
+                    this.vRecharge = 0;
+                    voidPop.at(this.x, this.y, 0, [this, 5, this.hitSize + 3, this.eAlpha]);
+                }
+                else this.vRecharge += 0.01;
             }
             else{
                 this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
                 this.vShield = 0;
-                voidPop.at(this.x, this.y, 0, [this, 5, this.hitSize + 3, this.eAlpha]);
             }
             if(number < this.type.health * 12.5){
-                number = number * (1 - this.DR)
+                number = number * (1 - this.DR);
             }
             else{
-                number = number * (1 - this.DR * 0.5)
+                number = number * (1 - this.DR * 0.5);
             }
         }
         else this.eAlpha = 1;
         
         if(number > 0) this.super$damage(number);
-        
         else this.hitTime = 1;
     },
     update(){
-        this.super$update();
-        this.healFract(0.0001);
-        this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
-        this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
-        this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
-        this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
+        if(Mathf.chance(Time.delta)){
+            this.super$update();
+            this.healFract(this.HPS/6000);
+            this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
+            if(!this.sBroken) this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
+            this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
+            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.005;
+            else if(this.sBroken) this.sBroken = false;
+            this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
+        }
     },
     draw(){
         this.super$draw();
         if(this.eAlpha > 0) Fill.light(this.x, this.y, 5, this.hitSize * 1.25, this.dCol1, this.dCol2);
-        Draw.color(Color.valueOf("#9c7ae1"),Color.valueOf("#231841"), Mathf.clamp(this.vShield, 0, 1))
-        Draw.alpha(this.vShield)
-        Lines.circle(this.x, this.y, this.hitSize + 3)
+        Draw.color(Color.valueOf("#9c7ae1"),Color.valueOf("#231841"), Mathf.clamp(this.vShield, 0, 1));
+        Draw.alpha(this.vShield);
+        Lines.circle(this.x, this.y, this.hitSize + 3);
     },
     killed(){
         this.super$killed();
         voidExplosion.at(this.x, this.y, this.rotation, [this.hitSize * 4, 3, 5, 4]);
-        voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0)
+        voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0);
     },
     classId: () => blink.classId,
     dCol1: Color.valueOf("#9c7ae1"),
     dCol2: Color.valueOf("#231841"),
-    eAlpha: 1,
-    vShield: 1.5,
+    eAlpha: 0,
+    vShield: 1,
     sLimit: 1.5,
-    DR: 0
+    DR: 0,
+    HPS: 0.05,
+    sRecharge: 1,
+    sBroken: false
 });
 //dCol1 & 2 are the colors used for the shield and effect
 //eAlpha is the effect alpha of the effects and unit's void shield
@@ -138,3 +149,81 @@ blink.constructor = () => extend(MechUnit, {
 //sLimit is how many shields the unit can store. If below 1, unit can't store void shields
 //DR is the percentage of damage the unit negates. Starts at 0, and raises when the shield is activated.
 refresh(blink);
+
+//I should make a lib... -_-
+const nescience = extend(UnitType, "nescience", {
+    load(){
+        this.super$load()
+        let nescienceImmunities = [StatusEffects.wet, StatusEffects.burning, StatusEffects.melting, StatusEffects.corroded, statuses.blackout];
+        for (var i in nescienceImmunities){
+            nescience.immunities.add(nescienceImmunities[i]);
+        }
+    },
+    drawLight(unit){}
+});
+nescience.constructor = () => extend(MechUnit, {
+    damage(number){
+        if(number > 0){
+            if(this.vShield >= 1){
+                this.DR = 1;
+                this.vShield--;
+                this.eAlpha = 1;
+                if(this.vShield < 1 && !this.sBroken){
+                    this.sBroken = true;
+                    this.vRecharge = 0;
+                    voidPop.at(this.x, this.y, 0, [this, 5, this.hitSize + 3, this.eAlpha]);
+                }
+                else this.vRecharge += 0.01;
+            }
+            else{
+                this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
+                this.vShield = 0;
+            }
+            if(number < this.type.health * 12.5){
+                number = number * (1 - this.DR);
+            }
+            else{
+                number = number * (1 - this.DR * 0.5);
+            }
+        }
+        else this.eAlpha = 1;
+        
+        if(number > 0) this.super$damage(number);
+        else this.hitTime = 1;
+    },
+    update(){
+        if(Mathf.chance(Time.delta)){
+            this.super$update();
+            this.healFract(this.HPS/6000);
+            this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
+            if(!this.sBroken) this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
+            this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
+            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.005;
+            else if(this.sBroken) this.sBroken = false;
+            this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
+        }
+    },
+    draw(){
+        this.super$draw();
+        if(this.eAlpha > 0) Fill.light(this.x, this.y, 5, this.hitSize * 1.25, this.dCol1, this.dCol2);
+        Draw.color(Color.valueOf("#9c7ae1"),Color.valueOf("#231841"), Mathf.clamp(this.vShield, 0, 1));
+        Draw.alpha(this.vShield);
+        Lines.circle(this.x, this.y, this.hitSize + 3);
+    },
+    killed(){
+        this.super$killed();
+        voidExplosion.at(this.x, this.y, this.rotation, [this.hitSize * 4, 3, 5, 4]);
+        voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0);
+    },
+    classId: () => nescience.classId,
+    dCol1: Color.valueOf("#9c7ae1"),
+    dCol2: Color.valueOf("#231841"),
+    eAlpha: 0,
+    vShield: 2,
+    sLimit: 2.75,
+    DR: 0,
+    HPS: 0.1,
+    sRecharge: 1,
+    sBroken: false
+});
+refresh(nescience);

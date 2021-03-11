@@ -7,19 +7,20 @@ const corosiveLingering = extend(BombBulletType, {
         if(Mathf.chance(Time.delta)){
             corosiveExpl.create(b.owner, b.team, b.x, b.y, 0, 0);
         }
-    }
+    },
+    lifetime: 120,
+    hitSound: Sounds.none
 });
-corosiveLingering.lifetime = 120;
-corosiveLingering.hitSound = Sounds.none;
 
-const corosiveExpl = extend(BombBulletType, {});
-corosiveExpl.splashDamageRadius = 25;
-corosiveExpl.splashDamage = 0;
-corosiveExpl.hitEffect = Fx.none;
-corosiveExpl.despawnEffect = Fx.none;
-corosiveExpl.lifetime = 0;
-corosiveExpl.status = StatusEffects.corroded;
-corosiveExpl.hitSound = Sounds.none;
+const corosiveExpl = extend(BombBulletType, {
+    splashDamageRadius: 25,
+    splashDamage: 0,
+    hitEffect: Fx.none,
+    despawnEffect: Fx.none,
+    lifetime: 0,
+    status: StatusEffects.corroded,
+    hitSound: Sounds.none
+});
 
 const corosiveLingeringFx = new Effect(120, e => {
   Draw.color(Pal.plastanium, Color.white, Pal.plastanium, e.fin());
@@ -40,6 +41,7 @@ const pixelite = extend(Item, "pixelite", {});
 const uberite = extend(Item, "uberite", {});
 const feromagnet = extend(Item, "feromagnet", {});
 const bionite = extend(Item, "bionite", {});
+const tinormium = extend(Item, "tinormium", {});
 const stelacrim = extend(Item, "stelacrim", {});
 /*
     getReplacement(req, requests){
@@ -81,13 +83,13 @@ magnitineConveyor.buildType = () => extend(Conveyor.ConveyorBuild,  magnitineCon
 });
 
 const ironDrill = extend(Drill, "iron-drill", {});
-ironDrill.buildType = () => extend(Drill.DrillBuild,  ironDrill, {});
+ironDrill.buildType = () => extend(Drill.DrillBuild, ironDrill, {});
 
 const magnitineDrill = extend(Drill, "magnitine-drill", {});
-magnitineDrill.buildType = () => extend(Drill.DrillBuild,  magnitineDrill, {});
+magnitineDrill.buildType = () => extend(Drill.DrillBuild, magnitineDrill, {});
 
 const neromagnetDrill = extend(Drill, "neromagnet-drill", {});
-neromagnetDrill.buildType = () => extend(Drill.DrillBuild,  neromagnetDrill, {});
+neromagnetDrill.buildType = () => extend(Drill.DrillBuild, neromagnetDrill, {});
 
 const ironWall = extend(Wall, "iron-wall", {});
 ironWall.buildType = () => extend(Wall.WallBuild, ironWall, {
@@ -128,14 +130,6 @@ Bullets.standardThorium.status = StatusEffects.corroded;
 Bullets.artilleryPlasticFrag.statusDuration = 3600;
 Bullets.standardThoriumBig.status = StatusEffects.corroded;
 Bullets.artilleryPlasticFrag.statusDuration = 7200;
-
-Blocks.snow.status = statuses.slushFall
-Blocks.snow.statusDuration = 125
-Blocks.iceSnow.status = statuses.slushFall
-Blocks.iceSnow.statusDuration = 255
-Blocks.ice.status = statuses.slushFall
-Blocks.ice.statusDuration = 350
-
 
 const voidicsm = extend(Liquid, "voidicsm", {
     tempretature: 0,
