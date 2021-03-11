@@ -79,13 +79,13 @@ const bioShot2 = extend(BombBulletType, {
                 thorns.at(b.x + Mathf.range(25), b.y + Mathf.range(25), Mathf.random(360), b);
             }
 
-            Units.nearbyEnemies(b.team, b.x, b.y, 24, 24, u =>{
+            Units.nearbyEnemies(b.team, b.x - 24, b.y - 24, 48, 48, u =>{
                 if(u.isGrounded() == true){
                     u.damage(1);
                     u.apply(statuses.groveCurse, 360);
                 }
             });
-                Units.nearby(b.team, b.x, b.y, 24, u =>{
+                Units.nearby(b.team, b.x - 24, b.y - 24, 48, u =>{
                     if(u.isGrounded() == true){
                         u.heal(0.1);
                     }

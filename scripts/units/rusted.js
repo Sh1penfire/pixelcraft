@@ -270,8 +270,7 @@ rustyOmega.constructor = () => extend(MechUnit, {
                 let mount = this.mounts[i];
                 let weapon = mount.weapon;
                 if(!fc.statusCheck(this, StatusEffects.boss) && weapon.name == "pixelcraft-none"){
-                    print(this.mounts[i].weapon.name)
-                    this.mounts.splice(i, 1)
+                    this.mounts.splice(i, 1);
                 }
             }
             rustyOmega.weapons.get(1).bullet.fragBullet.status = statuses.windswept

@@ -231,9 +231,11 @@ const blackoutShot = extend(BombBulletType, {
         let rad = 5;
         Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
             if(!u.isDead) {
-                Puddles.deposit(Vars.world.tileWorld(b.x, b.y), Liquids.cryofluid, 1);
                 u.apply(statuses.blackout, 360);
-                u.damageContinuousPierce(55);
+                if(u.health >= 56){
+                    u.damageContinuousPierce(55);
+                }
+                else u.damageContinuousPierce(u.health - 1)
             }
         }));
     },
@@ -242,6 +244,7 @@ const blackoutShot = extend(BombBulletType, {
     },
     despawned(b){
         this.darkSplash(b);
+        this.super$despawned(b)
     }
 });
 blackoutShot.status = statuses.blackout;

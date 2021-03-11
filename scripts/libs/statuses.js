@@ -123,7 +123,7 @@ const sporefire = extend(StatusEffect, "sporefire", {
 
 sporefire.speedMultiplier = 1;
 sporefire.armorMultiplier = 0.75;
-sporefire.damage = 0;
+sporefire.damage = 0.075;
 sporefire.effect = sporefireFx;
 sporefire.color = Color.white;
 
@@ -183,20 +183,24 @@ const voidic = new Effect(65, e => {
     
     Draw.alpha(alpha)
     
+    Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI))
+    
+    let scaling = -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3)
+    
     let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841")
     fromColor.a = alpha, toColor.a = alpha
     
-    Fill.light(e.x, e.y, 15, -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3) * 65, fromColor, toColor)
+    Fill.light(e.x, e.y, 15, scaling * 65, fromColor, toColor)
     
     Lines.circle(e.x, e.y, Math.sin(e.fin() * 9) * 25); 
     Lines.circle(e.x, e.y, e.fin() * 50);
-    Angles.randLenVectors(e.id, 35 , e.fin() *  17 + 13, e.rotation, 360, (x, y) => {
+    Angles.randLenVectors(e.id, 35 , -scaling *  26 + 34, e.rotation, 360, (x, y) => {
         Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), Math.abs(x/30) * Math.abs(y/30) * e.fout())
         Fill.circle(e.x + x, e.y + y, e.fout() * 1.2 + Math.sin(e.fin() * 4 * Math.PI));
     });
-    Angles.randLenVectors(e.id, 15 , e.fin() *  7 + 23, e.rotation, 360, (x, y) => {
+    Angles.randLenVectors(e.id, 15 , -scaling *  36 + 24, e.rotation, 360, (x, y) => {
         Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), Math.abs(x/30) * Math.abs(y/30) * e.fout())
-        Fill.circle(e.x + x, e.y + y, e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
+        Fill.square(e.x + x, e.y + y, e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
     });
 });
 
