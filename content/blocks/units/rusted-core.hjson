@@ -11,7 +11,7 @@ plans: [
     requirements: [
       iron/50
     ]
-    time: 600
+    time: 450
   }
    {
  unit: crystal
@@ -33,7 +33,7 @@ time: 235
    requirements: [
      iron/125
    ]
-  time: 450
+  time: 335
   }
   {
     unit: purpleN1
@@ -51,7 +51,7 @@ time: 235
     graphite/25
     ceramic/15
   ]
-  time: 100
+  time: 450
   }
 ]
 category: units

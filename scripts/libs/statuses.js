@@ -8,13 +8,13 @@ const ionisedStatusFX = new Effect(24, e => {
 });
 
 //puver's status effect
-const ionisedStatus = extend(StatusEffect, "ionisedStatus", {});
-
-ionisedStatus.speedMultiplier = 0.9;
-ionisedStatus.armorMultiplier = 0.5;
-ionisedStatus.damage = 0.2;
-ionisedStatus.effect = ionisedStatusFX;
-ionisedStatus.color  = Color.white;
+const ionisedStatus = extend(StatusEffect, "ionisedStatus", {
+    speedMultiplier: 0.9,
+    armorMultiplier: 0.5,
+    damage: 0.2,
+    effect: ionisedStatusFX,
+    color: Color.cyan
+});
 
 //charged status Fx 
 const chargedEffectFX = new Effect(27, (e) => {
@@ -27,12 +27,14 @@ const chargedEffectFX = new Effect(27, (e) => {
 });
 
 //psion's status effect
-const chargedEffect = extend(StatusEffect, "chargedEffect", {});
-chargedEffect.speedMultiplier = 0.8;
-chargedEffect.armorMultiplier = 0.3;
-chargedEffect.damage = 0.3;
-chargedEffect.effect = chargedEffectFX;
-chargedEffect.color  = Color.white;
+const chargedEffect = extend(StatusEffect, "chargedEffect", {
+   speedMultiplier: 0.8,
+   armorMultiplier: 0.3,
+   damage: 0.3,
+   effect: chargedEffectFX,
+   color: Color.blue
+});
+
 
 const warmth = extend(StatusEffect, "warmth", {});
 warmth.speedMultiplier = 1.5;
@@ -160,12 +162,14 @@ const windswept = extend (StatusEffect ,"windswept", {
     this.super$update(unit, time);
     unit.impulse(Mathf.range(100), Mathf.range(100));
     unit.rotation = unit.rotation + Mathf.range(5);
-    }
+    },
+    speedMultiplier: 0.725,
+    dragMultiplier: 0.65,
+    damage: 0.08,
+    effect: windsweptFx,
+    color: Color.valueOf("#ecdede")
 });
 
-windswept.speedMultiplier = 0.725;
-windswept.damage = 0.08;
-windswept.effect = windsweptFx;
 
 const blackoutFx = new Effect(35, e => {
     Draw.color(Color.black, Color.black, e.fin());
@@ -333,12 +337,38 @@ const lingeringCryo = new Effect(75, e =>{
   })
 })
 
+const magElelvation = extend(StatusEffect, "magElelvation", {
+    speedMultiplier: 0,
+    dragMultiplier: 0.1,
+    damage: 0,
+    effect: windsweptFx,
+    effectChance: 0.09,
+    update(unit, time){
+        this.super$update(unit, time)
+        let acSTatus = fc.returnStatus(unit, magElelvation)
+        if(time > 15){
+            if(unit.elevation < 0.9){
+                unit.elevation += 0.1
+            }
+            unit.impulse(Angles.trnsx(unit.baseRotation, unit.type.speed - unit.realSpeed(), 0), Angles.trnsy(unit.baseRotation, unit.type.speed - unit.realSpeed(), 0));
+        }
+        else if(unit.tileOn() != null && !unit.canPassOn()){
+            if(unit.elevation > 0.1){
+                unit.elevation -= 0.1
+            }
+        }
+    }
+});
+prismium.color = Color.white;
+
 const slushFall = extend(StatusEffect, "slushFall", {
     update(unit, time){
+        let acSTatus = fc.returnStatus(unit, slushFall)
         //past 12 seconds, scl is 1. Anywhere below 12 seconds and scl drops.
         let scl = Mathf.slerpDelta(0, 1, time/720)
-        this.speedMultiplier = 1 - scl
-        this.reloadMultiplier = 1 - scl
+        acSTatus.dragMultiplier = 1 - scl * 0.35
+        acSTatus.speedMultiplier = 1 - scl
+        acSTatus.reloadMultiplier = 1 - scl
         if(fc.statusCheck(unit, StatusEffects.freezing) && !fc.statusCheck(unit, warmth) && this.time < 721){
             this.time = 721
             lingeringCryo.at(unit.x, unit.y)
@@ -424,5 +454,6 @@ module.exports = {
     blackout: blackout,
     prismium: prismium,
     groveCurse: groveCurse,
+    magElelvation: magElelvation,
     slushFall: slushFall
 };

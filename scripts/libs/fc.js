@@ -92,6 +92,15 @@ function statusCheck(unit, Status){
     return returnVar
 }
 
+//returns status
+function returnStatus(unit, Status){
+    for(let i = 0; i < unit.statuses.size; i++){
+        if(unit.statuses.get(i).effect == Status){
+            return unit.statuses.get(i).effect
+        }
+    }
+}
+
 //checks for if the unit has an enemy nearby. this code is stupid and I have no words.
 function validateNearby(unit, range){
     let returnVar = false
@@ -112,5 +121,6 @@ module.exports = {
     optionalRotatorX: optionalRotatorX,
     optionalRotatorY: optionalRotatorY,
     statusCheck: statusCheck,
+    returnStatus: returnStatus,
     validateNearby: validateNearby
 };

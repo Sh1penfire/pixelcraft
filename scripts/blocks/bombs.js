@@ -79,6 +79,13 @@ const fireBlast = new Effect(25, e => {
   })
 });
 
+const cryoSpray = new Effect(35, e => {
+    Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
+    Angles.randLenVectors(e.id, 25, e.finpow() * 30, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
+  })
+});
+
 const sporeCooldown = new Effect(90, e => {
     Draw.color(Color.purple, Pal.spore, e.fslope());
     Lines.stroke(e.fout() * 6); 
@@ -89,7 +96,6 @@ const sporeCooldown = new Effect(90, e => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);  
   })
 });
-
 
 const surgeShockwave = new Effect(50, e => {
     Draw.color(Color.white, Pal.surge, e.fin());
@@ -118,13 +124,14 @@ const bioLight = new Effect(55, e => {
     Draw.color(Color.valueOf("#ced671"), Color.green, Pal.darkMetal, e.fin());
     Fill.circle(e.x, e.y, e.fout());
     Lines.spikes(e.x, e.y, e.fout() * 7, e.fout() * 5, 6, e.fin() * 5);
+    Lines.spikes(e.x, e.y, e.fin() * 7, e.fout() * 5, 4, e.fin() * 4);
 });
-      
-const cryoSpray = new Effect(35, e => {
-    Draw.color(Color.cyan, Color.valueOf("6ecdec"), e.fin());
-    Angles.randLenVectors(e.id, 25, e.finpow() * 30, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.5);
-  })
+
+const pulsarPulse = new Effect(75, e => {
+    Draw.color(Color.valueOf("6ecdec"), Color.white, Pal.darkMetal, e.fin());
+    Fill.circle(e.x, e.y, e.fout());
+    Lines.spikes(e.x, e.y, e.fout(), e.fout() * 5, 6, e.fin() * 25);
+    Lines.spikes(e.x, e.y, e.fin(), e.fout() * 5, 4, e.fout() * 4);
 });
 
 const plastExplFrag = extend(BasicBulletType, {
@@ -141,34 +148,36 @@ const plastExplFrag = extend(BasicBulletType, {
     frontColor: Pal.plastaniumFront
 });
 
-const explosionFrag2 = extend(BasicBulletType, {});
-explosionFrag2.damage = 15;
-explosionFrag2.width = 6;
-explosionFrag2.height = 8;
-explosionFrag2.pierce = true;
-explosionFrag2.knockback = 5;
-explosionFrag2.lifetime = 25;
-explosionFrag2.incendAmount = 0;
-explosionFrag2.despawnEffect = Fx.none;
-explosionFrag2.hitEffect = Fx.none;
-explosionFrag2.shrinkY = 1;
-explosionFrag2.backColor = Color.white;
-explosionFrag2.frontColor = Pal.surge;
+const explosionFrag2 = extend(BasicBulletType, {
+    damage: 15,
+    width: 6,
+    height: 8,
+    pierce: true,
+    knockback: 5,
+    lifetim: 25,
+    incendAmount: 0,
+    despawnEffect: Fx.none,
+    hitEffect: Fx.none,
+    shrinkY: 1,
+    backColor: Color.white,
+    frontColor: Pal.surge
+});
 
-const sporeFrag = extend(BasicBulletType, {});
-sporeFrag.damage = 1;
-sporeFrag.width = 6;
-sporeFrag.height = 8;
-sporeFrag.pierce = true;
-sporeFrag.knockback = -1;
-sporeFrag.status = StatusEffects.sporeSlowed;
-sporeFrag.lifetime = 25;
-sporeFrag.incendAmount = 0;
-sporeFrag.despawnEffect = Fx.none;
-sporeFrag.hitEffect = Fx.none;
-sporeFrag.shrinkY = 1;
-sporeFrag.backColor = Color.purple;
-sporeFrag.frontColor = Pal.spore;
+const sporeFrag = extend(BasicBulletType, {
+    damage: 1,
+    width: 6,
+    height: 8,
+    pierce: true,
+    knockback: -1,
+    status: StatusEffects.sporeSlowed,
+    lifetime: 25,
+    incendAmount: 0,
+    despawnEffect: Fx.none,
+    hitEffect: Fx.none,
+    shrinkY: 1,
+    backColor: Color.purple,
+    frontColor: Pal.spore
+});
 
 const sporeCluster = extend(BombBulletType, {
     update(b){
@@ -687,6 +696,79 @@ bombT2m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT2m1, {
         Draw.alpha(0.5);
         this.super$draw();
     }
+});
+
+const bombT2m2 = extendContent(ShockMine, "bombT2m2", {
+  icons(){
+    return [
+      Core.atlas.find("pixelcraft-bombT2m2")
+    ];
+  },
+  setStats(){
+    this.super$setStats();
+    this.stats.add(Stat.range, "0");
+    this.stats.add(Stat.reload, "0.5")
+    this.stats.add(Stat.damage, "25");
+    }
+});
+
+bombT2m2.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT2m2, {
+	unitOn(b){
+        if(this.timer.get(0, mediumCooldown)){
+            if(b.team != this.team){
+                this.damage(this.maxHealth / 100);
+                b.apply(statuses.ionisedStatus, 360)
+                statuses.ionisedStatus.effect.at(this.x, this.y);
+            }
+            else{
+                if(!b.isFlying() && b.type.canBoost){
+                    this.damage(this.maxHealth / 200);
+                    b.elevation = 1
+                    b.apply(statuses.magElelvation, 35)
+                    let mechR = b.rotation
+                    if(b.realSpeed() > 0.1){
+                        mechR = b.baseRotation
+                    }
+                    b.impulse(Angles.trnsx(mechR, 1000, 0), Angles.trnsy(mechR, 1000, 0))
+                    pulsarPulse.at(b.x, b.y);
+                }
+                else{
+                bioLight.at(b.x, b.y);
+                }
+            }
+        }
+    },
+    update(){
+        this.super$update();
+        if(this.timerGet()){
+            let target = Units.closestEnemy(this.team, this.x, this.y, 16, u => u.checkTarget(true, false) && u.type.canBoost);
+            if(target){
+                target.apply(statuses.magElelvation, 15)
+                statuses.ionisedStatus.effect.at(this.x, this.y);
+                this.timerVar = 0
+            }
+        }
+    },
+    timerGet(){
+    if(this.timerVar < this.reload){
+        this.timerVar++
+        return false
+    }
+    else{
+        return true
+    }
+    },
+    onDestroyed(){
+    this.super$onDestroyed();
+    pyraExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
+    this.remove()
+    },
+    draw(){
+        Draw.alpha(0.5);
+        this.super$draw();
+    },
+    timerVar: 0,
+    reload: 120
 });
 
 

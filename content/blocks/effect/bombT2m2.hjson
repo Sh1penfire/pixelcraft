@@ -1,0 +1,16 @@
+name: "Pulsar Mine"
+description: "Releases a magnetic pulse upon unit contact. This drags enemies down and can push allies up."
+hasShadow: false
+health: 350
+update: true
+solid: false
+targetable: false
+rebuildable: true
+requirements: [
+	coal/20
+	feromagnet/5
+	graphite/10
+]
+
+category: effect
+research: bombT1m6

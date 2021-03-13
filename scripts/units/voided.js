@@ -115,7 +115,7 @@ blink.constructor = () => extend(MechUnit, {
             this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
             if(!this.sBroken) this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
             this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
-            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.005;
+            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.003;
             else if(this.sBroken) this.sBroken = false;
             this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
         }
@@ -139,7 +139,7 @@ blink.constructor = () => extend(MechUnit, {
     vShield: 1,
     sLimit: 1.5,
     DR: 0,
-    HPS: 0.05,
+    HPS: 0.2,
     sRecharge: 1,
     sBroken: false
 });
@@ -198,7 +198,7 @@ nescience.constructor = () => extend(MechUnit, {
             this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
             if(!this.sBroken) this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
             this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
-            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.005;
+            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.003;
             else if(this.sBroken) this.sBroken = false;
             this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
         }
@@ -222,7 +222,7 @@ nescience.constructor = () => extend(MechUnit, {
     vShield: 2,
     sLimit: 2.75,
     DR: 0,
-    HPS: 0.1,
+    HPS: 0.35,
     sRecharge: 1,
     sBroken: false
 });
