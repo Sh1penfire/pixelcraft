@@ -1,10 +1,9 @@
 name: "Rusty delta"
 description: "Special combat model reworked by engineers."
 details: "Some went rogue. Others tried to help their relatives survive. In the end, it didn't matter though. The only places safe were now the ever increasing amount of caves."
-speed: 1
+speed: 0.8
 health: 500
 armor: 2
-speed: 0.8
 drag: 0.4
 aimDst: 10
 range: 50

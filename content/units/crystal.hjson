@@ -1,5 +1,5 @@
 name: "Crystal"
-description: "Fires frozen projectiles that slow targets."
+description: "Fires frozen projectiles that slow targets. Explodes on death."
 speed : 0.7
 health: 125
 armor: 2

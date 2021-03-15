@@ -6,15 +6,15 @@ health: 130
 size: 2
 liquidCapacity: 120
 baseExplosiveness: 3
-rotateSpeed: -2
+rotateSpeed: -4.5
 hasPower: true
 updateEffect: hitLancer
 updateEffectChance: 0.125
-pumpAmount: 0.1
+pumpAmount: 0.45
 result: guilded-sand
 itemUseTime: 20
 consumes: {
-  power: 3
+  power: 5
   items: {
     items: [
       coal/1
@@ -27,4 +27,4 @@ requirements: [
   lead/90
 ]
 category: production
-research: pneumatic-drill
+research: shiny-beacon

@@ -1,11 +1,14 @@
 name: "Sundry"
-description: "Sweeps the target away from vitals in the base with strong knockback."
+description: "Sweeps the target away from vitals in the base with strong knockback toward the turret."
 size: 4
 reloadTime: 5
 range: 200
-shots: 1
+shots: 3
+shootLength: 12
 inaccuracy: 10
 xRand: 4
+shootShake: 1.45
+shootSound: shootBig
 ammoUseEffect: casing4
 rotateSpeed: 8
 requirements: [

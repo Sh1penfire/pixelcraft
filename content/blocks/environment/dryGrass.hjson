@@ -1,0 +1,10 @@
+type: Floor
+name: Dry Grass
+speedMultiplier: 1.2
+variants: 3
+itemDrop: bionorb
+playerUnmineable: true
+solid: false
+emitLight: true
+lightRadius: 30
+lightColor: 1c732778

@@ -38,7 +38,7 @@ function slash(rotationTimes, radius, scaling, inOutTimes){
 };
 
 function clash(rotationTimes, radius, scaling, inOutTimes){
-    var pos = 0;
+    let pos = 0;
     if(inOutTimes < 0){
         pos = Mathf.cos(scaling * 3.142 * rotationTimes) * scaling * radius
     }
@@ -51,43 +51,62 @@ function clash(rotationTimes, radius, scaling, inOutTimes){
 //clans.mp4
 
 function rangeLimit(number, constraint){
-  let MIN = Math.abs(constraint) * -1;
-  let MAX = Math.abs(constraint);
-  let parsed = parseInt(number);
-  return Math.min(Math.max(parsed, MIN), MAX);
+    let MIN = Math.abs(constraint) * -1;
+    let MAX = Math.abs(constraint);
+    let parsed = parseInt(number);
+    return Math.min(Math.max(parsed, MIN), MAX);
 };
 
 
 function optionalRotatorX(Timer,speed,startRotator,distanceCenter,positionX){
-  let rotatorX = positionX + Mathf.sin(Timer * speed + startRotator) * distanceCenter
-  return rotatorX
+    let rotatorX = positionX + Mathf.sin(Timer * speed + startRotator) * distanceCenter
+    return rotatorX
 }
 
 function optionalRotatorY(Timer, spaeed, startRotator, distanceCenter, positionY) {
-  let rotatorY = positionY + Mathf.cos(Timer * speed + startRotator) * distanceCenter
-  return rotatorY
+    let rotatorY = positionY + Mathf.cos(Timer * speed + startRotator) * distanceCenter
+    return rotatorY
 }
 
 function rangeLimit(number, constraint){
-  let MIN = Math.abs(constraint) * -1;
-  let MAX = Math.abs(constraint);
-  let parsed = parseInt(number);
-  return Math.min(Math.max(parsed, MIN), MAX);
+    let MIN = Math.abs(constraint) * -1;
+    let MAX = Math.abs(constraint);
+    let parsed = parseInt(number);
+    return Math.min(Math.max(parsed, MIN), MAX);
 };
 
 function rangeLimit2(number, constraintMin, constraintMax){
-  let MIN = constraintMin;
-  let MAX = constraintMax;
-  let parsed = parseInt(number);
-  return Math.min(Math.max(parsed, MIN), MAX);
+    let MIN = constraintMin;
+    let MAX = constraintMax;
+    let parsed = parseInt(number);
+    return Math.min(Math.max(parsed, MIN), MAX);
 };
 //status effect checker
-function statusCheck(Unit, Status){
+function statusCheck(unit, Status){
     let returnVar = false
-    for(let i = 0; i < Unit.statuses.size; i++){
-        if(Unit.statuses.get(i).effect == Status){
+    for(let i = 0; i < unit.statuses.size; i++){
+        if(unit.statuses.get(i).effect == Status){
             returnVar = true;
         }
+    }
+    return returnVar
+}
+
+//returns status
+function returnStatus(unit, Status){
+    for(let i = 0; i < unit.statuses.size; i++){
+        if(unit.statuses.get(i).effect == Status){
+            return unit.statuses.get(i).effect
+        }
+    }
+}
+
+//checks for if the unit has an enemy nearby. this code is stupid and I have no words.
+function validateNearby(unit, range){
+    let returnVar = false
+    let target = Units.closestTarget(unit.team, unit.x, unit.y, range, u => u.checkTarget(true, true))
+    if(target != null){
+        returnVar = true
     }
     return returnVar
 }
@@ -101,5 +120,7 @@ module.exports = {
     rangeLimit: rangeLimit,
     optionalRotatorX: optionalRotatorX,
     optionalRotatorY: optionalRotatorY,
-    statusCheck: statusCheck
+    statusCheck: statusCheck,
+    returnStatus: returnStatus,
+    validateNearby: validateNearby
 };

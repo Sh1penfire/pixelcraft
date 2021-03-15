@@ -1,4 +1,4 @@
-name: Pixelite compresser
+name: Pixelite Compresser
 description: Compresses scrap under high heat and shapes it into pixelite. Much faster and takes scrap in smaller chunks, but coolant is needed. "Now with extra fire"
 liquidCapacity: 50
 itemCapacity: 50
@@ -31,4 +31,4 @@ requirements: [
 ]
 category: crafting
 research: pixelite-mixer
-outputItem: pixelite/5
+outputItem: pixelite/10

@@ -1,9 +1,4 @@
-const warmth = extend(StatusEffect, "warmth", {});
-warmth.speedMultiplier = 1.5;
-warmth.healthMultiplier = 1.15;
-warmth.reloadMultiplier = 1.15;
-warmth.effect = Fx.freezing;
-warmth.effectChance = 0.07;
+const statuses = require("libs/statuses")
 
 const frostWave = new Effect(20, e => {
     Draw.color(Color.white, Color.white, e.fin());
@@ -63,7 +58,7 @@ function shardUnit(name, DC, DR, type, build){
         return bt;
     }
     unit.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 360, 360, 60));
-    unit.abilities.add(new StatusFieldAbility(warmth, 360, 360, 60));
+    unit.abilities.add(new StatusFieldAbility(statuses.warmth, 360, 360, 60));
     return unit;
 };
 
@@ -96,7 +91,7 @@ stalactite.constructor = () => extend(MechUnit, {
     }
 });
 stalactite.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 360, 360, 60));
-stalactite.abilities.add(new StatusFieldAbility(warmth, 360, 360, 60));
+stalactite.abilities.add(new StatusFieldAbility(statuses.warmth, 360, 360, 60));
 
 var upgrade = new Seq([Vars.content.getByName(ContentType.unit, "pixelcraft-crystal"), Vars.content.getByName(ContentType.unit, "pixelcraft-stalactite")]);
 Blocks.additiveReconstructor.upgrades.add(upgrade.toArray(UnitType));
@@ -111,7 +106,7 @@ stalagmite.constructor = () => extend(MechUnit, {
     }
 });
 stalagmite.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 360, 360, 60));
-stalagmite.abilities.add(new StatusFieldAbility(warmth, 360, 360, 60));
+stalagmite.abilities.add(new StatusFieldAbility(statuses.warmth, 360, 360, 60));
 
 var upgrade = new Seq([Vars.content.getByName(ContentType.unit, "pixelcraft-stalactite"), Vars.content.getByName(ContentType.unit, "pixelcraft-stalagmite")]);
 Blocks.multiplicativeReconstructor.upgrades.add(upgrade.toArray(UnitType));

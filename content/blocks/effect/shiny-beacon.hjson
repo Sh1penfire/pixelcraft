@@ -1,11 +1,13 @@
-type: LightBlock
-name: Shining Beacon
+name: "Shiny Beacon"
 size: 2
 description: "A gateway into the world of pixelcraft. Lights up the walls of your ship and shows you locations for other routes through the campaign. Also works as a beacon. This is going to be the mod's logo eventualy..."
+consumes:{
+power: 0.1
+}
 requirements: [
-  stone/125
+  stone/85
 ]
-brightness: 0.3
+brightness: 7.5
 radius: 200
 category: effect
 research: core-shard

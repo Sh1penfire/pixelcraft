@@ -17,7 +17,6 @@ consumes: {
     items: [
       titanium/2
       thorium/2
-      metaglass/3
     ]
   }
   liquid: {

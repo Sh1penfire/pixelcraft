@@ -16,23 +16,39 @@ const shotHit = new Effect(20, e => {
   Lines.circle(e.x, e.y, e.fin() * 12.5);
 });
 
-
-//makes the shoot effect of beat
-const shot = extend(LaserBoltBulletType, {});
-        
 //make effects of overload
 const overloadFX = new Effect(40, e => {
 Draw.color(Color.yellow, Color.white, e.fin());
 Fill.circle(e.x, e.y, e.fslope() * 6);
 });
 
-const overload = extendContent(StatusEffect, "overload", {});
+const overload = extendContent(StatusEffect, "overload", {
+    speedMultiplier: 1.3,
+    armorMultiplier: 1.1,
+    damage: 0,
+    effect: overloadFX,
+    color: Color.green
+});
 
-overload.speedMultiplier = 1.3;
-overload.armorMultiplier = 1.1;
-overload.damage = 0.0;
-overload.effect = overloadFX;
-overload.color  = Color.green;
+//makes the shoot effect of beat
+const shot = extend(LaserBoltBulletType, {
+    damage: 0,
+    speed: 5,
+    lifetime: 50,
+    knockback: 0,
+    width: 2,
+    height: 4,
+    collides: true,
+    collidesTiles: true,
+    hitEffect: shotHit,
+    despawnEffect: beatShoot,
+    shootEffect: beatShoot,
+    status: overload,
+    statusDuration: 900,
+    pierce: true,
+    healPercent: 2,
+    collidesTeam: true
+});
 
 //extends off the beat hjson file
 const beat = extendContent(PowerTurret, "healingTurret2", {
@@ -157,7 +173,7 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
         this.super$draw();
         if(this.beamAlpha !== undefined){
         Draw.reset()
-        Layer.bullet;
+        Draw.z(Layer.bullet);
         this.pulsate = fc.helix(8, 1, 1, this.beamAlpha * this.beamAlpha) * 0.25 + this.beamAlpha * 0.75
         Draw.color(Color.valueOf("#62ac7d"), Color.valueOf("#82f48f"), this.beamAlpha)
         Draw.alpha(this.beamAlpha);
@@ -174,34 +190,16 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
         Draw.color(Color.white, Pal.heal, this.beamAlpha * this.beamAlpha);
         Lines.circle(this.xEnd, this.yEnd, 4 - 1.5 * this.beamAlpha * this.beamAlpha);
         }
-    }
+    },
+    //givving beat it's stats (Some are defined in the beat.hjson file when loaded)
+    recoil: 1,
+    restitution: 0.015,
+    targetAir: true,
+    targetGround: true 
 });
+beat.shootType = shot;
 //givving things stats
 
-//givving beat it's stats (Some are predefined in the beat.hjson file
-beat.recoil = 1;
-beat.restitution = 0.015;
-beat.shootType = shot;
-beat.targetAir = true;
-beat.targetGround = true;
-
-//stats of bullet shot by beat
-shot.damage = 0;
-shot.speed = 5;
-shot.lifetime = 50;
-shot.knockback = 0;
-shot.width = 2;
-shot.height = 4;
-shot.collides = true;
-shot.collidesTiles = true;
-shot.hitEffect = shotHit;
-shot.despawnEffect = beatShoot
-shot.shootEffect = beatShoot;
-shot.status = overload;
-shot.statusDuration = 900;
-shot.pierce = true;
-shot.healPercent = 2;
-shot.collidesTeam = true;
 /*
 shot.frontColor = Color.valueOf(05700b);
 shot.backColor = Color.valueOf(05700b);

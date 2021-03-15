@@ -10,7 +10,7 @@ upgrades: [
     rustyalpha, rustydelta
   ]
   [
-    purpleN1, purpleN2
+    blink, nescience
   ]
   [
     crystal, stalactite
@@ -20,6 +20,9 @@ upgrades: [
   ]
   [
     shard, capsule
+  ]
+  [
+    purpleN1, purpleN2
   ]
 ]
 consumes: {

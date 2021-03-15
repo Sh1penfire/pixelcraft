@@ -1,79 +1,108 @@
-name: "Rusty Javalin"
-description: "Assult ship that reaches extremely high speeds and can build."
+name: "Rusty Trident"
+description: "Suport bomber which are strong in groups."
 flying: true
-speed: 6
-health: 180
-armor: 3
+speed: 3
+health: 420
+armor: 5.5
 aimDst: 10
-hitSize: 8
+hitSize: 14
 range: 50
-drag: 0.0005
+drag: 0.02
 accel: 0.025
+isCounted: false
 maxRange: 200
-buildSpeed: 3
-clipSize: 1
-faceTarget: true
-rotateShooting : true
-mineTier: 2
-mineSpeed: 8
-range: 100
-rotateSpeed: 7
+buildSpeed: 4
+rotateShooting: false
+mineTier: 3
+mineSpeed: 9
+range: 270
+rotateSpeed: 12
 lowAltitude: false
 omniMovement: true
 canDrown: false
 weapons: [
 {
 name: none
-reload: 25
-shots: 2
-inaccuracy: 2
+reload: 215
+shots: 3
+spacing: 15
 alternate: true
 ejectEffect: none
-velocityRnd: 0.2
-spacing: 1
-shootSound: missile
+rotate: true
+shootSound: bigShot
 bullet:{
-type: MissileBulletType
-damage: 2
-status: corroded
-width: 8
-height: 8
-speed: 3
-drag: -0.03
+type: ArtilleryBulletType
+damage: 0
+width: 15
+height: 15
+speed: 4
+collides: true
+collidesGround: true
+collidesAir: true
+collidesTiles: true
 keepVelocity: false
-splashDamage: 1
-splashDamageRadius: 20
-lifetime: 90
-trailColor: b6c6fd
-frontColor: b6c6fd
-backColor: 86baf9
-hitEffect: explosion
-despawnEffect: explosion
-weaveScale: 8
-weaveMag: 2
+lifetime: 65
+frontColor: 82f48f
+backColor: acb674
+hitSound: place
+hitEffect: none
+despawnEffect: none
+keepVelocity: false
 }
 }
 {
 name: none
-reload: 5
-alternate: true
-ejectEffect: none
-top: false
-shootSound: spark
-rotate: false
-x: 1.0
-y: -1.0
-bullet:{
-type: LightningBulletType
+rotate: true
+reload: 20
+x: 3
+y: 5
+bullet: {
+frontColor: b7f35e
+backColor: b7f35e
+type: BasicBulletType
+damage: 5
+speed: 2
 status: corroded
-statusDuration: 50
-lightningLength: 10
-lightningLengthRand: 5
-healPercent: 2
+statusDuration: 360
+width: 7
+height: 12
+lifetime: 45
+knockback: 0
+hitSound: none
+healPercent: 0.1
 collidesTeam: true
+}
+}
+{
+name: none
+shots: 3
+shotDelay: 10
+rotate: true
+reload: 65
+x: 3
+y: 5
+bullet: {
+type: MissileBulletType
+frontColor: b7f35e
+backColor: b7f35e
+trailColor: b7f35e
 damage: 10
+speed: 3
+status: corroded
+statusDuration: 360
+width: 7
+height: 12
+lifetime: 55
+knockback: -1
+hitSound: none
+healPercent: 0.1
+collidesTeam: true
 }
 }]
+immunities: [
+corroded,
+burning
+]
 research: {
 parent: core-refraction
 }

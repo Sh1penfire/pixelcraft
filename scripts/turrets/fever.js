@@ -8,7 +8,7 @@ const shootEffectFlame = new Effect(60, e => {
 });
 
 const shootEffectFlameGreen = new Effect(60, e => {
-  Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, e.fin());
+  Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, e.fin() * 0.25);
   Angles.randLenVectors(e.id, 25, e.finpow() * 145, e.rotation, 3, (x, y) => {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 2);
   })

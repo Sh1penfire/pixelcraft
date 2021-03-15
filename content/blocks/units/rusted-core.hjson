@@ -1,5 +1,5 @@
 name: "Rusted Core"
-description: "Produces various units. Output units can be used directly or moved into reconstructors for upgrading."
+description: "Original functionality lost, it now produces various units. Output units can be used directly or moved into aged buildings for upgrading."
 details: "The predecessor of this factory was found and quickely scanned for it's structural integrety. It was found to be broken but blueprints were recovered."
 type: UnitFactory
 health: 300
@@ -11,7 +11,7 @@ plans: [
     requirements: [
       iron/50
     ]
-    time: 600
+    time: 450
   }
    {
  unit: crystal
@@ -33,7 +33,7 @@ time: 235
    requirements: [
      iron/125
    ]
-  time: 450
+  time: 335
   }
   {
     unit: purpleN1
@@ -43,6 +43,15 @@ time: 235
       ceramic/45
     ]
     time: 285
+  }
+  {
+  unit: blink
+  requirements: [
+    tinormium/1
+    graphite/25
+    ceramic/15
+  ]
+  time: 450
   }
 ]
 category: units
