@@ -199,17 +199,16 @@ sporeCluster.fragBullets = 15;
 sporeCluster.fragBullet = sporeFrag;
 sporeCluster.hitSound = Sounds.none;
 
+const cryoGush = extend(LiquidBulletType, {});
+cryoGush.liquid = Liquids.cryofluid;
+cryoGush.lifetime = 35;
+cryoGush.fragBullet = Bullets.standardCopper;
 
 const cryoLiquid = extend(LiquidBulletType, {});
 cryoLiquid.liquid = Liquids.cryofluid;
 cryoLiquid.statuses = StatusEffects.freezing
 cryoLiquid.lifetime = 10;
 cryoLiquid.fragBullet = Bullets.standardCopper;
-
-const cryoGush = extend(LiquidBulletType, {});
-cryoGush.liquid = Liquids.cryofluid;
-cryoGush.lifetime = 35;
-cryoGush.fragBullet = Bullets.standardCopper;
 
 const lightning1 = extend(LightningBulletType, {});
 lightning1.damage = 25;
@@ -715,20 +714,18 @@ const bombT2m2 = extendContent(ShockMine, "bombT2m2", {
 bombT2m2.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT2m2, {
 	unitOn(b){
         if(this.timer.get(0, mediumCooldown)){
+            let mechR = b.rotation
             if(b.team != this.team){
                 this.damage(this.maxHealth / 100);
                 b.apply(statuses.ionisedStatus, 360)
                 statuses.ionisedStatus.effect.at(this.x, this.y);
+                b.impulse(Angles.trnsx(mechR, -1000, 0), Angles.trnsy(mechR, -1000, 0))
             }
             else{
                 if(!b.isFlying() && b.type.canBoost){
                     this.damage(this.maxHealth / 200);
                     b.elevation = 1
                     b.apply(statuses.magElelvation, 35)
-                    let mechR = b.rotation
-                    if(b.realSpeed() > 0.1){
-                        mechR = b.baseRotation
-                    }
                     b.impulse(Angles.trnsx(mechR, 1000, 0), Angles.trnsy(mechR, 1000, 0))
                     pulsarPulse.at(b.x, b.y);
                 }
@@ -743,7 +740,8 @@ bombT2m2.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT2m2, {
         if(this.timerGet()){
             let target = Units.closestEnemy(this.team, this.x, this.y, 16, u => u.checkTarget(true, false) && u.type.canBoost);
             if(target){
-                target.apply(statuses.magElelvation, 15)
+                target.apply(statuses.magElelvation, 25)
+                target.elevation = 0
                 statuses.ionisedStatus.effect.at(this.x, this.y);
                 this.timerVar = 0
             }

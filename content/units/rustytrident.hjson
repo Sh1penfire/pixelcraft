@@ -2,10 +2,10 @@ name: "Rusty Trident"
 description: "Suport bomber which are strong in groups."
 flying: true
 speed: 3
-health: 380
-armor: 5
+health: 420
+armor: 5.5
 aimDst: 10
-hitSize: 8
+hitSize: 14
 range: 50
 drag: 0.02
 accel: 0.025

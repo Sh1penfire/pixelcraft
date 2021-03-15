@@ -5,12 +5,12 @@ speed: 2.5
 accel: 0.03
 drag: 0.015
 health: 300
-aimDst: 10
-range: 50
+aimDst: 13
+range: 125
 maxRange: 145
 buildSpeed: 3
 clipSize: 1
-hitSize: 6
+hitSize: 7
 faceTarget: true
 rotateShooting: true
 mineTier: 3

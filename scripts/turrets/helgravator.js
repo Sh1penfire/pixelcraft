@@ -22,49 +22,52 @@ const firelandFx = new Effect(20, e => {
 });
 
 const flCoalfrag = extend(LiquidBulletType, {});
-const flCoal = extend(BasicBulletType, {});
-flCoal.speed = 20;
-flCoal.damage = 60;
-flCoal.hitSize = 6;
-flCoal.width = 1;
-flCoal.height = 1;
-flCoal.inaccuracy = 15;
-flCoal.lifetime = 5;
-flCoal.knockback = 0;
-flCoal.shootSound = Sounds.flame2;
-flCoal.shootEffect = firehitFx;
-flCoal.despawnEffect = Fx.none;
-flCoal.hitEffect = Fx.none;
-flCoal.trailEffect = Fx.none;
-flCoal.collides = true;
-flCoal.collidesTiles = true;
-flCoal.colidesAir = true;
-flCoal.ammoMultiplier = 10;
-flCoal.pierce = true;
-flCoal.fragBullets = 2;
-flCoal.fragBullet = flCoalfrag;
+const flCoal = extend(BasicBulletType, {
+    speed: 20,
+    damage: 60,
+    hitSize: 6,
+    width: 1,
+    height: 1,
+    inaccuracy: 15,
+    lifetime: 5,
+    knockback: 0,
+    shootSound: Sounds.flame2,
+    shootEffect: firehitFx,
+    despawnEffect: Fx.none,
+    hitEffect: Fx.none,
+    status: statuses.hellfire,
+    trailEffect: Fx.none,
+    collides: true,
+    collidesTiles: true,
+    colidesAir: true,
+    ammoMultiplier: 10,
+    pierce: true,
+    fragBullets: 2,
+    fragBullet: flCoalfrag,
+});
 
-const flSpore = extend(BasicBulletType, {});
-flSpore.speed = 5;
-flSpore.damage = 0;
-flSpore.hitSize = 6;
-flSpore.width = 0;
-flSpore.height = 0;
-flSpore.inaccuracy = 15;
-flSpore.lifetime = 20;
-flSpore.knockback = 0;
-flSpore.shootSound = Sounds.flame2;
-flSpore.shootEffect = sporeShoot;
-flSpore.despawnEffect = Fx.none;
-flSpore.hitEffect = Fx.none;
-flSpore.status = statuses.sporefire;
-flSpore.trailEffect = Fx.none;
-flSpore.collides = true;
-flSpore.collidesTiles = true;
-flSpore.colidesAir = true;
-flSpore.ammoMultiplier = 10;
-flSpore.pierce = true;
-flSpore.pierceBuilding = true;
+const flSpore = extend(BasicBulletType, {
+    speed: 5,
+    damage: 0,
+    hitSize: 6,
+    width: 0,
+    height: 0,
+    inaccuracy: 15,
+    lifetime: 20,
+    knockback: 0,
+    shootSound: Sounds.flame2,
+    shootEffect: sporeShoot,
+    despawnEffect: Fx.none,
+    hitEffect: Fx.none,
+    status: statuses.sporefire,
+    trailEffect: Fx.none,
+    collides: true,
+    collidesTiles: true,
+    colidesAir: true,
+    ammoMultiplier: 10,
+    pierce: true,
+    pierceBuilding: true
+});
 
 flCoalfrag.liquid = Liquids.oil;
 flCoalfrag.speed = 4;
@@ -93,5 +96,5 @@ const helgravator = extendContent(ItemTurret, "flamethrower3",{
 helgravator.innacuracy = 24;
 helgravator.shots = 5;
 helgravator.shootSound = Sounds.flame2;
-helgravator.ammo(Vars.content.getByName(ContentType.item,"coal"), flCoal,Vars.content.getByName(ContentType.item,"spore-pod"), flSpore)
+helgravator.ammo(Vars.content.getByName(ContentType.item,"coal"), flCoal,Vars.content.getByName(ContentType.item,"spore-pod"), flSpore);
 //Thanks for the help with effects Puppycat :)

@@ -346,7 +346,7 @@ const magElelvation = extend(StatusEffect, "magElelvation", {
     update(unit, time){
         this.super$update(unit, time)
         let acSTatus = fc.returnStatus(unit, magElelvation)
-        if(time > 15){
+        if(time > 25){
             if(unit.elevation < 0.9){
                 unit.elevation += 0.1
             }

@@ -108,6 +108,17 @@ blink.constructor = () => extend(MechUnit, {
         if(number > 0) this.super$damage(number);
         else this.hitTime = 1;
     },
+    apply(status, time){
+        if(status != StatusEffects.none && status != null && !this.isImmune(status)){
+            if(status.permanent == true){
+                this.heal(Math.abs(status.damage) * 60);
+            }
+            else if(this.DR <= 0.75 && status.damage > 0){
+                this.super$apply(status, time);
+                print(status)
+            }
+        }
+    },
     update(){
         if(Mathf.chance(Time.delta)){
             this.super$update();
@@ -190,6 +201,17 @@ nescience.constructor = () => extend(MechUnit, {
         
         if(number > 0) this.super$damage(number);
         else this.hitTime = 1;
+    },
+    apply(status, time){
+        if(status != StatusEffects.none && status != null && !this.isImmune(status)){
+            if(status.permanent == true){
+                this.heal(Math.abs(status.damage) * 60);
+            }
+            else if(this.DR <= 0.75 && status.damage > 0){
+                this.super$apply(status, time);
+                print(status)
+            }
+        }
     },
     update(){
         if(Mathf.chance(Time.delta)){

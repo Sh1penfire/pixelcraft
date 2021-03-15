@@ -15,6 +15,9 @@ upgrades: [
     stalactite, stalagmite
   ]
   [
+    capsule, inseculur
+  ]
+  [
    rustyjavalin, rustytrident
   ]
 ]
