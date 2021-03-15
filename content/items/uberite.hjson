@@ -1,13 +1,13 @@
 name: Uberite
-description: "We went to far... Whoops. I woudn't put this or store this in anything if I were you."
+description: We went too far... Whoops. I woudn't put this or store this in anything if I were you.
 hardness: 2
 cost: 0.5
 research: {
   parent: pixelite
-  requiremenst:[
-  pixelite/1000
+  requirements: [
+    pixelite/1000
   ]
 }
-color: #4a171e
+color: 4a171e
 explosiveness: 7
 flammability: 6
