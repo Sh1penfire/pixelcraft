@@ -1,6 +1,6 @@
 name: "Rusted Core"
 description: "Original functionality lost, it now produces various units. Output units can be used directly or moved into aged buildings for upgrading."
-details: "The predecessor of this factory was found and quickely scanned for it's structural integrety. It was found to be broken but blueprints were recovered."
+details: "The predecessor of this factory was found and quickly scanned for its structural integrety. It was found to be broken but blueprints were recovered."
 type: UnitFactory
 health: 300
 size: 3

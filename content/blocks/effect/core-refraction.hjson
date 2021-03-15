@@ -1,5 +1,5 @@
 type: CoreBlock
-name: "Core Refraction"
+name: "Core: Refraction"
 description: "refleccore"
 details: "What goes up must come down."
 health: "3000"

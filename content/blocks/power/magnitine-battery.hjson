@@ -6,7 +6,7 @@ size: 1
 hasPower: true
 hasItems: false
 consumes:{
-powerBuffered: 4000
+  powerBuffered: 4000
 }
 requirements: [
   magnitine/10

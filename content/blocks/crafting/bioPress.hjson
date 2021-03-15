@@ -5,11 +5,11 @@ hasLiquids: true
 hasItems: true
 craftTime: 120
 consumes: {
-items:{
-items:[
-bionorb/1
-]
-}
+  items: {
+	items: [
+	  bionorb/1
+	]
+  }
 }
 requirements: [
   stone/60
