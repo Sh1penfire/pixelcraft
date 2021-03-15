@@ -7,7 +7,7 @@ color: e3b27d
 alwaysUnlocked: true
 research: {
   parent: stone
-  requiremenst:[
-  stone/500
+  requirements: [
+	stone/500
   ]
 }

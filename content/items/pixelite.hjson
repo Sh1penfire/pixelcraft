@@ -1,13 +1,13 @@
 name: Pixelite
-description: A flamible resource made from old materiels.
+description: A flammable resource made from old materiels.
 hardness: 0
 cost: 2
 research: {
   parent: stone
-  requiremenst:[
-  stone/1000
-  sand/1000
-  coal/1000
+  requirements: [
+	stone/1000
+	sand/1000
+	coal/1000
   ]
 }
 color: #E44d11
