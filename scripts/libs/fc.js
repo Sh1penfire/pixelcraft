@@ -111,6 +111,26 @@ function validateNearby(unit, range){
     return returnVar
 }
 
+// how use is
+/*
+
+const d = new Floatc2({get(x, y){
+    Fill.circle(e.x + x,e.y + y,10)
+     }})
+lib.rotatorFloat(10,25,Time.time,10,d)
+now your circles rotator
+
+*/
+function rotatorFloat(amount, limitAngle, rotatorAngle, degrace, Floatc) {
+  let x = Angles.trnsx(rotatorAngle, degrace);
+  let y = Angles.trnsy(rotatorAngle, degrace);
+  for (var i = 0; i < amount; i++) {
+    let realAngle = i * 360 / amount + limitAngle
+    Floatc.get(x, y)
+  }
+}
+
+
 module.exports = {
     rotationFC: rotationFC,
     helix: helix,
@@ -122,5 +142,6 @@ module.exports = {
     optionalRotatorY: optionalRotatorY,
     statusCheck: statusCheck,
     returnStatus: returnStatus,
-    validateNearby: validateNearby
+    validateNearby: validateNearby,
+    rotatorFloat: rotatorFloat
 };
