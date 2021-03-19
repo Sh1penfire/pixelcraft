@@ -122,8 +122,12 @@ corroded
 ]
 research: {
 parent: rustydelta
+
+research: {
+parent: rustyjavalin
 requirements: [
-    iron/2500
-    titanium/550
+    titanium/2000
+    feromagnet/500
 ]
+}
 }

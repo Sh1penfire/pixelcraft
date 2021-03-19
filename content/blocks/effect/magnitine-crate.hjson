@@ -6,8 +6,8 @@ hasItems: true
 health: 450
 size: 1
 requirements: [
-iron/100
-magnitine/50
+rust/45
+magnitine/35
 ]
 category: effect
 research: container

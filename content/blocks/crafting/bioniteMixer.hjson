@@ -8,14 +8,14 @@ consumes: {
 	items:{
 		items:[
 			bionorb/5
-			iron/2
+			rust/2
 			thorium/3
 		]
 	}
 }
 requirements: [
  	stone/100
-	iron/85
+	rust/85
 	ceramic/95
   	graphite/50
   	thorium/35

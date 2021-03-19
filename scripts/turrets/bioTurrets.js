@@ -38,7 +38,7 @@ const bioShot = extend(ArtilleryBulletType, {
     splashDamageRadius: 24,
     ammoMultiplier: 5
 });
-bioShot.status = statuses.groveCurse;
+bioShot.status = statuses.seeded;
 bioShot.despawnEffect = Fx.explosion;
 bioShot.hitEffect = Fx.explosion;
 bioShot.frontColor = Color.valueOf("ced671");

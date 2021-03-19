@@ -11,7 +11,7 @@ targetAir: true
 ammoUseEffect: none
 rotateSpeed: 6
 requirements: [
- iron/500
+ rust/500
  magnitine/360
  titanium/310
  feromagnet/300

@@ -2,7 +2,7 @@ name: Magnitine Drill
 description: A sturdy drill that uses magnitism to move it's parts.
 size: 1
 tier: 3
-drillTime: 355
+drillTime: 245
 consumes: {
   liquid: {
     liquid: water

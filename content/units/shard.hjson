@@ -1,5 +1,6 @@
 name: "Shard"
 description: "A hit and run assult unit which has a large detection range and can be mass produced."
+details: "Emerging from below the trees, a shard of what it had been previously."
 flying: true
 speed: 2
 health: 85
@@ -85,4 +86,7 @@ collidesTeam: true
 }]
 research: {
 parent: core-refraction
+requirements: [
+    rust/1000
+]
 }

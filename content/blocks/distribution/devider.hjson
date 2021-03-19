@@ -6,7 +6,7 @@ floating: true
 insulated: true
 description: Separates routes. Replacement for copper junction.
 requirements: [
-  iron/2
+  rust/2
   stone/6
 ]
 category: distribution

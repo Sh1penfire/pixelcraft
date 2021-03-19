@@ -1,5 +1,6 @@
 const fc = require("libs/fc");
 const statuses = require("libs/statuses");
+const voidicsm = require("extras/voidicsm");
 
 const basicTurret1 = extend(ItemTurret, "basicTurret1", {});
 
@@ -80,8 +81,8 @@ magnitineShot.speed = 1.25;
 const basicTurret3b1 = extendContent(ItemTurret, "basicTurret3b1", {  
     init() {
     this.ammo(
-        Vars.content.getByName(ContentType.item,"pixelcraft-iron"), ironShot,
-        Vars.content.getByName(ContentType.item,"pixelcraft-magnitine"), magnitineShot
+        voidicsm.rust, ironShot,
+        voidicsm.magnitine, magnitineShot
     );
     this.super$init();
   }

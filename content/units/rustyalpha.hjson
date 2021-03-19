@@ -83,6 +83,6 @@ lifetime: 25
 research: {
 parent: rusted-core
 requirements: [
-    iron/2500
+    rust/2500
 ]
 }

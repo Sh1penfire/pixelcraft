@@ -36,7 +36,7 @@ shootType: {
 	collides: true
 	collidesGround: false
 	collidesTiles: false
-	collidesAir: true
+  	collidesAir: true
 	fragBullet: {
 	type: basicBulletType
 	damage: 5
@@ -48,10 +48,10 @@ shootType: {
 	collidesGround: false
 	collidesTiles: false
 	collidesAir: true
-}
+  }
 }
 requirements: [
- iron/35
+ rust/35
  graphite/15
 ]
 category: turret

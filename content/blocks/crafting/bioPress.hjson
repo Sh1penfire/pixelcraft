@@ -13,7 +13,7 @@ bionorb/1
 }
 requirements: [
   stone/60
-  iron/10
+  rust/10
   bionorb/10
 ]
 category: production

@@ -9,7 +9,7 @@ shots: 1
 insulated: true
 buildVisibility: shown
 requirements: [
-  iron/350    
+  rust/350    
   magnitine/300
   titanium/360
   feromagnet/240

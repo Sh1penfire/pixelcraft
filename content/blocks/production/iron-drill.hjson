@@ -12,7 +12,7 @@ consumes: {
   }
 }
 requirements: [
-  iron/5
+  rust/5
 ]
 category: production
 research: shiny-beacon

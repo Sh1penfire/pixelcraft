@@ -5,7 +5,7 @@ Decaying from the rust."
 health: 400
 size: 1
 requirements: [
-  iron/6
+  rust/6
 ]
 category: defense
 research: copper-wall

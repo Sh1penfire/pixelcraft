@@ -47,7 +47,7 @@ damage: 15
 research: {
 parent: rustyalpha
 requirements: [
-    iron/2000
+    coal/2000
     magnitine/500
 ]
 }

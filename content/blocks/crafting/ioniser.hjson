@@ -10,7 +10,7 @@ consumes: {
   power: 2
   items: {
     items: [
-      iron/3
+      rust/3
       magnitine/6
       titanium/3
     ]
@@ -21,7 +21,7 @@ consumes: {
   }
 }
 requirements: [
-iron/125
+rust/125
 magnitine/85
 titanium/65
 feromagnet/50 

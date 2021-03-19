@@ -19,7 +19,7 @@ consumes: {
 }
 requirements: [
   stone/200
-  iron/85
+  rust/85
   magnitine/50
 ]
 category: crafting

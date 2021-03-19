@@ -5,7 +5,7 @@ consumes:{
 power: 0.1
 }
 requirements: [
-  stone/85
+  stone/65
 ]
 brightness: 7.5
 radius: 200

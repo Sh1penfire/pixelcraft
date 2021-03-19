@@ -7,7 +7,7 @@ size: 2
 unitCapModifier: 15
 unitType: capsule
 requirements: [
-  iron/3000
+  rust/3000
   magnitine/1000
 ] 
 category: effect

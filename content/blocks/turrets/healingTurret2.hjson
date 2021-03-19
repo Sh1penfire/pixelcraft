@@ -11,7 +11,7 @@ smokeEffect: none
 shootSound: pew
 outlineIcon: true
 requirements: [
-  iron/ 80
+  rust/80
   magnitine/40
   titanium/55
   feromagnet/24

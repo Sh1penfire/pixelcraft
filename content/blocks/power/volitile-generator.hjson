@@ -16,7 +16,7 @@ liquid: {
 }
 }
 requirements: [
-  iron/50
+  rust/50
   titanium/25
 ]
 category: power

@@ -1,5 +1,6 @@
 name: "Capsule"
 description: "Contains an ai that can transport itself into other mechinisms that allow it to."
+details: "A flying fish had survived. It had been changed by the soil it was burried in and became mechanical."
 flying: true
 speed: 2.5
 accel: 0.03
@@ -78,4 +79,8 @@ collidesTeam: true
 }]
 research: {
 parent: shard
+requirements: [
+    coal/2000
+    magnitine/500
+]
 }

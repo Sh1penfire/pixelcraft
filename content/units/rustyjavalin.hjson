@@ -76,4 +76,9 @@ damage: 10
 }]
 research: {
 parent: rustydart
+requirements: [
+    coal/2000
+    magnitine/500
+]
+
 }

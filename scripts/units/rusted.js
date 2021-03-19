@@ -256,6 +256,11 @@ rustyDelta.constructor = () => extend(MechUnit, {
 })
 refresh(rustyDelta)
 
+const rustyTau = extend(UnitType, "rustytau", {});
+rustyTau.constructor = () => extend(MechUnit, {
+    classID: () => rustyTau.classID
+});
+refresh(rustyTau)
 //const omegaWeapon1 = extend()
 
 const rustyOmega = extend(UnitType, "rustyomega", {});

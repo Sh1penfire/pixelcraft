@@ -9,7 +9,6 @@ range: 200
 shots: 5
 powerUse: 10
 rotateSpeed: 50
-//shootYOffset: 10
 inaccuracy: 15
 spread: 5
 targetAir: true
@@ -51,7 +50,7 @@ shootType: {
 }
 }
 requirements: [
- iron/800
+ rust/800
  magnitine/300
  feromagnet/150
 ]

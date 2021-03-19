@@ -28,6 +28,7 @@ ammoTypes: {
 	fragVelocityMax: 1.5
 	frontColor: 56d7ca
 	backColor: 77b6b0
+	status: freezing
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -97,6 +98,7 @@ ammoTypes: {
 	collides: true
 	collidesAir: true
 	collidesTiles: true
+	status: corroded
 	fragBullet: {
     type: BasicBulletType
 	frontColor: ffffff
@@ -127,7 +129,7 @@ ammoTypes: {
 	}
  }
 requirements: [
- iron/125
+ rust/125
  magnitine/85
  titanium/70
 ]

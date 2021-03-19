@@ -683,7 +683,7 @@ bombT2m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT2m1, {
     update(){
         this.super$update();
         if(this.health < this.maxHealth){
-            this.heal(0.01);
+            this.heal(this.maxHealth/6000);
         }
     },
     onDestroyed(){

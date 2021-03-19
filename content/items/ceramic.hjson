@@ -1,5 +1,15 @@
 name: Ceramic
 description: A waterproof materiel, resistant to weathering, and a good insulator.
+details: "Takes in heat quite effectively. Perhapse this could be used to set things on fire."
 hardness: 2
 cost: 1
+research: {
+  parent: magnitine
+  requiremenst:[
+  iron/1000
+  stone/2500
+  magnitine/1000
+  ]
+}
 color: e1ccae
+

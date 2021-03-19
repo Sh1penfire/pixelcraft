@@ -3,7 +3,6 @@ description: "A sturdy defensive block.
 Provides moderate protection from enemies. Blocks electric arcs.
 Spans multiple tiles."
 insulated: true
-type: Wall
 health: 2400
 size: 2
 requirements: [

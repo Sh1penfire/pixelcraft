@@ -17,7 +17,7 @@ shrinkY: 1
 }
 }
 requirements: [    
-  iron/10000000
+  rust/10000000
 ]
 category: turret
 research: meltdown

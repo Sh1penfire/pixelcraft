@@ -1,6 +1,7 @@
 type: Pump
 name: Well
-description: Extracts liquid from liquid tiles that it is on.
+description: Extracts liquid from liquid tiles that it is on. Can be placed at sea.
+placeableLiquid: true
 pumpAmount: 0.155
 category: liquid
 requirements: [

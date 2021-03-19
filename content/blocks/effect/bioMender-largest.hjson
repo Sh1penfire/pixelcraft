@@ -25,7 +25,7 @@ consumes: {
 }
 requirements: [
 bionorb/15
-iron/30
+rust/30
 magnitine/25
 ]
 category: effect

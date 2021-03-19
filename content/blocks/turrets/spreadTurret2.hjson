@@ -1,6 +1,7 @@
 name: Chalembra
-description: "Medium ranged turret that scatters bullets around itself. Launches bullets further at the longer sides."
-health: 300
+description: "Medium ranged turret that scatters bullets around itself. Launches bullets further at the longer sides. Placeable at sea."
+health: 560
+placeableLiquid: true
 size: 2
 shootSound: respawning
 reloadTime: 25
@@ -11,35 +12,32 @@ ammoUseEffect: none
 rotateSpeed: 10
 spread: 36
 ammoTypes: {
-iron: {
-type: basicBulletType
-damage: 25
-lifetime: 125
-hitEffect: none
-despawnEffect: none
-status: slow
-statusDuration: 60
-shrinkY: 1
+rust: {
+  type: basicBulletType
+  damage: 25
+  lifetime: 125
+  hitEffect: none
+  despawnEffect: none
+  shrinkY: 1
 }
-
 magnitine: {
-type: basicBulletType
-damage: 45
-knockback: 1
-lifetime: 125
-splashDamage: 4
-width: 8
-height: 18
-splashDamageRadius: 18
-hitEffect: none
-despawnEffect: none
-status: slow
-statusDuration: 60
-shrinkY: 1
+  type: basicBulletType
+  damage: 45
+  knockback: 1
+  lifetime: 125
+  splashDamage: 4
+  width: 8
+  height: 18
+  splashDamageRadius: 18
+  hitEffect: none
+  despawnEffect: none
+  status: slow
+  statusDuration: 60
+  shrinkY: 1
 }
 }
 requirements: [
-   iron/ 50
+   rust/50
    graphite/ 65
    magnitine/125
 ]

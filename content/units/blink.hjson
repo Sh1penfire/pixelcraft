@@ -95,6 +95,8 @@ keepVelocity: false
 research: {
 parent: rusted-core
 requirements: [
-    iron/2500
+    tinormium/2500
+    graphite/2500
+    ceramic/650
 ]
 }

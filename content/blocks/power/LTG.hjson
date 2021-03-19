@@ -8,7 +8,7 @@ hasItems: true
 floating: true
 generateEffect: smelt
 requirements: [
-  iron/55
+  rust/55
   graphite/35
   magnitine/45
   ceramic/15

@@ -1,6 +1,7 @@
 name: Bioformer
-description: "Grows plants and compresses them down into orbs. Needs water to grow plants."
+description: "Grows plants and compresses them down into orbs. Needs water to grow plants. Floats on liquids and can be placed at sea."
 size: 2
+placeableLiquid: true
 hasLiquids: true
 hasItems: true
 craftTime: 240
@@ -11,7 +12,7 @@ amount: 0.1
 }}
 requirements: [
   stone/30
-  iron/25
+  rust/25
   bionorb/1
 ]
 category: production

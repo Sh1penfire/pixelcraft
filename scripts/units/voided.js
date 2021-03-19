@@ -3,6 +3,15 @@ const fc = require("libs/fc")
 const theAislol = require("libs/theAislol")
 const statuses = require("libs/statuses")
 
+/*function shardUnit(name, DC, DR, type, build){
+    const unit = extend(type, name, {});
+    unit.constructor = () => extend(build, {
+        
+        });
+    }
+    return unit;
+};*/
+
 const voidExplosion = new Effect(65, e => {
     Draw.color(Color.black, Color.black, e.fout());
     Lines.stroke(e.fout() * 6); 
@@ -76,13 +85,45 @@ const blink = extend(UnitType, "blink", {
         }
     },
     //haha no light goes br
-    drawLight(unit){}
+    drawLight(unit){},
+    display(unit, table){
+        table.table(cons(t => {
+            t.left();
+            t.add(new Image(this.icon(Cicon.medium))).size(8 * 4).scaling(Scaling.fit);
+            t.labelWrap(unit.localizedName).left().width(190).padLeft(5);
+        })).growX().left();
+        table.row();
+
+        table.table(cons(bars => {
+            bars.defaults().growX().height(20).pad(4);
+            bars.add(new Bar("stat.health", Pal.health, () => unit.health/unit.maxHealth))
+            bars.row();
+            
+            bars.add(new Bar(unit.vstring(), Tmp.c2.set(Color.valueOf("#231841")).lerp(Color.valueOf("#9c7ae1"), unit.shieldChargef()), () =>unit.shieldChargef()));
+            bars.row();
+            
+            unit.abilities.forEach(e => {
+                ability.displayBars(unit, bars);
+            });
+            bars.row();
+            
+        })).growX();
+
+        if(unit.controller instanceof LogicAI){
+            table.row();
+            table.add(Blocks.microProcessor.emoji() + " " + Core.bundle.get("units.processorcontrol")).growX().wrap().left();
+            table.row();
+            table.label(() => Iconc.settings + " " + unit.flag + "").color(Color.lightGray).growX().wrap().left();
+        }
+        
+        table.row();
+    }
 });
 blink.constructor = () => extend(MechUnit, {
     damage(number){
         if(number > 0){
             if(this.vShield >= 1){
-                this.DR = 1;
+                this.DR = 1.1;
                 this.vShield--;
                 this.eAlpha = 1;
                 if(this.vShield < 1 && !this.sBroken){
@@ -93,30 +134,21 @@ blink.constructor = () => extend(MechUnit, {
                 else this.vRecharge += 0.01;
             }
             else{
-                this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
+                this.DR = Mathf.slerpDelta(this.DR, 0, 0.005);
                 this.vShield = 0;
             }
-            if(number < this.type.health * 12.5){
-                number = number * (1 - this.DR);
-            }
-            else{
-                number = number * (1 - this.DR * 0.5);
-            }
+            if(number < this.type.health * 12.5 || number > this.type.health * 50) number = number * (1 - this.DR);
+            else number = number * (1 - this.DR * 0.5);
+            this.super$damage(number);
         }
         else this.eAlpha = 1;
-        
-        if(number > 0) this.super$damage(number);
-        else this.hitTime = 1;
+        if(number <= 0) this.hitTime = 1;
     },
     apply(status, time){
         if(status != StatusEffects.none && status != null && !this.isImmune(status)){
-            if(status.permanent == true){
-                this.heal(Math.abs(status.damage) * 60);
-            }
-            else if(this.DR <= 0.75 && status.damage > 0){
-                this.super$apply(status, time);
-                print(status)
-            }
+            if(status.damage <= 0) this.super$apply(status, time);
+            else if(status.permanent == true) this.heal(Math.abs(status.damage) * 60);
+            else if((this.DR <= 0.75 || this.vShield <= 1) && status.damage > 0) this.super$apply(status, time);
         }
     },
     update(){
@@ -142,6 +174,13 @@ blink.constructor = () => extend(MechUnit, {
         this.super$killed();
         voidExplosion.at(this.x, this.y, this.rotation, [this.hitSize * 4, 3, 5, 4]);
         voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0);
+    },
+    shieldChargef(){
+        return this.vShield/this.sLimit;
+    },
+    vstring(){
+        if(this.sBroken === true) return "Shield Shattered"
+        else return "Void Shield Charge"
     },
     classId: () => blink.classId,
     dCol1: Color.valueOf("#9c7ae1"),
@@ -170,15 +209,48 @@ const nescience = extend(UnitType, "nescience", {
             nescience.immunities.add(nescienceImmunities[i]);
         }
     },
-    drawLight(unit){}
+    drawLight(unit){},
+    display(unit, table){
+        table.table(cons(t => {
+            t.left();
+            t.add(new Image(this.icon(Cicon.medium))).size(8 * 4).scaling(Scaling.fit);
+            t.labelWrap(unit.localizedName).left().width(190).padLeft(5);
+        })).growX().left();
+        table.row();
+
+        table.table(cons(bars => {
+            bars.defaults().growX().height(20).pad(4);
+            bars.add(new Bar("stat.health", Pal.health, () => unit.health/unit.maxHealth))
+            bars.row();
+            
+            bars.add(new Bar(unit.vstring(), Tmp.c2.set(Color.valueOf("#231841")).lerp(Color.valueOf("#9c7ae1"), unit.shieldChargef()), () =>unit.shieldChargef()));
+            bars.row();
+            
+            unit.abilities.forEach(e => {
+                ability.displayBars(unit, bars);
+            });
+            bars.row();
+            
+        })).growX();
+
+        if(unit.controller instanceof LogicAI){
+            table.row();
+            table.add(Blocks.microProcessor.emoji() + " " + Core.bundle.get("units.processorcontrol")).growX().wrap().left();
+            table.row();
+            table.label(() => Iconc.settings + " " + unit.flag + "").color(Color.lightGray).growX().wrap().left();
+        }
+        
+        table.row();
+    }
 });
 nescience.constructor = () => extend(MechUnit, {
     damage(number){
-        if(number > 0){
+        if(number > 0 && this.DRhit != true){
             if(this.vShield >= 1){
-                this.DR = 1;
+                this.DR = 1.1;
                 this.vShield--;
                 this.eAlpha = 1;
+                if(number > )this.DRhit = true;
                 if(this.vShield < 1 && !this.sBroken){
                     this.sBroken = true;
                     this.vRecharge = 0;
@@ -187,30 +259,21 @@ nescience.constructor = () => extend(MechUnit, {
                 else this.vRecharge += 0.01;
             }
             else{
-                this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
+                this.DR = Mathf.slerpDelta(this.DR, 0, 0.005);
                 this.vShield = 0;
             }
-            if(number < this.type.health * 12.5){
-                number = number * (1 - this.DR);
-            }
-            else{
-                number = number * (1 - this.DR * 0.5);
-            }
+            if(number < this.type.health * 12.5 || number > this.type.health * 50) number = number * (1 - this.DR);
+            else number = number * (1 - this.DR * 0.5);
+            this.super$damage(number);
         }
         else this.eAlpha = 1;
-        
-        if(number > 0) this.super$damage(number);
-        else this.hitTime = 1;
+        if(number <= 0) this.hitTime = 1;
     },
     apply(status, time){
         if(status != StatusEffects.none && status != null && !this.isImmune(status)){
-            if(status.permanent == true){
-                this.heal(Math.abs(status.damage) * 60);
-            }
-            else if(this.DR <= 0.75 && status.damage > 0){
-                this.super$apply(status, time);
-                print(status)
-            }
+            if(status.damage <= 0) this.super$apply(status, time);
+            else if(status.permanent == true) this.heal(Math.abs(status.damage) * 60);
+            else if((this.DR <= 0.75 || this.vShield <= 1) && status.damage > 0) this.super$apply(status, time);
         }
     },
     update(){
@@ -223,6 +286,7 @@ nescience.constructor = () => extend(MechUnit, {
             if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.003;
             else if(this.sBroken) this.sBroken = false;
             this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
+            if(this.DRhit == true) this.DRhit = false;
         }
     },
     draw(){
@@ -237,6 +301,13 @@ nescience.constructor = () => extend(MechUnit, {
         voidExplosion.at(this.x, this.y, this.rotation, [this.hitSize * 4, 3, 5, 4]);
         voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0);
     },
+    shieldChargef(){
+        return this.vShield/this.sLimit;
+    },
+    vstring(){
+        if(this.sBroken === true) return "Shield Shattered"
+        else return "Void Shield Charge"
+    },
     classId: () => nescience.classId,
     dCol1: Color.valueOf("#9c7ae1"),
     dCol2: Color.valueOf("#231841"),
@@ -249,3 +320,8 @@ nescience.constructor = () => extend(MechUnit, {
     sBroken: false
 });
 refresh(nescience);
+
+Events.on(ClientLoadEvent, b  => {
+    blink.weapons.get(0).bullet.status = statuses.blackout;
+    nescience.weapons.get(0).bullet.status = statuses.blackout;
+});

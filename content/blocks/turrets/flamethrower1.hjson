@@ -144,7 +144,7 @@ pierce: true
     }
 }
 requirements: [    
-  iron/15
+  rust/15
   magnitine/70
   titanium/25
 ]

@@ -11,7 +11,7 @@ smokeEffect: none
 shootSound: release
 outlineIcon: true
 requirements: [
-  iron/ 250
+  rust/250
   magnitine/100
   feromagnet/75
 ]

@@ -1,6 +1,7 @@
 name: Dawn
-description: "Medium ranged turret that scatters bullets around itself."
+description: "Medium ranged turret that scatters bullets around itself. Placeable at sea."
 health: 300
+placeableLiquid: true
 size: 1
 shootSound: respawning
 reloadTime: 30
@@ -11,7 +12,7 @@ ammoUseEffect: none
 rotateSpeed: 10
 spread: 36
 ammoTypes: {
-iron: {
+rust: {
 type: basicBulletType
 speed: 2
 damage: 25
@@ -35,7 +36,7 @@ knockback: 1
 }
 }
 requirements: [
-  iron/35
+  rust/35
   magnitine/25
 ]
 category: turret

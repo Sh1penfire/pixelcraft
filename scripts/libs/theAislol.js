@@ -1,16 +1,27 @@
 const fc = require("libs/fc")
 
 const swarmAI = () => extend(FlyingAI, {
+    /*
+    updateMovement(){
+        if(this.targetAlly == null) print("noeeeeee D:")
+        if(this.unit.abilities.find(a => a instanceof RepairFieldAbility) && this.targetAlly != null){
+            this.moveTo(target, target.hitSize/2 * 1.1, 50);
+            this.unit.lookAt(target);
+            print("hai")
+        }
+        else print("noe ;c")
+        this.super$updateMovement()
+    },*/
     findTarget(x, y, range, air, ground){
         let t = null
-        if(Units.closest(this.unit.team, x, y, range * 6, u => fc.validateNearby(u, range * 2)) && Units.closestTarget(this.unit.team, x, y, range * 10, u => u.checkTarget(air, ground), t => ground)){
+        if(Units.closest(this.unit.team, x, y, range * 6, u => fc.validateNearby(u, range * 3), t => ground)){
             let targ1 = null
-            let targetAlly = Units.closest(this.unit.team, x, y, range * 6, u => fc.validateNearby(u, range * 2) && u.damaged());
-            let targetAlly2 = Units.closest(this.unit.team, x, y, range * 6, u => fc.validateNearby(u, range * 2));
+            this.targetAlly = Units.closest(this.unit.team, x, y, range * 6, u => fc.validateNearby(u, range * 2) && u.damaged());
+            this.targetAlly2 = Units.closest(this.unit.team, x, y, range * 6, u => fc.validateNearby(u, range * 2));
             
-            if(targetAlly != null) targ1 = Units.closestTarget(this.unit.team, targetAlly.x, targetAlly.y, range * 2, u => u.checkTarget(air, ground), t => ground);
+            if(this.targetAlly != null) targ1 = Units.closestTarget(this.unit.team, this.targetAlly.x, this.targetAlly.y, range * 2, u => u.checkTarget(air, ground), t => ground);
                 
-            else if(targetAlly2 != null) targ1 = Units.closestTarget(this.unit.team, targetAlly2.x, targetAlly2.y, range * 2.5, u => u.checkTarget(air, ground), t => ground);
+            else if(this.targetAlly2 != null) targ1 = Units.closestTarget(this.unit.team, this.targetAlly2.x, this.targetAlly2.y, range * 2.5, u => u.checkTarget(air, ground), t => ground);
             
             let targ2 = Units.closestTarget(this.unit.team, x, y, range * 2, u => u.checkTarget(air, ground), t => ground);
             if(targ1 != null && targ2 != null){

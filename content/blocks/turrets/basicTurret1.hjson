@@ -17,7 +17,7 @@ ammoTypes: {
     smokeEffect: shootSmallSmoke
     lifetime: 20
     }
-  iron: {
+  rust: {
     speed: 4
     damage: 7
     width: 5
@@ -92,8 +92,8 @@ pixelite: {
         }
         }
 }
-requirements: [    
-  iron/35
+requirements: [
+  rust/35
 ]
 category: turret
 research: duo

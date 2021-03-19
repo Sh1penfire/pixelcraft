@@ -10,7 +10,7 @@ powerBuffered: 4000
 }
 requirements: [
   magnitine/10
-  iron/35
+  rust/35
 ]
 category: power
 research: burner

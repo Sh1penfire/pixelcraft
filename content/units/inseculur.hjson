@@ -1,5 +1,5 @@
 name: "Inseculur"
-description: "Rapidly fires pwoerfull bullets and barrages of missiels"
+description: "Rapidly fires powerfull bullets and barrages of missiels"
 flying: true
 speed: 2.25
 accel: 0.02

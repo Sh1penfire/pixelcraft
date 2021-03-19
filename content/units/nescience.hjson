@@ -127,7 +127,7 @@ keepVelocity: false
 research: {
 parent: blink
 requirements: [
-    iron/2000
+    coal/2000
     magnitine/500
 ]
 }
