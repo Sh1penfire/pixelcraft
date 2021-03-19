@@ -250,7 +250,7 @@ nescience.constructor = () => extend(MechUnit, {
                 this.DR = 1.1;
                 this.vShield--;
                 this.eAlpha = 1;
-                if(number > )this.DRhit = true;
+                if(number > 1)this.DRhit = true;
                 if(this.vShield < 1 && !this.sBroken){
                     this.sBroken = true;
                     this.vRecharge = 0;
