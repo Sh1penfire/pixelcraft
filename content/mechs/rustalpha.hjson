@@ -9,10 +9,10 @@ health: 225
 engineOffset: 5.5
 range: 140
 weapon: {
-length: 1.5
-reload: 21
-alternate: true
-ejectEffect: shellEjectSmall
-bullet: standardThorium
-shootSound: shoot
+  length: 1.5
+  reload: 21
+  alternate: true
+  ejectEffect: shellEjectSmall
+  bullet: standardThorium
+  shootSound: shoot
 } 

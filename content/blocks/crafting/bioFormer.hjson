@@ -5,10 +5,11 @@ hasLiquids: true
 hasItems: true
 craftTime: 240
 consumes: {
-liquid:{
-liquid: water
-amount: 0.1
-}}
+  liquid: {
+    liquid: water
+    amount: 0.1
+  }
+}
 requirements: [
   stone/30
   iron/25

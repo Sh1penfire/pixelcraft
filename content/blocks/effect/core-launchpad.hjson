@@ -1,5 +1,5 @@
 type: CoreBlock
-name: "Core Launchpad"
+name: "Core: Launchpad"
 description: "Custom core for custom gamemodes."
 health: 5000
 itemCapacity: 20000

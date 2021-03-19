@@ -5,8 +5,8 @@ hasItems: true
 craftTime: 150
 consumes: {
 	power: 2
-	items:{
-		items:[
+	items: {
+		items: [
 			bionorb/5
 			iron/2
 			thorium/3

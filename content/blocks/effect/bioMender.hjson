@@ -1,5 +1,5 @@
 name: "Bio Mender"
-description: "A stone block covered with plantlife. Repairs blocks using nature to repair gaps in blocks. Has a lot of range."
+description: "A stone block covered with vegetation. Repairs blocks using nature to repair gaps in blocks. Has a lot of range."
 reload: 150
 range: 100
 baseColor: ccd28d

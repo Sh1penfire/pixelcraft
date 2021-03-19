@@ -7,8 +7,8 @@ color: ffffff
 alwaysUnlocked: false
 research: {
   parent: iron
-  requiremenst:[
-  stone/500
-  iron/800
+  requirements: [
+    stone/500
+    iron/800
   ]
 }

@@ -5,8 +5,8 @@ hardness: 0
 cost: 2
 research: {
   parent: stone
-  requiremenst:[
-  stone/1000
+  requirements: [
+    stone/1000
   ]
 }
 color: cad77d

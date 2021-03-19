@@ -21,10 +21,10 @@ consumes: {
   }
 }
 requirements: [
-iron/125
-magnitine/85
-titanium/65
-feromagnet/50 
+  iron/125
+  magnitine/85
+  titanium/65
+  feromagnet/50 
 ]
 category: crafting
 research: magnitiser

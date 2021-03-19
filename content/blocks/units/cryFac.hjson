@@ -2,19 +2,18 @@ name: "Crystaline Factory"
 description: "A frozen factory."
 health: 300
 size: 3
-plans:[
- {
- unit: crystal
- requirements:[
- coal/15
- graphite/15
- titanium/25
-]
- }
-
+plans: [
+  {
+    unit: crystal
+    requirements: [
+	  coal/15
+	  graphite/15
+	  titanium/25
+    ]
+  }
 ]
 consumes: {
-power: 0.3
+  power: 0.3
 }
 category: units
 research: ground-factory

@@ -1,6 +1,6 @@
 type: GenericCrafter
 name: Taconite Pulveriser
-description: "Pulverises stone and extracts the iron within. Theres a note in the schematics. It reads: During the volitile stage of the universe, Templura and Serpulo, fated to meet, crashed into eachother with such force, the shockwave blew away the other planets in the system. The remains of Templura formed a small rocky planet while Serpulo, barely held together after the impact slowly reformed into a new world. Now it's ours. Come, our work is not done yet."
+description: "Pulverises stone and extracts the iron within. Theres a note in the schematics. It reads: During the volatile stage of the universe, Templura and Serpulo, fated to meet, crashed into each other with such force, the shockwave blew away the other planets in the system. The remains of Templura formed a small rocky planet while Serpulo, barely held together after the impact slowly reformed into a new world. Now it's ours. Come, our work is not done yet."
 size: 3
 hasItems: true
 craftTime: 60
