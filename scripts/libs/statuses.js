@@ -366,7 +366,7 @@ const slushFall = extend(StatusEffect, "slushFall", {
         let acSTatus = fc.returnStatus(unit, slushFall)
         //past 12 seconds, scl is 1. Anywhere below 12 seconds and scl drops.
         let scl = Mathf.slerpDelta(0, 1, time/720)
-        acSTatus.dragMultiplier = 1 - scl * 0.35
+        if(acSTatus.dragMultiplier != null) acSTatus.dragMultiplier = 1 - scl * 0.35
         acSTatus.speedMultiplier = 1 - scl
         acSTatus.reloadMultiplier = 1 - scl
         if(fc.statusCheck(unit, StatusEffects.freezing) && !fc.statusCheck(unit, warmth) && this.time < 721){
