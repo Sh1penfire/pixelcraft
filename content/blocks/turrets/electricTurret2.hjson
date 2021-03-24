@@ -43,6 +43,7 @@ shootType: {
 	width: 4
 	height: 15
 	drag: 0.001
+	reflectable: false
 	frontColor: 86baf9
 	backColor: 86baf9
 	trailColor: 86baf9

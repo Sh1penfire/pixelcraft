@@ -35,15 +35,21 @@ const blast = new Effect(15, e => {
   Lines.circle(e.x, e.y, e.fout() * 2);
 });
 
-const ion = extend(BasicBulletType, {});
-const ionBomb = extend(BasicBulletType, {});
+const ion = extend(BasicBulletType, {
+    absorbable: false
+});
+
+const ionBomb = extend(BasicBulletType, {
+    absorbable: false
+});
 //reusing the puver code
 const shot = extend(MissileBulletType, {
     update(b){
         shotTrail.at(b.x, b.y);
         ion.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), 45), fc.helix(5, 4, b.fin()));
         ion.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), -45), fc.helix(5, 4, b.fin()));
-    }
+    },
+    absorbable: false
 });
 
 const electricTurret4b1 = extendContent(PowerTurret, "electricTurret4b1", {

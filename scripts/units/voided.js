@@ -14,23 +14,15 @@ const statuses = require("libs/statuses")
 
 const voidExplosion = new Effect(65, e => {
     Draw.color(Color.black, Color.black, e.fout());
-    Lines.stroke(e.fout() * 6); 
-    
-    let alpha = 1 -Math.sin(e.fout() * Math.PI + Math.PI/3)
-    
-    Draw.alpha(alpha)
-    
-    Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI))
-    
-    let scaling = -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3)
-    
-    let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841")
-    fromColor.a = alpha, toColor.a = alpha
-    
-    Fill.light(e.x, e.y, 15, scaling * e.data[0], fromColor, toColor)
-    
-    Lines.circle(e.x, e.y, scaling * e.data[0]); 
-    
+    Lines.stroke(e.fout() * 6);
+    let alpha = 1 - Math.sin(e.fout() * Math.PI + Math.PI/3);
+    Draw.alpha(alpha);
+    Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
+    let scaling = -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3);
+    let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841");
+    fromColor.a = alpha, toColor.a = alpha;
+    Fill.light(e.x, e.y, 15, scaling * e.data[0], fromColor, toColor);
+    Lines.circle(e.x, e.y, scaling * e.data[0]);
     Angles.randLenVectors(e.id, e.data[3] , -scaling *  e.data[1] + e.data[2], e.rotation, 360, (x, y) => {
         Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), Math.abs(x/30) * Math.abs(y/30) * e.fout())
         Fill.circle(e.x + x, e.y + y, e.fout() * 1.2 + Math.sin(e.fin() * 4 * Math.PI));
@@ -90,7 +82,7 @@ const blink = extend(UnitType, "blink", {
         table.table(cons(t => {
             t.left();
             t.add(new Image(this.icon(Cicon.medium))).size(8 * 4).scaling(Scaling.fit);
-            t.labelWrap(unit.localizedName).left().width(190).padLeft(5);
+            t.labelWrap(unit.type.localizedName).left().width(190).padLeft(5);
         })).growX().left();
         table.row();
 
@@ -145,6 +137,7 @@ blink.constructor = () => extend(MechUnit, {
         if(number <= 0) this.hitTime = 1;
     },
     apply(status, time){
+        if(time == undefined) time = 1
         if(status != StatusEffects.none && status != null && !this.isImmune(status)){
             if(status.damage <= 0) this.super$apply(status, time);
             else if(status.permanent == true) this.heal(Math.abs(status.damage) * 60);

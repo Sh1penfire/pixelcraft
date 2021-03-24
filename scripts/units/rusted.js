@@ -295,7 +295,7 @@ shard.constructor = () => extend(UnitEntity, {
         this.chargeTimer = Mathf.slerpDelta(this.chargeTimer, 1, 0.01)
     },
     collision(bullet){
-        if(bullet.type.reflectable && !bullet.pierce && this.reflectionCharge > bullet.type.damage && this.chargeTimer){
+        if(bullet.type.reflectable && !bullet.type.pierce && this.reflectionCharge > bullet.type.damage && this.chargeTimer > 0.9){
             bullet.type.create(this, this.team, this.x, this.y, this.angleTo(bullet), 1, bullet.fout())
             this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, 0, bullet.type.damage)
             this.chargeTimer = 0
@@ -314,10 +314,15 @@ refresh(shard)
 
 const capsule = extend(UnitType, "capsule", {});
 capsule.constructor = () => extend(UnitEntity, {
+    update(){
+        this.super$update()
+        this.chargeTimer = Mathf.slerpDelta(this.chargeTimer, 1, 0.01)
+    },
     collision(bullet){
-        if(bullet.type.reflectable && !bullet.pierce && this.reflectionCharge > bullet.type.damage){
+        if(bullet.type.reflectable && !bullet.type.pierce && this.reflectionCharge > bullet.type.damage && this.chargeTimer > 0.9){
             bullet.type.create(this, this.team, this.x, this.y, this.angleTo(bullet), 1, bullet.fout())
             this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, 0, bullet.type.damage)
+            this.chargeTimer = 0
         }
         else{
             this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, this.chargeCap, bullet.type.damage)
@@ -325,7 +330,8 @@ capsule.constructor = () => extend(UnitEntity, {
     },
     classId: () => capsule.classId,
     chargeCap: 125,
-    reflectionCharge: 0
+    reflectionCharge: 0,
+    chargeTimer: 1
 })
 capsule.defaultController = theAislol.swarmAI
 capsule.abilities.add(new RepairFieldAbility(10, 250, 55))
@@ -333,10 +339,15 @@ refresh(capsule)
 
 const inseculur = extend(UnitType, "inseculur", {});
 inseculur.constructor = () => extend(UnitEntity, {
+    update(){
+        this.super$update()
+        this.chargeTimer = Mathf.slerpDelta(this.chargeTimer, 1, 0.01)
+    },
     collision(bullet){
-        if(bullet.type.reflectable && !bullet.pierce && this.reflectionCharge > bullet.type.damage){
+        if(bullet.type.reflectable && !bullet.type.pierce && this.reflectionCharge > bullet.type.damage && this.chargeTimer > 0.9){
             bullet.type.create(this, this.team, this.x, this.y, this.angleTo(bullet), 1, bullet.fout())
             this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, 0, bullet.type.damage)
+            this.chargeTimer = 0
         }
         else{
             this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, this.chargeCap, bullet.type.damage)
@@ -344,7 +355,16 @@ inseculur.constructor = () => extend(UnitEntity, {
     },
     classId: () => inseculur.classId,
     chargeCap: 155,
-    reflectionCharge: 0
+    reflectionCharge: 0,
+    chargeTimer: 1
 })
 inseculur.defaultController = theAislol.swarmAI
 refresh(inseculur)
+
+Events.on(ClientLoadEvent, b  => {
+    capsule.immunities.add(statuses.seeded)
+    inseculur.immunities.add(statuses.seeded)
+    inseculur.immunities.add(statuses.groveCurse)
+    capsule.weapons.get(0).bullet.status = statuses.seeded;
+    inseculur.weapons.get(0).bullet.status = statuses.groveCurse;
+});

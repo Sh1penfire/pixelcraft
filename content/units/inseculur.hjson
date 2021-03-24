@@ -7,8 +7,8 @@ drag: 0.0115
 health: 540
 armor: 3
 aimDst: 17
-range: 165
-maxRange: 175
+range: 155
+maxRange: 165
 buildSpeed: 3.5
 clipSize: 1
 hitSize: 12
@@ -39,8 +39,6 @@ rotate: false
 bullet: {
 type: MissileBulletType
 damage: 5
-splashDamage: 10
-splashDamageRadius: 25
 frontColor: eeb393
 backColor: a97567
 trailColor: bd8a6e
@@ -69,7 +67,7 @@ damage: 12
 speed: 4
 width: 11
 height: 14
-lifetime: 55
+lifetime: 35
 frontColor: eeb393
 backColor: a97567
 pierce: true
@@ -96,7 +94,7 @@ damage: 12
 speed: 4
 width: 11
 height: 14
-lifetime: 55
+lifetime: 50
 frontColor: eeb393
 backColor: a97567
 pierce: true

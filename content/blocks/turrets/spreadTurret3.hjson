@@ -17,6 +17,7 @@ type: basicBulletType
 damage: 15
 homingPower: 0.015
 lifetime: 186
+reflectable: false
 hitEffect: none
 despawnEffect: none
 status: slow
@@ -33,6 +34,7 @@ lifetime: 175
 splashDamage: 4
 width: 8
 height: 18
+reflectable: false
 splashDamageRadius: 18
 hitEffect: none
 despawnEffect: none

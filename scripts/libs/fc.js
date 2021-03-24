@@ -111,26 +111,22 @@ function validateNearby(unit, range){
     return returnVar
 }
 
-// how use is
-/*
+function fcNearbyEnemy(team, x, y, range){
+        let result = null;
+        let cdist = 0;
 
-const d = new Floatc2({get(x, y){
-    Fill.circle(e.x + x,e.y + y,10)
-     }})
-lib.rotatorFloat(10,25,Time.time,10,d)
-now your circles rotator
+        Units.nearbyEnemies(team, x - range, y - range, range*2, range*2, e => {
+            if(e.dead) return;
 
-*/
-function rotatorFloat(amount, limitAngle, rotatorAngle, degrace, Floatc) {
-  let x = Angles.trnsx(rotatorAngle, degrace);
-  let y = Angles.trnsy(rotatorAngle, degrace);
-  for (var i = 0; i < amount; i++) {
-    let realAngle = i * 360 / amount + limitAngle
-    Floatc.get(x, y)
-  }
+            let dst2 = e.dst2(x, y);
+            if(dst2 < range * range && (result == null || dst2 < cdist)){
+                result = e;
+                cdist = dst2;
+            }
+        });
+
+        return result;
 }
-
-
 module.exports = {
     rotationFC: rotationFC,
     helix: helix,
@@ -143,5 +139,5 @@ module.exports = {
     statusCheck: statusCheck,
     returnStatus: returnStatus,
     validateNearby: validateNearby,
-    rotatorFloat: rotatorFloat
+    fcNearbyEnemy: fcNearbyEnemy
 };

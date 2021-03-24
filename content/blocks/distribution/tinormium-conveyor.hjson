@@ -1,4 +1,3 @@
-type: StackConveyor
 name: "Tinormium Rails"
 description: "Packs items into a comfortable ride on a foam box. Can be placed at sea."
 placeableLiquid: true

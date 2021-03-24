@@ -18,6 +18,7 @@ speed: 2
 damage: 25
 width: 5
 height: 10
+reflectable: false
 shootEffect: none
 smokeEffect: none
 lifetime: 25
@@ -29,6 +30,7 @@ speed: 0.75
 damage: 45
 width: 8
 height: 18
+reflectable: false
 shootEffect: none
 smokeEffect: none
 lifetime: 150

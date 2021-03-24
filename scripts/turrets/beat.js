@@ -101,6 +101,7 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
             }
         }
         let TempTarget2 = Units.closestTarget(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+        let tr = this.range / this.tilesize;
         if(TempTarget != null){
             this.target = TempTarget;
             if(this.isControlled() != true || this.logicControlled() != true){
@@ -158,7 +159,8 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
             if(TempBuild != null){
                if(TempBuild.team == this.team && TempBuild.damaged() && Mathf.dst(TempBuild.x, TempBuild.y, this.x, this.y) < this.range() + 1){
                     TempBuild.heal(TempBuild.maxHealth/100 * type.healPercent)
-                    Fx.healBlockFull.at(TempBuild.x, TempBuild.y, TempBuild.block.size, Color.valueOf("#82f48f"))
+                    Fx.healBlockFull.at(TempBuild.x, TempBuild.y, TempBuild.block.size, Color.valueOf("#82f48f"));
+                    Fires.extinguish(Vars.world.tileWorld(this.targetPos.x, this.targetPos.y), 2355);
                     this.beamAlpha = 1;
                     this.setLastP();
                     this.shootEffect = Fx.none;

@@ -3,7 +3,7 @@ description: "A hit and run assult unit which has a large detection range and ca
 details: "Emerging from below the trees, a shard of what it had been previously."
 flying: true
 speed: 2
-health: 85
+health: 65
 aimDst: 10
 range: 50
 drag: 0.055

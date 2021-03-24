@@ -3,16 +3,16 @@ description: "Excavates the materiel found at the bedrock of the tiles it's on. 
 details: "[purple]The spores are waiting for their saviour. Infect Templura. The source is lacking fuel."
 size: 2
 tier: 1
-drillTime: 500
+drillTime: 650
 placeableLiquid : true
 consumes: {
   liquid: {
     liquid: water
-    amount: 0.1
+    amount: 0.025
     booster: true
     optional: true
   }
- power: 0.05
+ power: 0.25
 }
 requirements: [
   rust/50

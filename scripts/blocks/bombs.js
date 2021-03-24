@@ -239,8 +239,8 @@ pyraExplosion.splashDamage = 10;
 pyraExplosion.lifetime = 0;
 pyraExplosion.incendAmount = 25;
 pyraExplosion.status = StatusEffects.burning;
-pyraExplosion.despawnEffect = Fx.fire;
-pyraExplosion.hitEffect = Fx.fire;
+pyraExplosion.despawnEffect = fireBlast;
+pyraExplosion.hitEffect = fireBlast;
 
 const blastExplosion = extend(BombBulletType, {});
 blastExplosion.splashDamageRadius = 35;
@@ -421,7 +421,6 @@ bombT1m2.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m2, {
         if(b.team != this.team){
             if (this.timer.get(0, shortCooldown)) {
                 pyraExplosion.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(2));
-                fireBlast.at(this.x, this.y);
                 this.damage(this.maxHealth / 25);
             }
         }
@@ -626,7 +625,6 @@ bombT1m8.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT1m8, {
             prismaticCrystal.create(this, this.team, this.x, this.y, Mathf.random(360), Mathf.random(0));
             surgeShockwave.at(this.x, this.y);
             cryoSpray.at(this.x, this.y);
-            fireBlast.at(this.x, this.y)
             blastShockwave.at(this.x, this.y)
             sporeCooldown.at(this.x, this.y)
             prismiumShockwave.at(this.x, this.y)

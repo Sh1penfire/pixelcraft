@@ -33,6 +33,7 @@ shootType: {
 	weaveMag: 1
 	fragBullets: 3
 	status: melting
+	reflectable: false
 	collides: true
 	collidesGround: false
 	collidesTiles: false

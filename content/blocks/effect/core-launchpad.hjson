@@ -1,11 +1,10 @@
-type: CoreBlock
 name: "Core Launchpad"
 description: "Custom core for custom gamemodes."
-health: 5000
-itemCapacity: 20000
+health: 2750
+itemCapacity: 1000
 size: 2
-unitCapModifier: 15
-unitType: capsule
+unitCapModifier: 2
+unitType: rustydart
 requirements: [
   rust/3000
   magnitine/1000

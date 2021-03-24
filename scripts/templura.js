@@ -15,6 +15,14 @@ const templura = extend(Planet, "templura", Planets.sun, 3, 3, {
 });
 templura.meshLoader = () => extend(HexMesh, templura, 6, {});
 
+const unfamilierHospitality = extend(SectorPreset, "unfamilier-hospitality", templura, 95, {
+    captureWave: 2,
+    description: "Home to a small friend",
+    localizedName: "Unfamilier Hospitality",
+    difficulty: 0,
+    alwaysUnlocked: true
+});
+
 const ancientGrotto = extend(SectorPreset, "ancient-grotto", templura, 6, {
     captureWave: 14,
     description: "A grove full of rust. Collect rust and stone.",
@@ -27,6 +35,13 @@ const loggery = extend(SectorPreset, "loggery", templura, 23, {
     captureWave: 26,
     localizedName: "Loggery",
     difficulty: 3
+});
+
+const plantaeKindoma = extend(SectorPreset, "plantae-kindoma", templura, 72, {
+    localizedName: "Plantae Kingdoma",
+    description: "A facility established by the crux is present here. Droughts had scared the lands, but water still remains. Dry riverbeds run through the facility, remenant of what had been. \nThere is an enemy base here. Collect sand. Build rusty alphae. Destroy the base.",
+    details: "An unknown force resides here, remains of something greater.",
+    difficulty: 4
 });
 
 const rustedValley = extend(SectorPreset, "rusted-valley", templura, 1, {
@@ -49,7 +64,7 @@ const crossroads = extend(SectorPreset, "crossroads", templura, 26, {
 
 const dunescapeCrags = extend(SectorPreset, "dunescape-crags", templura, 27, {
     captureWave: 100,
-    description: "A smell of char lingers...\n The diralect used a superweapon here \nThe usage of it brought downfall to their conquest to concour the planet \nnow all that remains is their tech",
+    description: "A smell of char lingers...\n The diralect used a superweapon here \nThe usage of it brought downfall to their conquest to concour the planet \nnow all that remains is their tech. Survive what remains.",
     localizedName: "Dunescape Crags",
     difficulty: 10
 });
@@ -65,7 +80,7 @@ const frozenFalls = extend(SectorPreset, "frozen-falls", templura, 17, {
     difficulty: 7
 });
 
-const dessertWastelands = extend(SectorPreset, "dessert-wastelands", templura, 15, {
+const desertWastelands = extend(SectorPreset, "desert-wastelands", templura, 15, {
     localizedName: "Dessert Wastelands",
     description: "Water collects here, in a zone reminding of the wastelands. \n There is an enemy base here. Destroy it.",
     difficulty: 8
@@ -80,7 +95,7 @@ const birthplace = extend(SectorPreset, "birthplace", templura, 24, {
 
 const grasslandGrave = extend(SectorPreset, "grassland-grave", templura, 45, {
     captureWave: 48,
-    description: "Resting grounds for most of original mechs when landing. Slag pools are semi abundant. \n There are naval routes here. Build railguns to cover area. Survive.",
+    description: "Resting grounds for most of original mechs when landing. Slag pools are semi abundant. \n There are naval routes here. Build railguns to cover defend area. Survive.",
     details: "Omegas were left behind when escaping, and have gone rogue.",
     localizedName: "Grassland Grave",
     difficulty: 8
@@ -96,13 +111,14 @@ module.exports = {
     templura: templura,
     ancientGrotto: ancientGrotto,
     loggery: loggery,
+    plantaeKindoma: plantaeKindoma,
     rustedValley: rustedValley,
     shatteredGlacier: shatteredGlacier,
     crossroads: crossroads,
     dunescapeCrags: dunescapeCrags,
     sinkhole: sinkhole,
     frozenFalls: frozenFalls,
-    dessertWastelands: dessertWastelands,
+    desertWastelands: desertWastelands,
     birthplace: birthplace,
     grasslandGrave: grasslandGrave,
     trionCentral: trionCentral
