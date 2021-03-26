@@ -1,0 +1,8 @@
+localizedName: Storm Sand
+speedMultiplier: 0.85
+variants: 3
+itemDrop: sand
+liquidDrop: guilded-sand
+playerUnmineable: true
+statusDuration: 25
+solid: false

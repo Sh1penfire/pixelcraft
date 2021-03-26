@@ -1,6 +1,6 @@
 name: "Blink"
 description: "A fragile capsule for the void. Shoots spreads of shards at enemies. Explodes on death."
-details: "Single actions have consequences, occasionaly devistating hours of work people have put into things, crushing them with doubt and resent."
+details: "Single actions have consequences, occasionally devastating hours of work people have put into things, crushing them with doubt and resent."
 speed : 0.65
 health: 115
 mechLegColor: 231841
@@ -21,7 +21,7 @@ lowAltitude: true
 omniMovement: true
 canBoost: false
 canDrown: false
-canBoost: true
+canBoost: false
 weapons: [ 
 {
 name: blink-blinking

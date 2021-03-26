@@ -667,7 +667,7 @@ bombT2m1.buildType = () => extendContent(ShockMine.ShockMineBuild, bombT2m1, {
                 bioThorn.at(b.x, b.y);
             }
             else{
-                if(b.health != b.maxHealth){
+                if(b.damaged()){
                     this.damage(this.maxHealth / 200);
                     b.heal(25);
                     bioHeal.at(b.x, b.y);

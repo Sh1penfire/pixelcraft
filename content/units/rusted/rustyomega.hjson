@@ -1,5 +1,6 @@
 name: "Rusty Omega"
-description: "A suport unit from the old days mixed with the bulkey omega. Has Extremely powerfull minning lasers, although degraded over centuries. Comes with a build in suport gun for use in attacking and repear."
+description: "A hefty used in the oldern days for frontal assult. Has Extremely powerfull minning lasers, although degraded over centuries. Fragmentation shells and bullets are fired at it's target."
+details: "It's glory days passed quickly. It joined the others in the hope of a new life. What it found was ruthless descrimination of old tech."
 health: 3450
 armor: 8.5
 speed: 0.45

@@ -1,6 +1,6 @@
 name: "Nescience"
 description: "A fragile capsule for the void. Shoots weaving missiles which home in on targets and pierce armor. Explodes on death."
-details: "The lack of knoledge hinders one's ability to do. It does not completely stop one from doing."
+details: "The lack of knowledge hinders one's ability to do. It does not completely stop one from doing."
 speed: 0.6
 health: 325
 mechLegColor: 231841
@@ -23,7 +23,7 @@ rotateSpeed: 7
 lowAltitude: false
 omniMovement: true
 canDrown: false
-canBoost: true
+canBoost: false
 weapons: [
 {
 name: nesceince-revitaliser

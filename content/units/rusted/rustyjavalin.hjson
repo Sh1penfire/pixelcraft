@@ -34,6 +34,7 @@ spacing: 1
 shootSound: missile
 bullet:{
 type: MissileBulletType
+recoil: -0.25
 damage: 2
 status: corroded
 width: 8
@@ -65,6 +66,7 @@ x: 1.0
 y: -1.0
 bullet:{
 type: LightningBulletType
+recoil: -0.1
 status: corroded
 statusDuration: 50
 lightningLength: 10
