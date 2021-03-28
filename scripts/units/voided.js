@@ -50,9 +50,12 @@ const voidicExplosionB = extend(BombBulletType, {
     darkSplash(b){
         let rad = b.owner.hitSize + 35;
         Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
-            if(!u.isDead && Mathf.dst(b.x, b.y, u.x, u.y) < b.owner.hitSize + 35){
+            if(!u.isDead && Mathf.dst(b.x, b.y, u.x, u.y) < b.owner.hitSize + 35 && u.team != b.team){
                 u.apply(statuses.blackout, 360);
                 u.damageContinuousPierce(b.owner.maxHealth/10);
+            }
+            else{
+                u.damageContinuousPierce(b.owner.maxHealth/85);
             }
         }));
     },
@@ -248,9 +251,9 @@ refresh(blink);
 const nescience = extend(UnitType, "nescience", {
     load(){
         this.super$load()
-        let delugeImmunities = [StatusEffects.wet, StatusEffects.freezing, StatusEffects.corroded, StatusEffects.sapped, statuses.windswept, statuses.slushFall, statuses.blackout];
-        for (var i in delugeImmunities){
-            deluge.immunities.add(delugeImmunities[i]);
+        let nescienceImmunities = [StatusEffects.wet, StatusEffects.freezing, StatusEffects.corroded, StatusEffects.sapped, statuses.windswept, statuses.slushFall, statuses.blackout];
+        for (var i in nescienceImmunities){
+            nescience.immunities.add(nescienceImmunities[i]);
         }
     },
     drawLight(unit){},
@@ -576,7 +579,9 @@ refresh(deluge);
 
 Events.on(ClientLoadEvent, b  => {
     blink.weapons.get(0).bullet.status = statuses.blackout;
+    blink.weapons.get(1).bullet.status = statuses.blackout;
     nescience.weapons.get(0).bullet.status = statuses.blackout;
-    deluge.weapons.get(2).bullet.status = statuses.blackout;
-    deluge.weapons.get(3).bullet.status = statuses.blackout;
+    nescience.weapons.get(1).bullet.status = statuses.blackout;
+    deluge.weapons.get(4).bullet.status = statuses.blackout;
+    deluge.weapons.get(5).bullet.status = statuses.blackout;
 });

@@ -106,120 +106,73 @@ const bioShot3 = extend(BasicBulletType, {
     speed: 2.5,
     buildingDamageMultiplier: 0,
     collides: false,
+    init(b){
+        if(!b)return;
+        if(b.data == null) b.data = [2, null, null];
+        this.super$init(b);
+    },
     update(b){
         this.super$update(b);
         if(Mathf.chance(Time.delta)){
-                let target0 = null
-                let tempVar = Units.findDamagedTile(b.team, b.x, b.y);
-                if(tempVar != null){
-                    if(Mathf.dst(b.x, b.y, tempVar.x, tempVar.y) < 128){
-                        target0 = tempVar
+                if(b.data[2] == null || b.data[2].dead === true) b.data[2] = Units.closestEnemy(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
+                
+                if(b.data[1] == null || b.data[1].dead === true || b.data[1].damaged() != true){
+                    b.data[1] = Units.closest(b.team, b.x, b.y, 92, u => u != b.data[1] && (u.damaged() || (b.data[1] != null ? !b.data[1].damaged() : false)));
+                    if(b.data[1] == null){
+                        let tempVar = Units.findDamagedTile(b.team, b.x, b.y);
+                        if(tempVar != null){
+                            if(Mathf.dst(b.x, b.y, tempVar.x, tempVar.y) < 400){
+                                b.data[1] = tempVar;
+                            }
+                        }
                     }
                 }
-                let target1 = Units.closest(b.team, b.x, b.y, 92, u => u.damaged() && u.checkTarget(true, true));
-                let target2 = Units.closestEnemy(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
-                let target3 = Units.closest(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));    
-            
-                let target5 = null
-                let tempVar2 = Units.findDamagedTile(b.owner.team, b.owner.x, b.owner.y);
-                if(tempVar2 != null){
-                    if(Mathf.dst(b.owner.x, b.owner.y, tempVar.x, tempVar.y) < b.owner.range()){
-                        target5 = tempVar2
-                    }
-                }
-            
-                if(target1 != null && target1.damaged()){
-                    target1.heal(0.1);
-                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target1), 0.1));
-                    b.time = b.time + 0.01
-                }
-                else if(target3 != null){
-                    let target4 = Units.closestEnemy(b.team, target3.x, target3.y, 256, u => u.checkTarget(true, true));
-                    if(target4 != null){
-                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.1));
-                        target4.damageContinuousPierce(1.5 - Mathf.dst(b.x, b.y, b.owner.x, b.owner.y)/256);
-                    }
-                    else if(target0 != null){
-                        target0.heal(target0.maxHealth/3000);
-                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.1));
-                    }
-                    else{
-                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target3), 0.1));
-                    }
-                }
-                else if(target2 != null){
-                    target2.damageContinuousPierce(0.25);
-                    target2.apply(statuses.groveCurse, 360);
-                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target2), 0.1));
-                }
-                else if(target0 != null){
-                    target0.heal(target0.maxHealth/8000);
-                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target0), 0.1));
-                }
-                else if(target5 != null){
-                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(target5), 0.2));
-                }
-                else if(Units.closestEnemy(b.team, b.owner.x, b.owner.y, 400, u => u.checkTarget(true, true)) == null && Units.closest(b.team, b.owner.x, b.owner.y, 400, u => u.damaged() && u.checkTarget(true, true)) == null){
-                    b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(b.owner.x, b.owner.y), 0.1));
-                }
-                else if(Mathf.dst(b.x, b.y, b.owner.x, b.owner.y) > 400){
-                    b.vel.setAngle(b.angleTo(b.owner.x, b.owner.y));
+                if(b.data[1] != null) b.data[0] = 0
+                else if(b.data[2] != null) b.data[0] = 1
+                else b.data[0] = 2
+                switch(b.data[0]){
+                    case 0:
+                        b.data[1].heal(0.1);
+                        b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(b.data[1]), 0.2));
+                        b.time = b.time
+                        if(b.data[1] instanceof Statusc ? b.data[1].hasEffect(statuses.groveCurse) : false) b.data[1].unapply(statuses.groveCurse);
+                        if(b.data[2] == null) break;
+                    case 1:
+                        b.data[2].damageContinuousPierce(0.25);
+                        b.data[2].apply(statuses.groveCurse, 360);
+                        if(b.data[1] == null) b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(b.data[2]), 0.05));
+                        break;
+                    default:
+                        if(Mathf.dst(b.x, b.y, b.owner.x, b.owner.y) > 400){
+                            b.vel.setAngle(b.angleTo(b.owner.x, b.owner.y));
+                        }
+                        break;
                 }
             }
         },
     draw(b){
-    this.super$draw(b);
-    Draw.color(Color.valueOf("#ced671"))
-    Fill.circle(b.x, b.y, 2);
-    Lines.stroke(0.5 + Math.abs(fc.helix(20, 1, b.fout())));
-    let target0 = null
-    let tempVar = Units.findDamagedTile(b.team, b.x, b.y);
-    if(tempVar != null){
-        if(Mathf.dst(b.x, b.y, tempVar.x, tempVar.y) < 128){
-            target0 = tempVar
-        }
-    }
-    let target1 = Units.closest(b.team, b.x, b.y, 92, u => u.damaged() && u.checkTarget(true, true));
-    let target2 = Units.closestEnemy(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
-    let target3 = Units.closest(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
-    if(target1 != null && target1.damaged()){
-        Lines.line(b.x, b.y, target1.x, target1.y);
-        Fill.circle(target1.x, target1.y, 2);
-    }
-    else if(target3 != null){
-        let target4 = Units.closestEnemy(b.team, target3.x, target3.y, 256, u => u.checkTarget(true, true));
-        if(target4 != null){
-            Lines.line(b.x, b.y, target3.x, target3.y);
-            Fill.circle(target3.x, target3.y, 2);
-            Lines.line(b.x, b.y, target4.x, target4.y);
-            Fill.circle(target4.x, target4.y, 2);
-        }
-        else if(target0 != null){
-            Lines.line(b.x, b.y, target3.x, target3.y);
-            Fill.circle(target3.x, target3.y, 2);
-            Lines.line(b.x, b.y, target0.x, target0.y);
-            Fill.circle(target0.x, target0.y, 2);
+        this.super$draw(b);
+        Draw.color(Color.valueOf("#ced671"));
+        Fill.circle(b.x, b.y, 2);
+        Lines.stroke(0.5 + Math.abs(fc.helix(20, 1, b.fout())));
+        switch(b.data[0]){
+        case 0:
+            Lines.line(b.x, b.y, b.data[1].x, b.data[1].y);
+            Fill.circle(b.data[1].x, b.data[1].y, 2);
+            if(b.data[2] == null) break;
+        case 1:
+            Lines.line(b.x, b.y, b.data[2].x, b.data[2].y);
+            Fill.circle(b.data[2].x, b.data[2].y, 2);
             Lines.stroke(1);
             Lines.spikes(b.x, b.y, b.fin() * 3, 1 + Math.abs(fc.helix(20, 5, b.fout())), 4, 45);
+            break;
+        default:
+            Lines.line(b.x, b.y, b.owner.x, b.owner.y);
+            Fill.circle(b.owner.x, b.owner.y, 2);
+            Lines.spikes(b.x, b.y, b.fin() * 3, 1 + Math.abs(fc.helix(20, 5, b.fout())), 4, 65);
+            break;
         }
-        else{
-            Lines.line(b.x, b.y, target3.x, target3.y);
-            Fill.circle(target3.x, target3.y, 2);
-            Lines.stroke(1);
-            Lines.spikes(b.x, b.y, b.fin() * 3, 1 + Math.abs(fc.helix(20, 5, b.fout())), 4, 0);
-        }
     }
-    else if(target2 != null){
-        Lines.line(b.x, b.y, target2.x, target2.y);
-        Fill.circle(target2.x, target2.y, 2);
-    }
-    else if(target0 != null){
-        Lines.line(b.x, b.y, target0.x, target0.y);
-        Fill.circle(target0.x, target0.y, 2);
-        Lines.stroke(1);
-        Lines.spikes(b.x, b.y, b.fin() * 3, 1 + Math.abs(fc.helix(20, 5, b.fout())), 4, 45);
-    }
-}
 });
 bioShot3.despawnEffect = grove;
 bioShot3.hitEffect = grove;

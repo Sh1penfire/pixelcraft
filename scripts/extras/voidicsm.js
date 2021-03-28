@@ -1,7 +1,19 @@
 const statuses = require("libs/statuses");
-
+/*
 //defining blocks for the tech tree and in general ordering
-
+Vars.world.setSectorRules = () => {
+    this.super$setSectorRules()
+    let floorc = new ObjectIntMap();
+    entries = floorc.entries.toArray;
+    entries.sort(cons(e => -e.value));
+    let floors = [entries.size]
+    for(let i = 0; i < entries.size; i++){
+        floors[i] = entries.get(i).key;
+    }
+    let hasBio = !(floors[0].name.contains("ice") || floors[0].name.contains("snow")) && (floors[0].name.contains("grass") || floors[0].name.contains("dirt") || floors[0].name.contains("water"));   
+    if(hasBio && !state.rules.weather.contains(cons(e => e instanceof weathers.seedStorm))) state.rules.weather.add(new WeatherEntry(weathers.seedStorm));
+}
+*/
 const corosiveLingering = extend(BombBulletType, {
     update(b){
         if(Mathf.chance(Time.delta)){

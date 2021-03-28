@@ -23,7 +23,7 @@ requirements: [
   graphite/50
 ]
 category: crafting
-research: silicon-smelter
+research: coal-compresser
 ambientSound: respawning
 ambientSoundVolume: 0.5
 outputItem: magnitine/4

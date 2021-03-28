@@ -96,4 +96,5 @@ requirements: [
   rust/35
 ]
 category: turret
-research: duo
+alwaysUnlocked: true
+research: core-refraction
