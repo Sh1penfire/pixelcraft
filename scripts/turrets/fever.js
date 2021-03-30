@@ -1,4 +1,5 @@
 const statuses = require("libs/statuses");
+const bombs = require("blocks/bombs")
 
 const shootEffectFlame = new Effect(60, e => {
   Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, e.fin());
@@ -36,7 +37,7 @@ liquid1.fragBullet = Bullets.standardCopper;
 
 const explosion2 = extend(BombBulletType, {});
 explosion2.splashDamageRadius = 35;
-explosion2.splashDamage = 35;
+explosion2.splashDamage = 65;
 explosion2.lifetime = 0;
 explosion2.incendAmount = 3;
 explosion2.status = statuses.hellfire;
@@ -51,7 +52,7 @@ const explosions = [explosion1,explosion2];
 //Mathf.round(Mathf.random(1))
 const landMine = extend(BombBulletType, {
     update(b){
-        if(Mathf.random() < 0.2){
+        if(Mathf.random() < 0.05){
                 explosions[Mathf.round(Mathf.random(1))].create(b.owner, b.team, b.x + Mathf.random(40) - 20, b.y + Mathf.random(40) - 20, Mathf.random(360), Mathf.random(3));
                 Fx.explosion.at(b.x, b.y);
         }
@@ -95,14 +96,20 @@ flamingGrove.despawnEffect = Fx.explosion;
 flamingGrove.hitEffect = Fx.explosion;
 
 const flBlast = extend(MissileBulletType, {
-    drawLight(b){}
+    drawLight(b){},
+    draw(b){
+        Draw.color(Pal.lightPyraFlame, Color.orange, Pal.darkPyraFlame, b.fin());
+        Fill.circle(b.x, b.y, b.fout() * 4);
+    }
 });
 
-flBlast.damage = 150;
-flBlast.splashDamage = 50;
-flBlast.splashDamageRadius = 25;
-flBlast.speed = 2.5;
+flBlast.damage = 750;
+flBlast.splashDamage = 250;
+flBlast.splashDamageRadius = 55;
+flBlast.speed = 6.5;
+flBlast.drag = 0.045;
 flBlast.homingPower = 0;
+flBlast.reloadMultiplier = 0.15;
 flBlast.pierce = true;
 flBlast.pierceBuilding = true;
 flBlast.lifetime = 60;
@@ -113,6 +120,8 @@ flBlast.collides = true;
 flBlast.collidesAir = true;
 flBlast.trailEffect = Fx.none;
 flBlast.trailChance = 1;
+flBlast.fragBullets = 1;
+flBlast.fragBullet = bombs.prisBullets[1];
 flBlast.hitEffect = Fx.explosion;
 flBlast.despawnEffect = Fx.none;
 flBlast.shootEffect = shootEffectFlame;

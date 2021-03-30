@@ -79,7 +79,7 @@ ammoTypes: {
 }
 }
 }
-	}
+}
 }
  magnitine: {
     type: ArtilleryBulletType
@@ -94,7 +94,7 @@ ammoTypes: {
 	ammoMultiplier: 2
 	reloadMultiplier: 1.5
 	lifetime: 15
-	fragBullets:100
+	fragBullets: 15
 	collides: true
 	collidesAir: true
 	collidesTiles: true

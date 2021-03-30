@@ -48,7 +48,7 @@ const voidPop = new Effect(75, e => {
 
 const voidicExplosionB = extend(BombBulletType, {
     darkSplash(b){
-        let rad = b.owner.hitSize + 35;
+        let rad = b.owner.hitSize * 4;
         Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
             if(!u.isDead && Mathf.dst(b.x, b.y, u.x, u.y) < b.owner.hitSize + 35 && u.team != b.team){
                 u.apply(statuses.blackout, 360);

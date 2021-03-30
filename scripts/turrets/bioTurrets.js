@@ -97,7 +97,8 @@ bioShot2.status = statuses.groveCurse;
 bioShot2.despawnEffect = grove;
 bioShot2.hitEffect = grove;
 
-
+//a few things to explain
+//first is the switch case number, second and third are the ally and enemy respectively, and finaly the third is the retarget timer.
 const bioShot3 = extend(BasicBulletType, {
     healPercent: 0.03,
     width: 0,
@@ -108,31 +109,38 @@ const bioShot3 = extend(BasicBulletType, {
     collides: false,
     init(b){
         if(!b)return;
-        if(b.data == null) b.data = [2, null, null];
+        if(b.data == null) b.data = [2, null, null, 0];
         this.super$init(b);
     },
     update(b){
         this.super$update(b);
         if(Mathf.chance(Time.delta)){
+                //finds a new target if current one is null or dead
                 if(b.data[2] == null || b.data[2].dead === true) b.data[2] = Units.closestEnemy(b.team, b.x, b.y, 92, u => u.checkTarget(true, true));
-                
+                //finds a new ally if current one is null, dead or undamaged
                 if(b.data[1] == null || b.data[1].dead === true || b.data[1].damaged() != true){
-                    b.data[1] = Units.closest(b.team, b.x, b.y, 92, u => u != b.data[1] && (u.damaged() || (b.data[1] != null ? !b.data[1].damaged() : false)));
-                    if(b.data[1] == null){
-                        let tempVar = Units.findDamagedTile(b.team, b.x, b.y);
-                        if(tempVar != null){
-                            if(Mathf.dst(b.x, b.y, tempVar.x, tempVar.y) < 400){
-                                b.data[1] = tempVar;
+                    //checks for allied units around the bullet. Prioritises damaged units over non damaged units.
+                    let tmpVar = Units.closest(b.team, b.x, b.y, 92, u => (u.damaged() == true && (b.data[1] == null ? true : !b.data[1].damaged)) || b.data[1] == null);
+                    //if bullet can't find a unit, check for a damaged tile instead.
+                    if(tmpVar == null){
+                        tmpVar = Units.findDamagedTile(b.team, b.x, b.y);
+                        if(tmpVar != null){
+                            if(Mathf.dst(b.x, b.y, tmpVar.x, tmpVar.y) < 92){
+                                b.data[1] = tmpVar;
                             }
                         }
                     }
+                    //if tmpVar is null don't set b.data to tmpVar.
+                    if(tmpVar != null || (b.data[1] != null ? b.data[1].damaged() != true : true)) b.data[1] = tmpVar
                 }
+                //if an allied unit is found, go to case one, else if a target is found but no ally go to case two, else default.
                 if(b.data[1] != null) b.data[0] = 0
                 else if(b.data[2] != null) b.data[0] = 1
                 else b.data[0] = 2
+                
                 switch(b.data[0]){
                     case 0:
-                        b.data[1].heal(0.1);
+                        b.data[1].heal(b.data[1].block != null ? b.data[1].health * this.healPercent : 0.01);
                         b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(b.data[1]), 0.2));
                         b.time = b.time
                         if(b.data[1] instanceof Statusc ? b.data[1].hasEffect(statuses.groveCurse) : false) b.data[1].unapply(statuses.groveCurse);

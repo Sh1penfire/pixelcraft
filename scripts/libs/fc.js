@@ -127,6 +127,7 @@ function fcNearbyEnemy(team, x, y, range){
 
         return result;
 }
+
 module.exports = {
     rotationFC: rotationFC,
     helix: helix,
