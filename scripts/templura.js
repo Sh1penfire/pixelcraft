@@ -3,7 +3,6 @@
 //const templuraGen = require("extras/templuraGen")
 const templura = extend(Planet, "templura", Planets.sun, 3, 3, {
     generator: new SerpuloPlanetGenerator(),
-    meshLoader: () => new HexMesh(this, 6),
     bloom: true,
     radius: 1,
     accessible: true,
