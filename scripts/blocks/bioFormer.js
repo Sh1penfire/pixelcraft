@@ -1,4 +1,6 @@
-const weathers = require("extras/weathers")
+const weathers = require("extras/weathers");
+const templuraGenerator = require("extras/templuraGen");
+const environment = require("blocks/environment");
 
 const seeds = new Effect(25, e => {
     Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
@@ -68,7 +70,9 @@ const placeWeatherSeed = extend(Wall, "place-seed-weather", {
 placeWeatherSeed.buildType = () => extend(Wall.WallBuild, placeWeatherSeed, {
     placed(){
         let tile = Vars.world.tile(this.tileX(), this.tileY());
-        if(weathers.seedStorm.isActive() != true) Call.createWeather(weathers.seedStorm, 0.1, 6000, 17.5 - Mathf.random(35), 17.5 - Mathf.chance(35));
+        if(weathers.seedStorm.isActive() != true){
+            Call.createWeather(weathers.seedStorm, 0.1, 6000, 17.5 - Mathf.random(35), 17.5 - Mathf.chance(35));
+        }
         seedLaunchFx.at(this.x, this.y);
         tile.setBlock(Blocks.air);
     }

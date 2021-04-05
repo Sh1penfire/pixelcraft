@@ -5,9 +5,9 @@ details: "This was used to burn those who we called voidics. Strange mechs which
 shootSound: flame2
 health: 300
 size: 2
-reloadTime: 6.5
+reloadTime: 2.5
 range: 75
-inaccuracy: 5
+inaccuracy: 6
 shots: 2
 ammoUseEffect: none
 rotateSpeed: 8

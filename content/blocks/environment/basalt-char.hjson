@@ -1,0 +1,6 @@
+name: "Basalt Char"
+itemDrop: coal
+playerUnmineable: true
+variants: 3
+emitLight: true
+lightRadius: 75

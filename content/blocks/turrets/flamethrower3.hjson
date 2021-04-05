@@ -5,8 +5,8 @@ health: 600
 range: 85
 velocityInaccuracy: 0.25
 size: 3
-reloadTime: 5
-shots: 3
+reloadTime: 3
+shots: 2
 insulated: true
 buildVisibility: shown
 requirements: [    

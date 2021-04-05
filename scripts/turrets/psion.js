@@ -85,6 +85,7 @@ shot.despawnEffect = shotHit;
 shot.shootEffect = psionShoot;
 shot.fragBullets = 10;
 shot.fragBullet = ion;
+shot.status = statuses.chargedEffect;
 
 ion.damage = 4;
 ion.speed = 3;

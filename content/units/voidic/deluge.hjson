@@ -63,7 +63,7 @@ keepVelocity: false
 }
 }
 {
-name: deluge-drencher
+name: nono
 reload: 60
 recoil: 0
 shootSound: missile

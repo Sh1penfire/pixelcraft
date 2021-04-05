@@ -98,6 +98,7 @@ shot.hitEffect = Fx.none;
 shot.despawnEffect = shotHit;
 shot.shootEffect = puverShoot;
 shot.hitSound = Sounds.none;
+shot.status = statuses.ionisedStatus;
 //shot.smokeEffect = puverSmoke;
 
 //now stats of frag bullet

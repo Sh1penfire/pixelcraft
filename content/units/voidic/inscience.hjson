@@ -1,0 +1,177 @@
+name: "Inscience"
+description: "A sturdy capsule for the void. Charges up blasts of volitile voidic sappers which rip parts out of both units. Explodes on death."
+details: "The lack of research is a fascinating thing. It leads to uncertain actions and chaos. Things that can't simply be solved through a single action."
+speed: 0.45
+health: 2125
+mechLegColor: 231841
+armor: 4.5
+drag: 0.3
+aimDst: 10
+range: 95
+maxRange: 115
+hitSize: 15
+boostMultiplier: 2.25
+engineOffset: 7
+engineSize: 3.5
+buildSpeed: 3
+clipSize: 1
+flying: false
+faceTarget: true
+rotateShooting: true
+mineTier: 3
+mineSpeed: 8
+range: 100
+rotateSpeed: 2
+lowAltitude: false
+omniMovement: true
+canDrown: false
+canBoost: true
+weapons: [
+{
+name: none
+shootSound: sap
+chargeSound: spark
+soundPitchMin: 0.15
+soundPitchMax: 0.25
+mirror: false
+shake: 7
+shots: 8
+shotDelay: 5.5
+inaccuracy: 3
+spacing: 15
+x: 0 
+y: 5.85
+reload: 155
+cooldownTime: 456
+shootStatusDuration: 85
+shootStatus: unmoving
+firstShotDelay: 35
+bullet: {
+type: SapBulletType
+sapStrength: -0.15
+length: 125
+damage: 25
+buildingDamageMultiplier: 0.85
+shootEffect: sapExplosion
+despawnEffect: none
+hitEffect: shootSmall
+color: 928ac1
+pierce: true
+pierceCap: 2
+width: 0.65
+lifetime: 35
+keepVelocity: false
+knockback: -2
+}
+}
+{
+name: none
+shootSound: none
+chargeSound: none
+mirror: false
+shots: 8
+shotDelay: 5.5
+inaccuracy: 3
+spacing: -15
+x: 0 
+y: 5.85
+reload: 155
+cooldownTime: 456
+firstShotDelay: 35
+bullet: {
+type: SapBulletType
+sapStrength: -0.15
+length: 125
+damage: 25
+buildingDamageMultiplier: 0.85
+shootEffect: none
+despawnEffect: none
+hitEffect: shootSmall
+color: 928ac1
+pierce: true
+pierceCap: 2
+width: 0.65
+lifetime: 35
+keepVelocity: false
+knockback: -2
+}
+}
+{
+name: none
+shootSound: zap
+chargeSound: none
+mirror: false
+x: 0 
+y: 5.85
+reload: 155
+cooldownTime: 456
+shootStatusDuration: 85
+shootStatus: unmoving
+firstShotDelay: 55
+bullet: {
+type: SapBulletType
+sapStrength: 0.65
+length: 125
+damage: 65
+buildingDamageMultiplier: 0.65
+shootEffect: sapExplosion
+despawnEffect: none
+hitEffect: shootSmall
+color: 928ac1
+pierce: true
+pierceCap: 2
+width: 1.65
+lifetime: 145
+keepVelocity: false
+knockback: 4
+}
+}
+{
+name: none
+reload: 155
+recoil: 0
+shootSound: missile
+mirror: false
+ejectEffect: casing1
+top: false
+x: 0
+y: 5.75
+shots: 14
+spacing: 5
+shotDelay: 5
+firstShotDelay: 5
+bullet: {
+type: MissileBulletType
+sprite: pixelcraft-finMissile
+damage: 2
+speed: 2
+width: 9
+height: 12
+inaccuracy: 15
+drag: -0.02535
+frontColor: 9c7ae1
+backColor: 9b7bdb
+trailColor: 9c7ae1
+trailChance: 0.5
+weaveMag: 7
+weaveScale: 9
+status: corroded
+statusDuration: 360
+homingRange: 85
+homingPower: 0.125
+hitSound: pew
+shrinkY: 0.3
+pierce: true
+lifetime: 62.5
+keepVelocity: false
+knockback: -0.1
+}
+}
+]
+research: {
+parent: deluge
+requirements: [
+    coal/2000
+    magnitine/500
+]
+}

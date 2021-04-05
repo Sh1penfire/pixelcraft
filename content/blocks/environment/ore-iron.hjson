@@ -1,5 +1,4 @@
 name: iron
-type: OreBlock
 itemDrop: rust
 oreDefault: true
 oreThreshold: 0.75

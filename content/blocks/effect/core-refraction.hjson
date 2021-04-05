@@ -7,8 +7,8 @@ size: 3
 unitCapModifier: 8
 unitType: rustydart
 requirements: [
-  stone/3000
-  rust/3000
+  //stone/3000
+  //rust/3000
 ] 
 category: effect
 hasItems: true

@@ -13,7 +13,7 @@ const statuses = require("libs/statuses")
 };*/
 
 Events.on(ClientLoadEvent, b  => {
-units.each(unit => {
+Units.each(unit => {
         for(let i = 0; i < unit.immunities.length; i++){
             let unitStatus = unit.immunities.get(i);
             if(unitStatus = statuses.blackout){

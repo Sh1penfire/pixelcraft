@@ -3,15 +3,6 @@ const fc = require("libs/fc")
 const theAislol = require("libs/theAislol")
 const statuses = require("libs/statuses")
 
-/*function shardUnit(name, DC, DR, type, build){
-    const unit = extend(type, name, {});
-    unit.constructor = () => extend(build, {
-        
-        });
-    }
-    return unit;
-};*/
-
 const voidExplosion = new Effect(65, e => {
     Draw.color(Color.black, Color.black, e.fout());
     Lines.stroke(e.fout() * 6);
@@ -48,14 +39,16 @@ const voidPop = new Effect(75, e => {
 
 const voidicExplosionB = extend(BombBulletType, {
     darkSplash(b){
-        let rad = b.owner.hitSize * 4;
+        let rad = b.owner.hitSize * 2;
         Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
-            if(!u.isDead && Mathf.dst(b.x, b.y, u.x, u.y) < b.owner.hitSize + 35 && u.team != b.team){
+            if(!u.isDead && Mathf.dst(b.x, b.y, u.x, u.y) < rad && u.team != b.team){
                 u.apply(statuses.blackout, 360);
+                u.apply(StatusEffects.slow, 360);
                 u.damageContinuousPierce(b.owner.maxHealth/10);
             }
             else{
                 u.damageContinuousPierce(b.owner.maxHealth/85);
+                u.apply(StatusEffects.wet, 360);
             }
         }));
     },
@@ -71,161 +64,179 @@ const voidicExplosionB = extend(BombBulletType, {
     status: statuses.blackout
 });
 
-const blink = extend(UnitType, "blink", {
-    load(){
-        this.super$load()
-        let blinkImmunities = [StatusEffects.wet, StatusEffects.freezing, StatusEffects.corroded, statuses.windswept, statuses.slushFall, statuses.blackout];
-        for (var i in blinkImmunities){
-            blink.immunities.add(blinkImmunities[i]);
-        }
-    },
-    init(){
-        this.super$init()
-    },
-    //haha no light goes br
-    drawLight(unit){},
-    display(unit, table){
-        table.table(cons(t => {
-            t.left();
-            t.add(new Image(this.icon(Cicon.medium))).size(8 * 4).scaling(Scaling.fit);
-            t.labelWrap(unit.type.localizedName).left().width(190).padLeft(5);
-        })).growX().left();
-        table.row();
-
-        table.table(cons(bars => {
-            bars.defaults().growX().height(20).pad(4);
-            bars.add(new Bar("stat.health", Pal.health, () => unit.health/unit.maxHealth))
-            bars.row();
-            
-            bars.add(new Bar(unit.vstring(), Tmp.c2.set(Color.valueOf("#231841")).lerp(Color.valueOf("#9c7ae1"), unit.shieldChargef()), () =>unit.shieldChargef()));
-            bars.row();
-            
-            unit.abilities.forEach(e => {
-                ability.displayBars(unit, bars);
-            });
-            bars.row();
-            
-        })).growX();
-
-        if(unit.controller instanceof LogicAI){
+function voidingUnit(name, type, build, dCol1, dCol2, eAlpha, vShield,
+        sLimit, DR, HPS, sRecharge, sBroken, immunities, weaknesses){
+    const unit = extend(type, name, {
+        load(){
+            this.super$load();
+            for(var i in immunities){
+                unit.immunities.add(immunities[i]);
+            }
+        },
+        init(){
+            this.super$init();
+        },
+        //haha no light goes br
+        drawLight(unit){},
+        display(unit, table){
+            table.table(cons(t => {
+                t.left();
+                t.add(new Image(this.icon(Cicon.medium))).size(8 * 4).scaling(Scaling.fit);
+                t.labelWrap(unit.type.localizedName).left().width(190).padLeft(5);
+            })).growX().left();
             table.row();
-            table.add(Blocks.microProcessor.emoji() + " " + Core.bundle.get("units.processorcontrol")).growX().wrap().left();
-            table.row();
-            table.label(() => Iconc.settings + " " + unit.flag + "").color(Color.lightGray).growX().wrap().left();
-        }
+
+            table.table(cons(bars => {
+                bars.defaults().growX().height(20).pad(4);
+                bars.add(new Bar("stat.health", Pal.health, () => unit.health/unit.maxHealth))
+                bars.row();
+            
+                bars.add(new Bar(unit.vstring(), Tmp.c2.set(Color.valueOf("#231841")).lerp(Color.valueOf("#9c7ae1"), unit.shieldChargef()), () =>unit.shieldChargef()));
+                bars.row();
+            
+                unit.abilities.forEach(e => {
+                    ability.displayBars(unit, bars);
+                });
+                bars.row();
+            
+            })).growX();
+
+            if(unit.controller instanceof LogicAI){
+                table.row();
+                table.add(Blocks.microProcessor.emoji() + " " + Core.bundle.get("units.processorcontrol")).growX().wrap().left();
+                table.row();
+                table.label(() => Iconc.settings + " " + unit.flag + "").color(Color.lightGray).growX().wrap().left();
+            }
         
-        table.row();
-    }
-});
-blink.constructor = () => extend(MechUnit, {
-    damaged(){
-        return this.health != this.maxHealth || this.vShield != this.sLimit
-    },
-    heal(number){
-        if(number != null){
-            if(this.health >= this.maxHealth){
-                if(this.vRecharge <= 0.8 && this.sBroken) this.vRecharge += 0.003;
-                else if(this.vShield < this.sLimit) this.vShield = Mathf.clamp(number/this.maxHealth + this.vShield, 0, this.sLimit)
+            table.row();
+        }
+    });
+    unit.constructor = () => extend(build, {
+        damaged(){
+            return this.health != this.maxHealth || this.vShield != this.sLimit
+        },
+        heal(number){
+            if(number != null){
+                if(this.health >= this.maxHealth){
+                    if(this.vRecharge <= 0.8 && this.sBroken) this.vRecharge += 0.003;
+                    else if(this.vShield < this.sLimit) this.vShield = Mathf.clamp(number/this.maxHealth + this.vShield, 0, this.sLimit)
+                }
+                else{
+                this.health += number;
+                this.clampHealth();
+                }
             }
             else{
-            this.health += number;
-            this.clampHealth();
+                this.health = this.maxHealth;
             }
-        }
-        else{
-            this.health = this.maxHealth;
-        }
-    },
-    collision(b){
-        if(b != null && b.type.healPercent > 0) 
-        {
-            this.hitShield(0.05);
-            print("yse :D");
-        }
-        else print(b.type);
-    },
-    hitShield(number){
-        if(this.vShield >= 1){
-            this.DR = 1.1;
-            this.vShield--;
-            this.eAlpha = 1;
-                if(this.vShield < 1 && !this.sBroken){
-                    this.sBroken = true;
-                    this.vRecharge = 0;
-                    voidPop.at(this.x, this.y, 0, [this, 5, this.hitSize + 3, this.eAlpha]);
-                }
-                else this.vRecharge += 0.01;
-        }
-        else{
-            this.DR = Mathf.slerpDelta(this.DR, 0, 0.005);
-            this.vShield = 0;
-        }
-    },
-    shieldAlphaf(number){
-        if(number != null) this.eAlpha = number
-        else return this.eAlpha;
-    },
-    shieldCharge(number){
-        return this.vShield
-    },
-    shieldChargef(){
-        return this.vShield/this.sLimit;
-    },
-    vstring(){
-        if(this.sBroken === true) return "Shield Shattered"
-        else return "Void Shield Charge"
-    },
-    damage(number){
+        },
+        collision(b){
+            if(b != null && b.type.healPercent > 0)
+            {
+                this.hitShield(0.05);
+                this.damagePierce(b.type.healPercent * 2 + this.type.armor);
+            }
+            else print(b.type);
+        },
+        hitShield(number){
+            if(this.vShield >= 1){
+                this.DR = 1.1;
+                this.vShield -= number;
+                this.eAlpha = number;
+                    if(this.vShield < 1 && !this.sBroken){
+                        this.sBroken = true;
+                        this.vRecharge = 0;
+                        voidPop.at(this.x, this.y, 0, [this, 5, this.hitSize + 3, this.eAlpha]);
+                    }
+                    else this.vRecharge += 0.01;
+            }
+            else{
+                this.DR = Mathf.slerpDelta(this.DR, 0, 0.005);
+                this.vShield = 0;
+            }
+        },
+        shieldAlphaf(number){
+            if(number != null) this.eAlpha = number
+            else return this.eAlpha;
+        },
+        shieldCharge(number){
+            return this.vShield
+        },
+        shieldChargef(){
+            return this.vShield/this.sLimit;
+        },
+        vstring(){
+            if(this.sBroken === true) return "Shield Shattered"
+            else return "Void Shield Charge"
+        },
+        damage(number){
         if(number > 0){
-            this.hitShield(1);
-            if(number < this.type.health * 12.5 || number > this.type.health * 50) number = number * (1 - this.DR);
-            else number = number * (1 - this.DR * 0.5);
-            this.super$damage(number);
-        }
+                this.hitShield(number >= this.type.armor * 5 ? 1 : number/(this.type.armor * 5));
+                if(number < this.type.health * 12.5 || number > this.type.health * 50) number = number * (1 - this.DR);
+                else number = number * (1 - this.DR * 0.5);
+                this.super$damage(this.DR = Mathf.clamp(number, 0, number));
+            }
         else this.shieldAlphaf(1);
-        if(number <= 0) this.hitTime = 1;
-    },
-    apply(status, time){
-        if(time == undefined) time = 1
-        if(status != StatusEffects.none && status != null && !this.isImmune(status)){
-            if(this.weaknesses.includes(status)){
-                time *= 1.25;
-                this.super$apply(status, time);
+            if(number <= 0) this.hitTime = 1;
+        },
+        apply(status, time){
+            if(time == undefined) time = 1
+            if(status != StatusEffects.none && status != null && !this.isImmune(status)){
+                if(this.weaknesses.includes(status)){
+                    time *= 1.25;
+                    this.super$apply(status, time);
+                }
+                else if(status.damage <= 0) this.super$apply(status, time);
+                else if(status.permanent == true) this.heal(Math.abs(status.damage) * 60);
+                else if((this.DR <= 0.75 && this.vShield <= 1) && status.damage > 0) this.super$apply(status, time);
             }
-            else if(status.damage <= 0) this.super$apply(status, time);
-            else if(status.permanent == true) this.heal(Math.abs(status.damage) * 60);
-            else if((this.DR <= 0.75 && this.vShield <= 1) && status.damage > 0) this.super$apply(status, time);
-        }
-    },
-    update(){
-        this.super$update();
-        if(Mathf.chance(Time.delta)){
-            if(this.maxHealth != this.type.health){
-                this.DR = Mathf.clamp(this.DR + 0.1, 0, 1);
-                this.maxHealth = this.type.health
+        },
+        update(){
+            this.super$update();
+            if(Mathf.chance(Time.delta)){
+                if(this.maxHealth != this.type.health){
+                    this.DR = Mathf.clamp(this.DR + 0.1, 0, 1);
+                    this.maxHealth = this.type.health
+                }
+                this.healFract(this.HPS/6000);
+                this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
+                if(!this.sBroken) this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
+                this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
+                if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.003;
+                else if(this.sBroken) this.sBroken = false;
+                this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
             }
-            this.healFract(this.HPS/6000);
-            this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
-            if(!this.sBroken) this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
-            this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
-            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.003;
-            else if(this.sBroken) this.sBroken = false;
-            this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
-        }
-    },
-    draw(){
-        this.super$draw();
-        if(this.eAlpha > 0) Fill.light(this.x, this.y, 5, this.hitSize * 1.25, this.dCol1, this.dCol2);
-        Draw.color(Color.valueOf("#9c7ae1"),Color.valueOf("#231841"), Mathf.clamp(this.vShield, 0, 1));
-        Draw.alpha(this.vShield);
-        Lines.circle(this.x, this.y, this.hitSize + 3);
-    },
-    killed(){
-        this.super$killed();
-        voidExplosion.at(this.x, this.y, this.rotation, [this.hitSize * 4, 3, 5, 4]);
-        voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0);
-    },
-    classId: () => blink.classId,
+        },
+        draw(){
+            this.super$draw();
+            if(this.eAlpha > 0) Fill.light(this.x, this.y, 5, this.hitSize * 1.25, this.dCol1, this.dCol2);
+            Draw.color(Color.valueOf("#9c7ae1"),Color.valueOf("#231841"), Mathf.clamp(this.vShield, 0, 1));
+            Draw.alpha(this.vShield);
+            Lines.circle(this.x, this.y, this.hitSize + 3);
+        },
+        killed(){
+            this.super$killed();
+            voidExplosion.at(this.x, this.y, this.rotation, [this.hitSize * 4, 3, 5, 4]);
+            voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0);
+        },
+        classId: () => unit.classId,
+        dCol1: dCol1,
+        dCol2: dCol2,
+        eAlpha: eAlpha,
+        vShield: vShield,
+        sLimit: sLimit,
+        DR: DR,
+        HPS: HPS,
+        sRecharge: sRecharge,
+        sBroken: sBroken,
+        weaknesses: weaknesses
+        });
+    refresh(unit)
+    return unit;
+};
+
+const blink = voidingUnit("blink", UnitType, MechUnit, Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), 0, 1, 1.5, 0, 0.2, 1, false, [StatusEffects.freezing, StatusEffects.corroded, statuses.windswept, statuses.slushFall, statuses.blackout], [StatusEffects.burning, StatusEffects.melting, statuses.groveCurse, statuses.seeded]);
+/*
     dCol1: Color.valueOf("#9c7ae1"),
     dCol2: Color.valueOf("#231841"),
     eAlpha: 0,
@@ -235,8 +246,9 @@ blink.constructor = () => extend(MechUnit, {
     HPS: 0.2,
     sRecharge: 1,
     sBroken: false,
-    weaknesses: [StatusEffects.burning, StatusEffects.melting, statuses.groveCurse, statuses.seeded]
-});
+    weaknesses: [StatusEffects.burning, StatusEffects.melting, statuses.groveCurse, statuses.seeded],
+    immunities: [StatusEffects.freezing, StatusEffects.corroded, statuses.windswept, statuses.slushFall, statuses.blackout]
+*/
 //dCol1 & 2 are the colors used for the shield and effect
 //eAlpha is the effect alpha of the effects and unit's void shield
 //vSheild is the amount of charge is stored in the unit to activate the void shield
@@ -245,337 +257,11 @@ blink.constructor = () => extend(MechUnit, {
 //HPS is the amount of health the unit regenerates per second
 //sBroken and sRecharge are variables used in the breaking and recovery of the shield
 //weaknesses are status effects which get applied for 1.25 times longer
-refresh(blink);
+const nescience = voidingUnit("nescience", UnitType, MechUnit, Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), 0, 2, 2.75, 0, 0.35, 1, false, [StatusEffects.freezing, StatusEffects.corroded, StatusEffects.sapped, statuses.windswept, statuses.slushFall, statuses.blackout], [StatusEffects.burning, StatusEffects.melting, statuses.groveCurse, statuses.seeded, statuses.hellfire, statuses.sporefire]);
 
-//I should make a lib... -_-
-const nescience = extend(UnitType, "nescience", {
-    load(){
-        this.super$load()
-        let nescienceImmunities = [StatusEffects.wet, StatusEffects.freezing, StatusEffects.corroded, StatusEffects.sapped, statuses.windswept, statuses.slushFall, statuses.blackout];
-        for (var i in nescienceImmunities){
-            nescience.immunities.add(nescienceImmunities[i]);
-        }
-    },
-    drawLight(unit){},
-    display(unit, table){
-        table.table(cons(t => {
-            t.left();
-            t.add(new Image(this.icon(Cicon.medium))).size(8 * 4).scaling(Scaling.fit);
-            t.labelWrap(unit.localizedName).left().width(190).padLeft(5);
-        })).growX().left();
-        table.row();
+const deluge = voidingUnit("deluge", UnitType, MechUnit, Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), 0, 2, 4.25, 0.8, 0.55, 1, false, [StatusEffects.freezing, StatusEffects.corroded, StatusEffects.sapped, statuses.windswept, statuses.slushFall, statuses.blackout], [StatusEffects.burning, StatusEffects.melting, statuses.groveCurse, statuses.seeded, statuses.hellfire, statuses.sporefire, statuses.slushFall, statuses.prismium]);
 
-        table.table(cons(bars => {
-            bars.defaults().growX().height(20).pad(4);
-            bars.add(new Bar("stat.health", Pal.health, () => unit.health/unit.maxHealth))
-            bars.row();
-            
-            bars.add(new Bar(unit.vstring(), Tmp.c2.set(Color.valueOf("#231841")).lerp(Color.valueOf("#9c7ae1"), unit.shieldChargef()), () =>unit.shieldChargef()));
-            bars.row();
-            
-            unit.abilities.forEach(e => {
-                ability.displayBars(unit, bars);
-            });
-            bars.row();
-            
-        })).growX();
-
-        if(unit.controller instanceof LogicAI){
-            table.row();
-            table.add(Blocks.microProcessor.emoji() + " " + Core.bundle.get("units.processorcontrol")).growX().wrap().left();
-            table.row();
-            table.label(() => Iconc.settings + " " + unit.flag + "").color(Color.lightGray).growX().wrap().left();
-        }
-        
-        table.row();
-    }
-});
-nescience.constructor = () => extend(MechUnit, {
-    damaged(){
-        return this.health != this.maxHealth || this.vShield != this.sLimit
-    },
-    heal(number){
-        if(number != null){
-            if(this.health >= this.maxHealth){
-                if(this.vRecharge <= 0.8 && this.sBroken) this.vRecharge += 0.003;
-                else if(this.vShield < this.sLimit) this.vShield = Mathf.clamp(number/this.maxHealth + this.vShield, 0, this.sLimit)
-            }
-            else{
-            this.health += number;
-            this.clampHealth();
-            }
-        }
-        else{
-            this.health = this.maxHealth;
-        }
-    },
-    collision(b){
-        if(b != null && b.type.healPercent > 0) 
-        {
-            this.hitShield(0.05);
-        }
-        else print(b.type);
-    },
-    hitShield(number){
-        if(this.vShield >= 1){
-            this.DR = 1.1;
-            this.vShield--;
-            this.eAlpha = 1;
-                if(this.vShield < 1 && !this.sBroken){
-                    this.sBroken = true;
-                    this.vRecharge = 0;
-                    voidPop.at(this.x, this.y, 0, [this, 5, this.hitSize + 3, this.eAlpha]);
-                }
-                else this.vRecharge += 0.01;
-        }
-        else{
-            this.DR = Mathf.slerpDelta(this.DR, 0, 0.005);
-            this.vShield = 0;
-        }
-    },
-    shieldAlphaf(number){
-        if(number != null) this.eAlpha = number
-        else return this.eAlpha;
-    },
-    shieldCharge(number){
-        return this.vShield
-    },
-    shieldChargef(){
-        return this.vShield/this.sLimit;
-    },
-    vstring(){
-        if(this.sBroken === true) return "Shield Shattered"
-        else return "Void Shield Charge"
-    },
-    damage(number){
-        if(number > 0){
-            this.hitShield(1);
-            if(number < this.type.health * 12.5 || number > this.type.health * 50) number = number * (1 - this.DR);
-            else number = number * (1 - this.DR * 0.5);
-            this.super$damage(number);
-        }
-        else this.shieldAlphaf(1);
-        if(number <= 0) this.hitTime = 1;
-    },
-    apply(status, time){
-        if(time == undefined) time = 1
-        if(status != StatusEffects.none && status != null && !this.isImmune(status)){
-            if(this.weaknesses.includes(status)){
-                time *= 1.25;
-                this.super$apply(status, time);
-            }
-            else if(status.damage <= 0) this.super$apply(status, time);
-            else if(status.permanent == true) this.heal(Math.abs(status.damage) * 60);
-            else if((this.DR <= 0.75 && this.vShield <= 1) && status.damage > 0) this.super$apply(status, time);
-        }
-    },
-    update(){
-        this.super$update();
-        if(Mathf.chance(Time.delta)){
-            if(this.maxHealth != this.type.health){
-                this.DR = Mathf.clamp(this.DR + 0.1, 0, 1);
-                this.maxHealth = this.type.health
-            }
-            this.healFract(this.HPS/6000);
-            this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
-            if(!this.sBroken) this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
-            this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
-            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.003;
-            else if(this.sBroken) this.sBroken = false;
-            this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
-        }
-    },
-    draw(){
-        this.super$draw();
-        if(this.eAlpha > 0) Fill.light(this.x, this.y, 5, this.hitSize * 1.25, this.dCol1, this.dCol2);
-        Draw.color(Color.valueOf("#9c7ae1"),Color.valueOf("#231841"), Mathf.clamp(this.vShield, 0, 1));
-        Draw.alpha(this.vShield);
-        Lines.circle(this.x, this.y, this.hitSize + 3);
-    },
-    killed(){
-        this.super$killed();
-        voidExplosion.at(this.x, this.y, this.rotation, [this.hitSize * 4, 3, 5, 4]);
-        voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0);
-    },
-    classId: () => nescience.classId,
-    dCol1: Color.valueOf("#9c7ae1"),
-    dCol2: Color.valueOf("#231841"),
-    eAlpha: 0,
-    vShield: 2,
-    sLimit: 2.75,
-    DR: 0,
-    HPS: 0.35,
-    sRecharge: 1,
-    sBroken: false,
-    weaknesses: [StatusEffects.burning, StatusEffects.melting, statuses.groveCurse, statuses.seeded, statuses.hellfire, statuses.sporefire]
-});
-
-refresh(nescience)
-
-//Yep i'll either do these in java or make a flipping lib
-const deluge = extend(UnitType, "deluge", {
-    load(){
-        this.super$load()
-        let delugeImmunities = [StatusEffects.wet, StatusEffects.freezing, StatusEffects.corroded, StatusEffects.sapped, statuses.windswept, statuses.slushFall, statuses.blackout];
-        for (var i in delugeImmunities){
-            deluge.immunities.add(delugeImmunities[i]);
-        }
-    },
-    drawLight(unit){},
-    display(unit, table){
-        table.table(cons(t => {
-            t.left();
-            t.add(new Image(this.icon(Cicon.medium))).size(8 * 4).scaling(Scaling.fit);
-            t.labelWrap(unit.localizedName).left().width(190).padLeft(5);
-        })).growX().left();
-        table.row();
-
-        table.table(cons(bars => {
-            bars.defaults().growX().height(20).pad(4);
-            bars.add(new Bar("stat.health", Pal.health, () => unit.health/unit.maxHealth))
-            bars.row();
-            
-            bars.add(new Bar(unit.vstring(), Tmp.c2.set(Color.valueOf("#231841")).lerp(Color.valueOf("#9c7ae1"), unit.shieldChargef()), () =>unit.shieldChargef()));
-            bars.row();
-            
-            unit.abilities.forEach(e => {
-                ability.displayBars(unit, bars);
-            });
-            bars.row();
-            
-        })).growX();
-
-        if(unit.controller instanceof LogicAI){
-            table.row();
-            table.add(Blocks.microProcessor.emoji() + " " + Core.bundle.get("units.processorcontrol")).growX().wrap().left();
-            table.row();
-            table.label(() => Iconc.settings + " " + unit.flag + "").color(Color.lightGray).growX().wrap().left();
-        }
-        
-        table.row();
-    }
-});
-
-deluge.constructor = () => extend(MechUnit, {
-    damaged(){
-        return this.health != this.maxHealth || this.vShield != this.sLimit
-    },
-    heal(number){
-        if(number != null){
-            if(this.health >= this.maxHealth){
-                if(this.vRecharge <= 0.8 && this.sBroken) this.vRecharge += 0.003;
-                else if(this.vShield < this.sLimit) this.vShield = Mathf.clamp(number/this.maxHealth + this.vShield, 0, this.sLimit)
-            }
-            else{
-            this.health += number;
-            this.clampHealth();
-            }
-        }
-        else{
-            this.health = this.maxHealth;
-        }
-    },
-    collision(b){
-        if(b != null && b.type.healPercent > 0) 
-        {
-            this.hitShield(0.05);
-        }
-        else print(b.type);
-    },
-    hitShield(number){
-        if(this.vShield >= 1){
-            this.DR = 1.1;
-            this.vShield--;
-            this.eAlpha = 1;
-                if(this.vShield < 1 && !this.sBroken){
-                    this.sBroken = true;
-                    this.vRecharge = 0;
-                    voidPop.at(this.x, this.y, 0, [this, 5, this.hitSize + 3, this.eAlpha]);
-                }
-                else this.vRecharge += 0.01;
-        }
-        else{
-            this.DR = Mathf.slerpDelta(this.DR, 0, 0.005);
-            this.vShield = 0;
-        }
-    },
-    shieldAlphaf(number){
-        if(number != null) this.eAlpha = number
-        else return this.eAlpha;
-    },
-    shieldCharge(number){
-        return this.vShield
-    },
-    shieldChargef(){
-        return this.vShield/this.sLimit;
-    },
-    vstring(){
-        if(this.sBroken === true) return "Shield Shattered"
-        else return "Void Shield Charge"
-    },
-    damage(number){
-        if(number > 0){
-            this.hitShield(1);
-            if(number < this.type.health * 12.5 || number > this.type.health * 50) number = number * (1 - this.DR);
-            else number = number * (1 - this.DR * 0.5);
-            this.super$damage(number);
-        }
-        else this.shieldAlphaf(1);
-        if(number <= 0) this.hitTime = 1;
-    },
-    apply(status, time){
-        if(time == undefined) time = 1
-        if(status != StatusEffects.none && status != null && !this.isImmune(status)){
-            if(this.weaknesses.includes(status)){
-                time *= 1.25;
-                this.super$apply(status, time);
-            }
-            else if(status.damage <= 0) this.super$apply(status, time);
-            else if(status.permanent == true) this.heal(Math.abs(status.damage) * 60);
-            else if((this.DR <= 0.75 && this.vShield <= 1) && status.damage > 0) this.super$apply(status, time);
-        }
-    },
-    update(){
-        this.super$update();
-        if(Mathf.chance(Time.delta)){
-            if(this.maxHealth != this.type.health){
-                this.DR = Mathf.clamp(this.DR + 0.1, 0, 1);
-                this.maxHealth = this.type.health
-            }
-            this.healFract(this.HPS/6000);
-            this.DR = Mathf.slerpDelta(this.DR, 0, 0.01);
-            if(!this.sBroken) this.vShield = Mathf.slerpDelta(this.vShield, this.sLimit, 0.001);
-            this.eAlpha = Mathf.slerpDelta(this.eAlpha, 0, 0.01);
-            if(this.vRecharge < 1 && this.sBroken) this.vRecharge += 0.003;
-            else if(this.sBroken) this.sBroken = false;
-            this.dCol1.a = this.vShield/2.15 * this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1), this.dCol2.a = this.eAlpha *  Mathf.clamp(Math.round(this.vShield), 0, 1);
-        }
-    },
-    draw(){
-        this.super$draw();
-        if(this.eAlpha > 0) Fill.light(this.x, this.y, 5, this.hitSize * 1.25, this.dCol1, this.dCol2);
-        Draw.color(Color.valueOf("#9c7ae1"),Color.valueOf("#231841"), Mathf.clamp(this.vShield, 0, 1));
-        Draw.alpha(this.vShield);
-        Lines.circle(this.x, this.y, this.hitSize + 3);
-    },
-    killed(){
-        this.super$killed();
-        voidExplosion.at(this.x, this.y, this.rotation, [this.hitSize * 4, 3, 5, 4]);
-        voidicExplosionB.create(this, this.team, this.x, this.y, this.rotation, 0, 0);
-    },
-    classId: () => deluge.classId,
-    dCol1: Color.valueOf("#9c7ae1"),
-    dCol2: Color.valueOf("#231841"),
-    eAlpha: 0,
-    vShield: 3,
-    sLimit: 4.25,
-    DR: 0.8,
-    HPS: 0.35,
-    sRecharge: 1,
-    sBroken: false,
-    weaknesses: [StatusEffects.burning, StatusEffects.melting, statuses.groveCurse, statuses.seeded, statuses.hellfire, statuses.sporefire, statuses.slushFall, statuses.prismium]
-});
-refresh(deluge);
+const inscience = voidingUnit("inscience", UnitType, MechUnit, Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), 0, 4, 7.25, 0.9, 0.65, 1, false, [StatusEffects.freezing, StatusEffects.corroded, StatusEffects.sapped, statuses.windswept, statuses.slushFall, statuses.blackout], [StatusEffects.burning, StatusEffects.melting, statuses.groveCurse, statuses.seeded, statuses.hellfire, statuses.sporefire, statuses.slushFall, statuses.prismium]);
 
 Events.on(ClientLoadEvent, b  => {
     blink.weapons.get(0).bullet.status = statuses.blackout;

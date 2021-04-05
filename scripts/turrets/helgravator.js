@@ -85,6 +85,28 @@ const flPyra = extend(BasicBulletType, {
     fragBullet: flCoalfrag,
 });
 
+const flBio = extend(BasicBulletType, {
+    speed: 5,
+    damage: 25,
+    hitSize: 8,
+    width: 0,
+    height: 0,
+    inaccuracy: 25,
+    lifetime: 20,
+    knockback: 0.1,
+    shootSound: Sounds.flame2,
+    shootEffect: fireShoot,
+    despawnEffect: Fx.none,
+    hitEffect: firelandFx,
+    status: statuses.groveCurse,
+    trailEffect: Fx.none,
+    collides: true,
+    collidesTiles: true,
+    colidesAir: true,
+    ammoMultiplier: 2,
+    pierce: true,
+});
+
 const flSpore = extend(BasicBulletType, {
     speed: 5,
     damage: 5,

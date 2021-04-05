@@ -43,7 +43,7 @@ const menderDestroy = new Effect(35, e => {
     Lines.circle(e.x, e.y, e.finpow() * 7.5);
 })
 
-const rustydart = extendContent(UnitType, "rustydart", {});
+const rustydart = extend(UnitType, "rustydart", {});
 rustydart.constructor = () => extend(UnitEntity, {});
 rustydart.defaultController = () => extend(BuilderAI, {});
 
@@ -125,10 +125,7 @@ const menderSpawn = extend(BombBulletType, {
         menderBullet.create(b.owner, b.team, b.x - 8, b.y, b.rotation());
         menderBullet.create(b.owner, b.team, b.x, b.y + 8, b.rotation());
         menderBullet.create(b.owner, b.team, b.x, b.y - 8, b.rotation());
-        menderRemoveSmall.at(b.x + 8, b.y);
-        menderRemoveSmall.at(b.x - 8, b.y);
-        menderRemoveSmall.at(b.x, b.y + 8);
-        menderRemoveSmall.at(b.x, b.y - 8);
+        menderBullet.create(b.owner, b.team, b.x, b.y, b.rotation());
         menderPlace.at(b.x, b.y);
     },
     lifetime: 0,
@@ -137,12 +134,12 @@ const menderSpawn = extend(BombBulletType, {
 })
 
 const menderBullet = extend(BasicBulletType, {
-    lifetime: 260,
+    lifetime: 245,
     drag: 1,
     healPercent: 2,
     hitSize: 4.5,
     buildingDamageMultiplier: 0,
-    damage: 35,
+    damage: 55,
     collidesAir: false,
     splashDamage: 0,
     splashDamageRadius: 50,
@@ -151,8 +148,9 @@ const menderBullet = extend(BasicBulletType, {
     update(b){
         if(Mathf.chance(Time.delta)){
             b.x = Math.round(b.x/8) * 8, b.y = Math.round(b.y/8) * 8;
-            this.hitBullet(b, b.hitSize)
+            this.hitBullet(b, b.hitSize);
             if(Math.abs(fc.helix(b.lifetime/30, 1, 1, b.fout())) > 0.95){
+                if(b.owner != null) b.owner.healFract(0.01/60)
                 Vars.indexer.eachBlock(b.team, b.x, b.y, 50, other => other.damaged(), other => {
                 other.heal(other.maxHealth/100 * 0.001 + 0.05);
                     if(Mathf.chance(0.1)){
@@ -218,7 +216,7 @@ const menderBullet = extend(BasicBulletType, {
                 mendBn.remove()
             }
         }
-        if(b1.damage <= 0.0001){
+        if(b1.damage <= 0.0001 || b1.damage == null){
             b1.remove();
         };
     }
@@ -362,9 +360,14 @@ inseculur.defaultController = theAislol.swarmAI
 refresh(inseculur)
 
 Events.on(ClientLoadEvent, b  => {
+    print(Object.assign(new SpawnGroup, { type: rustyAlpha, unitScaling: 2, max: 3 }));
     capsule.immunities.add(statuses.seeded)
     inseculur.immunities.add(statuses.seeded)
     inseculur.immunities.add(statuses.groveCurse)
     capsule.weapons.get(0).bullet.status = statuses.seeded;
     inseculur.weapons.get(0).bullet.status = statuses.groveCurse;
 });
+
+module.exports = {
+    rustyalpha: rustyAlpha
+}

@@ -1,8 +1,8 @@
 // Just a little note to not forget Pixellandia :D
 //I won't forget :)
-//const templuraGen = require("extras/templuraGen")
-const templura = extend(Planet, "templura", Planets.sun, 3, 3, {
-    generator: new SerpuloPlanetGenerator(),
+const templuraGen = require("extras/templuraGen")
+const templura = extend(Planet, "templura", Planets.sun, 3, 1.45, {
+    generator: templuraGen.templura,
     meshLoader: () => new HexMesh(this, 6),
     bloom: true,
     radius: 1,

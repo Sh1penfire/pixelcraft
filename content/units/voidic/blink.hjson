@@ -38,14 +38,14 @@ y: 1
 rotate: false
 bullet: {
 type: MissileBulletType
-sprite: shell
+sprite: pixelcraft-finMissile
 damage: 7
 speed: 3
 inaccuracy: 15
 //trust me, this helps the unit
-drag: -0.00535
+drag: -0.00525
 frontColor: 9c7ae1
-backColor: 231841
+backColor: 9b7bdb
 trailColor: 9c7ae1
 trailChance: 0.6
 weaveMag: 7
@@ -57,6 +57,8 @@ homingPower: 0.125
 hitSound: pew
 shrinkY: 0.3
 lifetime: 70
+pierce: true
+pierceBuildings: true
 keepVelocity: false
 }
 }
@@ -75,12 +77,12 @@ y: 1
 rotate: false
 bullet: {
 type: MissileBulletType
-sprite: shell
+sprite: pixelcraft-finMissile
 damage: 0
 speed: 1
 knockback: -1
 frontColor: 9c7ae1
-backColor: 231841
+backColor: 9b7bdb
 trailColor: 9c7ae1
 trailChance: 0.075
 shootEffect: flakExplosion
