@@ -6,7 +6,7 @@ cost: 1
 research: {
   parent: magnitine
   requirements:[
-  iron/1000
+  rust/1000
   stone/2500
   magnitine/1000
   ]
