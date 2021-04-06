@@ -16,6 +16,7 @@ ammoTypes: {
  titanium: {
     type: ArtilleryBulletType
 	speed: 32
+	drag: -0.00025
 	damage: 25
 	width: 4
 	height: 18
@@ -84,6 +85,7 @@ ammoTypes: {
  magnitine: {
     type: ArtilleryBulletType
 	speed: 32
+	drag: -0.00025
 	damage: 45
 	width: 4
 	height: 32

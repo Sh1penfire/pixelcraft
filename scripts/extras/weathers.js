@@ -174,7 +174,7 @@ const seedStorm = extend(ParticleWeather, "seed-storm", {
     force: 0.15,
     sound: Sounds.wind,
     soundVol: 0.7,
-    duration: 7 * Time.toMinutes
+    duration: 2 * Time.toMinutes
 });
 //corrosiveDownpour.attrs.set(Attribute.spores, 1),
 //corrosiveDownpour.attrs.set(Attribute.light, -0.15),
@@ -197,7 +197,7 @@ const strongStorm = extend(ParticleWeather, "strong-storm", {
     force: 0.35,
     sound: Sounds.wind,
     soundVol: 1,
-    duration: 7 * Time.toMinutes
+    duration: 3 * Time.toMinutes
 });
 
 const charringDeluge = extend(ParticleWeather, "charring-deluge", {
@@ -255,7 +255,7 @@ const charringDeluge = extend(ParticleWeather, "charring-deluge", {
     force: 0.35,
     sound: Sounds.wind,
     soundVol: 1,
-    duration: 7 * Time.toMinutes
+    duration: Time.toMinutes
 });
 
 module.exports = {

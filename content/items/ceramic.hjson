@@ -5,7 +5,7 @@ hardness: 2
 cost: 1
 research: {
   parent: magnitine
-  requiremenst:[
+  requirements:[
   iron/1000
   stone/2500
   magnitine/1000

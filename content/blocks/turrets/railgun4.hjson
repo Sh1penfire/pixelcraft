@@ -1,0 +1,18 @@
+name: Persimodem
+description: "Extrudes out blink type rails which shatter upon launch, seeking out their targets. They can cause a spectrum of effects to occur."
+details: "Perniciosa autem simulacraque moesta deorum. They scurried back to their hole and stayed there, unawoken for several cycles. A blink arose, only to be shot out of existence."
+shootSound: laser
+health: 3460
+size: 5
+burstSpacing: 3.5
+reloadTime: 275
+range: 685
+spread: 0
+recoil: 12
+targetAir: true
+ammoUseEffect: none
+rotateSpeed: 5
+requirements: [
+ placeholder2/666666
+]
+category: turret

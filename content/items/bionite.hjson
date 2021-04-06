@@ -5,7 +5,7 @@ hardness: 0
 cost: 2
 research: {
   parent: bionorb
-  requiremenst:[
+  requirements:[
   thorium/2000
   ]
 }

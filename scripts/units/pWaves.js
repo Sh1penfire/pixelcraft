@@ -271,53 +271,55 @@ const pWaves = extend(Waves, {
 
         let shieldStart = 30, shieldsPerWave = 20 + difficulty * 30;
         let scaling = [1, 2, 3, 4, 5];
+        //have the specese be defined outside so the sector has more of a certain type of unit
+        let curSpecies = species[Mathf.round(Mathf.random(3))];
         
         let createProgression = (start, tier, intervielf) => {
+            intervielf = Math.abs(intervielf);
             //main sequence
-            let curSpecies = species[Mathf.round(Mathf.random(3))];
+            
             let curTier = 0 + tier;
 
             for(let i = start - 1; i < cap; i++){
                 let f = Math.abs(i - 1);
                 let next = rand.random(8, 16) + Mathf.lerp(5, 0, difficulty) + curTier * 4;
-
+                if(crurSpecies == null) let crurSpecies = curSpecies
                 let shieldAmount = Math.max((i - shieldStart) * shieldsPerWave, 0);
                 let space = start == 0 ? 1 : rand.random(1, 2);
                 let ctier = curTier;
-
                 //main progression
                 out.add(genSpawnGroup({
-                    type: curSpecies[Math.min(curTier, curSpecies.length - 2)],
+                    type: crurSpecies[Math.min(curTier, crurSpecies.length - 2)],
                     unitAmount: f == start ? 1 : 4 / scaling[ctier],
                     begin: f,
-                    end: f + next >= cap ? never : f + next,
+                    end: f + next >= cap ? never : f + next + intervielf,
                     max: difficulty * 2 + 3,
-                    unitScaling: (difficulty < 0.4 ? rand.random(1.5, 3) : rand.random(1, 4)) * scaling[ctier],
+                    unitScaling: (difficulty < 0.4 ? rand.random(1.5, 3) : rand.random(2, 5)) * scaling[ctier],
                     shields: shieldAmount,
                     shieldScaling: shieldsPerWave,
-                    spacing: space
+                    spacing: space + intervielf
                 }));
-
-                //small chance to switch species
-                if(rand.chance(0.3)){
-                    curSpecies = Structs.random(species);
-                }
                 
                 //extra progression that tails out, blends in
                 out.add(genSpawnGroup({
-                    type: curSpecies[Math.min(curTier, curSpecies.length - 2)],
+                    type: crurSpecies[Math.min(curTier, crurSpecies.length - 2)],
                     unitAmount: 3 / scaling[ctier],
-                    begin: f + next + intervielf,
+                    begin: f + next,
                     end: f + next + intervielf + rand.random(6, 10),
                     max: 6,
-                    unitScaling: rand.random(1, 2),
+                    unitScaling: rand.random(1.5, 4),
                     spacing: rand.random(2, 4),
                     shields: shieldAmount/2,
                     shieldScaling: shieldsPerWave
                 }));
-
-                i += next + intervielf + 1;
-                if(curTier < 3 || (rand.chance(0.02) && difficulty > 0.8)){
+                
+                //small chance to switch species
+                if(rand.chance(0.1)){
+                    crurSpecies = Structs.random(species);
+                }
+                
+                i += next + 1;
+                if(curTier < 3 && rand.chance(0.25) || (rand.chance(0.02) && difficulty > 0.8)){
                     curTier ++;
                 }
 
@@ -327,13 +329,15 @@ const pWaves = extend(Waves, {
         };
         //todo: add random stronger waves
         
-        createProgression(0, 0, 1);
-        createProgression(3, 0, 6);
+        createProgression(1, 0, 1);
+        createProgression(2, 0, 3);
         let step = 4 + rand.random(2);
 
         while(step <= cap){
             //increase starting tier after awhile
             createProgression(step, Math.round(step/cap * 2) + 1, 9 - difficulty/2);
+            createProgression(step + difficulty * 2 + 6, 1, 6 - difficulty/2);
+            createProgression(step + difficulty * 4 + 2, 2, 3 - difficulty/3);
             step += rand.random(15, 30) * Mathf.lerp(1, 0.5, difficulty);
         }
 
@@ -421,14 +425,7 @@ const pWaves = extend(Waves, {
             group.begin -= shift;
             group.end -= shift;
             group.begin = group.begin < 0 ? 0 : Mathf.round(group.begin);
-            group.end = group.end < 0 ? Math.abs(shift) : Mathf.round(group.begin);
-            print(group.type);
-            print(group.begin);
-            print(group.max);
-            print(group.spacing);
-            print(group.unitScaling);
-            print(group.unitAmount);
-            print(group.shieldScaling);
+            group.end = group.end < 0 ? Math.abs(shift) : Mathf.round(group.end);
         });
 
         return out;

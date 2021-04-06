@@ -210,13 +210,21 @@ const blackoutFx = new Effect(35, e => {
     });
 });
 
+const lingeringVoidic = new Effect(455, e => {
+    Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), e.fout());
+    
+    Draw.alpha(e.fout() - 0.15)
+    
+    let region = e.data;
+    
+    if(region != null) Draw.rect(region, e.x, e.y, e.rotation - 90)
+})
+
 const voidic = new Effect(65, e => {
     Draw.color(Color.black, Color.black, e.fout());
     Lines.stroke(e.fout() * 6); 
     
     let alpha = 1 -Math.sin(e.fout() * Math.PI + Math.PI/3)
-    
-    Draw.alpha(alpha)
     
     Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI))
     
@@ -226,6 +234,8 @@ const voidic = new Effect(65, e => {
     fromColor.a = alpha, toColor.a = alpha
     
     let multi = e.data + 15
+    
+    Draw.alpha(alpha)
     
     Fill.light(e.x, e.y, 15, scaling * multi, fromColor, toColor)
     
@@ -276,6 +286,7 @@ const blackout = extend (StatusEffect, "blackout", {
         }
         else if(unitHpc < 0.01){
             voidic.at(unit.x, unit.y, 0, unit.hitSize);
+            lingeringVoidic.at(unit.x, unit.y, unit.rotation, unit.type.region);
             unit.remove();
             unit.destroy();
             damageAmount = unit.maxHealth;

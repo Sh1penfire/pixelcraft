@@ -1,5 +1,5 @@
 type: CoreBlock
-name: "Core Lighthouse"
+name: "Core: Lighthouse"
 description: "Light core."
 health: 3000
 itemCapacity: 7000

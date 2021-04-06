@@ -1,6 +1,6 @@
-name: "Core Refraction"
-description: "refleccore"
-details: "What goes up must come down."
+name: "Core: Refraction"
+description: "A self replicating base that provides shelter for those within."
+details: "What went up has now come down."
 health: "3000"
 itemCapacity: 4000
 size: 3

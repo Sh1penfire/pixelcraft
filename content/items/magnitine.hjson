@@ -7,7 +7,7 @@ color: ffffff
 alwaysUnlocked: false
 research: {
   parent: rust
-  requiremenst:[
+  requirements:[
   stone/500
   iron/800
   ]

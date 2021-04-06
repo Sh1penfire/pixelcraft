@@ -1,4 +1,5 @@
 const environment = require("blocks/environment");
+const weathers = require("extras/weathers");
 const pWaves = require("units/pWaves");
 
 //note: GOtten from substructure and ever since, I'm trying to learn how it works. Untill then, I'll extend off serpulo gen.
@@ -350,13 +351,25 @@ const templuraGenerator = extend(PlanetGenerator, {
         state.rules.waves = this.sector.info.waves = true;
         state.rules.enemyCoreBuildRadius = 480;
         state.rules.enemyLights = false;
-        state.rules.ambientLight = Color(135, 155, 5, 1);
+        let col1 = Color.valueOf("#667a73").lerp(Color.valueOf("#455e56"), Mathf.random(1));
+        col1.a = difficulty/18 * this.noiseOct(spawn.x + 450, spawn.y, 5, 0.45, 220) + 0.25;
+        state.rules.ambientLight = col1;
         
         state.rules.spawns = pWaves.waves.generate(difficulty, new Rand(), state.rules.attackMode);
+        state.rules.weather.add(Weather.WeatherEntry(weathers.strongStorm));
+        //chose which destructive weather to add
+        if(snoise > 0.7 || difficulty > 7 && !state.rules.attackMode) state.rules.weather.add(Weather.WeatherEntry(weathers.charringDeluge));
+        else state.rules.weather.add(Weather.WeatherEntry(weathers.seedStorm));
+        let lengthh = 0
+        state.rules.weather.forEach(w => {
+            lengthh++;
+        });
+        let weath = state.rules.weather.get(Math.round(Math.random() * (lengthh - 1))).weather;
+        if(weath != weathers.charringDeluge) Call.createWeather(weath, 0.1, 1000 * difficulty + Math.random(1000) + 2000, 17.5 - Mathf.random(35), 17.5 - Mathf.chance(35));
+        
         print("finished generation");
     },
     postGenerate(tiles){
-        print("eyyy, never mind, I finished generating, now to fricking crash you :)");
         if(this.sector.hasEnemyBase()){
             this.basegen.postGenerate();
         };

@@ -4,7 +4,7 @@ hardness: 0.35
 cost: 2
 research: {
   parent: stone
-  requiremenst:[
+  requirements:[
   stone/1000
   ]
 }

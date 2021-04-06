@@ -24,6 +24,18 @@ Building Descriptions Related to lore
 
 ---=---+---=---
 
+Unit factions and their origions
+
+todo:
+Frozen abaondoned:
+Rusted mech:
+Rusted air:
+Mechanical life:
+Voidics:
+They were not meant to be made. Never were, even when I was first making them they were only used as placeholders and nothing else. This influenced the lore. The corruption could only manipulate objects to a certain extent. It could never form intricate structures. Until the owners started playing with the simulation again. Powerful objects were tested on battlefields where the corruption lurked, waiting for it's chance to obtain one of them and pull it back to an infested part of the planet. It got it's chance. It started using the object to influence a broken rusted core during the slag wars, and made an empty husk. This husk was devoid of light, and could only move by the corruption's influence.
+
+---=---+---=---
+
 Unit Descriptions Related to lore
 
 //Mechanical Life on sepulo
@@ -43,21 +55,30 @@ Mechs which resembled inscects, fish, birds and more were formed.
 //Mechanical life on Templura
 
 Shard:
-Emerging from below the trees, a shard of what it had been previously.
+-Emerging from below the trees, a shard of what it had been previously.
+This is refering to how the unit's name reflects on it being only a shard of what it had been previously.
 
 Capsule:
-A flying fish had survived. It had been changed by the soil it was burried in and became mechanical.
+-A flying fish had survived. It had been changed by the soil it was burried in and became mechanical.
 
 The Void
 
 Blink:
-Single actions have consequences, occasionaly devistating hours of work people have put into things, crushing them with doubt and resent.
+-Single actions have consequences, occasionaly devistating hours of work people have put into things, crushing them with doubt and resent.
+
 
 Nescience:
-The lack of knoledge hinders one's ability to do. It does not completely stop one from doing.
+-The lack of knoledge hinders one's ability to do. It does not completely stop one from doing.
+
 
 Deluge:
-Skys were darkened and darkness was introduced. The folly of light is the lack of it. The folly of insolence is knoledge.
+-Skys were darkened and darkness was introduced. The folly of light is the lack of it. The folly of insolence is knoledge.
+The day that the coruption was brought about to the simulation, there was a storm, as with all disasters. This one brought about a power surge which fried some of the electronics in the underground compound that the simulation was being hosted in.
+
+Inscience:
+-The lack of research is a fascinating thing. It leads to uncertain actions and chaos. Things that can't simply be solved through a single action.
+This refers back to when an object was introduced into the broken simulation that allowed the coruption to make a single blink from the rusted core the crux had recovered.
+
 ---=---+---=---
 
 The lore (In order of events)

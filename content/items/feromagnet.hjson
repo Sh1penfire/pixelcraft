@@ -1,14 +1,14 @@
 name: Feromagnet
-description: "A strong object, drawing it's strength from the darkness within and electromagnetic force."
-details: "Motion magnifies the darkness."
+description: A strong object, drawing it's strength from the darkness within and electromagnetic force.
+details: Motion magnifies the darkness.
 hardness: 2
 cost: 1
 research: {
   parent: magnitine
-  requiremenst:[
-  iron/1000
-  stone/2500
-  magnitine/1000
+  requirements: [
+	rust/1000
+	stone/2500
+	magnitine/1000
   ]
 }
 color: E44d11
