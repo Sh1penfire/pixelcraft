@@ -5,10 +5,10 @@ hardness: 2
 cost: 1
 research: {
   parent: magnitine
-  requirements: [
-	rust/1000
-	stone/2500
-	magnitine/1000
+  requirements:[
+  rust/1000
+  stone/2500
+  magnitine/1000
   ]
 }
 color: E44d11
