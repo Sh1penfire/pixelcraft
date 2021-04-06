@@ -16,6 +16,7 @@ ammoTypes: {
  titanium: {
     type: ArtilleryBulletType
 	speed: 32
+	drag: -0.00025
 	damage: 25
 	width: 4
 	height: 18
@@ -28,6 +29,7 @@ ammoTypes: {
 	fragVelocityMax: 1.5
 	frontColor: 56d7ca
 	backColor: 77b6b0
+	status: freezing
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -78,11 +80,12 @@ ammoTypes: {
 }
 }
 }
-	}
+}
 }
  magnitine: {
     type: ArtilleryBulletType
 	speed: 32
+	drag: -0.00025
 	damage: 45
 	width: 4
 	height: 32
@@ -93,10 +96,11 @@ ammoTypes: {
 	ammoMultiplier: 2
 	reloadMultiplier: 1.5
 	lifetime: 15
-	fragBullets:100
+	fragBullets: 15
 	collides: true
 	collidesAir: true
 	collidesTiles: true
+	status: corroded
 	fragBullet: {
     type: BasicBulletType
 	frontColor: ffffff
@@ -127,7 +131,7 @@ ammoTypes: {
 	}
  }
 requirements: [
- iron/125
+ rust/125
  magnitine/85
  titanium/70
 ]

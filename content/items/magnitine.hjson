@@ -6,9 +6,9 @@ cost: 1
 color: ffffff
 alwaysUnlocked: false
 research: {
-  parent: iron
-  requirements: [
-    stone/500
-    iron/800
+  parent: rust
+  requirements:[
+  stone/500
+  iron/800
   ]
 }

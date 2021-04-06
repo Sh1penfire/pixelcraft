@@ -14,15 +14,15 @@ consumes: {
   power: 2
   items: {
     items: [
-      iron/3
+      rust/3
       magnitine/2
       titanium/2
-      bionite/3
+      bionite/2
     ]
   }
   liquid: {
     liquid: water
-    amount: 1
+    amount: 0.5
   }
 }
 requirements: [
@@ -31,4 +31,4 @@ requirements: [
 ]
 category: crafting
 research: bioniteMixer
-outputItem: stelarcrim/1
+outputItem: stelarcrim/3

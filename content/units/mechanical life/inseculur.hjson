@@ -1,0 +1,109 @@
+name: "Inseculur"
+description: "Rapidly fires powerfull bullets and barrages of missiels"
+flying: true
+speed: 2.25
+accel: 0.02
+drag: 0.0115
+health: 540
+armor: 3
+aimDst: 17
+range: 155
+maxRange: 165
+buildSpeed: 3.5
+clipSize: 1
+hitSize: 12
+engineOffset: 6.74
+faceTarget: true
+rotateShooting: true
+mineTier: 3
+mineSpeed: 8
+rotateSpeed: 5.6
+lowAltitude: true
+omniMovement: true
+canDrown: false
+weapons: [ 
+{
+name: tinyBlaster
+reload: 105
+shots: 4
+spacing: 5
+shotDelay: 2.5
+alternate: false
+mirror: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1.25
+y: 9.5
+rotate: false
+bullet: {
+type: MissileBulletType
+damage: 5
+frontColor: eeb393
+backColor: a97567
+trailColor: bd8a6e
+speed: 3
+width: 10
+height: 10
+lifetime: 50
+knockback: 2
+keepVelocity: false
+}
+}
+{
+name: tinyBlaster
+reload: 10
+recoil: 0.5
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 3.35
+y: 6.925
+rotate: false
+bullet: {
+type: BasicBulletType
+damage: 12
+speed: 4
+width: 11
+height: 14
+lifetime: 35
+frontColor: eeb393
+backColor: a97567
+pierce: true
+pierceCap: 2
+hitSound: none
+healPercent: 0.45
+collidesTeam: true
+}
+}
+{
+name: none
+reload: 10
+recoil: 0.5
+mirror: false
+ejectEffect: casing2
+top: true
+shootSound: pew
+x: 0
+y: 1
+rotate: true
+bullet: {
+type: BasicBulletType
+damage: 12
+speed: 4
+width: 11
+height: 14
+lifetime: 50
+frontColor: eeb393
+backColor: a97567
+pierce: true
+pierceCap: 2
+hitSound: none
+healPercent: 0.45
+collidesTeam: true
+}
+}]
+research: {
+parent: shard
+}

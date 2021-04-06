@@ -4,9 +4,9 @@ details: The plants can stand the slightly acidic medium.
 hardness: 0
 cost: 2
 research: {
-  parent: stone
-  requirements: [
-    stone/1000
+  parent: bionorb
+  requirements:[
+  thorium/2000
   ]
 }
 color: cad77d

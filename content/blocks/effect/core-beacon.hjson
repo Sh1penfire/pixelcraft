@@ -1,5 +1,5 @@
 type: CoreBlock
-name: "Core: Beacon"
+name: "Core Beacon"
 details: "Years ago, a great flood overwhelmed Serpulo and rusted the grounds. Some 1000 years later, when they returned, a great discovery was made."
 health: 300
 itemCapacity: 7000
@@ -8,7 +8,7 @@ unitCapModifier: 5
 unitType: rustydart
 research: coal
 requirements: [
-  iron/3000
+  rust/3000
   magnitine/1000
 ] 
 category: effect

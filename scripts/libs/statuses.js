@@ -9,6 +9,10 @@ const ionisedStatusFX = new Effect(24, e => {
 
 //puver's status effect
 const ionisedStatus = extend(StatusEffect, "ionisedStatus", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Ionised",
     speedMultiplier: 0.9,
     armorMultiplier: 0.5,
     damage: 0.2,
@@ -28,6 +32,10 @@ const chargedEffectFX = new Effect(27, (e) => {
 
 //psion's status effect
 const chargedEffect = extend(StatusEffect, "chargedEffect", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Charged",
    speedMultiplier: 0.8,
    armorMultiplier: 0.3,
    damage: 0.3,
@@ -36,12 +44,17 @@ const chargedEffect = extend(StatusEffect, "chargedEffect", {
 });
 
 
-const warmth = extend(StatusEffect, "warmth", {});
-warmth.speedMultiplier = 1.5;
-warmth.healthMultiplier = 1.15;
-warmth.reloadMultiplier = 1.15;
-warmth.effect = Fx.freezing;
-warmth.effectChance = 0.07;
+const warmth = extend(StatusEffect, "warmth", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Warmth",
+    speedMultiplier: 1.5,
+    healthMultiplier: 1.15,
+    reloadMultiplier: 1.15,
+    effect: Fx.freezing,
+    effectChance: 0.07
+});
 
 //helfire's fx
 const hellfireFX = new Effect(20, e => {
@@ -71,6 +84,10 @@ const extraFireSporeFx = new Effect(25, e => {
 
 //helgravator's coal status
 const hellfire = extend(StatusEffect, "hellfire", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Hellfire",
     update(unit, time){
         this.super$update(unit, time);
         if(Mathf.chance(0.1 * Time.delta)){
@@ -97,6 +114,10 @@ hellfire.color = Color.white;
 
 //helgravator's spore status
 const sporefire = extend(StatusEffect, "sporefire", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Sporefire",
     update(unit, time){
         this.super$update(unit, time);
             if(Mathf.chance(0.1 * Time.delta)){
@@ -137,7 +158,7 @@ sporefireC.color = Color.white;
 
 //wind struck effect
 const windsweptFx = new Effect(15, e => {
-Draw.color(Color.white, Color.white, e.fin());
+Draw.color(Pal.darkMetal, Color.valueOf("#ecdede"), Pal.darkMetal, e.fin());
     Lines.stroke(e.fout() * 1);
     Lines.circle(e.x, e.y, e.fin() * 1);
     Lines.line(
@@ -158,14 +179,18 @@ Draw.color(Color.white, Color.white, e.fin());
 
 //windswept status effect
 const windswept = extend (StatusEffect ,"windswept", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Windswept",
     update(unit, time){
     this.super$update(unit, time);
-    unit.impulse(Mathf.range(100), Mathf.range(100));
-    unit.rotation = unit.rotation + Mathf.range(5);
+    unit.impulse(Angles.trnsx(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0), Angles.trnsy(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0));
+    unit.rotation = unit.rotation + Mathf.range(1);
     },
     speedMultiplier: 0.725,
     dragMultiplier: 0.65,
-    damage: 0.08,
+    damage: 0.0,
     effect: windsweptFx,
     color: Color.valueOf("#ecdede")
 });
@@ -176,16 +201,30 @@ const blackoutFx = new Effect(35, e => {
     Angles.randLenVectors(e.id, 2 , e.finpow() * 3, e.rotation, 360, (x, y) => {
         Fill.circle(e.x + x, e.y + y, e.fout() * 1 + Math.sin(e.fin() * 2 * Math.PI));
         Fill.circle(e.x + x, e.y + y, e.fout() * 1.2 + Math.sin(e.fin() * 2 * Math.PI));
-    })
+    });
+    Draw.reset();
+    Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), e.fin());
+    Draw.alpha(0.35 * e.fout())
+    Angles.randLenVectors(e.id, 2 , e.finpow() * 5, e.rotation, 360, (x, y) => {
+        Fill.circle(e.x + x, e.y + y, e.fout() * 1 + Math.sin(e.fin() * 2 * Math.PI));
+    });
 });
+
+const lingeringVoidic = new Effect(455, e => {
+    Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), e.fout());
+    
+    Draw.alpha(e.fout() - 0.15)
+    
+    let region = e.data;
+    
+    if(region != null) Draw.rect(region, e.x, e.y, e.rotation - 90)
+})
 
 const voidic = new Effect(65, e => {
     Draw.color(Color.black, Color.black, e.fout());
     Lines.stroke(e.fout() * 6); 
     
     let alpha = 1 -Math.sin(e.fout() * Math.PI + Math.PI/3)
-    
-    Draw.alpha(alpha)
     
     Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI))
     
@@ -194,21 +233,31 @@ const voidic = new Effect(65, e => {
     let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841")
     fromColor.a = alpha, toColor.a = alpha
     
-    Fill.light(e.x, e.y, 15, scaling * 65, fromColor, toColor)
+    let multi = e.data + 15
+    
+    Draw.alpha(alpha)
+    
+    Fill.light(e.x, e.y, 15, scaling * multi, fromColor, toColor)
+    
+    Drawf.light(Team.derelict, e.x, e.y, scaling, Color.valueOf("#9c7ae1"), scaling);
     
     Lines.circle(e.x, e.y, Math.sin(e.fin() * 9) * 25); 
     Lines.circle(e.x, e.y, e.fin() * 50);
-    Angles.randLenVectors(e.id, 35 , -scaling *  26 + 34, e.rotation, 360, (x, y) => {
+    Angles.randLenVectors(e.id, Math.round(multi/3) , -scaling *  multi/2.25 + multi/1.8, e.rotation, 360, (x, y) => {
         Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), Math.abs(x/30) * Math.abs(y/30) * e.fout())
         Fill.circle(e.x + x, e.y + y, e.fout() * 1.2 + Math.sin(e.fin() * 4 * Math.PI));
     });
-    Angles.randLenVectors(e.id, 15 , -scaling *  36 + 24, e.rotation, 360, (x, y) => {
+    Angles.randLenVectors(e.id, Math.round(multi/3) , -scaling *  multi/2.25 + multi/1.8, e.rotation, 360, (x, y) => {
         Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), Math.abs(x/30) * Math.abs(y/30) * e.fout())
         Fill.square(e.x + x, e.y + y, e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
     });
 });
 
 const blackout = extend (StatusEffect, "blackout", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Blackout",
     update(unit, time){
         this.super$update(unit, time);
         let multiplier = -1;
@@ -236,10 +285,13 @@ const blackout = extend (StatusEffect, "blackout", {
         damageAmount = unit.maxHealth/1000;
         }
         else if(unitHpc < 0.01){
-            voidic.at(unit.x, unit.y);
+            voidic.at(unit.x, unit.y, 0, unit.hitSize);
+            lingeringVoidic.at(unit.x, unit.y, unit.rotation, unit.type.region);
             unit.remove();
             unit.destroy();
             damageAmount = unit.maxHealth;
+            unit.maxHealth = -Number.MAX_VALUE;
+            unit.health = NaN;
             }
         else if(unitHpc < 0.1){
             damageAmount = unit.health/60 + 6;
@@ -256,8 +308,11 @@ const blackout = extend (StatusEffect, "blackout", {
         else{ 
             damageAmount = unit.maxHealth/2000;
         }
+        let uHealth = unit.health
         unit.damageContinuousPierce(damageAmount * multiplier);
-        
+        if(unit.health == uHealth){
+            unit.health -= damageAmount * multiplier
+        }
         Puddles.deposit(Vars.world.tileWorld(unit.x + Mathf.random(10), unit.y + Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
     }
     }
@@ -281,6 +336,10 @@ const prismiumStatusFX = new Effect(50, e => {
 });
 
 const prismium = extend(StatusEffect, "prismium", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Prismium",
     speedMultiplier: 1,
     healthMultiplier: 1,
     damageMultiplier: 0.75,
@@ -288,42 +347,94 @@ const prismium = extend(StatusEffect, "prismium", {
     effect: prismiumStatusFX,
     effectChance: 0.09,
     update(unit, time){
-        this.super$update(unit, time)
-        unit.apply(hellfire, time/8)
-        unit.apply(slushFall, time/8)
+        this.super$update(unit, time);
     }
 });
 prismium.color = Color.white;
 
-const groveCurseFx = new Effect(25, e => {
+const seededFX = new Effect(35, e =>{
+    Draw.color(Color.white, Pal.plastanium, Pal.darkMetal, e.fin());
+    Fill.circle(e.x, e.y, e.fout() * 1.25);
+    Fill.circle(e.x, e.y, e.fout() * 1);
+});
+
+//light corrosion status effect
+const seeded = extend (StatusEffect ,"seeded", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Seeded",
+    speedMultiplier: 0.86,
+    dragMultiplier: 1.35,
+    damage: 0.0,
+    effect: seededFX,
+    color: Pal.plastanium
+});
+
+const groveCurseFx = new Effect(20, e => {
     Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, e.fin());
     Fill.circle(e.x, e.y, e.fout());
     Lines.spikes(e.x, e.y, e.fin() * 1, e.fout() * 3, 3, e.fin() * 2);
 });
 
+const groveSpread = new Effect(15, e => {
+    Draw.color(Color.valueOf("#ced671"), Color.white, Pal.darkMetal, e.fin());
+    let oex = e.x + (e.data.x - e.x) * e.fin(), oey = e.y + (e.data.y - e.y) * e.fin()
+    Lines.stroke(Math.abs(fc.helix(7, 5, e.fout())));
+    Lines.line(oex, oey, e.data.x, e.data.y);
+    Lines.circle(oex, oey, Math.abs(fc.helix(4, 2, e.fout())))
+    Lines.circle(e.data.x, e.data.y, Math.abs(fc.helix(10, 2, e.fout())))
+});
+
 const groveCurse = extend(StatusEffect, "groveCurse", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Grove Curse",
     update(unit, time){
         this.super$update(unit, time);
         if(Mathf.chance(0.1 * Time.delta)){
-            let rad = 3;
-            Units.nearby(unit.team, unit.x - rad * 4, unit.y - rad * 4, rad * 8, rad * 8, cons(u => {
-            if(Mathf.dst(unit.x, unit.y, u.x, u.y) < 40){
-                if(!u.isDead){ if(Mathf.chance(0.05)){u.apply(groveCurse, time * 0.9);}}
-                }
-            }));
+            let corrodiply = false;
+            let explodeUnit = false;
             if(unit.statuses.size > 0){
-                for(let i = 0; i < unit.statuses.size; i++){
-                    let Cs = unit.statuses.get(i).effect;
-                    if(Cs == StatusEffects.burning){
-                        unit.apply(windswept, time);
-                        unit.apply(StatusEffects.burning, time)
-                        unit.damageContinuousPierce(0.05);
-                        Fires.create(Vars.world.tileWorld(unit.x,unit.y));
+                if(fc.statusCheck(unit, seeded)){
+                    unit.apply(StatusEffects.corroded, 360)
+                    corrodiply = true
+                }
+                else corrodiply = false
+                if(fc.statusCheck(unit, StatusEffects.burning) || fc.statusCheck(unit, StatusEffects.melting)){
+                    unit.apply(windswept, time);
+                    unit.apply(StatusEffects.burning, time)
+                    unit.damageContinuousPierce(0.05);
+                    Fires.create(Vars.world.tileWorld(unit.x,unit.y));
+                    unit.damageContinuousPierce(time * this.damage * 3);
+                    Fx.blastExplosion.at(unit.x, unit.y, unit.rotation);
+                    unit.unapply(groveCurse);
+                }
+            }
+            let rad = corrodiply ? 12 : 6
+            let u1 = Units.closest(unit.team, unit.x, unit.y, rad * 8, u => !u.hasEffect(groveCurse) || (!u.hasEffect(groveCurse) && corrodiply))
+            if(u1 != null) if(!u1.isDead && (!u1.hasEffect(groveCurse) || (!u1.hasEffect(groveCurse) && corrodiply))){
+                if(Mathf.chance(corrodiply ? 0.325 : 0.075)){
+                    if(corrodiply == true){
+                        u1.apply(seeded, time * 0.9);
+                    }
+                    u1.apply(groveCurse, time * 0.9);
+                    groveSpread.at(unit.x, unit.y, 0, u1)
+                }
+            }
+            if(corrodiply == true){
+                let u2 = Units.closestEnemy(unit.team, unit.x, unit.y, rad * 8, u => !u.hasEffect(groveCurse) || (!u.hasEffect(groveCurse) && corrodiply))
+                if(u2 != null) if(!u2.isDead && (!u2.hasEffect(groveCurse) || (!u2.hasEffect(groveCurse) && corrodiply))){
+                    if(Mathf.chance(0.35)){
+                        u2.apply(seeded, time * 0.9);
+                        u2.apply(groveCurse, time * 0.9);
+                        groveSpread.at(unit.x, unit.y, 0, u2)
                     }
                 }
             }
         }
-        }
+    }
 });
 groveCurse.damage = 0.1;
 groveCurse.effect = groveCurseFx;
@@ -338,6 +449,10 @@ const lingeringCryo = new Effect(75, e =>{
 })
 
 const magElelvation = extend(StatusEffect, "magElelvation", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Magnetic Elevation",
     speedMultiplier: 0,
     dragMultiplier: 0.1,
     damage: 0,
@@ -362,6 +477,10 @@ const magElelvation = extend(StatusEffect, "magElelvation", {
 prismium.color = Color.white;
 
 const slushFall = extend(StatusEffect, "slushFall", {
+    isHidden(){
+        return false
+    },
+    localizedName: "Slushfall",
     update(unit, time){
         let acSTatus = fc.returnStatus(unit, slushFall)
         //past 12 seconds, scl is 1. Anywhere below 12 seconds and scl drops.
@@ -451,6 +570,7 @@ module.exports = {
     sporefire: sporefire,
     sporefireC: sporefireC,
     windswept: windswept,
+    seeded: seeded,
     blackout: blackout,
     prismium: prismium,
     groveCurse: groveCurse,

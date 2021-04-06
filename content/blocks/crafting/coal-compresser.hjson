@@ -14,10 +14,10 @@ consumes: {
 }
 requirements: [
   stone/30
-  iron/70
+  rust/70
 ]
 category: crafting
-research: graphite-press
+research: taconite-crusher
 ambientSound: respawning
 ambientSoundVolume: 0.5
 outputItem: graphite/2

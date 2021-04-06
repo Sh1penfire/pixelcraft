@@ -9,16 +9,19 @@ upgrades: [
     rustydelta, rustytau
   ]
   [
-    purpleN2, purpleN3
+    nescience, deluge
   ]
   [
     stalactite, stalagmite
   ]
   [
+   rustyjavalin, rustytrident
+  ]
+  [
     capsule, inseculur
   ]
   [
-   rustyjavalin, rustytrident
+    purpleN2, purpleN3
   ]
 ]
 consumes: {

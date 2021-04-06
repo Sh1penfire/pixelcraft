@@ -1,37 +1,14 @@
-require("libs/fc");
-require("libs/statuses");
-require("libs/paferEffects");
-require("libs/refresh");
-require("extras/voidicsm");
-require("blocks/teleporter");
-require("turrets/wan't");
-require("turrets/Sx.quad");
-require("turrets/several");
-require("turrets/sundry");
-require("turrets/bictfuse");
-require("turrets/puver");
-require("turrets/psion");
-require("turrets/pafer");
-require("turrets/pulse");
-require("turrets/beat");
-require("turrets/helgravator");
-require("turrets/fever");
-require("turrets/tenmotus");
-require("turrets/spreadTurrets");
-require("turrets/bioTurrets");
-require("blocks/beacon")
-require("blocks/bombs");
-require("units/whiteGround");
-require("units/rusted");
-require("units/purpleNavals");
-require("units/voided")
-require("templura");
-require("blocks/pixel-com");
-require("blocks/bioFormer");
-require("units/mono");
-require("turrets/wasnts");
-require("turrets/wave");
-require("extras/techTree");
+let skripts = [
+  "extras/templuraGen", "libs/fc", "libs/statuses", "libs/refresh", "extras/voidicsm", "extras/weathers", "blocks/environment", "blocks/teleporter", "turrets/wan't", "turrets/Sx.quad", "turrets/several", "turrets/sundry", "turrets/bictfuse", "turrets/puver", "turrets/psion", "turrets/pafer", "turrets/pulse", "turrets/beat", "turrets/helgravator", "turrets/fever", "turrets/tenmotus", "turrets/persimodem", "turrets/spreadTurrets", "turrets/bioTurrets", "blocks/beacon", "blocks/bombs", "units/whiteGround", "units/rusted", "units/purpleNavals", "units/voided", "templura", "blocks/pixel-com", "blocks/bioFormer", "blocks/cores","units/mono", "turrets/wasnts", "units/pWaves", "turrets/wave", "extras/techTree"
+];
+
+skripts.forEach(e => {
+  try{
+    require(e)
+  }catch(c){
+    Log.err(c)
+  }
+});
 
 var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     localizedName: "Flooded Vally",

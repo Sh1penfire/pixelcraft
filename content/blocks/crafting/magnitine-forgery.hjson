@@ -13,17 +13,17 @@ consumes: {
   items: {
     items: [
       coal/2
-      iron/3
+      rust/3
     ]
   }
 }
 requirements: [
   stone/35
-  iron/75
+  rust/75
   graphite/50
 ]
 category: crafting
-research: silicon-smelter
+research: coal-compresser
 ambientSound: respawning
 ambientSoundVolume: 0.5
 outputItem: magnitine/4

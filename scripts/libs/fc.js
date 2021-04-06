@@ -111,6 +111,23 @@ function validateNearby(unit, range){
     return returnVar
 }
 
+function fcNearbyEnemy(team, x, y, range){
+        let result = null;
+        let cdist = 0;
+
+        Units.nearbyEnemies(team, x - range, y - range, range*2, range*2, e => {
+            if(e.dead) return;
+
+            let dst2 = e.dst2(x, y);
+            if(dst2 < range * range && (result == null || dst2 < cdist)){
+                result = e;
+                cdist = dst2;
+            }
+        });
+
+        return result;
+}
+
 module.exports = {
     rotationFC: rotationFC,
     helix: helix,
@@ -122,5 +139,6 @@ module.exports = {
     optionalRotatorY: optionalRotatorY,
     statusCheck: statusCheck,
     returnStatus: returnStatus,
-    validateNearby: validateNearby
+    validateNearby: validateNearby,
+    fcNearbyEnemy: fcNearbyEnemy
 };

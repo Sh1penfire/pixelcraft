@@ -30,6 +30,7 @@ shootType: {
 	frontColor: 86baf9
 	backColor: 86baf9
 	trailColor: 86baf9
+	status: shocked
 	fragBullets: 2
 	hitEffect: hitLancer
 	despawnEffect: hitBulletSmall
@@ -42,6 +43,7 @@ shootType: {
 	width: 4
 	height: 15
 	drag: 0.001
+	reflectable: false
 	frontColor: 86baf9
 	backColor: 86baf9
 	trailColor: 86baf9
@@ -72,7 +74,7 @@ shootType: {
 }
 }
 requirements: [
- iron/65
+ rust/65
  magnitine/60
  graphite/50
 ]

@@ -1,0 +1,27 @@
+name: "Old Trebushet"
+description: "Lobs packets of items from one trebushe to another. Placeable at sea."
+placeableLiquid: true
+size: 1
+range: 45
+itemCapacity: 5
+reloadTime: 45
+minDistribute: 3
+hasPower: false
+shootEffect: shootBig2
+smokeEffect: casing4
+receiveEffect: mineHuge
+knockback: 10
+shake: 2
+knockback: 3
+bulletSpeed: 1
+translation: 6
+bulletLifetime: 125
+category: distribution
+consumes: {}
+requirements: [
+  rust/135
+  titanium/5
+  ceramic/15
+]
+research: magnitine-drill
+buildVisibility: shown

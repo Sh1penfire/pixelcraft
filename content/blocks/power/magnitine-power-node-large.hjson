@@ -1,15 +1,16 @@
 type: PowerNode
 name: Large Magnitine Node
-description: "It is a superior energy node because it is made of magnitine. Spans multiple tiles."
+description: "Distributes power to consumers. Can resist short curcuiting and can be placed at sea."
 size: 2
+placeableLiquid: true
 laserRange: 30
 maxNodes: 20
 laserColor1: E9E9E9FF
 laserColor2: CFCFCFFF
 requirements: [
   magnitine/40
-  iron/30
-  
+  titanium/25
+  ceramic/15
 ]
 category: power
 research: magnitine-power-node

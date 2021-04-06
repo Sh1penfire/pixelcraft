@@ -1,6 +1,7 @@
 type: ItemTurret
 name: Shade
-description: A railgun so powerful that the bolts disintegrate into fine dust upon impact. Can target air.
+description: "A railgun so powerful that the bolts disintegrate into fine dust upon impact. Can target air."
+details: "Those who could not survive adapted, and decimated what was left. The void consumes all."
 shootSound: laser
 health: 1200
 size: 3
@@ -8,6 +9,7 @@ reloadTime: 200
 range: 450
 shots: 3
 burstSpacing: 7.5
+velocityInaccuracy: 0.01
 spread: 0
 targetAir: true
 ammoUseEffect: casing4
@@ -19,6 +21,7 @@ ammoTypes: {
 	damage: 125
 	width: 4
 	height: 18
+	drag: -0.001
 	shootEffect: shootSmall
 	smokeEffect: hitBulletBig
 	ammoMultiplier: 1
@@ -28,6 +31,7 @@ ammoTypes: {
 	fragVelocityMax: 1.5
 	frontColor: 56d7ca
 	backColor: 77b6b0
+	stauts: freezing
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -65,14 +69,17 @@ ammoTypes: {
 	damage: 175
 	width: 4
 	height: 32
+	drag: -0.001
 	shootEffect: shootSmall
 	smokeEffect: shootBigSmoke
 	hitEffect: hitBulletBig
 	despawnEffect: none
 	ammoMultiplier: 1
 	reloadMultiplier: 1.5
+	stauts: burning
 	lifetime: 15
-	fragBullets:100
+	fragBullets: 25
+	fragCone: 35
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -81,12 +88,14 @@ ammoTypes: {
 	frontColor: ffffff
 	backColor: ffffff
 	damage: 3
+	speed: 2
 	splashDamage: 0.5
 	splashDamageRadius: 20
 	hitEffect: none
 	despawnEffect: none
 	lifetime: 10
 	fragBullets: 2
+	fragCone: 10
 	hitEffect: none
 	despawnEffect: none
 	shrinkY: 1
@@ -111,7 +120,7 @@ ammoTypes: {
  feromagnet: {
     type: MissileBulletType
 	speed: 8
-	damage: 100
+	damage: 125
 	splashDamage: 75
 	splashDamageRadius: 28.5
 	width: 4
@@ -122,6 +131,7 @@ ammoTypes: {
 	despawnEffect: blastExplosion
 	ammoMultiplier: 2
 	reloadMultiplier: 1.5
+	status: corroded
 	lifetime: 60
 	fragBullets:100
 	collides: true
@@ -145,7 +155,7 @@ ammoTypes: {
 	fragBullets:100
 	collides: true
 	collidesAir: true
-	collidesTiles: true
+	collidesTiles: false
 	frontColor: e44d11
 	backColor: 56d7ca
 	trailColor: 4d107e
@@ -158,7 +168,7 @@ ammoTypes: {
 }
 }
 requirements: [
- iron/300
+ rust/300
  magnitine/260
  titanium/95
  feromagnet/65

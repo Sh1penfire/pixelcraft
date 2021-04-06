@@ -8,7 +8,7 @@ shots: 1
 ammoUseEffect: casing2Double
 rotateSpeed: 8
 requirements: [    
-  iron/150
+  rust/150
   graphite/25
   magnitine/35
 ]

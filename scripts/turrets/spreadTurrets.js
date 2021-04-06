@@ -1,4 +1,5 @@
 const fc = require("libs/fc");
+const voidicsm = require("extras/voidicsm");
 
 const spreadTurret1 = extendContent(ItemTurret, "spreadTurret1", {});
 
@@ -139,8 +140,8 @@ magnitineShot4.length = 12;
 const spreadTurret4 = extendContent(ItemTurret, "spreadTurret4", {
       init(){
     this.ammo(
-        Vars.content.getByName(ContentType.item,"pixelcraft-iron"), ironShot4,
-        Vars.content.getByName(ContentType.item,"pixelcraft-magnitine"), magnitineShot4
+        voidicsm.rust, ironShot4,
+        voidicsm.magnitine, magnitineShot4
     );
     this.super$init();
   },

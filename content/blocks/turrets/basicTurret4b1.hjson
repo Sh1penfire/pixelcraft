@@ -9,7 +9,7 @@ xRand: 2
 ammoUseEffect: casing2Double
 rotateSpeed: 8
 requirements: [    
-  iron/150
+  rust/150
   titanium/95
   magnitine/85
 ]

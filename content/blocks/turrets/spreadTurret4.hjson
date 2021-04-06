@@ -1,6 +1,7 @@
 name: Austutin
-description: Long ranged turret that spreads boomerangs around itself. Shoots 16 bullets.
+description: "Long ranged turret that spreads boomerangs around itself. Shoots 16 bullets. Placeable at sea."
 health: 300
+placeableLiquid: true
 size: 4
 shootSound: respawning
 reloadTime: 25
@@ -11,11 +12,11 @@ ammoUseEffect: none
 rotateSpeed: 10
 spread: 36
 requirements: [
-   iron/3500
+   rust/3500
    magnitine/250
    ceramic/120
    titanium/150
    stelarcrim/125
 ]
 category: turret
-research: spreadTurret1
+research: spreadTurret3

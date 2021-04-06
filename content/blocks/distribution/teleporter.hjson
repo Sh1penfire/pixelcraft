@@ -1,8 +1,0 @@
-name: "Teleporter"
-description: "Wip building, will work soon."
-itemCapacity: 1
-category: distribution
-requirements: [
-
-]
-buildVisibility: shown

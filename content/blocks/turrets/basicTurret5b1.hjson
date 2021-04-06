@@ -12,7 +12,7 @@ shootSound: shootBig
 ammoUseEffect: casing4
 rotateSpeed: 8
 requirements: [
-   iron/3500
+   rust/3500
    magnitine/250
    ceramic/120
    titanium/150

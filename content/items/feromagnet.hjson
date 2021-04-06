@@ -11,6 +11,4 @@ research: {
 	magnitine/1000
   ]
 }
-color: #E44d11
-explosiveness: 0.0
-flammability: 0.0
+color: E44d11

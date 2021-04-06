@@ -1,0 +1,104 @@
+name: "Blink"
+description: "A fragile capsule for the void. Shoots spreads of shards at enemies. Explodes on death."
+details: "Single actions have consequences, occasionally devastating hours of work people have put into things, crushing them with doubt and resent."
+speed : 0.65
+health: 115
+mechLegColor: 231841
+aimDst: 0
+mechSideSway: 0
+range: 165
+hitSize: 6
+boostMultiplier: 1.75
+maxRange: 218
+buildSpeed: 0
+clipSize: 1
+faceTarget: true
+rotateShooting : true
+mineTier: 2
+mineSpeed: 7.5
+rotateSpeed: 15
+lowAltitude: true
+omniMovement: true
+canBoost: false
+canDrown: false
+canBoost: false
+weapons: [ 
+{
+name: blink-blinking
+reload: 100
+shots: 4
+shotDelay: 6
+spacing: 15
+alternate: false
+ejectEffect: casing2
+top: false
+shootSound: shoot
+x: -4
+y: 1
+rotate: false
+bullet: {
+type: MissileBulletType
+sprite: pixelcraft-finMissile
+damage: 7
+speed: 3
+inaccuracy: 15
+//trust me, this helps the unit
+drag: -0.00525
+frontColor: 9c7ae1
+backColor: 9b7bdb
+trailColor: 9c7ae1
+trailChance: 0.6
+weaveMag: 7
+weaveScale: 9
+status: corroded
+statusDuration: 360
+homingRange: 85
+homingPower: 0.125
+hitSound: pew
+shrinkY: 0.3
+lifetime: 70
+pierce: true
+pierceBuildings: true
+keepVelocity: false
+}
+}
+{
+name: blink-blinking
+reload: 100
+shots: 4
+shotDelay: 6
+spacing: 35
+alternate: false
+ejectEffect: casing2
+top: false
+shootSound: explosion
+x: -4
+y: 1
+rotate: false
+bullet: {
+type: MissileBulletType
+sprite: pixelcraft-finMissile
+damage: 0
+speed: 1
+knockback: -1
+frontColor: 9c7ae1
+backColor: 9b7bdb
+trailColor: 9c7ae1
+trailChance: 0.075
+shootEffect: flakExplosion
+weaveMag: 5
+weaveScale: 10
+shrinkY: 0.3
+lifetime: 200
+hitSound: none
+keepVelocity: false
+}
+}]
+research: {
+parent: rusted-core
+requirements: [
+    tinormium/2500
+    graphite/2500
+    ceramic/650
+]
+}

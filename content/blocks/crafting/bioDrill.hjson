@@ -8,7 +8,7 @@ power: 2
 }
 requirements: [
   stone/100
-  iron/85
+  rust/85
   graphite/50
   magnitine/35
 ]

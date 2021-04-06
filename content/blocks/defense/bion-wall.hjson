@@ -1,0 +1,13 @@
+name: "Bion Wall"
+description: "A sturdy defensive block.
+Provides moderate protection from enemies."
+placeableLiquid: true
+offset: 8
+health: 450
+size: 1
+requirements: [
+  stone/10
+  bionorb/6
+]
+category: defense
+research: magnitine-wall

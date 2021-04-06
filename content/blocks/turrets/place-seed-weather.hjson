@@ -1,0 +1,7 @@
+
+requirements: [
+  rust/35
+]
+category: turret
+alwaysUnlocked: true
+research: core-refraction

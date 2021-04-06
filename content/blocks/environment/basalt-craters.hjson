@@ -1,0 +1,4 @@
+name: "Basalt Craters"
+itemDrop: rust
+playerUnmineable: true
+variants: 5

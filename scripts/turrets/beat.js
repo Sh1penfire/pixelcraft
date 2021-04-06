@@ -101,6 +101,7 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
             }
         }
         let TempTarget2 = Units.closestTarget(this.team, this.x, this.y, this.range(), u => u.checkTarget(true, true));
+        let tr = this.range / this.tilesize;
         if(TempTarget != null){
             this.target = TempTarget;
             if(this.isControlled() != true || this.logicControlled() != true){
@@ -149,22 +150,30 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
             this.target.heal(this.target.maxHealth/100 * type.healPercent);
             Fx.healBlockFull.at(this.target.x, this.target.y, this.target.block.size, Color.valueOf("#82f48f"))
             this.beamAlpha = 1;
-            this.setLastP()
+            this.setLastP();
+            this.shootEffect = Fx.none;
+            this.effects();
         }
         else{
             let TempBuild = Vars.world.buildWorld(this.targetPos.x, this.targetPos.y)
             if(TempBuild != null){
                if(TempBuild.team == this.team && TempBuild.damaged() && Mathf.dst(TempBuild.x, TempBuild.y, this.x, this.y) < this.range() + 1){
-                   TempBuild.heal(TempBuild.maxHealth/100 * type.healPercent)
+                    TempBuild.heal(TempBuild.maxHealth/100 * type.healPercent)
+                    Fx.healBlockFull.at(TempBuild.x, TempBuild.y, TempBuild.block.size, Color.valueOf("#82f48f"));
+                    Fires.extinguish(Vars.world.tileWorld(this.targetPos.x, this.targetPos.y), 2355);
                     this.beamAlpha = 1;
-                    this.setLastP()
+                    this.setLastP();
+                    this.shootEffect = Fx.none;
+                    this.effects();
                }
                 else{
                     this.super$shoot(type);
+                    this.shootEffect = this.block.shootEffect;
                 }
             }
             else{
                 this.super$shoot(type);
+                this.shootEffect = this.block.shootEffect;
             }
         }
             this.recoil = 1;
@@ -186,7 +195,6 @@ beat.buildType = () => extend(PowerTurret.PowerTurretBuild, beat, {
         Lines.line(this.xEnd, this.yEnd, this.LTPx, this.LTPy);
         Fill.circle(this.xEnd, this.yEnd, this.pulsate)
         Fill.circle(this.LTPx, this.LTPy, this.pulsate)
-        
         Draw.color(Color.white, Pal.heal, this.beamAlpha * this.beamAlpha);
         Lines.circle(this.xEnd, this.yEnd, 4 - 1.5 * this.beamAlpha * this.beamAlpha);
         }

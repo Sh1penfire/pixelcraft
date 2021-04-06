@@ -1,5 +1,6 @@
 const fc = require("libs/fc");
 const statuses = require("libs/statuses");
+const voidicsm = require("extras/voidicsm");
 
 const shotFx = new Effect(20, e => {
   Draw.color(Color.valueOf("E06FFFFF"), Color.lightGray, e.fout()); 
@@ -148,8 +149,8 @@ const basicTurret4b1 = extendContent(ItemTurret, "basicTurret4b1", {
     reloadTime: 15,
     init() {
     this.ammo(
-        Vars.content.getByName(ContentType.item,"pixelcraft-iron"), ironShot,
-        Vars.content.getByName(ContentType.item,"pixelcraft-magnitine"), magnitineShot,
+        voidicsm.rust, ironShot,
+        voidicsm.magnitine, magnitineShot,
         Vars.content.getByName(ContentType.item,"sand"), stormShot
     );
     this.super$init();

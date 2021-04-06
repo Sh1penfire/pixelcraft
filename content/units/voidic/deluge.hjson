@@ -1,0 +1,177 @@
+name: "Deluge"
+description: "A somewhat fragile capsule for the void. Charges up bursts of sappers which rip parts from the unit to deliver more damage. Explodes on death."
+details: "Skys were darkened and darkness was introduced. The folly of light is the lack of it. The folly of insolence is knoledge."
+speed: 0.7225
+health: 525
+mechLegColor: 231841
+armor: 3
+drag: 0.4
+aimDst: 10
+range: 100
+maxRange: 125
+hitSize: 11
+boostMultiplier: 1.75
+buildSpeed: 3
+clipSize: 1
+flying: false
+faceTarget: true
+rotateShooting: true
+mineTier: 3
+mineSpeed: 8
+range: 100
+rotateSpeed: 7
+lowAltitude: false
+omniMovement: true
+canDrown: false
+canBoost: true
+weapons: [
+{
+name: duluge-drainer
+reload: 60
+recoil: -2
+shootSound: explosion
+alternate: false
+ejectEffect: casing1
+top: false
+x: 7.25
+y: -1.15
+shots: 5
+spacing: 5
+firstShotDelay: 25
+bullet: {
+type: MissileBulletType
+sprite: shell
+damage: 15
+speed: 1
+drag: -0.0025
+knockback: -0.15
+frontColor: 9c7ae1
+backColor: 231841
+trailColor: 33355b
+trailChance: 0.05
+shootEffect: explosion
+weaveMag: 3
+weaveScale: 5
+status: corroded
+statusDuration: 1240
+homingPower: 0.125
+hitSound: none
+shrinkY: 0.3
+lifetime: 115
+maxRange: 75
+keepVelocity: false
+}
+}
+{
+name: nono
+reload: 60
+recoil: 0
+shootSound: missile
+alternate: false
+ejectEffect: casing1
+top: false
+x: 6
+y: 1.5
+shots: 7
+spacing: 10
+firstShotDelay: 25
+bullet: {
+type: MissileBulletType
+sprite: shell
+damage: 3.5
+speed: 1.75
+drag: -0.0025
+knockback: -0.15
+frontColor: 9c7ae1
+backColor: 231841
+trailColor: 33355b
+trailChance: 0.01
+weaveMag: 3
+weaveScale: 5
+statusDuration: 350
+homingPower: 0.075
+hitSound: none
+shrinkY: 0.3
+lifetime: 65
+maxRange: 75
+keepVelocity: false
+}
+}
+{
+name: none
+shootSound: sap
+chargeSound: spark
+soundPitchMin: 0.35
+soundPitchMax: 0.55
+mirror: false
+shake: 7
+shots: 5
+shotDelay: 5.5
+inaccuracy: 3
+spacing: 15
+x: 0 
+y: -1
+reload: 120
+cooldownTime: 456
+shootStatusDuration: 65
+shootStatus: unmoving
+firstShotDelay: 25
+bullet: {
+type: SapBulletType
+sapStrength: -0.15
+length: 95
+damage: 25
+buildingDamageMultiplier: 0.85
+shootEffect: sapExplosion
+despawnEffect: none
+hitEffect: shootSmall
+color: 928ac1
+pierce: true
+pierceCap: 2
+width: 0.35
+lifetime: 75
+maxRange: 75
+keepVelocity: false
+knockback: -2
+}
+}
+{
+name: none
+shootSound: none
+chargeSound: none
+mirror: false
+shots: 5
+shotDelay: 5.5
+inaccuracy: 3
+spacing: -15
+x: 0 
+y: -1
+reload: 120
+cooldownTime: 456
+firstShotDelay: 25
+bullet: {
+type: SapBulletType
+sapStrength: -0.15
+length: 95
+damage: 25
+buildingDamageMultiplier: 0.85
+shootEffect: none
+despawnEffect: none
+hitEffect: shootSmall
+color: 928ac1
+pierce: true
+pierceCap: 2
+width: 0.54
+lifetime: 75
+maxRange: 75
+keepVelocity: false
+knockback: -2
+}
+}]
+research: {
+parent: nescience
+requirements: [
+    coal/2000
+    magnitine/500
+]
+}

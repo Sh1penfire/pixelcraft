@@ -57,14 +57,14 @@ function shardUnit(name, DC, DR, type, build){
         });
         return bt;
     }
-    unit.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 360, 360, 60));
-    unit.abilities.add(new StatusFieldAbility(statuses.warmth, 360, 360, 60));
+    unit.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 3600, 360, 60));
+    unit.abilities.add(new StatusFieldAbility(statuses.warmth, 3600, 360, 60));
     return unit;
 };
 
 const cryFac = extendContent(UnitFactory, "cryFac", {});
 
-shardUnit("crystal", 0.95, 0.1, UnitType, MechUnit);
+let crystal = shardUnit("crystal", 0.95, 0.1, UnitType, MechUnit);
 /*
 const crystal = extendContent(UnitType, "crystal", {});
 crystal.constructor = () => extend(MechUnit, {
@@ -90,8 +90,8 @@ stalactite.constructor = () => extend(MechUnit, {
         this.dead = true;
     }
 });
-stalactite.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 360, 360, 60));
-stalactite.abilities.add(new StatusFieldAbility(statuses.warmth, 360, 360, 60));
+stalactite.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 3600, 360, 60));
+stalactite.abilities.add(new StatusFieldAbility(statuses.warmth, 3600, 360, 60));
 
 var upgrade = new Seq([Vars.content.getByName(ContentType.unit, "pixelcraft-crystal"), Vars.content.getByName(ContentType.unit, "pixelcraft-stalactite")]);
 Blocks.additiveReconstructor.upgrades.add(upgrade.toArray(UnitType));
@@ -105,8 +105,8 @@ stalagmite.constructor = () => extend(MechUnit, {
         this.dead = true;
     }
 });
-stalagmite.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 360, 360, 60));
-stalagmite.abilities.add(new StatusFieldAbility(statuses.warmth, 360, 360, 60));
+stalagmite.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 3600, 360, 60));
+stalagmite.abilities.add(new StatusFieldAbility(statuses.warmth, 3600, 360, 60));
 
 var upgrade = new Seq([Vars.content.getByName(ContentType.unit, "pixelcraft-stalactite"), Vars.content.getByName(ContentType.unit, "pixelcraft-stalagmite")]);
 Blocks.multiplicativeReconstructor.upgrades.add(upgrade.toArray(UnitType));

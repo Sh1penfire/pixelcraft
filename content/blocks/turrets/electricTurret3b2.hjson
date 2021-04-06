@@ -9,49 +9,65 @@ range: 200
 shots: 5
 powerUse: 10
 rotateSpeed: 50
-//shootYOffset: 10
 inaccuracy: 15
 spread: 5
 targetAir: true
-targetGround: false
+targetGround: true
 shootType: {
 	type: BasicBulletType
-	speed: 1
+	speed: 0.5
 	damage: 15
 	lifetime: 45
 	width: 2
 	height: 5
-	drag: 0.04
+	drag: 0.01
 	frontColor: 86baf9
 	backColor: 86baf9
 	trailColor: 86baf9
 	shootEffect: lancerLaserShoot
 	smokeEffect: hitBulletBig
-	hitEffect: hitLancer
-	despawnEffect: hitLancer
-	fragBullets: 4
+	hitEffect: none
+	despawnEffect: none
+	fragCone: 5
+	fragBullets: 2
+	fragLifeMin: 0.25
+	fragVelocityMax: 1
 	homingRange: 100
 	homingPower: 1
 	fragBullet: {
 	type: BasicBulletType
 	speed: 10
-	damage: 5
+	damage: 2
 	lifetime: 45
+	shrinkY: 1
+	shrinkX: 0.2
 	width: 2
 	height: 5
 	drag: 0.04
 	frontColor: 86baf9
 	backColor: 86baf9
 	trailColor: 86baf9
-	smokeEffect: hitBulletBig
+	smokeEffect: none
 	hitEffect: hitLancer
-	despawnEffect: hitLancer
+	despawnEffect: none
 	homingRange: 100
-	homingPower: 1
-}
+	homingPower: 0.0001
+	fragBullets: 1
+	fragBullet: {
+		type: BombBulletType
+		speed: 0
+		splashDamage: 5
+		lifetime: 0
+		collidesGround: false
+		collidesTiles: false
+		collidesAir: true
+		hitEffect: none
+		despawnEffect: none
+		}
+	}
 }
 requirements: [
- iron/800
+ rust/800
  magnitine/300
  feromagnet/150
 ]

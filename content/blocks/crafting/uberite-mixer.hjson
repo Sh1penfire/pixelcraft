@@ -3,17 +3,17 @@ name: Uberite Mixer
 description: Makes Uberite.
 size: 2
 craftTime: 100
-consumes: {
-  items: {
-    items: [
+consumes:{
+  items:{
+    items:[
       pyratite/2
       pixelite/3
       coal/5
     ]
   }
 }
-requirements: [
-
+requirements:[
+  rust/69
 ]
 category: crafting
 research: pixelite-mixer

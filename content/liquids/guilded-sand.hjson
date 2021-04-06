@@ -1,6 +1,6 @@
 name: Guilded sand
 description: Sand blasted down a tube. Looks quite hot, don't touch it. AND WHATEVER YOU DO DON'T SPILL IT, IT LASTS AROUND FOR AGES, ARGGGGG. I hate sand under building foundations...
 temperature: 1.2
-viscosity: 0.9
+viscosity: 0.95
 effect: burning
 color: f9d886

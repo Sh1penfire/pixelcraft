@@ -1,6 +1,9 @@
 type: GenericCrafter
 name: Taconite crusher
-description: Crushes stone and extracts the iron within.
+description: Crushes stone and extracts the rust within. Placeable at sea.
+details: A great pillar of stone that can be used to extract rust. Alphae used multiple of these as bridges.
+placeableLiquid: true
+solid: false
 size: 2
 hasItems: true
 craftTime: 80
@@ -16,7 +19,7 @@ requirements: [
   stone/30
 ]
 category: crafting
-research: iron
+research: core-refraction
 idleSound: respawning
 idleSoundVolume: 0.5
-outputItem: iron/2
+outputItem: rust/2

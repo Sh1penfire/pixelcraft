@@ -51,11 +51,14 @@ const shot = extend(MissileBulletType, {
         shotTrail.at(b.x, b.y);
         blastShot.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), 90), fc.helix(7, 3, b.fin()));
         blastShot.create(b.owner, b.team, b.x, b.y, fc.rotationFC(b.rotation(), -90), fc.helix(7, 3, b.fin() ));
-    }
+    },
+    absorbable: false
 });
 
 //makes frag bullets
-const blastShot = extend(BasicBulletType, {});
+const blastShot = extend(BasicBulletType, {
+    absorbable: false
+});
 
 //extends off the puver hjson file
 const puver = extendContent(PowerTurret, "electricTurret3b1", {
@@ -95,6 +98,7 @@ shot.hitEffect = Fx.none;
 shot.despawnEffect = shotHit;
 shot.shootEffect = puverShoot;
 shot.hitSound = Sounds.none;
+shot.status = statuses.ionisedStatus;
 //shot.smokeEffect = puverSmoke;
 
 //now stats of frag bullet

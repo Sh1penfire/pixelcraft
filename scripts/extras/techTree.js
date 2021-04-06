@@ -1,6 +1,7 @@
 let templura = require("templura");
-let statuses = require("libs/statuses")
+let statuses = require("libs/statuses");
 let fever = require("turrets/fever");
+let voidicsm = require("extras/voidicsm")
 //Casually stals from [Gdeft/substructure]'s techtree.js
 
 /**
@@ -29,7 +30,9 @@ node(templura.ancientGrotto, templura.loggery, null, Seq.with(new Objectives.Sec
 
 node(templura.loggery, templura.sinkhole, null, Seq.with(new Objectives.SectorComplete(templura.loggery), new Objectives.Research(cblock("bioDrill"))));
 
-node(templura.sinkhole, templura.dessertWastelands, null, Seq.with(new Objectives.SectorComplete(templura.sinkhole)));
+node(templura.loggery, templura.plantaeKindoma, null, Seq.with(new Objectives.SectorComplete(templura.loggery), new Objectives.Research(voidicsm.magnitineDrill)));
+
+node(templura.sinkhole, templura.desertWastelands, null, Seq.with(new Objectives.SectorComplete(templura.sinkhole)));
 
 node(templura.loggery, templura.frozenFalls, null, Seq.with(new Objectives.SectorComplete(templura.sinkhole)));
 

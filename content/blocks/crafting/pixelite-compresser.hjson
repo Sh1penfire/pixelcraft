@@ -23,8 +23,7 @@ consumes: {
   }
 }
 requirements: [
-  iron/70
-  lead/150
+  rust/70
   titanium/75
   graphite/180
   magnitine/100

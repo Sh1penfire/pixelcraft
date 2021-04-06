@@ -17,7 +17,7 @@ ammoTypes: {
     smokeEffect: shootSmallSmoke
     lifetime: 20
     }
-  iron: {
+  rust: {
     speed: 4
     damage: 7
     width: 5
@@ -93,7 +93,7 @@ pixelite: {
         }
 }
 requirements: [    
-  iron/55
+  rust/55
   graphite/15
 ]
 category: turret

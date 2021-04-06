@@ -1,12 +1,14 @@
 type: ItemTurret
 name: Blaze
 description: "A powerful flamethrower which shoots streams of fire at it's enemies. Can compress spore pods and smelt scrap. It can also hit air units. This was a good idea!"
+details: "This was used to burn those who we called voidics. Strange mechs which negated physical blows using the infection. Light staves them off."
 shootSound: flame2
 health: 300
 size: 2
 reloadTime: 2.5
 range: 75
-shots: 1
+inaccuracy: 6
+shots: 2
 ammoUseEffect: none
 rotateSpeed: 8
 ammoTypes: {
@@ -144,7 +146,7 @@ pierce: true
     }
 }
 requirements: [    
-  iron/15
+  rust/15
   magnitine/70
   titanium/25
 ]

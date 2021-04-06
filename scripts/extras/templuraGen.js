@@ -1,6 +1,60 @@
+const environment = require("blocks/environment");
+const weathers = require("extras/weathers");
+const pWaves = require("units/pWaves");
 
-
+//note: GOtten from substructure and ever since, I'm trying to learn how it works. Untill then, I'll extend off serpulo gen.
 const templuraGenerator = extend(PlanetGenerator, {
+    noiseOct(x, y, octaves, falloff, scl){
+        let v = this.sector.rect.project(x, y).scl(7);
+        return this.noise.octaveNoise3D(octaves, falloff, 1 / scl, v.x, v.y, v.z);
+    },
+    scatterRadius(srad, x, y, sblock){
+        for(let x1 = -srad; x1 <= srad; x1++){
+            for(let y1 = -srad; y1 <= srad; y1++){
+                if(Mathf.chance(0.1)){
+                    Vars.world.tile(x1 + x, y1 + y).setFloorUnder(sblock);
+                }
+            }
+        }
+    },
+    blendBlock(tiles, Block, dst, radius, ignore, ignoreSolid){
+        tiles.each((x, y) => {
+            print("-----");
+            print(x);
+            print(y);
+            let tile = Vars.world.tile(x, y);
+            print(tile);
+            let block = tile.block();
+            print(block);
+            let floor = tile.floor();
+            print(floor);
+            if(floor != Block || (block != Blocks.air && ignoreSolid) || floor == ignore) return;
+            print("proceeding")
+            let rad = radius;
+            let found = false;
+            for(let x1 = -rad; x1 <= rad; x1++){
+                print(x1);
+                for(let y1 = -rad; y1 <= rad; y1++){
+                    print(y1);
+                    if(Mathf.within(x, y, rad)) continue;
+                    let tilef = Vars.world.tile(x + x1, y + y1);
+                    if(tilef == null) break;
+                    print(tilef);
+                    
+                    if(tilef.block() == Block || tilef.floor() == Block || tilef.overlay() == Block){
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
+            if(found){
+                floor.setBlock(dst);
+                print("block found");
+            }
+            print("-----");
+        });
+    },
     rawHeight(position){
         position = Tmp.v33.set(position).scl(this.scl);
         return (Mathf.pow(this.noise.octaveNoise3D(7, 0.5, 1 / 3, position.x, position.y, position.z), 2.3) + this.waterOffset) / (1 + this.waterOffset);
@@ -28,7 +82,6 @@ const templuraGenerator = extend(PlanetGenerator, {
             tile.block = Blocks.air;
         };
     },
-
     getBlock(position){
         let arr = this.arr;
         let scl = this.scl;
@@ -48,13 +101,8 @@ const templuraGenerator = extend(PlanetGenerator, {
         let res = arr[Mathf.clamp(Math.floor(temp * arr.length), 0, arr[0].length - 1)][Mathf.clamp(Math.floor(height * arr[0].length), 0, arr[0].length - 1)];
         return res;
     },
-    
-    noiseOct(x, y, octaves, falloff, scl){
-        let v = this.sector.rect.project(x, y).scl(5);
-        return this.noise.octaveNoise3D(octaves, falloff, 1 / scl, v.x, v.y, v.z);
-    },
-
     generate(tiles, sec){
+        print("generating begin")
         this.tiles = tiles;
         this.sector = sec;
         
@@ -98,16 +146,16 @@ const templuraGenerator = extend(PlanetGenerator, {
             
             return room;
         };
-
+        
         this.cells(4);
-        this.distort(10, 12);
+        this.distort(6, 15);
 
         this.width = this.tiles.width;
         this.height = this.tiles.height;
 
         let constraint = 1.3;
         let radius = this.width / 2 / Mathf.sqrt3;
-        let rooms = rand.random(2, 5);
+        let rooms = rand.random(6, 8);
         let roomseq = new Seq();
 
         for(let i = 0; i < rooms; i++){
@@ -115,11 +163,13 @@ const templuraGenerator = extend(PlanetGenerator, {
             let rx = Math.floor(this.width / 2 + Tmp.v1.x);
             let ry = Math.floor(this.height / 2 + Tmp.v1.y);
             let maxrad = radius - Tmp.v1.len();
-            let rrad = Math.floor(Math.min(rand.random(9, maxrad / 2), 30));
+            let rrad = Math.floor(Math.min(rand.random(9, maxrad / 2), 15));
             
             roomseq.add(setRoom(rx, ry, rrad));
         };
-
+        
+        print("added rooms")
+        
         //check positions on the map to place the player spawn, this needs to be in the corner of the map.
         let spawn = null;
         let enemies = new Seq();
@@ -134,7 +184,6 @@ const templuraGenerator = extend(PlanetGenerator, {
             let angle = offset + i;
             let cx = Math.floor(this.width / 2 + Angles.trnsx(angle, length));
             let cy = Math.floor(this.height / 2 + Angles.trnsy(angle, length));
-
             let waterTiles = 0;
 
             //check for water presence.
@@ -164,7 +213,8 @@ const templuraGenerator = extend(PlanetGenerator, {
                 break;
             };
         };
-
+        print("enemy spawn added");
+        
         roomseq.each(room => this.erase(room.x, room.y, room.radius));
 
         let connections = rand.random(Math.max(rooms - 1, 1), rooms + 3);
@@ -175,11 +225,13 @@ const templuraGenerator = extend(PlanetGenerator, {
         roomseq.each(room => spawn.connect(room));
 
         this.cells(1);
-        this.distort(10, 6);
+        this.distort(7, 9);
 
         this.inverseFloodFill(this.tiles.getn(spawn.x, spawn.y));
-
-        let ores = Seq.with(Blocks.oreCopper, Blocks.oreLead);
+        
+        print("generated spawn room")
+        
+        let ores = Seq.with(environment.oreRust);
         let poles = Math.abs(this.sector.tile.v.y);
         let nmag = 0.5;
         let scl = 1;
@@ -218,29 +270,43 @@ const templuraGenerator = extend(PlanetGenerator, {
                     Math.abs(0.5 - this.noiseOct(offsetX, offsetY - i * 999, 1, 1, (30 + i * 4))) > 0.37 + freq){
                     this.ore = entry;
                     break;
-                };    
+                };  
             };
 
             if(this.ore == Blocks.oreScrap && rand.chance(0.33)){
                 this.floor = Blocks.metalFloorDamaged;
             };
         });
-
+        
+        print("generated ores");
+        
+        this.scatter(Blocks.stone, Blocks.charr, 0.05);
         this.trimDark();
         this.median(2);
         this.tech();
+        //this.blendBlock(this.tiles, Blocks.sandWater, environment.stormsand, Mathf.round(Mathf.random(2) + 1), Blocks.sand, true);
+        
+        print("generated metal and storm sand");
+        
         this.pass((x, y) => {
             //random boulder
-            if(this.floor == Blocks.stone){
+            if(this.floor == Blocks.stone || this.floor == Blocks.basalt || this.floor == Blocks.darksand){
                 if(Math.abs(0.5 - this.noiseOct(x - 90, y, 4, 0.8, 65)) > 0.02){
-                    this.floor = Blocks.boulder;
-                };
+                    //broken, come back soon
+                    //this.floor.wall = this.floor == Blocks.stone ? Blocks.boulder : Blocks.basaltBoulder;
+                }
+                else if(Math.abs(0.35 - this.noiseOct(x - 90, y, 4, 0.8, 60)) > 0.02 && Mathf.chance(this.noiseOct(x - 90, y, 4, 0.8, 30))){
+                    let crater1 = this.floor == Blocks.stone ? Blocks.craters : environment.basaltCraters;
+                    let charr1 = this.floor == Blocks.stone ? Blocks.charr : environment.basaltChar;
+                    if(Mathf.chance(0.5)) this.floor = crater1;
+                    else this.floor = charr1;
+                }
             };
 
             if(this.floor != null && this.floor != Blocks.basalt && this.floor != Blocks.mud && this.floor.asFloor().hasSurface()){
                 let noise = this.noiseOct(x + 782, y, 5, 0.75, 260);
                 if(noise > 0.72){
-                    this.floor = noise > 0.78 ? Blocks.taintedWater : (this.floor == Blocks.sand ? Blocks.sandWater : Blocks.darksandTaintedWater);
+                    this.floor = noise > 0.78 ? Blocks.sandWater : (this.floor == Blocks.sand ? Blocks.sandWater : Blocks.sandWater);
                     this.ore = Blocks.air;
                 }else if(noise > 0.67){
                     this.floor = (this.floor == Blocks.sand ? this.floor : Blocks.darksand);
@@ -248,7 +314,9 @@ const templuraGenerator = extend(PlanetGenerator, {
                 };
             };
         });
-
+        
+        print("generated boulders, char and craters");
+        
         let difficulty = this.sector.threat;
         const ints = this.ints;
         
@@ -256,14 +324,22 @@ const templuraGenerator = extend(PlanetGenerator, {
         ints.ensureCapacity(this.width * this.height / 4);
 
         Schematics.placeLaunchLoadout(spawn.x, spawn.y);
+        
+        let snoise = this.noiseOct(spawn.x + 782, spawn.y, 7, 0.75, 530);
+        let srad = 8;
+        let sblock = snoise > 0.72 ? Blocks.basalt : Blocks.stone
+        this.scatterRadius(srad, spawn.x, spawn.y, sblock)
 
+        for(let i = 0; i < rooms.length; i++){
+            this.scatterRadius(srad, rooms[i].x, spawnrooms[i].y, sblock)
+        }
+        
         enemies.each(espawn => this.tiles.getn(espawn.x, espawn.y).setOverlay(Blocks.spawn));
 
         let state = Vars.state;
 
         if(this.sector.hasEnemyBase()){
             this.basegen.generate(tiles, enemies.map(r => this.tiles.getn(r.x, r.y)), this.tiles.get(spawn.x, spawn.y), state.rules.waveTeam, this.sector, difficulty);
-
             state.rules.attackMode = this.sector.info.attack = true;
         }else{
             state.rules.winWave = this.sector.info.winWave = 10 + 5 * Math.max(difficulty * 10, 1);
@@ -274,12 +350,25 @@ const templuraGenerator = extend(PlanetGenerator, {
         state.rules.waveSpacing = Mathf.lerp(60 * 65 * 2, 60 * 60 * 1, Math.floor(Math.max(difficulty - waveTimeDec, 0) / 0.8));
         state.rules.waves = this.sector.info.waves = true;
         state.rules.enemyCoreBuildRadius = 480;
-
-        state.rules.spawns = Waves.generate(difficulty, new Rand(), state.rules.attackMode);
+        state.rules.enemyLights = false;
+        let col1 = Color.valueOf("#667a73").lerp(Color.valueOf("#455e56"), Mathf.random(1));
+        col1.a = difficulty/18 * this.noiseOct(spawn.x + 450, spawn.y, 5, 0.45, 220) + 0.25;
+        state.rules.ambientLight = col1;
         
-        //this.generate(tiles);
+        state.rules.spawns = pWaves.waves.generate(difficulty, new Rand(), state.rules.attackMode);
+        state.rules.weather.add(Weather.WeatherEntry(weathers.strongStorm));
+        //chose which destructive weather to add
+        if(snoise > 0.7 || difficulty > 7 && !state.rules.attackMode) state.rules.weather.add(Weather.WeatherEntry(weathers.charringDeluge));
+        else state.rules.weather.add(Weather.WeatherEntry(weathers.seedStorm));
+        let lengthh = 0
+        state.rules.weather.forEach(w => {
+            lengthh++;
+        });
+        let weath = state.rules.weather.get(Math.round(Math.random() * (lengthh - 1))).weather;
+        if(weath != weathers.charringDeluge) Call.createWeather(weath, 0.1, 1000 * difficulty + Math.random(1000) + 2000, 17.5 - Mathf.random(35), 17.5 - Mathf.chance(35));
+        
+        print("finished generation");
     },
-
     postGenerate(tiles){
         if(this.sector.hasEnemyBase()){
             this.basegen.postGenerate();
@@ -287,25 +376,25 @@ const templuraGenerator = extend(PlanetGenerator, {
     } 
 });
 templuraGenerator.arr = [   
-    [Blocks.deepwater, Blocks.darksandWater, Blocks.sandWater, Blocks.sand, Blocks.craters, Blocks.sand, Blocks.sand, Blocks.basalt, Blocks.dirt, Blocks.dirt, Blocks.dirt, Blocks.dirt, Blocks.mud],
-    [Blocks.deepwater, Blocks.darksandWater, Blocks.sandWater, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.metalFloorDamaged, Blocks.dacite, Blocks.dirt, Blocks.dirt, Blocks.mud, Blocks.dirt, Blocks.mud],
-    [Blocks.deepwater, Blocks.sandWater, Blocks.sand, Blocks.sand, Blocks.metalFloorDamaged, Blocks.metalFloorDamaged, Blocks.dirt, Blocks.basalt, Blocks.basalt, Blocks.basalt, Blocks.mud, Blocks.dirt, Blocks.mud],
-    [Blocks.taintedWater, Blocks.darksandTaintedWater, Blocks.darksand, Blocks.darksand, Blocks.basalt, Blocks.metalFloorDamaged, Blocks.basalt, Blocks.hotrock, Blocks.basalt, Blocks.mud, Blocks.dirt, Blocks.mud, Blocks.mud],
-    [Blocks.darksandWater, Blocks.darksand, Blocks.darksand, Blocks.darksand, Blocks.metalFloorDamaged, Blocks.tar, Blocks.dirt, Blocks.basalt, Blocks.basalt, Blocks.mud, Blocks.dirt, Blocks.mud, Blocks.mud],
+    [Blocks.deepwater, Blocks.darksandWater, Blocks.sandWater, Blocks.sand, environment.stormsand, Blocks.sand, Blocks.sand, Blocks.basalt, environment.dryGrass, environment.dryGrass, Blocks.dirt, Blocks.dirt, Blocks.stone],
+    [Blocks.deepwater, Blocks.water, Blocks.sandWater, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.metalFloorDamaged, Blocks.dacite, Blocks.dirt, Blocks.dirt, Blocks.mud, Blocks.dirt, Blocks.mud],
+    [Blocks.deepwater, Blocks.sandWater, Blocks.sand, Blocks.sand, environment.stormsand, environment.stormsand, Blocks.dirt, Blocks.basalt, Blocks.basalt, Blocks.basalt, Blocks.mud, Blocks.dirt, Blocks.mud],
+    [Blocks.water, Blocks.sandWater, Blocks.salt, Blocks.salt, Blocks.sand, environment.stormsand, Blocks.stone, environment.stormsand, Blocks.stone, Blocks.mud, Blocks.dirt, Blocks.mud, Blocks.mud],
+    [Blocks.salt, environment.stormsand, Blocks.sand, Blocks.salt, Blocks.stone, Blocks.water, Blocks.dirt, Blocks.basalt, Blocks.basalt, Blocks.mud, Blocks.dirt, Blocks.mud, Blocks.mud],
     
-    [Blocks.darksandWater, Blocks.craters, Blocks.darksand, Blocks.tar, Blocks.mud, Blocks.mud, Blocks.dirt, Blocks.dirt, Blocks.dirt, Blocks.dirt, Blocks.mud, Blocks.mud, Blocks.mud],
-    [Blocks.taintedWater, Blocks.darksandTaintedWater, Blocks.darksand, Blocks.tar, Blocks.tar, Blocks.mud, Blocks.mud, Blocks.dirt, Blocks.dirt, Blocks.mud, Blocks.mud, Blocks.mud, Blocks.mud],
-    [Blocks.darksandTaintedWater, Blocks.darksandTaintedWater, Blocks.darksand, Blocks.tar, Blocks.metalFloorDamaged, Blocks.tar, Blocks.dacite, Blocks.dirt, Blocks.mud, Blocks.mud, Blocks.mud, Blocks.mud, Blocks.mud],
+    [Blocks.darksandWater, Blocks.stone, Blocks.darksand, Blocks.slag, Blocks.mud, Blocks.mud, Blocks.dirt, Blocks.dirt, Blocks.dirt, Blocks.dirt, Blocks.mud, Blocks.mud, Blocks.mud],
+    [Blocks.taintedWater, Blocks.darksandTaintedWater, Blocks.darksand, Blocks.slag, Blocks.slag, Blocks.mud, Blocks.mud, Blocks.dirt, Blocks.dirt, Blocks.mud, Blocks.mud, Blocks.mud, Blocks.mud],
+    [Blocks.darksandTaintedWater, Blocks.darksandTaintedWater, Blocks.darksand, Blocks.slag, Blocks.basalt, Blocks.slag, Blocks.dacite, Blocks.dirt, Blocks.mud, Blocks.mud, Blocks.mud, Blocks.mud, Blocks.mud],
     [Blocks.darksandWater, Blocks.darksand, Blocks.dirt, Blocks.mud, Blocks.dacite, Blocks.dirt, Blocks.dirt, Blocks.dirt, Blocks.mud, Blocks.mud, Blocks.mud, Blocks.mud, Blocks.mud],
 
-    [Blocks.darksandWater, Blocks.darksandWater, Blocks.darksand, Blocks.darksand, Blocks.darksand, Blocks.darksand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.darksandTaintedWater, Blocks.stone, Blocks.stone],
+    [Blocks.darksandWater, Blocks.darksandWater, Blocks.darksand, Blocks.basalt, Blocks.basalt, Blocks.darksand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.darksandTaintedWater, Blocks.stone, Blocks.stone],
     [Blocks.darksandWater, Blocks.darksandWater, Blocks.darksand, Blocks.darksand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.darksandTaintedWater, Blocks.stone, Blocks.stone, Blocks.stone],
-    [Blocks.darksandWater, Blocks.darksandWater, Blocks.darksand, Blocks.sand, Blocks.craters, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.darksandTaintedWater, Blocks.stone, Blocks.stone, Blocks.stone],
-    [Blocks.darksandWater, Blocks.sandWater, Blocks.sand, Blocks.craters, Blocks.craters, Blocks.craters, Blocks.sand, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.dirt, Blocks.dacite, Blocks.mud]
+    [Blocks.sandWater, Blocks.darksandWater, Blocks.darksand, environment.dryGrass, environment.stormsand, environment.stormsand, Blocks.stone, Blocks.sand, Blocks.sand, Blocks.darksandTaintedWater, Blocks.stone, Blocks.stone, Blocks.stone],
+    [Blocks.water, Blocks.sandWater, environment.stormsand, environment.dryGrass, environment.stormsand, environment.dryGrass, Blocks.sand, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.dirt, Blocks.dacite, Blocks.mud]
 ];
 templuraGenerator.rid = new Packages.arc.util.noise.RidgedPerlin(1, 2);
 templuraGenerator.basegen = new BaseGenerator();
-templuraGenerator.scl = 5;
+templuraGenerator.scl = 8;
 templuraGenerator.waterOffset = 0.07;
 templuraGenerator.water = 2 / templuraGenerator.arr[0].length;
 
