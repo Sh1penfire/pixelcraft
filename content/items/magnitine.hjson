@@ -9,6 +9,6 @@ research: {
   parent: rust
   requirements:[
   stone/500
-  iron/800
+  rust/800
   ]
 }
