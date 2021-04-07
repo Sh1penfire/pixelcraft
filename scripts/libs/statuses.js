@@ -210,14 +210,20 @@ const blackoutFx = new Effect(35, e => {
     });
 });
 
-const lingeringVoidic = new Effect(455, e => {
+const lingeringVoidic = new Effect(1800, e => {
     Draw.color(Color.valueOf("#9c7ae1"), Color.valueOf("#231841"), e.fout());
     
     Draw.alpha(e.fout() - 0.15)
     
-    let region = e.data;
+    let region = e.data[0];
+    
+    let hitSize = e.data[1];
     
     if(region != null) Draw.rect(region, e.x, e.y, e.rotation - 90)
+    
+    Draw.color();
+    
+    Drawf.light(Team.derelict, e.x, e.y, hitSize, Color.valueOf("#9c7ae1"), e.fout() * 0.65);
 })
 
 const voidic = new Effect(65, e => {
@@ -238,8 +244,6 @@ const voidic = new Effect(65, e => {
     Draw.alpha(alpha)
     
     Fill.light(e.x, e.y, 15, scaling * multi, fromColor, toColor)
-    
-    Drawf.light(Team.derelict, e.x, e.y, scaling, Color.valueOf("#9c7ae1"), scaling);
     
     Lines.circle(e.x, e.y, Math.sin(e.fin() * 9) * 25); 
     Lines.circle(e.x, e.y, e.fin() * 50);
@@ -286,7 +290,7 @@ const blackout = extend (StatusEffect, "blackout", {
         }
         else if(unitHpc < 0.01){
             voidic.at(unit.x, unit.y, 0, unit.hitSize);
-            lingeringVoidic.at(unit.x, unit.y, unit.rotation, unit.type.region);
+            lingeringVoidic.at(unit.x, unit.y, unit.rotation, [unit.type.region, unit.type.hitSize + 5]);
             unit.remove();
             unit.destroy();
             damageAmount = unit.maxHealth;
