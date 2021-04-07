@@ -1,0 +1,14 @@
+name: "Shardling Door"
+description: "A fragile defensive block.
+Provides marginal protection against enemies. Can be opened or closed. Reflects weak projectiles. 
+Can be placed at sea."
+placeableLiquid: true
+chanceDeflect: 10
+health: 450
+size: 1
+requirements: [
+  magnitine/10
+  bionorb/6
+]
+category: defense
+research: magnitine-wall

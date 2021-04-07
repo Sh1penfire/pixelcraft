@@ -162,10 +162,11 @@ const blackoutShot = extend(PointBulletType, {
     damage: 100,
     splashDamage: 45,
     splashDamageRadius: 75,
+    hitSound: Sounds.release,
     hitEffect: shadowShot,
     trailEffect: darknessTrail,
     shootEffect: shadowShot,
-    status: statuses.blackout,
+    status: StatusEffects.corroded,
     statusDuration: 175,
     collides: true,
     collidesAir: true,
@@ -198,7 +199,10 @@ const blackestShot = extend(PointBulletType, {
     speed: 32,
     lifeimte: 0,
     damage: 450,
+    //makes the turrwt shoot much much faster.
+    homingPower: 10,
     splashDamageRadius: 55,
+    hitSound: Sounds.release,
     hitEffect: shadowHit,
     despawnEffect: shadowShot,
     trailEffect: darkestTrail,
@@ -245,9 +249,12 @@ const brightShot = extend(PointBulletType, {
     damage: 150,
     splashDamage: 25,
     splashDamageRadius: 95,
+    hitSound: Sounds.explosion,
     hitEffect: brightShoot,
     trailEffect: lightTrail,
     shootEffect: brightShoot,
+    status: statuses.prismium,
+    statusDuration: 180,
     collides: true,
     collidesAir: true,
     collidesGround: true,
@@ -278,11 +285,14 @@ const brightestShot = extend(PointBulletType, {
     lifeimte: 0,
     damage: 750,
     splashDamageRadius: 125,
+    hitSound: Sounds.explosion,
     hitEffect: brightHit,
     despawnEffect: brightShoot,
     trailEffect: brightestTrail,
     shootEffect: brightShoot,
     fragBullet: brightShot,
+    status: statuses.prismium,
+    statusDuration: 450,
     fragBullets: 20,
     collides: true,
     collidesAir: true,
@@ -321,6 +331,7 @@ const stormShot = extend(PointBulletType, {
     damage: 95,
     splashDamage: 15,
     splashDamageRadius: 45,
+    hitSound: Sounds.explosion,
     hitEffect: stormShoot,
     trailEffect: stormTrail,
     shootEffect: stormShoot,
@@ -353,6 +364,7 @@ const delugeShot = extend(PointBulletType, {
     lifeimte: 0,
     damage: 650,
     splashDamageRadius: 55,
+    hitSound: Sounds.explosion,
     hitEffect: stormHit,
     despawnEffect: stormShoot,
     trailEffect: delugeTrail,
@@ -419,6 +431,8 @@ railgun4.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun4, {
         
         type.hitEffect.at(tshootX, tshootY, this.rotation, this);
         
+        type.hitSound.at(tshootX, tshootY)
+        
         if(type.fragBullet != null){
             let unitArr = []
             
@@ -434,11 +448,11 @@ railgun4.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun4, {
                     cueUnit = null;
                     type.fragBullet.create(this, this.team, hshootX, hshootY, 0, 0);
                     type.fragBullet.trailEffect.at(hshootX, hshootY, 0, this);
+                    type.fragBullet.hitSound.at(hshootX, hshootY);
                 })
             }
         }
         this.effects();
         this.useAmmo();
-        
     }
 });

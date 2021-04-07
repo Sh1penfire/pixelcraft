@@ -1,4 +1,5 @@
 const statuses = require("libs/statuses");
+const fc = require("libs/fc");
 /*
 //defining blocks for the tech tree and in general ordering
 Vars.world.setSectorRules = () => {
@@ -194,6 +195,7 @@ const bioWall = extend(Wall, "bion-wall", {
         this.sideRegion = Core.atlas.find(this.name + "-edge");
     }
 });
+
 bioWall.buildType = () => extend(Wall.WallBuild, bioWall, {
     update(){
         this.super$update();
@@ -216,6 +218,43 @@ bioWallLarge.buildType = () => extend(Wall.WallBuild, bioWallLarge, {
         if(this.health < this.maxHealth){
             this.heal(this.maxHealth/600);
         }
+    }
+});
+
+const shardlingDoor = extend(Door, "shardling-door", {
+    load(){
+        this.botomRegion = Core.atlas.find(this.name + "-botom");
+        this.super$load();
+    }
+});
+
+shardlingDoor.buildType = () => extend(Door.DoorBuild, shardlingDoor, {
+    unitOn(b){
+        if(this.sTimer > 0) return;
+        this.sTimer++;
+        if(fc.statusCheck(b, statuses.groveCurse)){
+            b.unapply(statuses.groveCurse);
+            b.heal(10);
+            Fx.healBlockFull.at(this.x, this.y, this.block.size, Pal.heal);
+        }
+    },
+    draw(){
+        Draw.reset();
+        if(this.open){
+            Draw.z(Layer.block);
+            let botomRegion = Core.atlas.find(this.block.name + "-botom");
+            Draw.rect(botomRegion, this.x, this.y, 0);
+            Draw.z(Layer.groundUnit + 1);
+            Draw.alpha(0.75);
+            Draw.rect(botomRegion, this.x, this.y, 0);
+        }
+        Draw.reset();
+        Draw.z(Layer.groundUnit + 1);
+        Draw.rect(this.open ? this.block.openRegion : this.block.region, this.x, this.y, 0);
+    },
+    update(){
+        this.super$update();
+        if(this.sTimer > 0) this.sTimer -= 0.01;
     }
 });
 
