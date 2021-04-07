@@ -15,6 +15,50 @@ Vars.world.setSectorRules = () => {
     if(hasBio && !state.rules.weather.contains(cons(e => e instanceof weathers.seedStorm))) state.rules.weather.add(new WeatherEntry(weathers.seedStorm));
 }
 */
+
+const corosiveLingeringFx = new Effect(120, e => {
+  Draw.color(Pal.plastanium, Color.white, Pal.plastanium, e.fin());
+  Draw.alpha(1 - 0.25 * e.fin());
+  Fill.circle(e.x, e.y, e.fout() * 4);
+  Draw.alpha(1);
+  Angles.randLenVectors(e.id, 25 , e.finpow() * 35, e.rotation, 360, (x, y) => {
+    Fill.circle(e.x + x, e.y + y, e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
+    Fill.circle(e.x + x, e.y + y, e.fout() * 4 + Math.sin(e.fin() * 4 * Math.PI));
+  })
+});
+
+const limeuceSplash = new Effect(75, e => {
+    Draw.color(Color.white, Pal.plastanium, Color.valueOf("#c4cf6f"), e.fin());
+    Angles.randLenVectors(e.id, 7 , e.finpow() * 15 + 6, e.rotation, 360, (x, y) => {
+        Fill.circle(e.x + x, e.y + y, e.fout() * 2 + Math.sin(e.fin() * 3 * Math.PI));
+    })
+});
+
+const stone = extend(Item, "stone", {});
+const rust = extend(Item, "rust", {});
+const magnitine = extend(Item, "magnitine", {});
+const ceramic = extend(Item, "ceramic", {});
+const bionorb = extend(Item, "bionorb", {});
+const pixelite = extend(Item, "pixelite", {});
+const uberite = extend(Item, "uberite", {});
+const feromagnet = extend(Item, "feromagnet", {});
+const bionite = extend(Item, "bionite", {});
+const tinormium = extend(Item, "tinormium", {});
+const stelarcrim = extend(Item, "stelarcrim", {});
+const rubble = extend(Item, "rubble", {})
+
+const voidicsm = extend(Liquid, "voidicsm", {
+    tempretature: 0,
+    heatCapacity: 1,
+    viscocity: 0.5,
+    effect: statuses.blackout,
+    color: Pal.darkMetal
+});
+
+const limeuce = extend(Liquid, "limeuce", {
+    effect: statuses.groveCurse
+});
+
 const corosiveLingering = extend(BombBulletType, {
     update(b){
         if(Mathf.chance(Time.delta)){
@@ -35,29 +79,21 @@ const corosiveExpl = extend(BombBulletType, {
     hitSound: Sounds.none
 });
 
-const corosiveLingeringFx = new Effect(120, e => {
-  Draw.color(Pal.plastanium, Color.white, Pal.plastanium, e.fin());
-  Draw.alpha(1 - 0.25 * e.fin());
-  Fill.circle(e.x, e.y, e.fout() * 4);
-  Draw.alpha(1);
-  Angles.randLenVectors(e.id, 25 , e.finpow() * 35, e.rotation, 360, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
-    Fill.circle(e.x + x, e.y + y, e.fout() * 4 + Math.sin(e.fin() * 4 * Math.PI));
-  })
+const limeuceLSplash = extend(LiquidBulletType, {
+    splashDamageRadius: 15,
+    splashDamage: 10,
+    damage: 21,
+    liquid: limeuce,
+    lifetime: 20,
+    status: statuses.groveCurse,
+    statusDuration: 1280,
+    collides: true,
+    collidesAir: false,
+    collidesGround: true,
+    buildingDamageMultiplier: 3.35,
+    hitSound: Sounds.none
 });
 
-const stone = extend(Item, "stone", {});
-const rust = extend(Item, "rust", {});
-const magnitine = extend(Item, "magnitine", {});
-const ceramic = extend(Item, "ceramic", {});
-const bionorb = extend(Item, "bionorb", {});
-const pixelite = extend(Item, "pixelite", {});
-const uberite = extend(Item, "uberite", {});
-const feromagnet = extend(Item, "feromagnet", {});
-const bionite = extend(Item, "bionite", {});
-const tinormium = extend(Item, "tinormium", {});
-const stelarcrim = extend(Item, "stelarcrim", {});
-const rubble = extend(Item, "rubble", {})
 /*
     getReplacement(req, requests){
         let cont = p => requests.contains(o => o.x == req.x + p.x && o.y == req.y + p.y && (req.block instanceof ironConveyor || req.block instanceof Junction));
@@ -166,6 +202,11 @@ ironWall.buildType = () => extend(Wall.WallBuild, ironWall, {
         this.super$onDestroyed();
         corosiveLingeringFx.at(this.x, this.y)
         corosiveLingering.create(this, this.team, this.x, this.y, Mathf.random(360), 0, 1, 1, this);
+    },
+    draw(){
+        Draw.reset();
+        Draw.z(Layer.groundUnit + 1);
+        Draw.rect(this.block.region, this.x, this.y, 0);
     }
 })
 
@@ -175,14 +216,31 @@ ironWallLarge.buildType = () => extend(Wall.WallBuild, ironWallLarge, {
         this.super$onDestroyed();
         corosiveLingeringFx.at(this.x, this.y)
         corosiveLingering.create(this, this.team, this.x, this.y, Mathf.random(360), 0, 1, 1, this);
+    },
+    draw(){
+        Draw.reset();
+        Draw.z(Layer.groundUnit + 1);
+        Draw.rect(this.block.region, this.x, this.y, 0);
     }
 })
 
 const magWall = extend(Wall, "magnitine-wall", {});
-ironWall.buildType = () => extend(Wall.WallBuild, ironWall, {});
+magWall.buildType = () => extend(Wall.WallBuild, ironWall, {
+    draw(){
+        Draw.reset();
+        Draw.z(Layer.groundUnit + 1);
+        Draw.rect(this.block.region, this.x, this.y, 0);
+    }
+});
 
 const magWallLarge = extend(Wall, "large-magnitine-wall", {});
-ironWallLarge.buildType = () => extend(Wall.WallBuild, ironWallLarge, {});
+magWallLarge.buildType = () => extend(Wall.WallBuild, ironWallLarge, {
+    draw(){
+        Draw.reset();
+        Draw.z(Layer.groundUnit + 1);
+        Draw.rect(this.block.region, this.x, this.y, 0);
+    }
+});
 
 const bioWall = extend(Wall, "bion-wall", {
     icons(){
@@ -223,27 +281,42 @@ bioWallLarge.buildType = () => extend(Wall.WallBuild, bioWallLarge, {
 
 const shardlingDoor = extend(Door, "shardling-door", {
     load(){
-        this.botomRegion = Core.atlas.find(this.name + "-botom");
         this.super$load();
     }
 });
 
 shardlingDoor.buildType = () => extend(Door.DoorBuild, shardlingDoor, {
+    damage(number){
+        this.super$damage(this.open ? number * 3 : number);
+    },
     unitOn(b){
         if(this.sTimer > 0) return;
         this.sTimer++;
-        if(fc.statusCheck(b, statuses.groveCurse)){
+        if(fc.statusCheck(b, statuses.groveCurse) && b.team == this.team){
             b.unapply(statuses.groveCurse);
             b.heal(10);
             Fx.healBlockFull.at(this.x, this.y, this.block.size, Pal.heal);
         }
+    },
+    onDestroyed(){
+        this.explosiveness = this.block.baseExplosiveness * (this.open ? 4 : 0.15);
+        this.super$onDestroyed();
+        Puddles.deposit(Vars.world.tileWorld(this.x, this.y), limeuce, 55);
+        for(let i = 0; i < Math.round(Math.random() * 3) + 17 * (this.open ? 2 : 0.75); i++){
+            limeuceLSplash.create(this, this.team, this.x, this.y, Math.random() * 360, Math.random(), Math.random());
+        }
+        limeuceSplash.at(this.x, this.y);
     },
     draw(){
         Draw.reset();
         if(this.open){
             Draw.z(Layer.block);
             let botomRegion = Core.atlas.find(this.block.name + "-botom");
+            let coverRegion = Core.atlas.find(this.block.name + "-cover");
             Draw.rect(botomRegion, this.x, this.y, 0);
+            Draw.z(Layer.groundUnit + 0.75);
+            Draw.alpha(0.1);
+            Draw.rect(coverRegion, this.x, this.y, 0);
             Draw.z(Layer.groundUnit + 1);
             Draw.alpha(0.75);
             Draw.rect(botomRegion, this.x, this.y, 0);
@@ -279,18 +352,6 @@ Bullets.standardThorium.status = StatusEffects.corroded;
 Bullets.artilleryPlasticFrag.statusDuration = 3600;
 Bullets.standardThoriumBig.status = StatusEffects.corroded;
 Bullets.artilleryPlasticFrag.statusDuration = 7200;
-
-const voidicsm = extend(Liquid, "voidicsm", {
-    tempretature: 0,
-    heatCapacity: 1,
-    viscocity: 0.5
-});
-voidicsm.effect = statuses.blackout;
-voidicsm.color = Pal.darkMetal;
-
-const limeuce = extend(Liquid, "limeuce", {
-    effect: statuses.groveCurse
-});
 
 module.exports = {
     stone: stone,
