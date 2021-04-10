@@ -1,7 +1,8 @@
+let cores = require("blocks/cores")
 let templura = require("templura");
 let statuses = require("libs/statuses");
 let fever = require("turrets/fever");
-let voidicsm = require("extras/voidicsm")
+let voidicsm = require("extras/voidicsm");
 //Casually stals from [Gdeft/substructure]'s techtree.js
 
 /**
@@ -24,7 +25,9 @@ const node = (parent, contentType, requirements, objectives) => {
 const cblock = name => Vars.content.getByName(ContentType.block, "pixelcraft-" + name);
 
 //pixelcraft only campaign
-node(Blocks.conveyor, templura.ancientGrotto, null, null);
+node(Blocks.conveyor, templura.unfamilierHospitality, null, null);
+
+node(templura.unfamilierHospitality, templura.ancientGrotto, null, Seq.with(new Objectives.SectorComplete(templura.unfamilierHospitality)));
 
 node(templura.ancientGrotto, templura.loggery, null, Seq.with(new Objectives.SectorComplete(templura.ancientGrotto), new Objectives.Research(cblock("basicTurret1"))));
 

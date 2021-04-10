@@ -34,7 +34,7 @@ items:{
 }
 }
 category: units
-research: naval-factory
+research: rusted-core
 requirements: [
   graphite/55
   magnitine/75  

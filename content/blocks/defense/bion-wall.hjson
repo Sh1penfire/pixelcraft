@@ -2,6 +2,7 @@ name: "Bion Wall"
 description: "A sturdy defensive block.
 Provides moderate protection from enemies."
 placeableLiquid: true
+update: true
 offset: 8
 health: 450
 size: 1

@@ -6,4 +6,3 @@ playerUnmineable: true
 solid: false
 emitLight: true
 lightRadius: 30
-lightColor: 1c732778

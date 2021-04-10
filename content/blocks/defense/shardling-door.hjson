@@ -6,6 +6,7 @@ placeableLiquid: true
 chanceDeflect: 10
 health: 450
 size: 1
+baseExplosiveness: 2
 requirements: [
   magnitine/10
   bionorb/6

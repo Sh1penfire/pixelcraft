@@ -7,6 +7,8 @@ aimDst: 10
 range: 50
 drag: 0.05
 accel: 0.075
+hitSize: 10
+lightRadius: 45
 maxRange: 200
 buildSpeed: 3
 clipSize: 1

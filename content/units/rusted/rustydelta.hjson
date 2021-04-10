@@ -8,6 +8,8 @@ drag: 0.4
 aimDst: 10
 range: 50
 hitSize: 10
+lightRadius: 45
+lightOpacity: 0.45
 boostMultiplier: 1.25
 maxRange: 80
 buildSpeed: 3
