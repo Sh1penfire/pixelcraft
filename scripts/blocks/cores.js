@@ -36,3 +36,7 @@ coreLaunchpad.buildType = () => extend(CoreBlock.CoreBuild, coreLaunchpad, {
     },
     lDamagedTeam: Team.derelict
 });
+
+module.exports = {
+    coreRefraction: coreRefraction
+}

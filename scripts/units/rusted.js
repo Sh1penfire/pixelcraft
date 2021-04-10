@@ -1,7 +1,8 @@
 const refresh = require("libs/refresh")
 const fc = require("libs/fc")
 const theAislol = require("libs/theAislol")
-const statuses = require("libs/statuses")
+const statuses = require("libs/statuses");
+const cores = require("blocks/cores");
 //Surge shockwave but delta
 const LandFx = new Effect(25, e => {
     Draw.color(Color.white, Color.valueOf("#a9d8ff"), e.fin());
@@ -360,12 +361,18 @@ inseculur.defaultController = theAislol.swarmAI
 refresh(inseculur)
 
 Events.on(ClientLoadEvent, b  => {
-    print(Object.assign(new SpawnGroup, { type: rustyAlpha, unitScaling: 2, max: 3 }));
-    capsule.immunities.add(statuses.seeded)
-    inseculur.immunities.add(statuses.seeded)
-    inseculur.immunities.add(statuses.groveCurse)
+    print(cores.coreRefraction)
+    shard.immunities.add(statuses.seeded);
+    capsule.immunities.add(statuses.seeded);
+    capsule.immunities.add(statuses.groveCurse);
+    inseculur.immunities.add(statuses.seeded);
+    inseculur.immunities.add(statuses.groveCurse);
     capsule.weapons.get(0).bullet.status = statuses.seeded;
+    capsule.weapons.get(1).bullet.status = statuses.seeded;
     inseculur.weapons.get(0).bullet.status = statuses.groveCurse;
+    inseculur.weapons.get(1).bullet.status = statuses.groveCurse;
+    inseculur.weapons.get(2).bullet.status = statuses.groveCurse;
+    inseculur.weapons.get(3).bullet.status = statuses.seeded;
 });
 
 module.exports = {

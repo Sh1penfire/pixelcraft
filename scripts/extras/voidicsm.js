@@ -88,7 +88,7 @@ const limeuceLSplash = extend(LiquidBulletType, {
     status: statuses.groveCurse,
     statusDuration: 1280,
     collides: true,
-    collidesAir: false,
+    collidesAir: true,
     collidesGround: true,
     buildingDamageMultiplier: 3.35,
     hitSound: Sounds.none
@@ -177,22 +177,29 @@ const neromagnetDrill = extend(Drill, "neromagnet-drill", {
 });
 neromagnetDrill.buildType = () => extend(Drill.DrillBuild, neromagnetDrill, {});
 
+let blocksm = [
+    [Blocks.stone, Blocks.basalt],
+    [Blocks.grass, Blocks.dirt, Blocks.mud],
+    [Blocks.moss, Blocks.sporeMoss]
+];
+let itemsm = [stone, bionorb, Items.sporePod];
+
 const excavator = extend(Drill, "excavator", {
     getDrop(tile){
         let tileDrop = tile.drop();
-        if(tileDrop == null && (tile.floor() === Blocks.stone || tile.floor() === Blocks.basalt)) return stone;
-        else if(tileDrop == null && (tile.floor() === Blocks.grass || tile.floor() === Blocks.dirt)) return bionorb;
-        else if(tileDrop == null && (tile.floor() === Blocks.sporeMoss || tile.floor() === Blocks.moss)) return Items.sporePod;
-        else if(tile.floor().liquidDrop != null){
-            if(tile.floor().deep == true) return stone
-            return Items.sand
+        for(let i = 0; i < itemsm.length; i++){
+            if (blocksm[i].includes(tile.floor())) return itemsm[i];
         }
-        return tileDrop
+        if(tile.floor().liquidDrop != null){
+            if(tile.floor().deep == true) return stone;
+            return Items.sand;
+        }
+        return tileDrop;
     },
     canMine(tile){
         if(tile == null) return false;
         else if(this.getDrop(tile) != null) return this.getDrop(tile).hardness <= this.tier;
-    },
+    }
 });
 excavator.buildType = () => extend(Drill.DrillBuild, excavator, {});
 
@@ -262,10 +269,9 @@ bioWall.buildType = () => extend(Wall.WallBuild, bioWall, {
         }
     },
     draw(){
-        this.super$draw();
-        for(let i = 0; i < 4; i++){
-            Draw.rect(bioWall.sideRegion, this.x + Angles.trnsx(i * 90, 8, 0), this.y + Angles.trnsy(i * 90, 8, 0), (i - 1) * 90);
-        }
+        Draw.reset();
+        Draw.z(Layer.groundUnit + 1);
+        Draw.rect(this.block.region, this.x, this.y, 0);
     }
 });
 
@@ -276,22 +282,36 @@ bioWallLarge.buildType = () => extend(Wall.WallBuild, bioWallLarge, {
         if(this.health < this.maxHealth){
             this.heal(this.maxHealth/600);
         }
+    },
+    draw(){
+        Draw.reset();
+        Draw.z(Layer.groundUnit + 1);
+        Draw.rect(this.block.region, this.x, this.y, 0);
     }
 });
 
 const shardlingDoor = extend(Door, "shardling-door", {
-    load(){
-        this.super$load();
-    }
+    update: true
 });
 
 shardlingDoor.buildType = () => extend(Door.DoorBuild, shardlingDoor, {
+    hitGrove(b){
+        if(this.sTimer >= 0 || (b.type.status != statuses.groveCurse && b.type.status != statuses.seeded)) return;
+        for(let i = 0; i < Math.round(Math.random() * 2) + 2; i++){
+            limeuceLSplash.create(this, this.team, this.x, this.y, this.angleTo(b) + Math.random() * 5 - 2.5, Math.random(), Math.random());
+        }
+    },
+    collision(b){
+        this.hitGrove(b);
+        this.damage(b.damage * b.type.buildingDamageMultiplier);
+        return true;
+    },
     damage(number){
         this.super$damage(this.open ? number * 3 : number);
     },
     unitOn(b){
         if(this.sTimer > 0) return;
-        this.sTimer++;
+        this.sTimer = 1;
         if(fc.statusCheck(b, statuses.groveCurse) && b.team == this.team){
             b.unapply(statuses.groveCurse);
             b.heal(10);
@@ -314,7 +334,7 @@ shardlingDoor.buildType = () => extend(Door.DoorBuild, shardlingDoor, {
             let botomRegion = Core.atlas.find(this.block.name + "-botom");
             let coverRegion = Core.atlas.find(this.block.name + "-cover");
             Draw.rect(botomRegion, this.x, this.y, 0);
-            Draw.z(Layer.groundUnit + 0.75);
+            Draw.z(Layer.flyingUnit + 0.75);
             Draw.alpha(0.1);
             Draw.rect(coverRegion, this.x, this.y, 0);
             Draw.z(Layer.groundUnit + 1);
@@ -328,7 +348,8 @@ shardlingDoor.buildType = () => extend(Door.DoorBuild, shardlingDoor, {
     update(){
         this.super$update();
         if(this.sTimer > 0) this.sTimer -= 0.01;
-    }
+    },
+    sTimer: 0
 });
 
 const corrodedEffect = new Effect(75, e =>{

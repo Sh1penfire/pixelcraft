@@ -16,8 +16,7 @@ const templura = extend(Planet, "templura", Planets.sun, 3, 1.45, {
 templura.meshLoader = () => extend(HexMesh, templura, 6, {});
 
 const unfamilierHospitality = extend(SectorPreset, "unfamilier-hospitality", templura, 95, {
-    captureWave: 2,
-    description: "Home to a small friend",
+    description: "Three friends lie untouched. Two abandoned. One native. Traped, within the compound. Relive their legacy.",
     localizedName: "Unfamilier Hospitality",
     difficulty: 0,
     alwaysUnlocked: true
@@ -28,7 +27,6 @@ const ancientGrotto = extend(SectorPreset, "ancient-grotto", templura, 6, {
     description: "A grove full of rust. Collect rust and stone.",
     localizedName: "Ancient Grotto",
     difficulty: 1,
-    alwaysUnlocked: true
 });
 
 const loggery = extend(SectorPreset, "loggery", templura, 23, {
@@ -109,6 +107,7 @@ const trionCentral = extend(SectorPreset, "trion-central", templura, 55, {
 
 module.exports = {
     templura: templura,
+    unfamilierHospitality: unfamilierHospitality,
     ancientGrotto: ancientGrotto,
     loggery: loggery,
     plantaeKindoma: plantaeKindoma,

@@ -6,6 +6,7 @@ health: 280
 armor: 4
 aimDst: 10
 hitSize: 8
+lightRadius: 45
 range: 50
 drag: 0.013
 accel: 0.015

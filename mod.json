@@ -1,8 +1,8 @@
 {
     "name": "pixelcraft",
-    "displayName": "Pixelcraft: The testing rust",
+    "displayName": "Pixelcraft: The endless rust",
     "author": "Sh1penfire and pankiwi",
-    "description": "[red]panini return[]\nA v6 mod for mindustry\nThis mod aims to expand mindustry's content by adding a new tech tree, adding upgraded versions of existinc blocks and more.\nThis mod adds new resources, new turrets and new zones as well as slight tweaks to vanilla. Over 50 new building blocks to play with, one environmental block, two ores and 5 items with moree to come.\n(Lore included, find the lore of the mod in building and unit descriptions/reading the source code)\nnote: Has been ported over to v6, enjoy the mod!\ndiscord: https://discord.gg/xwq8hU5Ww8",
+    "description": "Welcome to pixelcraft, a mod which gives an alternative to vanilla, and adds lore surounding such world. Copper and Lead are almost overused in mod content, so lets change that. \nPixelcraft adds two new main materiels, 15 new maps(around), a new planet to explore, 99 new buildable blocks, 7 new environmental blocks and multiple unit factions. \n Hope you have a good time using the mod, and I'll hopefully finish a few of the missing sprites.\ndiscord: https://discord.gg/xwq8hU5Ww8",
     "version": "0.9.85",
     "minGameVersion": "121"
 }
