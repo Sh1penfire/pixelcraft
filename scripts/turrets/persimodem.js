@@ -3,7 +3,7 @@ const fc = require("libs/fc");
 const extras = require("extras/voidicsm");
 const bombs = require("blocks/bombs")
 const voidicsm = require("extras/voidicsm");
-const firinDistance = 5;
+const firinDistance = 13;
 
 const darknessTrail = new Effect(35, e => {
   Draw.color(Color.black, Pal.darkMetal, e.fin());
@@ -105,7 +105,8 @@ const brightHit = new Effect(125, e => {
 
 const stormTrail = new Effect(25, e => {
     Draw.color(Color.valueOf("#8083ae"), Color.valueOf("#737fae"), e.fin());
-    let dx = e.data.x - e.x, dy = e.data.y - e.y;
+    let fx = Math.cos(e.data.rotation/180 * Math.PI) * firinDistance, fy = Math.sin(e.data.rotation/180 * Math.PI) * firinDistance;
+    let dx = e.data.x - e.x + fx, dy = e.data.y - e.y + fy;
     let stroket = Math.abs(fc.helix(6, 2, e.fout()))
     Draw.z(Layer.bullet);
     for(let i = 0; i < 5; i ++){
@@ -114,23 +115,24 @@ const stormTrail = new Effect(25, e => {
     Lines.stroke(stroket);
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
+               e.data.x + fx,
+               e.data.y + fy);
 });
 
 const delugeTrail = new Effect(125, e => {
     Draw.color(Color.valueOf("#9b94c5"), Color.valueOf("#8083ae"), e.fin());
-    let dx = e.data.x - e.x, dy = e.data.y - e.y;
+    let fx = Math.cos(e.data.rotation/180 * Math.PI) * firinDistance, fy = Math.sin(e.data.rotation/180 * Math.PI) * firinDistance;
+    let dx = e.data.x - e.x + fx, dy = e.data.y - e.y + fy;
     let stroket = Math.abs(fc.helix(7, 4, e.fout()))
     Draw.z(Layer.bullet);
     for(let i = 0; i < 5; i ++){
         Fill.circle(e.x + dx/i, e.y + dy/i, e.fslope() * e.fslope() * (i + stroket));
-    }
+    };
     Lines.stroke(stroket);
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
+               e.data.x + fx,
+               e.data.y + fy);
 });
 
 const stormShoot = new Effect(25, e => {
@@ -438,6 +440,7 @@ railgun4.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun4, {
             
             for(let i = 0; i < type.fragBullets; i++){
                 Time.run(this.block.burstSpacing * i/burstMod, () => {
+                    if(Math.abs(this.rotation - this.angleTo(tshootX, tshootY)) > type.splashDamageRadius/2) return;
                     let cueUnit = Units.closestTarget(this.team, tshootX, tshootY, sRange, u => !unitArr.includes(u), b => !unitArr.includes(b));
                     let hshootX = tshootX + Mathf.random(sRange) - sRange/2, hshootY = tshootY + Mathf.random(sRange) - sRange/2;
                     if(cueUnit != null){

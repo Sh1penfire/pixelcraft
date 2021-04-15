@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Shade
-description: "A railgun so powerful that the bolts disintegrate into fine dust upon impact. Can target air."
+description: "A powerfull railgun, which launches fraging bolts. Can target air."
 details: "Those who could not survive adapted, and decimated what was left. The void consumes all."
 shootSound: laser
 health: 1200
