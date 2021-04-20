@@ -6,7 +6,8 @@ itemCapacity: 35
 category: distribution
 research: magnitine-conveyor
 requirements: [
-  tinormium/1
-  bionite/1
+  graphite/5
+  tinormium/2
+  bionite/3
 ]
 buildVisibility: shown
