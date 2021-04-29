@@ -1,13 +1,11 @@
 name: "Tinormium Rails"
 description: "Packs items into a comfortable ride on a foam box. Can be placed at sea."
 placeableLiquid: true
-speed: 0.075
-itemCapacity: 35
+speed: 0.1
+itemCapacity: 50
 category: distribution
-research: magnitine-conveyor
 requirements: [
-  graphite/5
-  tinormium/2
-  bionite/3
+  tinormium/1
+  bionite/1
 ]
 buildVisibility: shown

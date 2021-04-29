@@ -1,6 +1,6 @@
 name: "Inscience"
 description: "A sturdy capsule for the void. Charges up blasts of volitile voidic sappers which rip parts out of both units. Explodes on death."
-details: "The lack of research is a fascinating thing. It leads to uncertain actions and chaos. Things that can't simply be solved through a single action."
+details: "The lack of research is a fascinating thing. It leads to uncertain actions and chaos. Things that can't simply be solved through simple solutions."
 speed: 0.45
 health: 2125
 mechLegColor: 231841
@@ -9,7 +9,7 @@ drag: 0.3
 aimDst: 10
 range: 95
 maxRange: 115
-hitSize: 15
+hitSize: 18
 boostMultiplier: 2.25
 engineOffset: 7
 engineSize: 3.5

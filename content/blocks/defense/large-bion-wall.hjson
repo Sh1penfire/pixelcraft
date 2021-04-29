@@ -1,6 +1,7 @@
 name: "Bion Wall Large"
 description: "A sturdy defensive block.
 Provides moderate protection from enemies. Spans multiple tiles."
+details: "Corupted, like all things from the lab."
 placeableLiquid: true
 update: true
 health: 1700

@@ -1,6 +1,6 @@
-name: Feromagnet
+name: Ferromagnet
 description: A strong object, drawing it's strength from the darkness within and electromagnetic force.
-details: Motion magnifies the darkness.
+details: Motion magnifies the darkness. Already magnetised.
 hardness: 2
 cost: 1
 research: {

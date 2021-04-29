@@ -227,23 +227,25 @@ const lingeringVoidic = new Effect(1800, e => {
 })
 
 const voidic = new Effect(65, e => {
+    
     Draw.color(Color.black, Color.black, e.fout());
+    
     Lines.stroke(e.fout() * 6); 
     
-    let alpha = 1 -Math.sin(e.fout() * Math.PI + Math.PI/3)
+    let alpha = 1 -Math.sin(e.fout() * Math.PI + Math.PI/3);
     
-    Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI))
+    Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
     
-    let scaling = -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3)
+    let scaling = -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3);
     
-    let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841")
-    fromColor.a = alpha, toColor.a = alpha
+    let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841");
+    fromColor.a = alpha, toColor.a = alpha;
     
-    let multi = e.data + 15
+    let multi = e.data + 15;
     
-    Draw.alpha(alpha)
+    Draw.alpha(alpha);
     
-    Fill.light(e.x, e.y, 15, scaling * multi, fromColor, toColor)
+    Fill.light(e.x, e.y, 15, scaling * multi, fromColor, toColor);
     
     Lines.circle(e.x, e.y, Math.sin(e.fin() * 9) * 25); 
     Lines.circle(e.x, e.y, e.fin() * 50);

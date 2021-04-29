@@ -209,11 +209,6 @@ ironWall.buildType = () => extend(Wall.WallBuild, ironWall, {
         this.super$onDestroyed();
         corosiveLingeringFx.at(this.x, this.y)
         corosiveLingering.create(this, this.team, this.x, this.y, Mathf.random(360), 0, 1, 1, this);
-    },
-    draw(){
-        Draw.reset();
-        Draw.z(Layer.groundUnit + 1);
-        Draw.rect(this.block.region, this.x, this.y, 0);
     }
 })
 
@@ -223,11 +218,6 @@ ironWallLarge.buildType = () => extend(Wall.WallBuild, ironWallLarge, {
         this.super$onDestroyed();
         corosiveLingeringFx.at(this.x, this.y)
         corosiveLingering.create(this, this.team, this.x, this.y, Mathf.random(360), 0, 1, 1, this);
-    },
-    draw(){
-        Draw.reset();
-        Draw.z(Layer.groundUnit + 1);
-        Draw.rect(this.block.region, this.x, this.y, 0);
     }
 })
 

@@ -158,6 +158,61 @@ const stormHit = new Effect(125, e => {
     });
 });
 
+const plantTrail = new Effect(25, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    let fx = Math.cos(e.data.rotation/180 * Math.PI) * firinDistance, fy = Math.sin(e.data.rotation/180 * Math.PI) * firinDistance;
+    let dx = e.data.x - e.x + fx, dy = e.data.y - e.y + fy;
+    let stroket = Math.abs(fc.helix(6, 2, e.fout()))
+    Draw.z(Layer.bullet);
+    for(let i = 0; i < 5; i ++){
+        Fill.circle(e.x + dx, e.y + dy, (1 - e.finpow()) * 5)
+    }
+    Lines.stroke(stroket);
+    Lines.line(e.x,
+               e.y,
+               e.data.x + fx,
+               e.data.y + fy);
+});
+
+const thornsTrail = new Effect(125, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    let fx = Math.cos(e.data.rotation/180 * Math.PI) * firinDistance, fy = Math.sin(e.data.rotation/180 * Math.PI) * firinDistance;
+    let dx = e.data.x - e.x + fx, dy = e.data.y - e.y + fy;
+    let stroket = Math.abs(fc.helix(7, 4, e.fout()))
+    Draw.z(Layer.bullet);
+    for(let i = 0; i < 5; i ++){
+        Fill.circle(e.x + dx/i, e.y + dy/i, e.fslope() * e.fslope() * (i + stroket));
+    };
+    Lines.stroke(stroket);
+    Lines.line(e.x,
+               e.y,
+               e.data.x + fx,
+               e.data.y + fy);
+});
+
+const thornsShoot = new Effect(25, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    Lines.stroke(e.fout() * 3)
+    Lines.circle(e.x, e.y, e.finpow() * 25)
+    const d = new Floatc2({get(x, y){
+        Lines.stroke(e.fout());
+        Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x,y), e.fslope() * 8);
+     }})
+    Angles.randLenVectors(e.id, 17, e.fin() * 55, e.rotation, 360, d)
+});
+
+const thornsHit = new Effect(125, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    Draw.alpha(e.finpow())
+    Lines.stroke(e.fslope() * e.fslope() * 5);
+    Lines.stroke(e.fslope() * 3);
+    Lines.circle(e.x, e.y, e.finpow() * 55);
+    Draw.alpha(e.fout());
+    Angles.randLenVectors(e.id, 10, e.finpow() * 55, e.rotation, 360, (x, y) => {
+        Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x,y), e.fslope() * 5);
+    });
+});
+
 const blackoutShot = extend(PointBulletType, {
     speed: 0,
     lifeimte: 0,
@@ -216,11 +271,6 @@ const blackestShot = extend(PointBulletType, {
     collides: true,
     collidesAir: true,
     collidesGround: true,
-    setStats(){
-    this.super$setStats();
-    this.stats.add(Stat.splashDamage, "115");
-    this.stats.add(Stat.splashDamageRadius, "45");
-    },
     darkSplash(b){
         shadowShot.at(b.x, b.y);
         Effect.shake(6, 8, b);
@@ -300,11 +350,6 @@ const brightestShot = extend(PointBulletType, {
     collidesAir: true,
     collidesGround: true,
     buildingDamageMultiplier: 0.7,
-    setStats(){
-    this.super$setStats();
-    this.stats.add(Stat.splashDamage, "115");
-    this.stats.add(Stat.splashDamageRadius, "45");
-    },
     darkSplash(b){
         brightShoot.at(b.x, b.y);
         Effect.shake(8, 12, b);
@@ -377,11 +422,6 @@ const delugeShot = extend(PointBulletType, {
     collidesAir: true,
     collidesGround: true,
     buildingDamageMultiplier: 1.25,
-    setStats(){
-    this.super$setStats();
-    this.stats.add(Stat.splashDamage, "115");
-    this.stats.add(Stat.splashDamageRadius, "45");
-    },
     darkSplash(b){
         stormShoot.at(b.x, b.y);
         Effect.shake(8, 12, b);
@@ -402,12 +442,85 @@ const delugeShot = extend(PointBulletType, {
         this.darkSplash(b);
     }
 });
+
+const plantShot = extend(PointBulletType, {
+    speed: 0,
+    lifeimte: 0,
+    damage: 45,
+    splashDamage: 15,
+    splashDamageRadius: 16,
+    hitSound: Sounds.explosion,
+    hitEffect: thornsShoot,
+    trailEffect: plantTrail,
+    shootEffect: thornsShoot,
+    collides: true,
+    collidesAir: true,
+    collidesGround: true,
+    darkSplash(b){
+        thornsShoot.at(b.x, b.y);
+        Effect.shake(2.5, 4, b);
+        let rad = this.splashDamageRadius/8;
+        Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
+            if(!u.isDead) {
+                if(u.health >= this.splashDamage){
+                    u.damage(this.splashDamage);
+                }
+                else u.damageContinuousPierce(u.health);
+            }
+        }));
+    },
+    hit(b){
+        this.darkSplash(b);
+    },
+    despawned(b){
+        this.darkSplash(b);
+    }
+});
+
+const thornsShot = extend(PointBulletType, {
+    speed: 32,
+    lifeimte: 0,
+    damage: 450,
+    splashDamageRadius: 85,
+    hitSound: Sounds.explosion,
+    hitEffect: thornsHit,
+    despawnEffect: stormShoot,
+    trailEffect: thornsTrail,
+    shootEffect: thornsShoot,
+    fragBullet: plantShot,
+    fragBullets: 0,
+    collides: true,
+    collidesAir: true,
+    collidesGround: true,
+    buildingDamageMultiplier: 1.25,
+    darkSplash(b){
+        thornsShoot.at(b.x, b.y);
+        Effect.shake(8, 12, b);
+        let rad = this.splashDamageRadius/8;
+        Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
+            if(!u.isDead) {
+                if(u.health >= this.damage/7){
+                    u.damage(this.damage/7);
+                }
+                else u.damageContinuousPierce(u.health - 1)
+            }
+        }));
+    },
+    hit(b){
+        this.darkSplash(b);
+    },
+    despawned(b){
+        this.darkSplash(b);
+    }
+});
+
 const railgun4 = extendContent(ItemTurret, "railgun4", {
     init() {
     this.ammo(
         Vars.content.getByName(ContentType.item,"pixelcraft-feromagnet"), blackestShot,
         Vars.content.getByName(ContentType.item,"pixelcraft-stelarcrim"), brightestShot,
-        Vars.content.getByName(ContentType.item, "pixelcraft-tinormium"), delugeShot
+        Vars.content.getByName(ContentType.item, "pixelcraft-tinormium"), delugeShot,
+        Vars.content.getByName(ContentType.item, "pixelcraft-bionite"), thornsShot
     );
     this.super$init();
   }
@@ -436,26 +549,47 @@ railgun4.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun4, {
         type.hitSound.at(tshootX, tshootY)
         
         if(type.fragBullet != null){
-            let unitArr = []
-            
-            for(let i = 0; i < type.fragBullets; i++){
-                Time.run(this.block.burstSpacing * i/burstMod, () => {
-                    if(Math.abs(this.rotation - this.angleTo(tshootX, tshootY)) > type.splashDamageRadius/2) return;
-                    let cueUnit = Units.closestTarget(this.team, tshootX, tshootY, sRange, u => !unitArr.includes(u), b => !unitArr.includes(b));
-                    let hshootX = tshootX + Mathf.random(sRange) - sRange/2, hshootY = tshootY + Mathf.random(sRange) - sRange/2;
-                    if(cueUnit != null){
-                        //why var? Apparently, it won't save without
+            let unitArr = [];
+            let hasFrag = type.fragBullets > 0;
+            if(hasFrag){
+                for(let i = 0; i < type.fragBullets; i++){
+                    Time.run(this.block.burstSpacing * i/burstMod, () => {
+                        if(Math.abs(this.rotation - this.angleTo(tshootX, tshootY)) > type.splashDamageRadius/2) return;
+                        let cueUnit = Units.closestTarget(this.team, tshootX, tshootY, sRange, u => !unitArr.includes(u), b => !unitArr.includes(b));
+                        let hshootX = tshootX + Mathf.random(sRange) - sRange/2, hshootY = tshootY + Mathf.random(sRange) - sRange/2;
+                        if(cueUnit != null){
+                            //why var? Apparently, it won't save without
                         hshootX = cueUnit.x, hshootY = cueUnit.y;
-                        unitArr.push(cueUnit);
-                    }
-                    cueUnit = null;
-                    type.fragBullet.create(this, this.team, hshootX, hshootY, 0, 0);
-                    type.fragBullet.trailEffect.at(hshootX, hshootY, 0, this);
-                    type.fragBullet.hitSound.at(hshootX, hshootY);
-                })
+                            unitArr.push(cueUnit);
+                        }
+                        cueUnit = null;
+                        type.fragBullet.create(this, this.team, hshootX, hshootY, 0, 0);
+                        type.fragBullet.trailEffect.at(hshootX, hshootY, 0, this);
+                        type.fragBullet.hitSound.at(hshootX, hshootY);
+                    })
+                }
             }
+            else if(!hasFrag){
+                let index = 0;
+                sRange = type.fragBullet.splashDamageRadius;
+                for(let i = 0; Mathf.dst(this.x, this.y, tshootX, tshootY)/16 > i; i++){
+                    Time.run(this.block.burstSpacing * i, () => {
+                        index++;
+                        let bshootX = this.x + (tshootX - this.x)/(Mathf.dst(this.x, this.y, tshootX, tshootY)/16) * index; 
+                        let bshootY = this.y + (tshootY - this.y)/(Mathf.dst(this.x, this.y, tshootX, tshootY)/16) * index;
+                        let cueUnit = Units.closestTarget(this.team, bshootX, bshootY, sRange, u => !unitArr.includes(u), b => !unitArr.includes(b));
+                        if(cueUnit != null){
+                            unitArr.push(cueUnit);
+                            bshootX = cueUnit.x, bshootY = cueUnit.y;
+                        }
+                        type.fragBullet.create(this, this.team, bshootX, bshootY, 0, 0);
+                        type.fragBullet.trailEffect.at(bshootX, bshootY, 0, this);
+                        type.fragBullet.hitSound.at(tshootX, tshootY);
+                    })
+                }
+            }
+            this.effects();
+            this.useAmmo();
         }
-        this.effects();
-        this.useAmmo();
     }
 });

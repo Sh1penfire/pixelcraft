@@ -1,13 +1,17 @@
 const fc = require("libs/fc")
 
-const swarmAI = () => extend(FlyingAI, {
+const swarmAI = (defensive) => extend(FlyingAI, {
     updateMovement(){
         let ability = this.unit.abilities.find(a => a instanceof RepairFieldAbility)
         if(ability != null && this.target == null && this.command() != UnitCommand.idle){
             let target = Units.closest(this.unit.team, this.unit.x, this.unit.y, this.unit.type.range * 6, u => u.damaged() && u != this.unit);
             if(target != null){
-                this.moveTo(target, target.hitSize/2 * 1.1 + ability.range);
-                this.unit.lookAt(target);
+                let findRange = target.hitSize/2 * 1.1 + ability.range
+                if(Mathf.dst(this, target) <= findRange) this.super$updateMovement();
+                else{
+                    this.moveTo(target, findRange);
+                    this.unit.lookAt(target);
+                    }
             }
             else this.super$updateMovement();
         }
