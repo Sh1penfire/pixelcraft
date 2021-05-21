@@ -3,7 +3,6 @@
 const templuraGen = require("extras/templuraGen")
 const templura = extend(Planet, "templura", Planets.sun, 3, 1.45, {
     generator: templuraGen.templura,
-    meshLoader: () => new HexMesh(this, 6),
     bloom: true,
     radius: 1,
     accessible: true,
