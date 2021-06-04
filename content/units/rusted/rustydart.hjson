@@ -9,6 +9,7 @@ drag: 0.05
 accel: 0.075
 hitSize: 10
 lightRadius: 45
+lightOpacity: 0.25
 maxRange: 200
 buildSpeed: 3
 clipSize: 1

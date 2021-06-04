@@ -184,9 +184,9 @@ const windswept = extend (StatusEffect ,"windswept", {
     },
     localizedName: "Windswept",
     update(unit, time){
-    this.super$update(unit, time);
-    unit.impulse(Angles.trnsx(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0), Angles.trnsy(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0));
-    unit.rotation = unit.rotation + Mathf.range(1);
+        this.super$update(unit, time);
+        unit.impulse(Angles.trnsx(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0), Angles.trnsy(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0));
+        unit.rotation = unit.rotation + Mathf.range(1);
     },
     speedMultiplier: 0.725,
     dragMultiplier: 0.65,
@@ -259,6 +259,9 @@ const voidic = new Effect(65, e => {
     });
 });
 
+//does around 0 damage per second... or does it.
+let blackoutBaseDamage = 0;
+
 const blackout = extend (StatusEffect, "blackout", {
     isHidden(){
         return false
@@ -271,24 +274,24 @@ const blackout = extend (StatusEffect, "blackout", {
         let damageMulti = 1;
         if(unit.statuses.size > 0){
             for(let i = 0; i < unit.statuses.size; i++){
-                    if(unit.statuses.get(i).effect !== StatusEffects.boss){
-                        multiplier = multiplier + damageMulti;
-                        damageMulti = damageMulti * 0.5;
-                    }
-                    else if(unit.statuses.get(i).effect == prismium){
-                        multiplier = multiplier + multiplier;
-                        damageMulti = damageMulti * 2;
-                    }
-                    else if(unit.statuses.get(i).effect == StatusEffects.boss){
-                        multiplier = multiplier + damageMulti;
-                        damageMulti = damageMulti * 0.1
-                    }
+                if(unit.statuses.get(i).effect == prismium){
+                    multiplier = multiplier + multiplier;
+                    damageMulti = damageMulti * 2;
+                }
+                else if(unit.statuses.get(i).effect !== StatusEffects.boss){
+                    multiplier = multiplier + damageMulti;
+                    damageMulti = damageMulti * 0.5;
+                }
+                else{
+                    multiplier = multiplier + damageMulti;
+                    damageMulti = damageMulti * 0.1
                 }
             }
-        let unitHpc = unit.health/unit.maxHealth;
+        }
+        let unitHpc = unit.health/unit.type.maxHealth;
         if(Mathf.chance(Time.delta)){
         if(unitHpc > 0.5){
-        damageAmount = unit.maxHealth/1000;
+        damageAmount = unit.type.maxHealth/1000;
         }
         else if(unitHpc < 0.01){
             voidic.at(unit.x, unit.y, 0, unit.hitSize);
@@ -315,9 +318,9 @@ const blackout = extend (StatusEffect, "blackout", {
             damageAmount = unit.maxHealth/2000;
         }
         let uHealth = unit.health
-        unit.damageContinuousPierce(damageAmount * multiplier);
+        unit.damageContinuousPierce((damageAmount + blackoutBaseDamage) * multiplier);
         if(unit.health == uHealth){
-            unit.health -= damageAmount * multiplier
+            unit.health -= damageAmount * multiplier + blackoutBaseDamage;
         }
         Puddles.deposit(Vars.world.tileWorld(unit.x + Mathf.random(10), unit.y + Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
     }
@@ -488,7 +491,7 @@ const slushFall = extend(StatusEffect, "slushFall", {
     },
     localizedName: "Slushfall",
     update(unit, time){
-        let acSTatus = fc.returnStatus(unit, slushFall)
+        let acSTatus = fc.returnStatus(unit, slushFall);
         //past 12 seconds, scl is 1. Anywhere below 12 seconds and scl drops.
         let scl = Mathf.slerpDelta(0, 1, time/720)
         if(acSTatus.dragMultiplier != null) acSTatus.dragMultiplier = 1 - scl * 0.35
@@ -544,7 +547,7 @@ const slushFall = extend(StatusEffect, "slushFall", {
             }
             let recoil = -mount.reload/weapon.reload * weapon.recoil;
             let mirrornt = 1
-            if(weapon.mirror = true){
+            if(weapon.mirror == true){
                 mirrornt = -1
             }
                 let wx = unit.x + Angles.trnsx(unitRotation, weapon.x, weapon.y) + Angles.trnsx(weaponRotation, 0, recoil)

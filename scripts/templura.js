@@ -99,6 +99,13 @@ const grasslandGrave = extend(SectorPreset, "grassland-grave", templura, 45, {
     difficulty: 8
 });
 
+const basaltGrove = extend(SectorPreset, "basalt-grove", templura, 75, {
+    description: "One of the origions of the coruption. Harvest the coal. Prepear yoru defense. Destroy all enemy bases. Crush everything.",
+    details: "The coruption of grass and sand is a curious thing.",
+    localizedName: "Basalt Grove",
+    difficulty: 9
+});
+
 const trionCentral = extend(SectorPreset, "trion-central", templura, 55, {
     localizedName: "Trion Central",
     description: "Capital crux base dedicated to researching rediscover technology.  Use rusty tau units. Take out the core.",
@@ -120,5 +127,6 @@ module.exports = {
     desertWastelands: desertWastelands,
     birthplace: birthplace,
     grasslandGrave: grasslandGrave,
+    basaltGrove: basaltGrove,
     trionCentral: trionCentral
 };

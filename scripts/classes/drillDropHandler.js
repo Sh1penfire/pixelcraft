@@ -1,4 +1,4 @@
-NativeJavaClass drillItem = {
+let drillItem = {
     //returns a new drillDropHandler with params Block[] mineableBlocks, Item item;
     constructor(mineableBlocks, item){
         this.mineableBlocks = mineableBlocks;
@@ -12,7 +12,7 @@ NativeJavaClass drillItem = {
     item: Items.copper
 }
 
-NativeJavaClass drillDropHandler = {
+let drillDropHandler = {
     //returns a new drillDropHandler with params drillItem[] tileReward, drillItem[] deepTileReward, Bool canDeep;
     constructor(tileReward, deepTileReward, canDeep){
         this.tileReward = tileReward;

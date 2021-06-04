@@ -57,6 +57,25 @@ const bioPress = extendContent(GenericCrafter,"bioPress",{});
 bioPress.craftEffect = seeds;
 bioPress.drawer = bioPressAni;
 
+const volatileGenerator = extend(GenericCrafter, "volatile-generator", {
+    craftEffect: seeds
+});
+
+volatileGenerator.buildType = () => extend(GenericCrafter.GenericCrafterBuild, volatileGenerator, {
+    onDestroyed(){
+        this.super$onDestroyed();
+        Damage.damage(this.x, this.y, 60 * this.tilesize, this.block.health/32);
+        for(let i = 0; i < 20; i++){
+            Time.run(Mathf.random(5) + i * 2, () => {
+                Fx.explosion.at(this.x + Mathf.random(50) - 25, this.y + Mathf.random(50) - 25);
+            });
+        }
+        Time.run(Mathf.random(5) + 40, () => {
+            Fx.blastExplosion.at(this.x + Mathf.random(50) - 25, this.y + Mathf.random(50) - 25);
+        });
+    }
+});
+
 const bioniteMixer = extendContent(GenericCrafter,"bioniteMixer",{});
 bioniteMixer.craftEffect = seeds;
 
