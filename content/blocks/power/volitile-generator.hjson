@@ -1,0 +1,23 @@
+type: BurnerGenerator
+name: "Volitile Generator"
+description: "Uses oil to produce power. A note in plastic was found here. It says: When the bots first discovered scrap, they were scared for as there was scrap, something had happened."
+health: 150
+size: 2
+powerProduction: 5
+hasItems: true
+itemCapacity: 15
+itemDuration: 75
+generateEffect: smelt
+minItemEfficiency: 0.3
+consumes: {
+liquid: {
+  liquid: oil
+  amount: 0.01
+}
+}
+requirements: [
+  rust/50
+  titanium/25
+]
+category: power
+research: burner
