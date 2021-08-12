@@ -16,8 +16,8 @@ var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     alwaysUnlocked: true
 });
 
-const autoUpdate = require("autoupdate");
-autoUpdate.autoUpdate("pixelcraft", "Sh1penfire/pixelcraft", "main")
+//const autoUpdate = require("autoupdate");
+//autoUpdate.autoUpdate("pixelcraft", "Sh1penfire/pixelcraft", "main")
 
 /*
 const core = extend(Wall, "core", {
