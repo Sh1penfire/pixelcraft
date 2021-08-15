@@ -31,7 +31,7 @@ ammoTypes: {
 	fragVelocityMax: 1.5
 	frontColor: 56d7ca
 	backColor: 77b6b0
-	stauts: freezing
+	status: freezing
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -76,7 +76,7 @@ ammoTypes: {
 	despawnEffect: none
 	ammoMultiplier: 1
 	reloadMultiplier: 1.5
-	stauts: burning
+	status: burning
 	lifetime: 15
 	fragBullets: 25
 	fragCone: 35

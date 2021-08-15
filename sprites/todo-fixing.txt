@@ -1,0 +1,42 @@
+To fix
+-Neromagnet drill (All of it, the base, rotor etc)
+-Panic (frick that sprite, it isn't mine, I'll redesign)
+-LTG (Requries a bit more work, I'll redo the decals a slight bit)
+-Cores (Requires redo of decal, and maybe even pallet. Core-beacon needs to go though)
+-Bio Press (I'm thinking I'll keep pallet, but general shape is ;~:)
+-Bio drill (Flat, and has lot of small details. Probibly will redo, keep similar design but not at all)
+-Ioniser (Decalless for the most part, requires some work)
+-Sand sifter and extracter (Both are heresy that I need to fix :P)
+Managed to redo extractor, rotors need work
+
+-Taconite Pulveriser and crusher (I still want to make them flat, but in a way that makes sense, since they're my bridges on deep water for now)
+-Pixelite mixer (Old piece of heresy that has just got to go)
+-Coal compresser (Blatent resprite, pankiwi did it but that dosn't mean that :~:)
+Flin finished it :D
+
+-Magnitine forgery (Depixelise it, change shape)
+
+-Old sprites (Moving to a texture pack or deleting. Theres mostly no reason for those to exist anymore, I've moved on)
+
+-Blaze (New pallet, new shape, it looks like salvo rip)
+DDone by Esc :D
+
+-Beat (Resprited laser gun, requires a lot of time and care)
+
+-Chambrella (Decals are aquward and flat)
+
+-Point (Way to small, and detail inconsistance)
+Esc made sprite for new point :D
+
+-Tenemotus (Requires more details, feels kind of out of place currently, and ae)
+-Stir fuse (Keep style, resprite)
+-Most unit blocks (All of them need to have some work put into it, and style change)
+-Bionite (Not my sprite, yet requires redo. Colour and decal change in order)
+-Feromagnet (Shape change, but that's mostly it)
+-Magnitine (Angles are wrong, general pallet is somewhat fine)
+-Rubble (An untold power lie within, dfinitely not with it's looks. Requires redo to make it less flat)
+-Mechnical life and Voidics (A bit to messy/no cell)
+-Nescience (Small decals with weapons)
+-Rusty dart (Way to messy with decals, should tone them down a bit)
+-t2 and t3 crystal units (Blatent resprites, requires more unique, similar to crystal)
+-Crystal (Less sharp shape, cell sprite, cleanup requried)
