@@ -2,6 +2,17 @@ let skripts = [
   "extras/templuraGen", "libs/fc", "libs/statuses", "libs/refresh", "extras/voidicsm", "extras/weathers", "blocks/environment", "blocks/teleporter", "turrets/wan't", "turrets/Sx.quad", "turrets/several", "turrets/sundry", "turrets/bictfuse", "turrets/puver", "turrets/psion", "turrets/pafer", "turrets/pulse", "turrets/beat", "turrets/helgravator", "turrets/fever", "turrets/tenmotus", "turrets/persimodem", "turrets/spreadTurrets", "turrets/bioTurrets", "blocks/beacon", "blocks/bombs", "units/whiteGround", "units/rusted", "units/purpleNavals", "units/voided", "templura", "blocks/pixel-com", "blocks/bioFormer", "blocks/cores","units/mono", "turrets/wasnts", "units/pWaves", "turrets/wave", "extras/techTree"
 ];
 
+let directories = [
+"extras", "libs", "blocks", "turrets",  "units"
+]
+
+directories.forEach(e => {
+    new Fi(e + "/").walk(o => {
+        Log.info(o)
+    });
+})
+Log.info("skididadopop")
+
 skripts.forEach(e => {
   try{
     require(e)
