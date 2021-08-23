@@ -267,6 +267,8 @@ const blackout = extend (StatusEffect, "blackout", {
         return false
     },
     localizedName: "Blackout",
+    description: "Does percentile damage based on the aflicted's status effects",
+    details: "Shreds a unit from the inside, slowly turning it into Voidicsm, which leaks out of the now hollow shell that it came from.",
     update(unit, time){
         this.super$update(unit, time);
         let multiplier = -1;
