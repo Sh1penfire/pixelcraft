@@ -6,7 +6,7 @@ craftTime: 3600
 requirements: [
   stone/30
   rust/25
-  graphite/50
+  graphite/35
 ]
 category: production
 outputItem: bionorb/1

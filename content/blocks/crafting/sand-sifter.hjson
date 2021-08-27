@@ -1,5 +1,5 @@
 name: Sifter
-description: Sifts through the guilded sand to search for metal. Looks golden...
+description: "Sifts through the guilded sand to search for metal. Looks golden..."
 type: Separator
 itemCapacity: 10
 health: 130
