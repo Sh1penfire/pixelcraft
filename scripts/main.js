@@ -16,6 +16,7 @@ var floodedVally = extend(SectorPreset, "flooded-vally", Planets.serpulo, 206, {
     alwaysUnlocked: true
 });
 
+Vars.enableConsole = true;
 /*
 
 const autoUpdate = require("autoupdate");

@@ -1,9 +1,10 @@
 name: "Sundry"
-description: "Sweeps the target away from vitals in the base with strong knockback toward the turret."
+description: "Melts the target with a typhoon of bullets. Uses ammo extremely quickly"
 size: 4
-reloadTime: 5
+health: 3400
+reloadTime: 3.5
 range: 200
-shots: 3
+shots: 4
 shootLength: 12
 inaccuracy: 10
 xRand: 4

@@ -73,8 +73,8 @@ const magnitineBullet = extend(BasicBulletType, {
         b.data = new Trail(1);
     },
     speed: 40,
-    damage: 16.5,
-    knockback: -1,
+    damage: 23.5,
+    knockback: -3,
     width: 5,
     height: 8,
     shrinkY: 1,
@@ -110,8 +110,8 @@ const stormBullet = extend(BasicBulletType, {
         b.data = new Trail(1);
     },
     speed: 40,
-    damage: 12.5,
-    knockback: -1,
+    damage: 16.5,
+    knockback: -4,
     width: 5,
     height: 8,
     shrinkY: 1,

@@ -9,10 +9,10 @@ shots: 1
 insulated: true
 buildVisibility: shown
 requirements: [
-  rust/350    
-  magnitine/300
-  titanium/360
-  feromagnet/240
+  rust/650
+  magnitine/450
+  titanium/455
+  feromagnet/255
   stelarcrim/150
 ]
 category: turret

@@ -1,5 +1,5 @@
 name: "Several"
-description: "Melts the target with a typhoon of bullets."
+description: "Sweeps the target away from vitals in the base with strong knockback toward the turret."
 size: 3
 reloadTime: 10
 range: 150

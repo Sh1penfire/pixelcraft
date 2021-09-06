@@ -290,42 +290,48 @@ const blackout = extend (StatusEffect, "blackout", {
                 }
             }
         }
-        let unitHpc = unit.health/unit.type.maxHealth;
-        if(Mathf.chance(Time.delta)){
-        if(unitHpc > 0.5){
-        damageAmount = unit.type.maxHealth/1000;
+        
+        if(unit.maxHealth == Infinity){
+            if(Number.isNaN(unit.type.health) || unit.type.health == Number.MAX_VALUE || unit.type.health == Infinity) unit.maxHealth = 133769;
+            else unit.maxHealth = unit.type.health;
         }
-        else if(unitHpc < 0.01){
+        if(unit.health == Infinity || Number.isNaN(unit.health)) unit.health = unit.maxHealth;
+        
+        let unitHpc = unit.health/unit.maxHealth;
+        
+        
+        if(unitHpc < 0.05 || unit.dead){
             voidic.at(unit.x, unit.y, 0, unit.hitSize);
             lingeringVoidic.at(unit.x, unit.y, unit.rotation, [unit.type.region, unit.type.hitSize + 5]);
-            unit.remove();
+            unit.x = -Number.MAX_VALUE;
+            unit.y = -Number.MAX_VALUE;
+            Groups.unit.remove(unit);
             unit.destroy();
+            unit.remove();
             damageAmount = unit.maxHealth;
             unit.maxHealth = -Number.MAX_VALUE;
-            unit.health = NaN;
-            }
-        else if(unitHpc < 0.1){
-            damageAmount = unit.health/60 + 6;
-        }
-
-        else if(unitHpc < 0.2){
-            damageAmount = unit.maxHealth/4000;
+            Log.info("say hai!");
+            unit = null;
+            return null;
         }
         
-        else if(unitHpc < 0.5){
-        damageAmount = unit.maxHealth/3000;
-        }
+        else if(unitHpc > 0.5) damageAmount = unit.maxHealth/1000;
         
-        else{ 
-            damageAmount = unit.maxHealth/2000;
-        }
-        let uHealth = unit.health
-        unit.damageContinuousPierce((damageAmount + blackoutBaseDamage) * multiplier);
+        else if(unitHpc < 0.1) damageAmount = unit.maxHealth/60 + 6;
+        else if(unitHpc < 0.2) damageAmount = unit.maxHealth/4000;
+        else if(unitHpc < 0.5) damageAmount = unit.maxHealth/3000;
+        else damageAmount = unit.maxHealth/2000;
+        
+        Puddles.deposit(Vars.world.tileWorld(unit.x + 5 - Mathf.random(10), unit.y + 5 - Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
+        let uHealth = unit.health;
+        let trueDamage = (damageAmount + blackoutBaseDamage) * multiplier * Time.delta;
+        if(trueDamage == 0) return null;
+        unit.damagePierce(trueDamage);
         if(unit.health == uHealth){
             unit.health -= damageAmount * multiplier + blackoutBaseDamage;
         }
-        Puddles.deposit(Vars.world.tileWorld(unit.x + Mathf.random(10), unit.y + Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
-    }
+        Log.info(damageAmount);
+        Log.info(unitHpc);
     }
 });
 blackout.damage = 0.00;
