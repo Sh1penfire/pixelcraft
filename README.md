@@ -9,6 +9,8 @@ This mod aims to expand apon mindustry's content by adding a new main resource y
 
 note: Hi there! Sh1p talking. I've run out of motivation and ideas for Pixelcraft. I'm realy sorry I coudn't do better. I will continue to try and maintain the mod for the upcomming changes in v7, but I'm not going to be focusing my effort on working on Pixelcraft's content. I'm realy sorry that things are the way they are, and I wish that I knew what to do, though I don't. THis is not a final goodbye, only a temparary farwell. Cya in the past.
 
+ps: I'm working on an update for Pixelcraft revamping the older outdated sprites content and balancing as well as making Pixelcraft's lore less convoluted(yes, it has lore if you havn't already noticed). Stay tuned for updates on the testing branch until I'm ready to change how the mod looks and plays/
+
 ||**Guide to turrets**| 
 |:-----:|:-----:|
 Strand|A starting turret from iron. A bit weaker than Duo and uses non traditional ammo types.
