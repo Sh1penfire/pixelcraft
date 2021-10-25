@@ -184,9 +184,9 @@ const windswept = extend (StatusEffect ,"windswept", {
     },
     localizedName: "Windswept",
     update(unit, time){
-    this.super$update(unit, time);
-    unit.impulse(Angles.trnsx(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0), Angles.trnsy(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0));
-    unit.rotation = unit.rotation + Mathf.range(1);
+        this.super$update(unit, time);
+        unit.impulse(Angles.trnsx(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0), Angles.trnsy(unit.rotation, Mathf.range(8 * unit.type.hitSize/2), 0));
+        unit.rotation = unit.rotation + Mathf.range(1);
     },
     speedMultiplier: 0.725,
     dragMultiplier: 0.65,
@@ -227,23 +227,25 @@ const lingeringVoidic = new Effect(1800, e => {
 })
 
 const voidic = new Effect(65, e => {
+    
     Draw.color(Color.black, Color.black, e.fout());
+    
     Lines.stroke(e.fout() * 6); 
     
-    let alpha = 1 -Math.sin(e.fout() * Math.PI + Math.PI/3)
+    let alpha = 1 -Math.sin(e.fout() * Math.PI + Math.PI/3);
     
-    Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI))
+    Lines.stroke(e.fout() * 2 + Math.sin(e.fin() * 4 * Math.PI));
     
-    let scaling = -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3)
+    let scaling = -Math.sin(e.fout() * e.fout() * Math.PI + Math.PI/3);
     
-    let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841")
-    fromColor.a = alpha, toColor.a = alpha
+    let fromColor = Color.valueOf("#9c7ae1"), toColor = Color.valueOf("#231841");
+    fromColor.a = alpha, toColor.a = alpha;
     
-    let multi = e.data + 15
+    let multi = e.data + 15;
     
-    Draw.alpha(alpha)
+    Draw.alpha(alpha);
     
-    Fill.light(e.x, e.y, 15, scaling * multi, fromColor, toColor)
+    Fill.light(e.x, e.y, 15, scaling * multi, fromColor, toColor);
     
     Lines.circle(e.x, e.y, Math.sin(e.fin() * 9) * 25); 
     Lines.circle(e.x, e.y, e.fin() * 50);
@@ -257,11 +259,16 @@ const voidic = new Effect(65, e => {
     });
 });
 
+//does around 0 damage per second... or does it.
+let blackoutBaseDamage = 0;
+
 const blackout = extend (StatusEffect, "blackout", {
     isHidden(){
         return false
     },
     localizedName: "Blackout",
+    description: "Does percentile damage based on the aflicted's status effects",
+    details: "Shreds a unit from the inside, slowly turning it into Voidicsm, which leaks out of the now hollow shell that it came from.",
     update(unit, time){
         this.super$update(unit, time);
         let multiplier = -1;
@@ -269,56 +276,60 @@ const blackout = extend (StatusEffect, "blackout", {
         let damageMulti = 1;
         if(unit.statuses.size > 0){
             for(let i = 0; i < unit.statuses.size; i++){
-                    if(unit.statuses.get(i).effect !== StatusEffects.boss){
-                        multiplier = multiplier + damageMulti;
-                        damageMulti = damageMulti * 0.5;
-                    }
-                    else if(unit.statuses.get(i).effect == prismium){
-                        multiplier = multiplier + multiplier;
-                        damageMulti = damageMulti * 2;
-                    }
-                    else if(unit.statuses.get(i).effect == StatusEffects.boss){
-                        multiplier = multiplier + damageMulti;
-                        damageMulti = damageMulti * 0.1
-                    }
+                if(unit.statuses.get(i).effect == prismium){
+                    multiplier = multiplier + multiplier;
+                    damageMulti = damageMulti * 2;
+                }
+                else if(unit.statuses.get(i).effect !== StatusEffects.boss){
+                    multiplier = multiplier + damageMulti;
+                    damageMulti = damageMulti * 0.5;
+                }
+                else{
+                    multiplier = multiplier + damageMulti;
+                    damageMulti = damageMulti * 0.1
                 }
             }
-        let unitHpc = unit.health/unit.maxHealth;
-        if(Mathf.chance(Time.delta)){
-        if(unitHpc > 0.5){
-        damageAmount = unit.maxHealth/1000;
         }
-        else if(unitHpc < 0.01){
+        
+        if(unit.maxHealth == Infinity){
+            if(Number.isNaN(unit.type.health) || unit.type.health == Number.MAX_VALUE || unit.type.health == Infinity) unit.maxHealth = 133769;
+            else unit.maxHealth = unit.type.health;
+        }
+        if(unit.health == Infinity || Number.isNaN(unit.health)) unit.health = unit.maxHealth;
+        
+        let unitHpc = unit.health/unit.maxHealth;
+        
+        
+        if(unitHpc < 0.05 || unit.dead){
             voidic.at(unit.x, unit.y, 0, unit.hitSize);
             lingeringVoidic.at(unit.x, unit.y, unit.rotation, [unit.type.region, unit.type.hitSize + 5]);
-            unit.remove();
+            unit.x = -Number.MAX_VALUE;
+            unit.y = -Number.MAX_VALUE;
+            Groups.unit.remove(unit);
             unit.destroy();
+            unit.remove();
             damageAmount = unit.maxHealth;
             unit.maxHealth = -Number.MAX_VALUE;
-            unit.health = NaN;
-            }
-        else if(unitHpc < 0.1){
-            damageAmount = unit.health/60 + 6;
-        }
-
-        else if(unitHpc < 0.2){
-            damageAmount = unit.maxHealth/4000;
+            Log.info("say hai!");
+            unit = null;
+            return null;
         }
         
-        else if(unitHpc < 0.5){
-        damageAmount = unit.maxHealth/3000;
-        }
+        else if(unitHpc > 0.5) damageAmount = unit.maxHealth/1000;
         
-        else{ 
-            damageAmount = unit.maxHealth/2000;
-        }
-        let uHealth = unit.health
-        unit.damageContinuousPierce(damageAmount * multiplier);
+        else if(unitHpc < 0.1) damageAmount = unit.maxHealth/60 + 6;
+        else if(unitHpc < 0.2) damageAmount = unit.maxHealth/4000;
+        else if(unitHpc < 0.5) damageAmount = unit.maxHealth/3000;
+        else damageAmount = unit.maxHealth/2000;
+        
+        Puddles.deposit(Vars.world.tileWorld(unit.x + 5 - Mathf.random(10), unit.y + 5 - Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
+        let uHealth = unit.health;
+        let trueDamage = (damageAmount + blackoutBaseDamage) * multiplier * Time.delta;
+        if(trueDamage == 0) return null;
+        unit.damagePierce(trueDamage);
         if(unit.health == uHealth){
-            unit.health -= damageAmount * multiplier
+            unit.health -= damageAmount * multiplier + blackoutBaseDamage;
         }
-        Puddles.deposit(Vars.world.tileWorld(unit.x + Mathf.random(10), unit.y + Mathf.random(10)), Vars.content.getByName(ContentType.liquid, "pixelcraft-voidicsm"), 10 - 10 * unitHpc);
-    }
     }
 });
 blackout.damage = 0.00;
@@ -486,7 +497,7 @@ const slushFall = extend(StatusEffect, "slushFall", {
     },
     localizedName: "Slushfall",
     update(unit, time){
-        let acSTatus = fc.returnStatus(unit, slushFall)
+        let acSTatus = fc.returnStatus(unit, slushFall);
         //past 12 seconds, scl is 1. Anywhere below 12 seconds and scl drops.
         let scl = Mathf.slerpDelta(0, 1, time/720)
         if(acSTatus.dragMultiplier != null) acSTatus.dragMultiplier = 1 - scl * 0.35
@@ -542,7 +553,7 @@ const slushFall = extend(StatusEffect, "slushFall", {
             }
             let recoil = -mount.reload/weapon.reload * weapon.recoil;
             let mirrornt = 1
-            if(weapon.mirror = true){
+            if(weapon.mirror == true){
                 mirrornt = -1
             }
                 let wx = unit.x + Angles.trnsx(unitRotation, weapon.x, weapon.y) + Angles.trnsx(weaponRotation, 0, recoil)
@@ -580,4 +591,4 @@ module.exports = {
     groveCurse: groveCurse,
     magElelvation: magElelvation,
     slushFall: slushFall
-};
+};  

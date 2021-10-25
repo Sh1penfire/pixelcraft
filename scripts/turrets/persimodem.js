@@ -3,7 +3,7 @@ const fc = require("libs/fc");
 const extras = require("extras/voidicsm");
 const bombs = require("blocks/bombs")
 const voidicsm = require("extras/voidicsm");
-const firinDistance = 5;
+const firinDistance = 13;
 
 const darknessTrail = new Effect(35, e => {
   Draw.color(Color.black, Pal.darkMetal, e.fin());
@@ -105,7 +105,8 @@ const brightHit = new Effect(125, e => {
 
 const stormTrail = new Effect(25, e => {
     Draw.color(Color.valueOf("#8083ae"), Color.valueOf("#737fae"), e.fin());
-    let dx = e.data.x - e.x, dy = e.data.y - e.y;
+    let fx = Math.cos(e.data.rotation/180 * Math.PI) * firinDistance, fy = Math.sin(e.data.rotation/180 * Math.PI) * firinDistance;
+    let dx = e.data.x - e.x + fx, dy = e.data.y - e.y + fy;
     let stroket = Math.abs(fc.helix(6, 2, e.fout()))
     Draw.z(Layer.bullet);
     for(let i = 0; i < 5; i ++){
@@ -114,23 +115,24 @@ const stormTrail = new Effect(25, e => {
     Lines.stroke(stroket);
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
+               e.data.x + fx,
+               e.data.y + fy);
 });
 
 const delugeTrail = new Effect(125, e => {
     Draw.color(Color.valueOf("#9b94c5"), Color.valueOf("#8083ae"), e.fin());
-    let dx = e.data.x - e.x, dy = e.data.y - e.y;
+    let fx = Math.cos(e.data.rotation/180 * Math.PI) * firinDistance, fy = Math.sin(e.data.rotation/180 * Math.PI) * firinDistance;
+    let dx = e.data.x - e.x + fx, dy = e.data.y - e.y + fy;
     let stroket = Math.abs(fc.helix(7, 4, e.fout()))
     Draw.z(Layer.bullet);
     for(let i = 0; i < 5; i ++){
         Fill.circle(e.x + dx/i, e.y + dy/i, e.fslope() * e.fslope() * (i + stroket));
-    }
+    };
     Lines.stroke(stroket);
     Lines.line(e.x,
                e.y,
-               e.data.x + Math.cos(e.data.rotation/180 * Math.PI) * firinDistance,
-               e.data.y + Math.sin(e.data.rotation/180 * Math.PI) * firinDistance);
+               e.data.x + fx,
+               e.data.y + fy);
 });
 
 const stormShoot = new Effect(25, e => {
@@ -153,6 +155,66 @@ const stormHit = new Effect(125, e => {
     Draw.alpha(e.fout());
     Angles.randLenVectors(e.id, 10, e.finpow() * 55, e.rotation, 360, (x, y) => {
         Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x,y), e.fslope() * 5);
+    });
+});
+
+const plantTrail = new Effect(10, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    let fx = Math.cos(e.data.rotation/180 * Math.PI) * firinDistance, fy = Math.sin(e.data.rotation/180 * Math.PI) * firinDistance;
+    let dx = e.data.x - e.x + fx, dy = e.data.y - e.y + fy;
+    let stroket = Math.abs(fc.helix(6, 2, e.fout()))
+    Draw.z(Layer.bullet);
+    for(let i = 0; i < 5; i ++){
+        Fill.circle(e.x + dx, e.y + dy, (1 - e.finpow()) * 5)
+    }
+    Lines.stroke(stroket);
+    Lines.line(e.x,
+               e.y,
+               e.data.x + fx,
+               e.data.y + fy);
+});
+
+const thornsTrail = new Effect(125, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    let fx = Math.cos(e.data.rotation/180 * Math.PI) * firinDistance, fy = Math.sin(e.data.rotation/180 * Math.PI) * firinDistance;
+    let dx = e.data.x - e.x + fx, dy = e.data.y - e.y + fy;
+    let stroket = Math.abs(fc.helix(7, 4, e.fout()))
+    Draw.z(Layer.bullet);
+    for(let i = 0; i < 5; i ++){
+        Fill.circle(e.x + dx/i, e.y + dy/i, e.fslope() * e.fslope() * (i + stroket));
+    };
+    Lines.stroke(stroket);
+    Lines.line(e.x,
+               e.y,
+               e.data.x + fx,
+               e.data.y + fy);
+});
+
+const thornsShoot = new Effect(22.5, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    Lines.stroke(e.fout() * 3);
+    Lines.circle(e.x, e.y, e.finpow() * 22.5)
+    const d = new Floatc2({get(x, y){
+        Lines.stroke(e.fout());
+        Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x,y), e.fslope() * 8);
+     }})
+    Angles.randLenVectors(e.id, 10, e.fin() * 55, e.rotation, 360, d)
+});
+
+const thornsHit = new Effect(65, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    Draw.alpha(e.finpow())
+    Lines.stroke(e.fslope() * e.fslope() * 5);
+    Lines.stroke(e.fslope() * 3);
+    Lines.circle(e.x, e.y, e.finpow() * 65);
+    Draw.alpha(e.fout());
+    Angles.randLenVectors(e.id, 14, e.finpow() * 55, e.rotation, 360, (x, y) => {
+        Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x,y), e.fslope() * 9);
+    });
+    Draw.alpha(1);
+    Lines.stroke(e.fout());
+    Angles.randLenVectors(e.id, 6, e.finpow() * 85, e.rotation, 360, (x, y) => {
+        Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x,y), e.fslope() * 9);
     });
 });
 
@@ -199,7 +261,7 @@ const blackestShot = extend(PointBulletType, {
     speed: 32,
     lifeimte: 0,
     damage: 450,
-    //makes the turrwt shoot much much faster.
+    //makes the turret shoot much much faster.
     homingPower: 10,
     splashDamageRadius: 55,
     hitSound: Sounds.release,
@@ -214,11 +276,6 @@ const blackestShot = extend(PointBulletType, {
     collides: true,
     collidesAir: true,
     collidesGround: true,
-    setStats(){
-    this.super$setStats();
-    this.stats.add(Stat.splashDamage, "115");
-    this.stats.add(Stat.splashDamageRadius, "45");
-    },
     darkSplash(b){
         shadowShot.at(b.x, b.y);
         Effect.shake(6, 8, b);
@@ -298,11 +355,6 @@ const brightestShot = extend(PointBulletType, {
     collidesAir: true,
     collidesGround: true,
     buildingDamageMultiplier: 0.7,
-    setStats(){
-    this.super$setStats();
-    this.stats.add(Stat.splashDamage, "115");
-    this.stats.add(Stat.splashDamageRadius, "45");
-    },
     darkSplash(b){
         brightShoot.at(b.x, b.y);
         Effect.shake(8, 12, b);
@@ -337,26 +389,7 @@ const stormShot = extend(PointBulletType, {
     shootEffect: stormShoot,
     collides: true,
     collidesAir: true,
-    collidesGround: true,
-    darkSplash(b){
-        stormShoot.at(b.x, b.y);
-        Effect.shake(2.5, 4, b);
-        let rad = this.splashDamageRadius/8;
-        Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
-            if(!u.isDead) {
-                if(u.health >= this.splashDamage){
-                    u.damage(this.splashDamage);
-                }
-                else u.damageContinuousPierce(u.health);
-            }
-        }));
-    },
-    hit(b){
-        this.darkSplash(b);
-    },
-    despawned(b){
-        this.darkSplash(b);
-    }
+    collidesGround: true
 });
 
 const delugeShot = extend(PointBulletType, {
@@ -364,6 +397,7 @@ const delugeShot = extend(PointBulletType, {
     lifeimte: 0,
     damage: 650,
     splashDamageRadius: 55,
+    inaccuracy: 1,
     hitSound: Sounds.explosion,
     hitEffect: stormHit,
     despawnEffect: stormShoot,
@@ -375,11 +409,6 @@ const delugeShot = extend(PointBulletType, {
     collidesAir: true,
     collidesGround: true,
     buildingDamageMultiplier: 1.25,
-    setStats(){
-    this.super$setStats();
-    this.stats.add(Stat.splashDamage, "115");
-    this.stats.add(Stat.splashDamageRadius, "45");
-    },
     darkSplash(b){
         stormShoot.at(b.x, b.y);
         Effect.shake(8, 12, b);
@@ -400,12 +429,66 @@ const delugeShot = extend(PointBulletType, {
         this.darkSplash(b);
     }
 });
+
+const plantShot = extend(PointBulletType, {
+    speed: 0,
+    lifeimte: 0,
+    damage: 75,
+    splashDamage: 15,
+    splashDamageRadius: 16,
+    hitSound: Sounds.explosion,
+    hitEffect: thornsShoot,
+    trailEffect: plantTrail,
+    shootEffect: thornsShoot,
+    collides: true,
+    collidesAir: true,
+    collidesGround: true
+});
+
+const thornsShot = extend(PointBulletType, {
+    speed: 32,
+    lifeimte: 0,
+    damage: 450,
+    splashDamageRadius: 85,
+    hitSound: Sounds.explosion,
+    hitEffect: thornsHit,
+    despawnEffect: stormShoot,
+    trailEffect: thornsTrail,
+    shootEffect: thornsShoot,
+    fragBullet: plantShot,
+    fragBullets: 0,
+    collides: true,
+    collidesAir: true,
+    collidesGround: true,
+    buildingDamageMultiplier: 1.25,
+    darkSplash(b){
+        thornsShoot.at(b.x, b.y);
+        Effect.shake(8, 12, b);
+        let rad = this.splashDamageRadius/8;
+        Units.nearby(b.x - rad * 4, b.y- rad * 4, rad * 8, rad * 8, cons(u => {
+            if(!u.isDead) {
+                if(u.health >= this.damage/7){
+                    u.damage(this.damage/7);
+                }
+                else u.damageContinuousPierce(u.health - 1)
+            }
+        }));
+    },
+    hit(b){
+        this.darkSplash(b);
+    },
+    despawned(b){
+        this.darkSplash(b);
+    }
+});
+
 const railgun4 = extendContent(ItemTurret, "railgun4", {
     init() {
     this.ammo(
         Vars.content.getByName(ContentType.item,"pixelcraft-feromagnet"), blackestShot,
         Vars.content.getByName(ContentType.item,"pixelcraft-stelarcrim"), brightestShot,
-        Vars.content.getByName(ContentType.item, "pixelcraft-tinormium"), delugeShot
+        Vars.content.getByName(ContentType.item, "pixelcraft-tinormium"), delugeShot,
+        Vars.content.getByName(ContentType.item, "pixelcraft-bionite"), thornsShot
     );
     this.super$init();
   }
@@ -414,45 +497,92 @@ const railgun4 = extendContent(ItemTurret, "railgun4", {
 
 railgun4.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun4, {
     unitSort: (u, x, y) => -u.maxHealth,
+    shootTrail(tshootX, tshootY, sRange, hasFrag, type){
+        let unitArr = [];
+        let index = 0;
+        let damageDone = 0;
+        let endChain = false;
+        sRange = type.fragBullet.splashDamageRadius;
+        for(let i = 0; Mathf.dst(this.x, this.y, tshootX, tshootY)/16 > i; i++){
+            Time.run(this.block.burstSpacing * i, () => {
+                if(endChain) return;
+                index++;
+                let bshootX = this.x + (tshootX - this.x)/(Mathf.dst(this.x, this.y, tshootX, tshootY)/16) * index; 
+                let bshootY = this.y + (tshootY - this.y)/(Mathf.dst(this.x, this.y, tshootX, tshootY)/16) * index;
+                let hitingEntity = false;
+                let cueUnit = Vars.world.buildWorld(bshootX, bshootY);
+                if(cueUnit != null && cueUnit.team == this.team) cueUnit = null;
+                if(cueUnit == null) cueUnit = Units.closestTarget(this.team, bshootX, bshootY, sRange, u => !unitArr.includes(u), b => !unitArr.includes(b));
+                if(cueUnit != null){
+                    unitArr.push(cueUnit);
+                    bshootX = cueUnit.x, bshootY = cueUnit.y;
+                    hitingEntity = true;
+                }
+                if(!hitingEntity && cueUnit != null) hitingEntity = true;
+                if(hitingEntity) damageDone += Math.min(cueUnit.health, type.fragBullet.damage);
+                if((damageDone < type.fragBullet.damage * 5.5 || type.pierce == true) && index != i){
+                    type.fragBullet.create(this, this.team, bshootX, bshootY, 0, 0);
+                    type.fragBullet.trailEffect.at(bshootX, bshootY, 0, this);
+                    type.fragBullet.hitSound.at(tshootX, tshootY);
+                }
+                else{
+                    //shoots the main bullet, and
+                    this.shootMain(bshootX, bshootY, true, hasFrag, true, type);
+                    endChain = true;
+                }
+            });
+        }
+    },
+    shootFrag(tshootX, tshootY, sRange, burstMod, fromTrail, type){
+        let unitArr = [];
+        let frag = type.fragBullet;
+        for(let i = 0; i < type.fragBullets; i++){
+            Time.run(this.block.burstSpacing * i/burstMod, () => {
+                if(Math.abs(this.rotation - this.angleTo(tshootX, tshootY)) > type.splashDamageRadius/2) return;
+
+                let cueUnit = Units.closestTarget(this.team, tshootX, tshootY, sRange, u => !unitArr.includes(u), b => !unitArr.includes(b));
+                let hshootX = tshootX + Mathf.random(sRange) - sRange/2, hshootY = tshootY + Mathf.random(sRange) - sRange/2;
+
+                if(cueUnit != null){
+                    //why var? Apparently, it won't save without
+                hshootX = cueUnit.x, hshootY = cueUnit.y;
+                    unitArr.push(cueUnit);
+                }
+                cueUnit = null;
+
+                frag.create(this, this.team, hshootX, hshootY, 0, 0);
+                frag.trailEffect.at(hshootX, hshootY, 0, this);
+                frag.hitSound.at(hshootX, hshootY);
+            })
+        }
+    },
+    shootMain(x, y, showTrail, frag, fromTrail, type){
+        type.create(this, this.team, x, y, this.rotation, 0);
+        if(showTrail) type.trailEffect.at(x, y, 0, this);
+        type.hitEffect.at(x, y, this.rotation, this);
+        type.hitSound.at(x, y);
+        if(frag) this.shootFrag(x, y, type.splashDamageRadius, type.homingPower + 1, false, type);
+    },
     shoot(type){
         let limitationX = Math.cos(this.rotation/180 * Math.PI) * this.range();
         let limitationY = Math.sin(this.rotation/180 * Math.PI) * this.range();
         let tshootX = fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x
         let tshootY = fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y
         let sRange = type.splashDamageRadius;
-        let burstMod = type.homingPower + 1
-        
-        
-        let fireDst = Mathf.dst(this.x, this.y, fc.rangeLimit(this.targetPos.x - this.x, limitationX) + this.x, fc.rangeLimit(this.targetPos.y - this.y, limitationY) + this.y);
-        
-        type.create(this, this.team, tshootX, tshootY, this.rotation, 0);
-        
-        type.trailEffect.at(tshootX, tshootY, 0, this);
-        
-        type.hitEffect.at(tshootX, tshootY, this.rotation, this);
-        
-        type.hitSound.at(tshootX, tshootY)
+        let burstMod = type.homingPower + 1;
+        let multiType = type.inaccuracy > 0 ? true : false;
+        let hasFrag = type.fragBullets > 0;
         
         if(type.fragBullet != null){
-            let unitArr = []
-            
-            for(let i = 0; i < type.fragBullets; i++){
-                Time.run(this.block.burstSpacing * i/burstMod, () => {
-                    let cueUnit = Units.closestTarget(this.team, tshootX, tshootY, sRange, u => !unitArr.includes(u), b => !unitArr.includes(b));
-                    let hshootX = tshootX + Mathf.random(sRange) - sRange/2, hshootY = tshootY + Mathf.random(sRange) - sRange/2;
-                    if(cueUnit != null){
-                        //why var? Apparently, it won't save without
-                        hshootX = cueUnit.x, hshootY = cueUnit.y;
-                        unitArr.push(cueUnit);
-                    }
-                    cueUnit = null;
-                    type.fragBullet.create(this, this.team, hshootX, hshootY, 0, 0);
-                    type.fragBullet.trailEffect.at(hshootX, hshootY, 0, this);
-                    type.fragBullet.hitSound.at(hshootX, hshootY);
-                })
+            let unitArr = [];
+            if(hasFrag && !multiType){
+                this.shootMain(tshootX, tshootY, true, true, false, type);
             }
+            if(!hasFrag || multiType){
+                this.shootTrail(tshootX, tshootY, sRange, hasFrag && multiType, type);
+            }
+            this.effects();
+            this.useAmmo();
         }
-        this.effects();
-        this.useAmmo();
     }
 });

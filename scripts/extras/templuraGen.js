@@ -1,4 +1,4 @@
-const environment = require("blocks/environment");
+/*const environment = require("blocks/environment");
 const weathers = require("extras/weathers");
 const pWaves = require("units/pWaves");
 
@@ -19,17 +19,27 @@ const templuraGenerator = extend(PlanetGenerator, {
     },
     blendBlock(tiles, Block, dst, radius, ignore, ignoreSolid){
         tiles.each((x, y) => {
+            print("-----");
+            print(x);
+            print(y);
             let tile = Vars.world.tile(x, y);
+            print(tile);
             let block = tile.block();
+            print(block);
             let floor = tile.floor();
+            print(floor);
             if(floor != Block || (block != Blocks.air && ignoreSolid) || floor == ignore) return;
+            print("proceeding")
             let rad = radius;
             let found = false;
             for(let x1 = -rad; x1 <= rad; x1++){
+                print(x1);
                 for(let y1 = -rad; y1 <= rad; y1++){
+                    print(y1);
                     if(Mathf.within(x, y, rad)) continue;
                     let tilef = Vars.world.tile(x + x1, y + y1);
                     if(tilef == null) break;
+                    print(tilef);
                     
                     if(tilef.block() == Block || tilef.floor() == Block || tilef.overlay() == Block){
                         found = true;
@@ -40,7 +50,9 @@ const templuraGenerator = extend(PlanetGenerator, {
 
             if(found){
                 floor.setBlock(dst);
+                print("block found");
             }
+            print("-----");
         });
     },
     rawHeight(position){
@@ -90,6 +102,7 @@ const templuraGenerator = extend(PlanetGenerator, {
         return res;
     },
     generate(tiles, sec){
+        print("generating begin")
         this.tiles = tiles;
         this.sector = sec;
         
@@ -155,6 +168,8 @@ const templuraGenerator = extend(PlanetGenerator, {
             roomseq.add(setRoom(rx, ry, rrad));
         };
         
+        print("added rooms")
+        
         //check positions on the map to place the player spawn, this needs to be in the corner of the map.
         let spawn = null;
         let enemies = new Seq();
@@ -198,6 +213,7 @@ const templuraGenerator = extend(PlanetGenerator, {
                 break;
             };
         };
+        print("enemy spawn added");
         
         roomseq.each(room => this.erase(room.x, room.y, room.radius));
 
@@ -212,6 +228,8 @@ const templuraGenerator = extend(PlanetGenerator, {
         this.distort(7, 9);
 
         this.inverseFloodFill(this.tiles.getn(spawn.x, spawn.y));
+        
+        print("generated spawn room")
         
         let ores = Seq.with(environment.oreRust);
         let poles = Math.abs(this.sector.tile.v.y);
@@ -260,11 +278,15 @@ const templuraGenerator = extend(PlanetGenerator, {
             };
         });
         
+        print("generated ores");
+        
         this.scatter(Blocks.stone, Blocks.charr, 0.05);
         this.trimDark();
         this.median(2);
         this.tech();
         //this.blendBlock(this.tiles, Blocks.sandWater, environment.stormsand, Mathf.round(Mathf.random(2) + 1), Blocks.sand, true);
+        
+        print("generated metal and storm sand");
         
         this.pass((x, y) => {
             //random boulder
@@ -292,6 +314,8 @@ const templuraGenerator = extend(PlanetGenerator, {
                 };
             };
         });
+        
+        print("generated boulders, char and craters");
         
         let difficulty = this.sector.threat;
         const ints = this.ints;
@@ -342,6 +366,8 @@ const templuraGenerator = extend(PlanetGenerator, {
         });
         let weath = state.rules.weather.get(Math.round(Math.random() * (lengthh - 1))).weather;
         if(weath != weathers.charringDeluge) Call.createWeather(weath, 0.1, 1000 * difficulty + Math.random(1000) + 2000, 17.5 - Mathf.random(35), 17.5 - Mathf.chance(35));
+        
+        print("finished generation");
     },
     postGenerate(tiles){
         if(this.sector.hasEnemyBase()){
@@ -375,3 +401,4 @@ templuraGenerator.water = 2 / templuraGenerator.arr[0].length;
 module.exports = {
     templura: templuraGenerator
 };
+*/

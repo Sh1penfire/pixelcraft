@@ -9,7 +9,7 @@ drag: 0.4
 aimDst: 10
 range: 100
 maxRange: 125
-hitSize: 11
+hitSize: 14
 boostMultiplier: 1.75
 buildSpeed: 3
 clipSize: 1
@@ -63,7 +63,7 @@ keepVelocity: false
 }
 }
 {
-name: nono
+name: none
 reload: 60
 recoil: 0
 shootSound: missile

@@ -360,6 +360,31 @@ inseculur.constructor = () => extend(UnitEntity, {
 inseculur.defaultController = theAislol.swarmAI
 refresh(inseculur)
 
+const cuchidarb = extend(UnitType, "cuchidarb", {});
+cuchidarb.constructor = () => extend(UnitEntity, {
+    update(){
+        this.super$update()
+        this.chargeTimer = Mathf.slerpDelta(this.chargeTimer, 1, 0.01)
+    },
+    collision(bullet){
+        if(bullet.type.reflectable && !bullet.type.pierce && this.reflectionCharge > bullet.type.damage && this.chargeTimer > 0.9){
+            bullet.type.create(this, this.team, this.x, this.y, this.angleTo(bullet), 1, bullet.fout())
+            this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, 0, bullet.type.damage)
+            this.chargeTimer = 0
+        }
+        else{
+            this.reflectionCharge = Mathf.slerpDelta(this.reflectionCharge, this.chargeCap, bullet.type.damage)
+        }
+    },
+    classId: () => cuchidarb.classId,
+    chargeCap: 255,
+    reflectionCharge: 0,
+    chargeTimer: 1
+});
+cuchidarb.defaultController = theAislol.swarmAI;
+cuchidarb.abilities.add(new RepairFieldAbility(25, 250, 85));
+refresh(cuchidarb);
+
 Events.on(ClientLoadEvent, b  => {
     print(cores.coreRefraction)
     shard.immunities.add(statuses.seeded);
@@ -367,12 +392,18 @@ Events.on(ClientLoadEvent, b  => {
     capsule.immunities.add(statuses.groveCurse);
     inseculur.immunities.add(statuses.seeded);
     inseculur.immunities.add(statuses.groveCurse);
+    cuchidarb.immunities.add(statuses.seeded);
+    cuchidarb.immunities.add(statuses.groveCurse);
     capsule.weapons.get(0).bullet.status = statuses.seeded;
     capsule.weapons.get(1).bullet.status = statuses.seeded;
     inseculur.weapons.get(0).bullet.status = statuses.groveCurse;
     inseculur.weapons.get(1).bullet.status = statuses.groveCurse;
     inseculur.weapons.get(2).bullet.status = statuses.groveCurse;
     inseculur.weapons.get(3).bullet.status = statuses.seeded;
+    cuchidarb.weapons.get(0).bullet.status = statuses.groveCurse;
+    cuchidarb.weapons.get(1).bullet.status = statuses.groveCurse;
+    cuchidarb.weapons.get(2).bullet.status = statuses.seeded;
+    cuchidarb.weapons.get(2).bullet.fragBullet.status = statuses.seeded;
 });
 
 module.exports = {

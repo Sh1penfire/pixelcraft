@@ -1,5 +1,5 @@
 name: Tenemotus
-description: Extrudes out rails which hit targets. Each rail type has a unique effect.
+description: Extrudes out bolts which hit instantly. Each rail type has a unique effect.
 shootSound: laser
 health: 1200
 size: 4

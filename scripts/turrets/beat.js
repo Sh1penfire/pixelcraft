@@ -4,7 +4,7 @@ const fc = require("libs/fc")
 
 //shoot effect for beat
 const beatShoot = new Effect(30, e => {
-  Draw.color(Color.valueOf("05700b"), Color.valueOf("acfbb0"), e.fin());
+  Draw.color(Color.valueOf("05700b"), Pal.heal, e.fin());
   Lines.stroke(e.fout()*2);
   Lines.circle(e.x, e.y, e.fin() * 10);
 });
@@ -42,7 +42,7 @@ const shot = extend(LaserBoltBulletType, {
     collidesTiles: true,
     hitEffect: shotHit,
     despawnEffect: beatShoot,
-    shootEffect: beatShoot,
+    shootEffect: Fx.none,
     status: overload,
     statusDuration: 900,
     pierce: true,

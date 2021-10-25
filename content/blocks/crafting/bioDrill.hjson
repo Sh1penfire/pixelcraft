@@ -2,9 +2,9 @@ name: Bio Drill
 description: "Extracts small packets of untouched plant life and allows time for them to regrow. Requires power and drills quickly."
 size: 2
 hasItems: true
-craftTime: 140
+craftTime: 135
 consumes: {
-power: 2
+power: 1.35
 }
 requirements: [
   stone/100

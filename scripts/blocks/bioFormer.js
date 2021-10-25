@@ -16,6 +16,13 @@ const seeds = new Effect(25, e => {
     Angles.randLenVectors(e.id, 10, e.fin() * 15, e.rotation, 360,d)
 });
 
+const seedProgress = new Effect(90, e => {
+    Draw.color(Pal.plastaniumFront, Pal.plastaniumBack, e.fin());
+    Lines.stroke(e.fslope() * 3);
+    Lines.swirl(e.x, e.y, 27, e.fslope(), e.fout() * e.fout() * 720);
+    Lines.swirl(e.x, e.y, 24 + 3 - (1 - e.fslope()) * 3, e.fslope(), e.fout() * e.fout() * 1100);
+})
+
 let seedLaunchFx = new Effect(50, e => {
     Draw.color(Pal.engine);
 
@@ -50,30 +57,50 @@ const bioPress = extendContent(GenericCrafter,"bioPress",{});
 bioPress.craftEffect = seeds;
 bioPress.drawer = bioPressAni;
 
+const volatileGenerator = extend(GenericCrafter, "volatile-generator", {
+    craftEffect: seeds
+});
+
+volatileGenerator.buildType = () => extend(GenericCrafter.GenericCrafterBuild, volatileGenerator, {
+    onDestroyed(){
+        this.super$onDestroyed();
+        Damage.damage(this.x, this.y, 60 * this.tilesize, this.block.health/32);
+        for(let i = 0; i < 20; i++){
+            Time.run(Mathf.random(5) + i * 2, () => {
+                Fx.explosion.at(this.x + Mathf.random(50) - 25, this.y + Mathf.random(50) - 25);
+            });
+        }
+        Time.run(Mathf.random(5) + 40, () => {
+            Fx.blastExplosion.at(this.x + Mathf.random(50) - 25, this.y + Mathf.random(50) - 25);
+        });
+    }
+});
+
 const bioniteMixer = extendContent(GenericCrafter,"bioniteMixer",{});
 bioniteMixer.craftEffect = seeds;
 
 const bioMender = extendContent(MendProjector, "bioMender", {});
 
-const placeWeatherSeed = extend(Wall, "place-seed-weather", {
-    load(){
-        this.region = Core.atlas.find("seed-storm")
-    },
-    icons(){
-        return[
-            Core.atlas.find("seed-storm")
-        ]
-    },
+const placeWeatherSeed = extend(ItemSource, "place-seed-weather", {
     buildVisibility: BuildVisibility.shown,
-    category: Category.turret
+    category: Category.turret,
+    breakable: true,
+    hasPower: true,
+    configurable: true,
+    consumesTap: true,
+    category: Category.effect
 });
-placeWeatherSeed.buildType = () => extend(Wall.WallBuild, placeWeatherSeed, {
-    placed(){
-        let tile = Vars.world.tile(this.tileX(), this.tileY());
-        if(weathers.seedStorm.isActive() != true){
-            Call.createWeather(weathers.seedStorm, 0.1, 6000, 17.5 - Mathf.random(35), 17.5 - Mathf.chance(35));
-        }
-        seedLaunchFx.at(this.x, this.y);
-        tile.setBlock(Blocks.air);
+placeWeatherSeed.buildType = () => extend(ItemSource.ItemSourceBuild, placeWeatherSeed, {
+    buildConfiguration(table) {
+        table.button(Icon.play, 
+            Styles.clearTransi, run(() => {
+            print(Lines.swirl);
+                if(!weathers.seedStorm.isActive()){
+                    Call.createWeather(weathers.seedStorm, 0.1, 6000, 17.5 - Mathf.random(35), 17.5 - Mathf.chance(35));
+                    seedProgress.at(this.x, this.y);
+                }
+		    })
+        ).size(45) 
     }
 });
+placeWeatherSeed.consumes.power(45.0/60.0);

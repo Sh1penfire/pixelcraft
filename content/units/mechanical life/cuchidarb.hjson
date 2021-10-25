@@ -1,0 +1,175 @@
+name: "Cuchidarb"
+description: "Shoots fragging bullets, and bursts of shrapnell. Occasionaly launches infectious rockets."
+details: "The Grounded have achieved flight."
+flying: true
+speed: 1.75
+accel: 0.036
+drag: 0.0012
+health: 2860
+armor: 5
+aimDst: 17
+range: 155
+maxRange: 165
+buildSpeed: 1.4
+clipSize: 1
+hitSize: 17
+engineOffset: 10.65
+engineSize: 4
+faceTarget: true
+rotateShooting: true
+rotationSpeed: 2.5
+lowAltitude: true
+omniMovement: true
+canDrown: false
+weapons: [
+{
+name: "tinyBlaster"
+reload: 145
+shootCone: 180
+shots: 8
+inaccuracy: 8
+shotDelay: 3.5
+alternate: false
+mirror: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 1.25
+y: 14
+rotate: false
+bullet: {
+type: MissileBulletType
+damage: 4
+sprite: "pixelcraft-finMissile"
+frontColor: eeb393
+backColor: a97567
+trailColor: bd8a6e
+homingPower: 0.25
+homingRange: 125
+speed: 4
+width: 6
+height: 6
+lifetime: 50
+knockback: 1.4
+keepVelocity: false
+}
+}
+{
+name: tinyBlaster
+reload: 30
+shootCone: 180
+recoil: 0.2
+shake: 0.25
+alternate: true
+ejectEffect: casing2
+top: false
+shootSound: pew
+x: 7
+y: 9
+rotate: false
+bullet: {
+type: BasicBulletType
+damage: 25
+splashDamage: 15
+splashDamageRadius: 45
+speed: 6
+drag: 0.025
+width: 16
+height: 20
+lifetime: 65
+frontColor: eeb393
+backColor: a97567
+shootEffect: shootBig
+hitEffect: explosion
+pierce: true
+pierceCap: 3
+hitSound: none
+fragCone: 45
+fragBullets: 10
+fragLifeMin: 0.2
+fragBullet: {
+type: BasicBulletType
+damage: 8
+speed: 3
+width: 3
+height: 8
+homingPower: 0.15
+homingRange: 100
+lifetime: 74
+frontColor: eeb393
+backColor: a97567
+hitSound: pew
+collidesTeam: true
+}
+}
+}
+{
+name: none
+reload: 55
+shootCone: 180
+recoil: 0.5
+shots: 5
+shotDelay: 2
+shake: 2
+mirror: false
+ejectEffect: casing2
+top: true
+shootSound: explosion
+inaccuracy: 5
+rotationSpeed: 2.5
+x: 0
+y: 1
+rotate: true
+bullet: {
+type: BasicBulletType
+damage: 5
+speed: 1.5
+width: 6
+height: 8
+lifetime: 180
+frontColor: eeb393
+backColor: a97567
+shootEffect: explosion
+hitSound: none
+healPercent: 0.15
+collidesTeam: true
+}
+}
+{
+name: none
+reload: 55
+shootCone: 180
+recoil: 0.5
+shots: 2
+shotDelay: 5
+shake: 2
+mirror: false
+ejectEffect: casing2
+top: true
+shootSound: explosion
+inaccuracy: 3
+rotationSpeed: 2.5
+x: 0
+y: 1
+rotate: true
+bullet: {
+type: BasicBulletType
+recoil: 0.25
+damage: 15
+speed: 1.5
+width: 12
+height: 14
+lifetime: 180
+homingPower: 0.1
+homingRange: 75
+frontColor: eeb393
+backColor: a97567
+shootEffect: explosion
+hitSound: none
+healPercent: 0.15
+collidesTeam: true
+}
+}]
+research: {
+parent: inseculur
+}

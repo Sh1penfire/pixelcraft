@@ -8,6 +8,7 @@ drag: 0.7
 accel: 2
 hitSize: 16
 lightRadius: 85
+lightOpacity: 0.315
 boostMultiplier: 1.25
 range: 235
 canDrown: false

@@ -1,7 +1,7 @@
 type: GenericCrafter
 name: Taconite crusher
 description: Crushes stone and extracts the rust within. Placeable at sea.
-details: A great pillar of stone that can be used to extract rust. Alphae used multiple of these as bridges.
+details: A great pillar of stone that can be used to extract rust. Alphae used multiple of these as bridges on deep water in their escape.
 placeableLiquid: true
 solid: false
 size: 2

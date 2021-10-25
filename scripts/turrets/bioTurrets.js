@@ -140,7 +140,7 @@ const bioShot3 = extend(BasicBulletType, {
                 
                 switch(b.data[0]){
                     case 0:
-                        b.data[1].heal(b.data[1].block != null ? b.data[1].health * this.healPercent : 0.01);
+                        b.data[1].heal(b.data[1].block != null ? b.data[1].block.health * this.healPercent : 0.01);
                         b.vel.setAngle(Mathf.slerpDelta(b.rotation(), b.angleTo(b.data[1]), 0.2));
                         b.time = b.time
                         if(b.data[1] instanceof Statusc ? b.data[1].hasEffect(statuses.groveCurse) : false) b.data[1].unapply(statuses.groveCurse);

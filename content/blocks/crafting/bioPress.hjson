@@ -5,16 +5,16 @@ hasLiquids: true
 hasItems: true
 craftTime: 120
 consumes: {
-items:{
-items:[
-bionorb/1
-]
-}
+ items:{
+  items:[
+   bionorb/1
+  ]
+ }
 }
 requirements: [
-  stone/60
-  rust/10
-  bionorb/10
+  stone/55
+  rust/15
+  graphite/10
 ]
 category: production
 research: seed-extractor

@@ -4,14 +4,14 @@ size: 2
 hasItems: true
 craftTime: 150
 consumes: {
-	power: 2
-	items:{
-		items:[
-			bionorb/5
-			rust/2
-			thorium/3
-		]
-	}
+ power: 2
+ items:{
+  items:[
+   bionorb/5
+   rust/2
+   thorium/3
+  ]
+ }
 }
 requirements: [
  	stone/100
@@ -22,4 +22,4 @@ requirements: [
 ]
 category: crafting
 research: seed-extractor
-outputItem: bionite/1
+outputItem: bionite/4

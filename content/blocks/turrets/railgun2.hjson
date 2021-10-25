@@ -1,6 +1,6 @@
 type: ItemTurret
 name: Shade
-description: "A railgun so powerful that the bolts disintegrate into fine dust upon impact. Can target air."
+description: "A powerfull railgun, which launches fraging bolts. Can target air."
 details: "Those who could not survive adapted, and decimated what was left. The void consumes all."
 shootSound: laser
 health: 1200
@@ -31,7 +31,7 @@ ammoTypes: {
 	fragVelocityMax: 1.5
 	frontColor: 56d7ca
 	backColor: 77b6b0
-	stauts: freezing
+	status: freezing
 	collides: true
 	collidesAir: true
 	collidesTiles: true
@@ -76,7 +76,7 @@ ammoTypes: {
 	despawnEffect: none
 	ammoMultiplier: 1
 	reloadMultiplier: 1.5
-	stauts: burning
+	status: burning
 	lifetime: 15
 	fragBullets: 25
 	fragCone: 35

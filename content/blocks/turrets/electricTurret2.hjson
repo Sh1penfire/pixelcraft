@@ -17,7 +17,7 @@ targetAir: true
 targetGround: true
 shootType: {
 	type: MissileBulletType
-	damage: 25
+	damage: 15
 	speed: 2
 	lifetime: 200
 	homingPower: 0.1

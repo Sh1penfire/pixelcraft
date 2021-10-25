@@ -7,6 +7,7 @@ aimDst: 10
 range: 70
 hitSize: 8
 lightRadius: 30
+lightOpacity: 0.115
 boostMultiplier: 1.25
 maxRange: 100
 buildSpeed: 2

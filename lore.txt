@@ -6,7 +6,10 @@ A void infected port crashed here and changed the land around it. Ice and snow w
 Loggery:
 Derelict had been cutting down trees here before they were pushed back. Coal is present here and is abundant. This was a zone full of life before a mass extinction and still is. The second port sent mechs to this area in hopes that it could delay the player from finding a way to purge The Void.
 
-Moaning Medow:
+Plantae Kingdoma:
+The coruption of grass started somewhere nearby. The riverbed was exposed only after a few Templura days.
+
+Moaning Medows:
 The voidic rest here, lying undisturbed and deactivated. The medow has been twisted, into a petrified forest which glows with a green light. There lie three words here in the terrin itself. They are "V O I D", "A B A N D O N E D" and "H E L L".
 
 Sinkhole:
@@ -16,7 +19,10 @@ Frozen falls:
 Water is found here in small lakes. More importantly, sand appears here, crushed and erroded stone filled with void. The crux forces had come here to research the sand's properties in a cold environment. 
 
 Grassland Grave:
-The landing point of the crux when first exploring templura, the mechs leftbehind have grown old and rusted. A few omegas reside here, to defend the point from further invasion. Most of the slag pools here have been drained from long time usage.
+The landing point of the crux when first exploring templura, the mechs left behind have grown old and rusted. A few omegas reside here, to defend the point from further invasion. Most of the slag pools here have been drained from long time usage.
+
+Basalt Grove:
+The origion of the corupted sand and grass. The Void grew stronger, and an accident happened. Nobody knows what happened there, but the crux seem to like this place. It was once a vast lake, but was dried out by the invasive lifeform grown here.
 
 ---=---+---=---
 

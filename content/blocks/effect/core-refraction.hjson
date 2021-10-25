@@ -6,10 +6,6 @@ itemCapacity: 4000
 size: 3
 unitCapModifier: 8
 unitType: rustydart
-requirements: [
-  //stone/3000
-  //rust/3000
-] 
 category: effect
 hasItems: true
 solid: false

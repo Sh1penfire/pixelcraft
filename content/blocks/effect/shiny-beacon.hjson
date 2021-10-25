@@ -1,14 +1,14 @@
 name: "Shiny Beacon"
 size: 2
-description: "A beacon of hope."
+description: "A beacon of hope. Illuminates a large area with dim light."
 consumes:{
 power: 0.1
 }
 requirements: [
   stone/65
 ]
-brightness: 7.5
-radius: 200
+brightness: 0.275
+radius: 150
 category: effect
 research: core-shard
 alwaysUnlocked: true
