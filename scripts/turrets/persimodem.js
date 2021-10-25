@@ -261,7 +261,7 @@ const blackestShot = extend(PointBulletType, {
     speed: 32,
     lifeimte: 0,
     damage: 450,
-    //makes the turrwt shoot much much faster.
+    //makes the turret shoot much much faster.
     homingPower: 10,
     splashDamageRadius: 55,
     hitSound: Sounds.release,
@@ -526,11 +526,6 @@ railgun4.buildType = () => extendContent(ItemTurret.ItemTurretBuild, railgun4, {
                     type.fragBullet.hitSound.at(tshootX, tshootY);
                 }
                 else{
-                    /*
-                    type.create(this, this.team, bshootX, bshootY, this.rotation, 0);
-                    type.hitEffect.at(bshootX, bshootY, this.rotation, this);
-                    type.hitSound.at(bshootX, bshootY);
-                    */
                     //shoots the main bullet, and
                     this.shootMain(bshootX, bshootY, true, hasFrag, true, type);
                     endChain = true;

@@ -330,8 +330,6 @@ const blackout = extend (StatusEffect, "blackout", {
         if(unit.health == uHealth){
             unit.health -= damageAmount * multiplier + blackoutBaseDamage;
         }
-        Log.info(damageAmount);
-        Log.info(unitHpc);
     }
 });
 blackout.damage = 0.00;
@@ -593,4 +591,4 @@ module.exports = {
     groveCurse: groveCurse,
     magElelvation: magElelvation,
     slushFall: slushFall
-};
+};  
