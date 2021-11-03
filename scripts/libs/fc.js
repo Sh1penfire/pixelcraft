@@ -27,7 +27,7 @@ function holex(holexs, magnitude, scaling) {
 };
 
 function slash(rotationTimes, radius, scaling, inOutTimes){
-    var pos = 0;
+    let pos = 0;
     if(inOutTimes < 0){
         pos = Mathf.sin(scaling * 3.142 * rotationTimes) * scaling * radius
     }
