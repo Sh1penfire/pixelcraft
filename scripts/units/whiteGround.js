@@ -82,7 +82,7 @@ crystal.constructor = () => extend(MechUnit, {
 });
 */
 
-const stalactite = extendContent(UnitType, "stalactite", {});
+const stalactite = extend(UnitType, "stalactite", {});
 stalactite.constructor = () => extend(MechUnit, {
     killed(){     
         Fx.explosion.at(this.x, this.y)
@@ -93,11 +93,11 @@ stalactite.constructor = () => extend(MechUnit, {
 stalactite.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 3600, 360, 60));
 stalactite.abilities.add(new StatusFieldAbility(statuses.warmth, 3600, 360, 60));
 
-var upgrade = new Seq([Vars.content.getByName(ContentType.unit, "pixelcraft-crystal"), Vars.content.getByName(ContentType.unit, "pixelcraft-stalactite")]);
+let upgrade = new Seq([Vars.content.getByName(ContentType.unit, "pixelcraft-crystal"), Vars.content.getByName(ContentType.unit, "pixelcraft-stalactite")]);
 Blocks.additiveReconstructor.upgrades.add(upgrade.toArray(UnitType));
 
 
-const stalagmite = extendContent(UnitType, "stalagmite", {});
+const stalagmite = extend(UnitType, "stalagmite", {});
 stalagmite.constructor = () => extend(MechUnit, {
     killed(){     
         Fx.explosion.at(this.x, this.y)
@@ -108,5 +108,5 @@ stalagmite.constructor = () => extend(MechUnit, {
 stalagmite.abilities.add(new StatusFieldAbility(StatusEffects.freezing, 3600, 360, 60));
 stalagmite.abilities.add(new StatusFieldAbility(statuses.warmth, 3600, 360, 60));
 
-var upgrade = new Seq([Vars.content.getByName(ContentType.unit, "pixelcraft-stalactite"), Vars.content.getByName(ContentType.unit, "pixelcraft-stalagmite")]);
+upgrade = new Seq([Vars.content.getByName(ContentType.unit, "pixelcraft-stalactite"), Vars.content.getByName(ContentType.unit, "pixelcraft-stalagmite")]);
 Blocks.multiplicativeReconstructor.upgrades.add(upgrade.toArray(UnitType));
