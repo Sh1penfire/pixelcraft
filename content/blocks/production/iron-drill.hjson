@@ -1,5 +1,5 @@
-name: Iron Drill
-description: A starting drill. (I thought this was stone)
+name: Rust Drill
+description: A starting drill made out of rust, cheap but slow.
 size: 1
 tier: 2
 drillTime: 350
