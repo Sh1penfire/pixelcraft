@@ -1,5 +1,5 @@
 name: "Volatile Generator"
-description: "Uses bionorbs, water, sand and coal to produce limeuce. Useful for making environmental hazerds."
+description: "Uses bionorbs, water, sand and coal to produce limeuce. Useful for making environmental hazards."
 health: 850
 size: 3
 hasItems: true
