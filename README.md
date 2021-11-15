@@ -1,6 +1,6 @@
 # Pixelcraft
 A v6 mod for mindustry
-This mod aims to expand apon mindustry's content by adding a new main resource you can use, adding a new way to play the game.
+This mod aims to expand mindustry's content by adding a new main planet you can play, adding a new way to play the game.
 ![Below is what the mod adds](https://github.com/Sh1penfire/pixelcraft/blob/main/sprites/Github/exampleMainItem.jpg)
 
 - adds new resources, new turrets and new zones as well as slight tweaks to vanilla.
