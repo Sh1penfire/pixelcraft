@@ -1,6 +1,6 @@
 type: flying
 name: "Refraction"
-description: "A giant battlesip designesd to tank hits and slowly decimate the target."
+description: "A giant battlesip designed to tank hits and decimate the targets."
 flying: true
 speed: 0.6
 accel: 0.02
