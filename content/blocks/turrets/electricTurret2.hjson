@@ -1,6 +1,6 @@
 type: PowerTurret
 name: Point
-description: Locks on to a target and fires tracer shots which home in on an enemy.
+description: Locks on to a target and fires tracing shots that home into enemies.
 health: 220
 size: 2
 reloadTime: 50
