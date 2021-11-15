@@ -1,6 +1,6 @@
 type: GenericSmelter
 name: Crucible
-description: "Smelts clay into Ceramic. Uses water extremely slowly."
+description: "Smelts clay into Ceramic using a little water in the process."
 liquidCapacity: 50
 size: 2
 hasPower: true
