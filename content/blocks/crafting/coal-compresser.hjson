@@ -1,5 +1,5 @@
 type: GenericCrafter
-name: Coal Compresser
+name: Coal Compressor
 description: Compresses coal into pure sheets of graphite.
 size: 2
 hasItems: true
