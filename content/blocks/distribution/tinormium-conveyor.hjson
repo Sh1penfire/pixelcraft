@@ -8,6 +8,5 @@ requirements: [
   tinormium/1
   bionite/1
 ]
-
 research: magnitine-conveyor
 buildVisibility: shown
