@@ -1,5 +1,5 @@
 name: Leaf
-description: Life from nothing. Shoots artillery bullets at a long range.
+description: An organic turret. Shoots artillery bullets at a long range.
 health: 250
 size: 1
 reloadTime: 60
