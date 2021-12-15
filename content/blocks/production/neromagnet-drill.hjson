@@ -1,5 +1,5 @@
-name: Neromagnet Drill
-description: Uses strong magnetism to move a drill part.
+name: Feromagnet Drill
+description: Uses stronger magnetism to move its drill part, can mine harder materials.
 size: 2
 tier: 5
 drillTime: 275

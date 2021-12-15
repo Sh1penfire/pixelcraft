@@ -1,5 +1,5 @@
 name: "Excavator"
-description: "Excavates the materiel found at the bedrock of the tiles it's on. Usefull when lacking sand or stone. Can only mine select tiles or weak ore deposits."
+description: "Excavates the materials found in the depths of the tiles it's on. Useful when lacking sand or stone. Can only mine some tiles or weak ore deposits."
 details: "[purple]The spores are waiting for their saviour. Infect Templura. The source is lacking fuel."
 size: 2
 tier: 1

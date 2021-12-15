@@ -1,5 +1,5 @@
 type: Junction
-name: Devider
+name: Divider
 health: 45
 solid: false
 floating: true

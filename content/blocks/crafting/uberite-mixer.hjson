@@ -1,7 +1,7 @@
 type: GenericCrafter
 name: Uberite Mixer
-description: Makes Uberite.
-details: To far have we gone...
+description: Mixes Pixelite, Pyratite and Coal into something of unknown use.
+details: Too far have we gone...
 size: 2
 craftTime: 100
 consumes:{

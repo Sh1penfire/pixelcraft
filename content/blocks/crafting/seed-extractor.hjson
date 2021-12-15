@@ -1,5 +1,5 @@
 name: Seed Extractor
-description: "Extracts small packets of untouched plant life and allows time for them to regrow."
+description: "Very slowly grows bionorbs without usage of power or much space."
 size: 1
 hasItems: true
 craftTime: 600

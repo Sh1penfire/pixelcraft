@@ -1,7 +1,7 @@
 name: "Bion Wall"
 description: "A sturdy defensive block.
 Provides moderate protection from enemies."
-details: "Corupted, like all things from the lab."
+details: "Corrupted, like all the things from the lab are."
 placeableLiquid: true
 update: true
 offset: 8
