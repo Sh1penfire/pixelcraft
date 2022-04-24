@@ -47,7 +47,7 @@ const landMine = extend(BombBulletType, {
                 Damage.dynamicExplosion(Tmp.v1.x, Tmp.v1.y, 50, 69, 15, this.splashDamageRadius, this.splashDamage, true, b.team, Fx.explosion);
                 Puddles.deposit()
         }
-    }
+    },
     draw(b){
         //don't draw
     }
