@@ -43,7 +43,7 @@ hitSound: Sounds.none
 const landMine = extend(BombBulletType, {
     update(b){
         if(Mathf.random() < 0.05){
-                Tmp.v1.set(b.x + Mathf.random(40) - 20, b.y + Mathf.random(40) - 20, Mathf.random(360));
+                Tmp.v1.set(b.x + Mathf.random(40) - 20, b.y + Mathf.random(40) - 20);
                 Damage.dynamicExplosion(Tmp.v1.x, Tmp.v1.y, 50, 69, 15, this.splashDamageRadius, this.splashDamage, true, b.team, Fx.explosion);
                 Puddles.deposit()
         }
