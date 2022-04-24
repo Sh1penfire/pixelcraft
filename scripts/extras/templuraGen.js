@@ -1,4 +1,4 @@
-/*const environment = require("blocks/environment");
+const environment = require("blocks/environment");
 const weathers = require("extras/weathers");
 const pWaves = require("units/pWaves");
 
@@ -401,4 +401,3 @@ templuraGenerator.water = 2 / templuraGenerator.arr[0].length;
 module.exports = {
     templura: templuraGenerator
 };
-*/
