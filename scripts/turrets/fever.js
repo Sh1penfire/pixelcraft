@@ -219,7 +219,3 @@ fever.buildType = () => extendContent(ItemTurret.ItemTurretBuild, fever, {
 module.exports = {
     fever: fever
 };
-
-Vars.mods.getScripts().runConsole(
-
-)
