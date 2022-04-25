@@ -189,7 +189,7 @@ function voidingUnit(name, type, build, dCol1, dCol2, eAlpha, vShield,
         },
         damage(number){
             if(number > 0){
-                this.hitShield(number >= this.type.armor * 5 ? 1 : 0.5);
+                this.hitShield(number >= this.type.armor * 5 ? 0.15 : 0.075);
                 if(number < this.type.health * 12.5 || number > this.type.health * 50) number = number * (1 - this.DR);
                 else number = number * (1 - this.DR * 0.5);
                 this.super$damage(Mathf.clamp(number, 0, number));
