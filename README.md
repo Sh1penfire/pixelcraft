@@ -7,7 +7,7 @@ This mod aims to expand apon mindustry's content by adding a new main resource y
 - 56 new building blocks to play with, 1 environmental block, 2 ores and 6 items with more to come. (Outdated)
 - (Lore included, find the lore of the mod in building and unit descriptions/reading the source code)
 
-note: Has been ported over to 115, enjoy the mod!
+note: Pixelcraft is being taken off the mod browser because it is no longer supported in later versions, and I will be coming back to it *next year*(2023).
 
 ||**Guide to turrets**| 
 |:-----:|:-----:|
@@ -36,7 +36,6 @@ Root|A bio turret that suports it's team by shooting healing fields which damage
 ![whevo it's a bionorb](https://raw.githubusercontent.com/Sh1penfire/pixelcraft/main/sprites/items/bionorb.png)
 
 # Maintainers 
-
 owner 
 [Sh1penfire](https://github.com/Sh1penfire), `@Sh1penfire#0868` on Discord
 
